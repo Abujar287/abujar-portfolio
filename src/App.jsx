@@ -97,9 +97,7 @@ function App() {
 
         if (!element) return
 
-        const top = element.getBoundingClientRect().top
-
-        if (top <= 180) {
+        if (element.getBoundingClientRect().top <= 180) {
           currentSection = section
         }
       })
