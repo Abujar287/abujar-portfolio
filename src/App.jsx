@@ -1,9 +1,10 @@
 function App() {
   return (
-    <div>
+    <main className="hero">
+      <div className="photo">AA</div>
       <h1>ABUJAR AL-GIFARI</h1>
-      <p>DATA ANALYST</p>
-    </div>
+      <p>DATA ANALYST | BUSINESS INTELLIGENCE | EXCEL, SQL & PYTHON | CRM & CLM</p>
+    </main>
   )
 }
 
