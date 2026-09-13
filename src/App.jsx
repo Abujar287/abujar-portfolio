@@ -215,49 +215,32 @@ function App() {
               </div>
             </div>
 
-            <div className="hero-stack">
-              <div className="stack-top">
-                <div>
-                  <span className="stack-dot"></span>
-                  <span>TECHNICAL STACK</span>
+            <div className="hero-photo">
+              <div className="photo-frame">
+                <div className="photo-corner top-left"></div>
+                <div className="photo-corner top-right"></div>
+                <div className="photo-corner bottom-left"></div>
+                <div className="photo-corner bottom-right"></div>
+
+                <img
+                  src="/profile_picture.jpg"
+                  alt="Abujar Al-Gifari"
+                />
+
+                <div className="photo-overlay"></div>
+
+                <div className="photo-label">
+                  <span className="photo-dot"></span>
+                  DATA & ANALYTICS
                 </div>
-
-                <span className="stack-count">08</span>
               </div>
 
-              <div className="stack-line"></div>
-
-              <div className="stack-list">
-                {heroSkills.map((skill, index) => (
-                  <div
-                    className="stack-item"
-                    key={skill.name}
-                    style={{ '--skill-delay': `${0.5 + index * 0.12}s` }}
-                  >
-                    <div className="stack-number">
-                      {String(index + 1).padStart(2, '0')}
-                    </div>
-
-                    <div className="stack-main">
-                      <div className="stack-name">{skill.name}</div>
-
-                      <div className="stack-meta">
-                        <span>{skill.type}</span>
-                        <i></i>
-                        <span>{skill.level}</span>
-                      </div>
-                    </div>
-
-                    <div className="stack-arrow">↗</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="stack-footer">
-                <span>DATA</span>
-                <span>BI</span>
-                <span>AUTOMATION</span>
-                <span>CRM</span>
+              <div className="photo-caption">
+                <span>01</span>
+                <div>
+                  <strong>ABUJAR AL-GIFARI</strong>
+                  <small>DATA ANALYST</small>
+                </div>
               </div>
             </div>
           </div>
@@ -313,7 +296,61 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section expertise-section">
+        <section id="skills" className="section technical-section">
+          <div className="section-title">
+            <h2>Technical Stack</h2>
+          </div>
+
+          <div className="technical-showcase">
+            <div className="technical-top">
+              <div>
+                <span className="technical-dot"></span>
+                <span>TECHNICAL STACK</span>
+              </div>
+
+              <span className="technical-count">08</span>
+            </div>
+
+            <div className="technical-line"></div>
+
+            <div className="technical-list">
+              {heroSkills.map((skill, index) => (
+                <div
+                  className="technical-item"
+                  key={skill.name}
+                  style={{ '--technical-delay': `${index * 0.08}s` }}
+                >
+                  <div className="technical-number">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+
+                  <div className="technical-main">
+                    <div className="technical-name">
+                      {skill.name}
+                    </div>
+
+                    <div className="technical-meta">
+                      <span>{skill.type}</span>
+                      <i></i>
+                      <span>{skill.level}</span>
+                    </div>
+                  </div>
+
+                  <div className="technical-arrow">↗</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="technical-footer">
+              <span>DATA</span>
+              <span>BI</span>
+              <span>AUTOMATION</span>
+              <span>CRM</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" className="section expertise-section">
           <div className="section-title">
             <h2>Core Expertise</h2>
           </div>
@@ -354,7 +391,7 @@ function App() {
           </div>
         </section>
 
-        <section id="experience" className="section experience">
+        <section id="projects" className="section experience">
           <div className="section-title">
             <h2>Professional Experience</h2>
           </div>
@@ -432,31 +469,6 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="section">
-          <div className="section-title">
-            <h2>Key Projects</h2>
-          </div>
-
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <article className="project-card" key={project.title}>
-                <div className="project-number">
-                  {String(index + 1).padStart(2, '0')}
-                </div>
-
-                <h3>{project.title}</h3>
-                <p>{project.text}</p>
-
-                <div className="tags">
-                  {project.tags.map(tag => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
         <section id="achievements" className="section achievements">
           <div className="section-title">
             <h2>Key Achievements</h2>
@@ -473,7 +485,7 @@ function App() {
 
         <section id="education" className="section education">
           <div className="section-title">
-            <h2>Education & Technical Skills</h2>
+            <h2>Education</h2>
           </div>
 
           <div className="education-grid">
@@ -493,19 +505,13 @@ function App() {
             </div>
 
             <div className="education-card technical-card">
-              <p>TECHNICAL SKILLS</p>
+              <p>DATA & BUSINESS</p>
 
-              <div className="technical-list">
-                <span>SQL</span>
-                <span>Advanced Excel</span>
-                <span>Python (Pandas)</span>
-                <span>Data Visualization</span>
-                <span>Dashboard Development</span>
-                <span>Metabase</span>
-                <span>Apache Superset</span>
-                <span>DBGate</span>
-                <span>Google Sheets Automation</span>
-                <span>MySQL</span>
+              <div className="education-focus">
+                <strong>Business Intelligence</strong>
+                <strong>Data Analytics</strong>
+                <strong>Reporting Automation</strong>
+                <strong>CRM & CLM</strong>
               </div>
             </div>
           </div>
