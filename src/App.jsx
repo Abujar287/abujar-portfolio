@@ -20,21 +20,21 @@ const skills = [
 ]
 
 const projects = [
-{
-  title: 'Telesales Lead Management Automation',
-  text: 'Automated telesales lead generation, distribution and tracking using Python and Google Sheets, supporting 70+ agents.',
-  tags: ['Python', 'Google Sheets', 'Automation']
-},
+  {
+    title: 'Telesales Lead Management Automation',
+    text: 'Developed an automated telesales lead management solution using Python and Google Sheets for 70+ agents, streamlining lead generation, distribution, tracking and management.',
+    tags: ['Python', 'Google Sheets', 'Automation']
+  },
   {
     title: 'Operational BI Dashboards',
     text: 'Built operational dashboards for Call Center, DQM, Complaint Management, Back Office and QAT teams to monitor KPIs and business performance.',
     tags: ['SQL', 'BI', 'Dashboard']
   },
-{
-  title: 'Payroll & Attendance Automation',
-  text: 'Automated payroll, attendance and agent utilization processes using digiGo Attendance, variable calculation logic and Google Sheets, reducing manual effort and improving reporting accuracy.',
-  tags: ['digiGo Attendance', 'Variable Calculation', 'Google Sheets']
-},
+  {
+    title: 'Payroll & Attendance Automation',
+    text: 'Automated payroll, attendance and agent utilization processes using digiGo Attendance, variable calculation logic and Google Sheets, reducing manual effort and improving reporting accuracy.',
+    tags: ['digiGo Attendance', 'Variable Calculation', 'Google Sheets']
+  },
   {
     title: 'Reporting Workflow Automation',
     text: 'Built automated reporting workflows using SQL, Python and Google Sheets to streamline recurring operational reports.',
@@ -104,7 +104,16 @@ function App() {
     type()
 
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'achievements', 'education', 'contact']
+      const sections = [
+        'home',
+        'about',
+        'skills',
+        'experience',
+        'projects',
+        'achievements',
+        'education',
+        'contact'
+      ]
 
       sections.forEach(section => {
         const element = document.getElementById(section)
@@ -214,12 +223,13 @@ function App() {
                   <strong>5+</strong>
                   <span>Years Experience</span>
                 </div>
-              
+
                 <div>
                   <strong>8+</strong>
                   <span>Teams Analyzed</span>
                 </div>
               </div>
+            </div>
 
             <div className="hero-visual">
               <div className="visual-glow"></div>
