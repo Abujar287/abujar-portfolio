@@ -27,9 +27,6 @@ export default function App() {
   return (
     <div className="portfolio">
       <header className="navbar">
-        <div className="logo" onClick={() => scrollTo('home')}>
-          A<span>.</span>Gifari
-        </div>
         <nav className="nav-links" aria-label="Primary">
           {navItems.map((item) => (
             <button
