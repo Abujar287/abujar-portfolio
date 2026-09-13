@@ -148,30 +148,38 @@ a {
   -webkit-background-clip: text;
 }
 
-.hero-role {
-  min-height: 43px;
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 64px;
   margin-top: 30px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity .45s ease,
+    transform .45s ease;
+}
+
+.hero-title.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-title span:first-child {
   color: #bcbcbc;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(21px, 3vw, 30px);
+  font-size: clamp(18px, 2.5vw, 27px);
   font-weight: 600;
+  letter-spacing: -.5px;
 }
 
-.cursor {
+.hero-title span:last-child {
   color: #8b7cff;
-  animation: blink .8s infinite;
-}
-
-.hero h2 {
-  margin: 16px 0 0;
-  color: #f0f0f0;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(18px, 2.4vw, 25px);
+  font-size: clamp(15px, 2vw, 21px);
   font-weight: 500;
-}
-
-.hero h2 span {
-  color: #8b7cff;
+  letter-spacing: -.2px;
 }
 
 .hero-description {
@@ -376,13 +384,33 @@ a {
   animation: bars 2.5s ease-in-out infinite alternate;
 }
 
-.chart div:nth-child(2) { animation-delay: .15s; }
-.chart div:nth-child(3) { animation-delay: .3s; }
-.chart div:nth-child(4) { animation-delay: .45s; }
-.chart div:nth-child(5) { animation-delay: .6s; }
-.chart div:nth-child(6) { animation-delay: .75s; }
-.chart div:nth-child(7) { animation-delay: .9s; }
-.chart div:nth-child(8) { animation-delay: 1.05s; }
+.chart div:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.chart div:nth-child(3) {
+  animation-delay: .3s;
+}
+
+.chart div:nth-child(4) {
+  animation-delay: .45s;
+}
+
+.chart div:nth-child(5) {
+  animation-delay: .6s;
+}
+
+.chart div:nth-child(6) {
+  animation-delay: .75s;
+}
+
+.chart div:nth-child(7) {
+  animation-delay: .9s;
+}
+
+.chart div:nth-child(8) {
+  animation-delay: 1.05s;
+}
 
 .chart-labels {
   display: flex;
@@ -403,7 +431,6 @@ a {
   border-radius: 9px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
   backdrop-filter: blur(15px);
-  animation: floating 4s ease-in-out infinite;
 }
 
 .floating-card span {
@@ -436,13 +463,11 @@ a {
 .excel-card {
   right: 0;
   bottom: 100px;
-  animation-delay: 1s;
 }
 
 .python-card {
   bottom: 20px;
   left: 90px;
-  animation-delay: 1.7s;
 }
 
 .scroll-indicator {
@@ -928,22 +953,6 @@ footer {
   text-transform: uppercase;
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 @keyframes bars {
   from {
     transform: scaleY(.9);
@@ -971,6 +980,16 @@ footer {
 
   to {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
   }
 }
 
@@ -1050,8 +1069,21 @@ footer {
     letter-spacing: -4px;
   }
 
+  .hero-title {
+    min-height: 70px;
+    margin-top: 25px;
+  }
+
+  .hero-title span:first-child {
+    font-size: 17px;
+  }
+
+  .hero-title span:last-child {
+    font-size: 14px;
+  }
+
   .hero-metrics {
-    gap: 22px;
+    gap: 30px;
   }
 
   .hero-metrics strong {
@@ -1162,7 +1194,7 @@ footer {
   }
 
   .hero-metrics {
-    gap: 15px;
+    gap: 25px;
   }
 
   .scroll-indicator {
