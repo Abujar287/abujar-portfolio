@@ -1,4 +1,3 @@
-```jsx
 import React, { useEffect, useState } from 'react'
 
 const skills = [
@@ -495,8 +494,3 @@ function App() {
 }
 
 export default App
-```
-
-**Important:** শুধু `App.jsx` পরিবর্তন করলেই হবে। `App.css`-এ যদি `.hero-visual`, `.analytics-card`, `.visual-ring`, `.visual-glow`, `.floating-card` ইত্যাদির CSS থাকে, সেগুলো এখন আর render হবে না—তাই site কাজ করবে।
-
-চাইলে পরের ধাপে Home page-এর ডান পাশটা **আরও clean/professional করে আপনার photo বা অন্য কোনো visual element** দিয়ে সাজাতে পারি।
