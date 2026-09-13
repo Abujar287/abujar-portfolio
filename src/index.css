@@ -293,7 +293,8 @@ a {
   width: 100%;
   max-width: 430px;
   justify-self: end;
-  animation: photoReveal 1s cubic-bezier(.2,.7,.2,1) .25s both;
+  opacity: 0;
+  animation: photoReveal 1s cubic-bezier(.2,.7,.2,1) .25s forwards;
 }
 
 @keyframes photoReveal {
@@ -549,21 +550,20 @@ a {
   position: absolute;
   left: 0;
   top: 0;
-  width: 1px;
-  height: 100px;
-  background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: stackGlow 2.5s ease-in-out infinite;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    rgba(139,124,255,.05),
+    var(--accent)
+  );
+  opacity: 0;
+  transition: opacity .5s ease;
 }
 
-@keyframes stackGlow {
-  0%,
-  100% {
-    opacity: .35;
-  }
-
-  50% {
-    opacity: 1;
-  }
+.technical-active::before {
+  opacity: 1;
 }
 
 .technical-top {
@@ -576,13 +576,13 @@ a {
   background: rgba(255,255,255,.015);
 }
 
-.technical-top > div {
+.technical-heading {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.technical-top > div > span:last-child,
+.technical-heading > span:last-child,
 .technical-count {
   color: #777781;
   font-size: 9px;
@@ -593,7 +593,7 @@ a {
 .technical-dot {
   width: 6px;
   height: 6px;
-  flex-shrink: 0;
+  flex: 0 0 6px;
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 12px var(--accent);
@@ -617,6 +617,7 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .technical-item {
@@ -630,14 +631,25 @@ a {
   gap: 20px;
   border-bottom: 1px solid rgba(255,255,255,.065);
   opacity: 0;
-  transform: translateX(-30px);
-  animation: technicalIn .65s cubic-bezier(.2,.7,.2,1) forwards;
-  animation-delay: var(--technical-delay);
-  transition: .35s ease;
+  transform: translateX(-70px);
 }
 
-@keyframes technicalIn {
-  to {
+.technical-active .technical-item {
+  animation: technicalSlideIn .7s cubic-bezier(.2,.75,.2,1) forwards;
+  animation-delay: var(--technical-delay);
+}
+
+@keyframes technicalSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
     opacity: 1;
     transform: translateX(0);
   }
@@ -675,6 +687,7 @@ a {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
+  transition: .3s;
 }
 
 .technical-item:hover .technical-number {
@@ -683,9 +696,9 @@ a {
 
 .technical-main {
   min-width: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 230px;
   align-items: center;
-  justify-content: space-between;
   gap: 30px;
 }
 
@@ -694,6 +707,7 @@ a {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 18px;
   font-weight: 700;
+  white-space: nowrap;
   transition: .3s;
 }
 
@@ -703,15 +717,14 @@ a {
 }
 
 .technical-meta {
-  min-width: 190px;
-  display: flex;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr 8px 1fr;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
+  gap: 9px;
 }
 
 .technical-meta span {
-  display: inline-block;
   color: #676772;
   font-size: 8px;
   font-weight: 700;
@@ -719,10 +732,13 @@ a {
   white-space: nowrap;
 }
 
+.technical-meta span:last-child {
+  color: #a2a2ad;
+}
+
 .technical-meta i {
   width: 4px;
   height: 4px;
-  flex: 0 0 4px;
   border-radius: 50%;
   background: var(--accent);
 }
@@ -1092,6 +1108,11 @@ footer {
   .technical-card {
     grid-column: span 2;
   }
+
+  .technical-main {
+    grid-template-columns: minmax(0,1fr) 210px;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1130,11 +1151,7 @@ footer {
   }
 
   .technical-main {
-    gap: 15px;
-  }
-
-  .technical-meta {
-    min-width: 165px;
+    grid-template-columns: minmax(0,1fr) 190px;
   }
 }
 
@@ -1187,8 +1204,12 @@ footer {
     padding: 0 16px;
   }
 
+  .technical-count {
+    font-size: 7px;
+  }
+
   .technical-item {
-    min-height: 86px;
+    min-height: 88px;
     padding: 0 16px;
     grid-template-columns: 32px minmax(0,1fr) 22px;
     gap: 10px;
@@ -1208,10 +1229,13 @@ footer {
 
   .technical-name {
     font-size: 15px;
+    white-space: normal;
   }
 
   .technical-meta {
-    min-width: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: flex-start;
     gap: 7px;
   }
