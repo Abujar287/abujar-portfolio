@@ -239,8 +239,8 @@ function App() {
                 </div>
 
                 <div>
-                  <strong>8+</strong>
-                  <span>Teams Analyzed</span>
+                  <strong>8+ Teams Analyzed</strong>
+                  {/* <span>Teams Analyzed</span> */}
                 </div>
               </div>
             </div>
