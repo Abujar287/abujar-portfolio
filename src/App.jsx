@@ -20,21 +20,21 @@ const skills = [
 ]
 
 const projects = [
-  {
-    title: 'Telesales Lead Management Automation',
-    text: 'Developed Google Sheets-based telesales lead management automation solutions for 70+ agents, improving lead tracking and distribution efficiency.',
-    tags: ['Google Sheets', 'Automation', '70+ Agents']
-  },
+{
+  title: 'Telesales Lead Management Automation',
+  text: 'Automated telesales lead generation, distribution and tracking using Python and Google Sheets, supporting 70+ agents.',
+  tags: ['Python', 'Google Sheets', 'Automation']
+},
   {
     title: 'Operational BI Dashboards',
     text: 'Built operational dashboards for Call Center, DQM, Complaint Management, Back Office and QAT teams to monitor KPIs and business performance.',
     tags: ['SQL', 'BI', 'Dashboard']
   },
-  {
-    title: 'Payroll & Attendance Automation',
-    text: 'Automated payroll, attendance and agent utilization reporting processes to reduce manual effort and improve reporting accuracy.',
-    tags: ['Excel', 'Python', 'Automation']
-  },
+{
+  title: 'Payroll & Attendance Automation',
+  text: 'Automated payroll, attendance and agent utilization processes using digiGo Attendance, variable calculation logic and Google Sheets, reducing manual effort and improving reporting accuracy.',
+  tags: ['digiGo Attendance', 'Variable Calculation', 'Google Sheets']
+},
   {
     title: 'Reporting Workflow Automation',
     text: 'Built automated reporting workflows using SQL, Python and Google Sheets to streamline recurring operational reports.',
