@@ -106,6 +106,44 @@ export default function App() {
             SCROLL TO EXPLORE
           </div>
         </section>
+
+        <section id="about" className="section about">
+          <div className="section-title">
+            <h2>Professional Summary</h2>
+          </div>
+          <div className="about-grid">
+            <div>
+              <p className="large-text">
+                Data &amp; Business Insights Analyst with nearly 5 years of experience in Business
+                Intelligence, Data Analytics, Reporting Automation, and Operational Performance
+                Analysis.
+              </p>
+              <p>
+                Proficient in SQL, Python, Advanced Excel, and BI tools to transform complex data
+                into actionable insights, optimize business processes, and support data-driven
+                decision-making.
+              </p>
+            </div>
+            <div className="about-box">
+              <div>
+                <span>FOCUS</span>
+                <strong>Business Intelligence</strong>
+              </div>
+              <div>
+                <span>EXPERTISE</span>
+                <strong>Data Analytics</strong>
+              </div>
+              <div>
+                <span>SPECIALIZATION</span>
+                <strong>CRM &amp; CLM</strong>
+              </div>
+              <div>
+                <span>APPROACH</span>
+                <strong>Data Driven</strong>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   )
