@@ -1,3 +1,4 @@
+```jsx
 import React, { useEffect, useState } from 'react'
 
 const skills = [
@@ -192,71 +193,6 @@ function App() {
                   <strong>8+</strong>
                   <span>Teams Analyzed</span>
                 </div>
-              </div>
-            </div>
-
-            <div className="hero-visual">
-              <div className="visual-glow"></div>
-              <div className="visual-ring ring-one"></div>
-              <div className="visual-ring ring-two"></div>
-
-              <div className="analytics-card">
-                <div className="analytics-top">
-                  <div>
-                    <span>BUSINESS ANALYTICS</span>
-                    <strong>Performance Overview</strong>
-                  </div>
-
-                  <div className="status">
-                    <i></i>
-                    LIVE
-                  </div>
-                </div>
-
-                <div className="analytics-value">
-                  <strong>+32.8%</strong>
-                  <span>Performance Growth</span>
-                </div>
-
-                <div className="chart">
-                  <div style={{ height: '34%' }}></div>
-                  <div style={{ height: '48%' }}></div>
-                  <div style={{ height: '42%' }}></div>
-                  <div style={{ height: '65%' }}></div>
-                  <div style={{ height: '57%' }}></div>
-                  <div style={{ height: '82%' }}></div>
-                  <div style={{ height: '73%' }}></div>
-                  <div style={{ height: '92%' }}></div>
-                </div>
-
-                <div className="chart-labels">
-                  <span>JAN</span>
-                  <span>FEB</span>
-                  <span>MAR</span>
-                  <span>APR</span>
-                  <span>MAY</span>
-                  <span>JUN</span>
-                  <span>JUL</span>
-                  <span>AUG</span>
-                </div>
-              </div>
-
-              <div className="floating-card sql-card">
-                <span>01</span>
-                <strong>SQL</strong>
-                <small>Data Analysis</small>
-              </div>
-
-              <div className="floating-card excel-card">
-                <span>02</span>
-                <strong>EXCEL</strong>
-                <small>Automation</small>
-              </div>
-
-              <div className="floating-card python-card">
-                <span>03</span>
-                <strong>PYTHON</strong>
-                <small>Data Processing</small>
               </div>
             </div>
           </div>
@@ -559,3 +495,8 @@ function App() {
 }
 
 export default App
+```
+
+**Important:** শুধু `App.jsx` পরিবর্তন করলেই হবে। `App.css`-এ যদি `.hero-visual`, `.analytics-card`, `.visual-ring`, `.visual-glow`, `.floating-card` ইত্যাদির CSS থাকে, সেগুলো এখন আর render হবে না—তাই site কাজ করবে।
+
+চাইলে পরের ধাপে Home page-এর ডান পাশটা **আরও clean/professional করে আপনার photo বা অন্য কোনো visual element** দিয়ে সাজাতে পারি।
