@@ -197,7 +197,6 @@ function App() {
 
             <div className="hero-visual">
               <div className="visual-glow"></div>
-
               <div className="visual-ring ring-one"></div>
               <div className="visual-ring ring-two"></div>
 
@@ -321,9 +320,8 @@ function App() {
           </div>
 
           <div className="skills-grid">
-            {skills.map((skill, index) => (
+            {skills.map(skill => (
               <div className="skill-card" key={skill}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
                 <h3>{skill}</h3>
                 <div className="skill-line"></div>
               </div>
