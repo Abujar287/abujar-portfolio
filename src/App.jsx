@@ -12,12 +12,9 @@ const technicalSkills = [
   { name: 'SQL', category: 'Querying', level: 'Advanced' },
   { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
   { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
-  { name: 'Power BI', category: 'Dashboards', level: 'Advanced' },
   { name: 'Reporting Automation', category: 'Workflows', level: 'Proficient' },
   { name: 'CRM & CLM', category: 'Operations', level: 'Specialist' },
 ]
-
-const technicalTags = ['ETL', 'DAX', 'PANDAS', 'PIVOT TABLES', 'DATA VIZ', 'KPIs', 'FORECASTING']
 
 export default function App() {
   const [active, setActive] = useState('home')
@@ -198,7 +195,6 @@ export default function App() {
                   className="technical-item"
                   style={{ '--technical-delay': `${index * 0.1}s` }}
                 >
-                  <span className="technical-number">{`0${index + 1}`}</span>
                   <div className="technical-main">
                     <span className="technical-name">{skill.name}</span>
                     <div className="technical-meta">
@@ -209,12 +205,6 @@ export default function App() {
                   </div>
                   <span className="technical-arrow">↗</span>
                 </div>
-              ))}
-            </div>
-
-            <div className="technical-footer">
-              {technicalTags.map((tag) => (
-                <span key={tag}>{tag}</span>
               ))}
             </div>
           </div>

@@ -564,7 +564,7 @@ a {
   min-height: 82px;
   padding: 0 24px;
   display: grid;
-  grid-template-columns: 55px minmax(0, 1fr) 35px;
+  grid-template-columns: minmax(0, 1fr) 35px;
   align-items: center;
   gap: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.065);
@@ -1154,7 +1154,7 @@ footer {
   .technical-item {
     min-height: 88px;
     padding: 0 16px;
-    grid-template-columns: 32px minmax(0, 1fr) 22px;
+    grid-template-columns: minmax(0, 1fr) 22px;
     gap: 10px;
   }
 
