@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const heroSkills = [
   { name: 'SQL', type: 'DATABASE', level: 'Advanced' },
@@ -60,6 +60,8 @@ const navigation = [
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
+  const [technicalVisible, setTechnicalVisible] = useState(false)
+  const technicalRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,6 +84,29 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const element = technicalRef.current
+
+    if (!element) return
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTechnicalVisible(true)
+          }
+        })
+      },
+      {
+        threshold: 0.18
+      }
+    )
+
+    observer.observe(element)
+
+    return () => observer.disconnect()
   }, [])
 
   const scrollTo = section => {
@@ -192,9 +217,10 @@ function App() {
                 <img
                   src="/profile_picture.jpg"
                   alt="Abujar Al-Gifari"
+                  onError={event => {
+                    event.currentTarget.style.display = 'none'
+                  }}
                 />
-
-                <div className="photo-overlay"></div>
 
                 <div className="photo-label">
                   <span className="photo-dot"></span>
@@ -264,14 +290,22 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section technical-section">
+        <section
+          id="skills"
+          className="section technical-section"
+          ref={technicalRef}
+        >
           <div className="section-title">
             <h2>Technical Stack</h2>
           </div>
 
-          <div className="technical-showcase">
+          <div
+            className={`technical-showcase ${
+              technicalVisible ? 'technical-active' : ''
+            }`}
+          >
             <div className="technical-top">
-              <div>
+              <div className="technical-heading">
                 <span className="technical-dot"></span>
                 <span>TECHNICAL STACK</span>
               </div>
@@ -285,7 +319,7 @@ function App() {
                   className="technical-item"
                   key={skill.name}
                   style={{
-                    '--technical-delay': `${index * 0.08}s`
+                    '--technical-delay': `${index * 0.12}s`
                   }}
                 >
                   <div className="technical-number">
