@@ -115,23 +115,6 @@ a {
   z-index: 5;
 }
 
-.hero-label {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
-  color: #8b7cff;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-.hero-label span {
-  width: 28px;
-  height: 1px;
-  background: #8b7cff;
-}
-
 .hero h1 {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
@@ -149,37 +132,96 @@ a {
 }
 
 .hero-title {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-height: 64px;
   margin-top: 30px;
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity .45s ease,
-    transform .45s ease;
-}
-
-.hero-title.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero-title span:first-child {
-  color: #bcbcbc;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(18px, 2.5vw, 27px);
   font-weight: 600;
+}
+
+.title-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 34px;
+}
+
+.second-line {
+  margin-top: 5px;
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-35px);
+  animation: wordReveal .55s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.word-1 {
+  animation-delay: .10s;
+}
+
+.word-2 {
+  animation-delay: .25s;
+}
+
+.word-3 {
+  animation-delay: .40s;
+}
+
+.word-4 {
+  animation-delay: .55s;
+}
+
+.word-5 {
+  animation-delay: .70s;
+}
+
+.word-6 {
+  animation-delay: .95s;
+}
+
+.word-7 {
+  animation-delay: 1.10s;
+}
+
+.word-8 {
+  animation-delay: 1.25s;
+}
+
+.word-9 {
+  animation-delay: 1.40s;
+}
+
+.word-10 {
+  animation-delay: 1.55s;
+}
+
+.word-11 {
+  animation-delay: 1.70s;
+}
+
+.word-12 {
+  animation-delay: 1.85s;
+}
+
+.word-13 {
+  animation-delay: 2.00s;
+}
+
+.title-line:first-child {
+  color: #bcbcbc;
+  font-size: clamp(18px, 2.5vw, 27px);
   letter-spacing: -.5px;
 }
 
-.hero-title span:last-child {
+.title-line.second-line {
   color: #8b7cff;
-  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(15px, 2vw, 21px);
   font-weight: 500;
-  letter-spacing: -.2px;
+}
+
+.separator {
+  color: #8b7cff;
 }
 
 .hero-description {
@@ -289,14 +331,12 @@ a {
 .ring-one {
   width: 470px;
   height: 470px;
-  animation: spin 24s linear infinite;
 }
 
 .ring-two {
   width: 380px;
   height: 380px;
   border-style: dashed;
-  animation: spinReverse 18s linear infinite;
 }
 
 .analytics-card {
@@ -309,7 +349,6 @@ a {
   border-radius: 18px;
   box-shadow: 0 30px 100px rgba(0, 0, 0, .55);
   backdrop-filter: blur(20px);
-  animation: floating 5s ease-in-out infinite;
 }
 
 .analytics-top {
@@ -381,35 +420,6 @@ a {
   min-height: 10px;
   border-radius: 3px 3px 0 0;
   background: linear-gradient(to top, #6555df, #a39aff);
-  animation: bars 2.5s ease-in-out infinite alternate;
-}
-
-.chart div:nth-child(2) {
-  animation-delay: .15s;
-}
-
-.chart div:nth-child(3) {
-  animation-delay: .3s;
-}
-
-.chart div:nth-child(4) {
-  animation-delay: .45s;
-}
-
-.chart div:nth-child(5) {
-  animation-delay: .6s;
-}
-
-.chart div:nth-child(6) {
-  animation-delay: .75s;
-}
-
-.chart div:nth-child(7) {
-  animation-delay: .9s;
-}
-
-.chart div:nth-child(8) {
-  animation-delay: 1.05s;
 }
 
 .chart-labels {
@@ -953,43 +963,15 @@ footer {
   text-transform: uppercase;
 }
 
-@keyframes bars {
+@keyframes wordReveal {
   from {
-    transform: scaleY(.9);
+    opacity: 0;
+    transform: translateX(-35px);
   }
 
   to {
-    transform: scaleY(1.08);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spinReverse {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -1002,7 +984,6 @@ footer {
     text-align: center;
   }
 
-  .hero-label,
   .hero-buttons {
     justify-content: center;
   }
@@ -1022,6 +1003,10 @@ footer {
 
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .title-line {
+    justify-content: center;
   }
 }
 
@@ -1070,15 +1055,19 @@ footer {
   }
 
   .hero-title {
-    min-height: 70px;
     margin-top: 25px;
   }
 
-  .hero-title span:first-child {
+  .title-line {
+    gap: 6px;
+    min-height: 28px;
+  }
+
+  .title-line:first-child {
     font-size: 17px;
   }
 
-  .hero-title span:last-child {
+  .title-line.second-line {
     font-size: 14px;
   }
 
