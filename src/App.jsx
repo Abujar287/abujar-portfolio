@@ -41,6 +41,7 @@ const projects = [
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [typedText, setTypedText] = useState('')
+
   const titles = [
     'Data Analyst',
     'Business Intelligence Analyst',
@@ -51,6 +52,7 @@ function App() {
     let titleIndex = 0
     let charIndex = 0
     let deleting = false
+    let timer
 
     const type = () => {
       const current = titles[titleIndex]
@@ -61,7 +63,7 @@ function App() {
 
         if (charIndex === current.length) {
           deleting = true
-          setTimeout(type, 1800)
+          timer = setTimeout(type, 1800)
           return
         }
       } else {
@@ -74,13 +76,20 @@ function App() {
         }
       }
 
-      setTimeout(type, deleting ? 45 : 85)
+      timer = setTimeout(type, deleting ? 45 : 85)
     }
 
     type()
 
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact']
+      const sections = [
+        'home',
+        'about',
+        'skills',
+        'experience',
+        'projects',
+        'contact'
+      ]
 
       sections.forEach(section => {
         const element = document.getElementById(section)
@@ -97,7 +106,10 @@ function App() {
 
     window.addEventListener('scroll', handleScroll)
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   const scrollTo = section => {
@@ -115,7 +127,14 @@ function App() {
         </div>
 
         <div className="nav-links">
-          {['home', 'about', 'skills', 'experience', 'projects', 'contact'].map(item => (
+          {[
+            'home',
+            'about',
+            'skills',
+            'experience',
+            'projects',
+            'contact'
+          ].map(item => (
             <button
               key={item}
               className={activeSection === item ? 'active' : ''}
@@ -172,6 +191,7 @@ function App() {
             </div>
 
             <div className="hero-stats">
+
               <div>
                 <strong>5+</strong>
                 <span>Years Experience</span>
@@ -186,15 +206,18 @@ function App() {
                 <strong>20+</strong>
                 <span>Automation Projects</span>
               </div>
+
             </div>
 
           </div>
 
           <div className="hero-card">
+
             <div className="card-orbit orbit-one"></div>
             <div className="card-orbit orbit-two"></div>
 
             <div className="data-card">
+
               <div className="card-header">
                 <span>DATA INSIGHTS</span>
                 <span className="live-dot">● LIVE</span>
@@ -214,7 +237,9 @@ function App() {
                 <span>Performance</span>
                 <strong>+32.8%</strong>
               </div>
+
             </div>
+
           </div>
 
         </section>
@@ -229,6 +254,7 @@ function App() {
           <div className="about-grid">
 
             <div>
+
               <p className="large-text">
                 Data & Business Insights Analyst with nearly 5 years of
                 experience in Business Intelligence, Data Analytics,
@@ -241,9 +267,11 @@ function App() {
                 optimize business processes, and support data-driven
                 decision-making.
               </p>
+
             </div>
 
             <div className="about-box">
+
               <div>
                 <span>FOCUS</span>
                 <strong>Business Intelligence</strong>
@@ -263,9 +291,11 @@ function App() {
                 <span>APPROACH</span>
                 <strong>Data Driven</strong>
               </div>
+
             </div>
 
           </div>
+
         </section>
 
         <section id="skills" className="section">
@@ -276,13 +306,21 @@ function App() {
           </div>
 
           <div className="skills-grid">
+
             {skills.map((skill, index) => (
               <div className="skill-card" key={skill}>
-                <span>0{index + 1}</span>
+
+                <span>
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
                 <h3>{skill}</h3>
+
                 <div className="skill-line"></div>
+
               </div>
             ))}
+
           </div>
 
         </section>
@@ -297,14 +335,22 @@ function App() {
           <div className="timeline">
 
             <div className="timeline-item">
+
               <div className="timeline-dot"></div>
 
               <div className="timeline-content">
-                <p className="date">NOV 2023 — PRESENT</p>
 
-                <h3>Senior Officer – Data & Analytics</h3>
+                <p className="date">
+                  NOV 2023 — PRESENT
+                </p>
 
-                <h4>Sheba.xyz Service Ltd.</h4>
+                <h3>
+                  Senior Officer – Data & Analytics
+                </h3>
+
+                <h4>
+                  Sheba.xyz Service Ltd.
+                </h4>
 
                 <p>
                   Responsible for business data analysis, SQL reporting,
@@ -320,10 +366,13 @@ function App() {
                   <li>Payroll & attendance automation</li>
                   <li>Operational reporting automation</li>
                 </ul>
+
               </div>
+
             </div>
 
           </div>
+
         </section>
 
         <section id="projects" className="section">
@@ -336,33 +385,47 @@ function App() {
           <div className="projects-grid">
 
             {projects.map((project, index) => (
-              <article className="project-card" key={project.title}>
+              <article
+                className="project-card"
+                key={project.title}
+              >
 
                 <div className="project-number">
-                  0{index + 1}
+                  {String(index + 1).padStart(2, '0')}
                 </div>
 
-                <h3>{project.title}</h3>
+                <h3>
+                  {project.title}
+                </h3>
 
-                <p>{project.text}</p>
+                <p>
+                  {project.text}
+                </p>
 
                 <div className="tags">
+
                   {project.tags.map(tag => (
-                    <span key={tag}>{tag}</span>
+                    <span key={tag}>
+                      {tag}
+                    </span>
                   ))}
+
                 </div>
 
               </article>
             ))}
 
           </div>
+
         </section>
 
         <section id="contact" className="section contact">
 
           <div className="contact-content">
 
-            <p className="eyebrow">LET'S CONNECT</p>
+            <p className="eyebrow">
+              LET'S CONNECT
+            </p>
 
             <h2>
               Let's turn data into
@@ -374,9 +437,29 @@ function App() {
               automation or collaboration? Let's connect.
             </p>
 
+            <div className="contact-info">
+
+              <a href="mailto:abujar287.algifari@gmail.com">
+                <span>Email</span>
+                abujar287.algifari@gmail.com
+              </a>
+
+              <a href="tel:+8801952980445">
+                <span>Phone</span>
+                +880 1952-980445
+              </a>
+
+              <a href="tel:+8801605089778">
+                <span>Phone</span>
+                +880 1605-089778
+              </a>
+
+            </div>
+
             <div className="contact-buttons">
+
               <a
-                href="mailto:your-email@example.com"
+                href="mailto:abujar287.algifari@gmail.com"
                 className="primary-button"
               >
                 Email Me
@@ -390,6 +473,7 @@ function App() {
               >
                 LinkedIn
               </a>
+
             </div>
 
           </div>
@@ -399,8 +483,13 @@ function App() {
       </main>
 
       <footer>
-        <span>© 2026 Abujar Al-Gifari</span>
-        <span>Data • Insights • Intelligence</span>
+        <span>
+          © 2026 Abujar Al-Gifari
+        </span>
+
+        <span>
+          Data • Insights • Intelligence
+        </span>
       </footer>
 
     </div>
