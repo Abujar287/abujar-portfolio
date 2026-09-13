@@ -250,7 +250,6 @@ function App() {
 
         <section id="skills" className="section">
           <div className="section-title">
-            <span>02</span>
             <h2>Core Expertise</h2>
           </div>
 
