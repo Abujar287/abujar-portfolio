@@ -1,4 +1,3 @@
-```jsx
 import './styles.css'
 
 function App() {
@@ -14,4 +13,3 @@ function App() {
 }
 
 export default App
-```
