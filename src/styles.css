@@ -286,198 +286,23 @@ a {
 .hero-metrics div {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .hero-metrics strong {
   color: #fff;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 25px;
+  font-size: 30px;
+  line-height: 1;
 }
 
 .hero-metrics span {
-  color: #5f5f5f;
-  font-size: 9px;
-  letter-spacing: 1px;
+  color: #777;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  line-height: 1.4;
   text-transform: uppercase;
-}
-
-.hero-visual {
-  position: relative;
-  width: 520px;
-  height: 520px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: end;
-}
-
-.visual-glow {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: #6754ff;
-  filter: blur(120px);
-  opacity: .17;
-}
-
-.visual-ring {
-  position: absolute;
-  border: 1px solid rgba(139, 124, 255, .13);
-  border-radius: 50%;
-}
-
-.ring-one {
-  width: 470px;
-  height: 470px;
-}
-
-.ring-two {
-  width: 380px;
-  height: 380px;
-  border-style: dashed;
-}
-
-.analytics-card {
-  position: relative;
-  z-index: 3;
-  width: 350px;
-  padding: 27px;
-  background: rgba(15, 15, 17, .9);
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 18px;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, .55);
-  backdrop-filter: blur(20px);
-}
-
-.analytics-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.analytics-top span {
-  display: block;
-  margin-bottom: 7px;
-  color: #686868;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.analytics-top strong {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 14px;
-}
-
-.status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #76d99a;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.status i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #76d99a;
-  box-shadow: 0 0 10px #76d99a;
-}
-
-.analytics-value {
-  margin-top: 35px;
-}
-
-.analytics-value strong {
-  display: block;
-  color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 38px;
-}
-
-.analytics-value span {
-  color: #666;
-  font-size: 10px;
-}
-
-.chart {
-  height: 145px;
-  display: flex;
-  align-items: end;
-  gap: 9px;
-  margin-top: 25px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
-}
-
-.chart div {
-  flex: 1;
-  min-height: 10px;
-  border-radius: 3px 3px 0 0;
-  background: linear-gradient(to top, #6555df, #a39aff);
-}
-
-.chart-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  color: #494949;
-  font-size: 7px;
-  letter-spacing: 1px;
-}
-
-.floating-card {
-  position: absolute;
-  z-index: 5;
-  min-width: 125px;
-  padding: 13px 16px;
-  background: rgba(12, 12, 13, .92);
-  border: 1px solid rgba(255, 255, 255, .1);
-  border-radius: 9px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
-  backdrop-filter: blur(15px);
-}
-
-.floating-card span {
-  display: block;
-  color: #6c63c9;
-  font-size: 7px;
-  letter-spacing: 1px;
-}
-
-.floating-card strong {
-  display: block;
-  margin-top: 5px;
-  color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-}
-
-.floating-card small {
-  display: block;
-  margin-top: 4px;
-  color: #555;
-  font-size: 8px;
-}
-
-.sql-card {
-  top: 75px;
-  left: 15px;
-}
-
-.excel-card {
-  right: 0;
-  bottom: 100px;
-}
-
-.python-card {
-  bottom: 20px;
-  left: 90px;
 }
 
 .scroll-indicator {
@@ -997,10 +822,6 @@ footer {
     justify-content: center;
   }
 
-  .hero-visual {
-    justify-self: center;
-  }
-
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1076,45 +897,12 @@ footer {
   }
 
   .hero-metrics strong {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .hero-metrics span {
-    font-size: 7px;
-  }
-
-  .hero-visual {
-    width: 340px;
-    height: 360px;
-  }
-
-  .analytics-card {
-    width: 285px;
-  }
-
-  .ring-one {
-    width: 330px;
-    height: 330px;
-  }
-
-  .ring-two {
-    width: 275px;
-    height: 275px;
-  }
-
-  .sql-card {
-    left: 0;
-    top: 40px;
-  }
-
-  .excel-card {
-    right: 0;
-    bottom: 70px;
-  }
-
-  .python-card {
-    left: 35px;
-    bottom: 0;
+    font-size: 13px;
+    letter-spacing: .04em;
   }
 
   .about-grid {
@@ -1177,13 +965,16 @@ footer {
     font-size: 46px;
   }
 
-  .hero-visual {
-    transform: scale(.88);
-    margin: -20px 0;
-  }
-
   .hero-metrics {
     gap: 25px;
+  }
+
+  .hero-metrics strong {
+    font-size: 22px;
+  }
+
+  .hero-metrics span {
+    font-size: 12px;
   }
 
   .scroll-indicator {
