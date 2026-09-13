@@ -204,7 +204,6 @@ function App() {
 
         <section id="about" className="section about">
           <div className="section-title">
-            <span>01</span>
             <h2>Professional Summary</h2>
           </div>
 
@@ -265,7 +264,6 @@ function App() {
 
         <section id="experience" className="section experience">
           <div className="section-title">
-            <span>03</span>
             <h2>Professional Experience</h2>
           </div>
 
@@ -350,7 +348,6 @@ function App() {
 
         <section id="projects" className="section">
           <div className="section-title">
-            <span>04</span>
             <h2>Key Projects</h2>
           </div>
 
@@ -377,7 +374,6 @@ function App() {
 
         <section id="achievements" className="section achievements">
           <div className="section-title">
-            <span>05</span>
             <h2>Key Achievements</h2>
           </div>
 
@@ -393,7 +389,6 @@ function App() {
 
         <section id="education" className="section education">
           <div className="section-title">
-            <span>06</span>
             <h2>Education & Technical Skills</h2>
           </div>
 
