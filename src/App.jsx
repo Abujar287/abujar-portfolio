@@ -44,7 +44,6 @@ export default function App() {
         <section id="home" className="section hero">
           <div className="hero-grid">
             <div className="hero-content">
-              <p className="hero-label">DATA &amp; BUSINESS INSIGHTS</p>
               <h1>
                 ABUJAR <strong>AL-GIFARI</strong>
               </h1>
