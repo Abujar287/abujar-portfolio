@@ -1,20 +1,36 @@
 import React, { useEffect, useState } from 'react'
 
-const skills = [
-  'Data Analysis',
-  'Business Intelligence',
-  'SQL',
-  'Advanced Excel',
-  'Python',
-  'Metabase',
-  'Apache Superset',
-  'DBGate',
-  'Google Sheets',
-  'MySQL',
-  'CRM',
-  'CLM',
-  'Dashboard Development',
-  'Process Automation'
+const expertiseGroups = [
+  {
+    number: '01',
+    title: 'Analytics & BI',
+    description: 'Turning business data into clear insights and decision-ready dashboards.',
+    skills: ['Data Analysis', 'Business Intelligence', 'Dashboard Development']
+  },
+  {
+    number: '02',
+    title: 'Data & Querying',
+    description: 'Working with structured data, databases and efficient SQL workflows.',
+    skills: ['SQL', 'MySQL', 'DBGate']
+  },
+  {
+    number: '03',
+    title: 'Automation & Productivity',
+    description: 'Automating repetitive reporting and operational processes.',
+    skills: ['Advanced Excel', 'Google Sheets', 'Python', 'Process Automation']
+  },
+  {
+    number: '04',
+    title: 'BI Platforms',
+    description: 'Building and monitoring interactive business intelligence solutions.',
+    skills: ['Metabase', 'Apache Superset']
+  },
+  {
+    number: '05',
+    title: 'Customer Intelligence',
+    description: 'Using customer and lifecycle data to improve business performance.',
+    skills: ['CRM', 'CLM']
+  }
 ]
 
 const projects = [
@@ -247,17 +263,39 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section">
+        <section id="skills" className="section expertise-section">
           <div className="section-title">
             <h2>Core Expertise</h2>
           </div>
 
-          <div className="skills-grid">
-            {skills.map(skill => (
-              <div className="skill-card" key={skill}>
-                <h3>{skill}</h3>
-                <div className="skill-line"></div>
-              </div>
+          <div className="expertise-intro">
+            <p>
+              A combination of analytical thinking, technical tools and
+              business-focused capabilities used to turn data into action.
+            </p>
+          </div>
+
+          <div className="expertise-grid">
+            {expertiseGroups.map(group => (
+              <article
+                className={`expertise-card expertise-${group.number}`}
+                key={group.number}
+              >
+                <div className="expertise-top">
+                  <span className="expertise-number">{group.number}</span>
+                  <span className="expertise-arrow">↗</span>
+                </div>
+
+                <h3>{group.title}</h3>
+
+                <p>{group.description}</p>
+
+                <div className="expertise-skills">
+                  {group.skills.map(skill => (
+                    <span key={skill}>{skill}</span>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </section>
