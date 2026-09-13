@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from 'react'
 
+const heroSkills = [
+  { name: 'SQL', type: 'DATABASE', level: 'Advanced' },
+  { name: 'Advanced Excel', type: 'ANALYTICS', level: 'Advanced' },
+  { name: 'Python', type: 'DATA', level: 'Pandas' },
+  { name: 'Business Intelligence', type: 'BI', level: 'Expert' },
+  { name: 'Metabase', type: 'BI TOOL', level: 'Dashboard' },
+  { name: 'Apache Superset', type: 'BI TOOL', level: 'Dashboard' },
+  { name: 'Google Sheets', type: 'AUTOMATION', level: 'Advanced' },
+  { name: 'CRM & CLM', type: 'CUSTOMER', level: 'Analytics' }
+]
+
 const expertiseGroups = [
   {
     title: 'Analytics & BI',
@@ -67,19 +78,6 @@ const achievements = [
   'Developed operational dashboards for Call Center, DQM, Complaint Management and Back Office teams.',
   'Automated telesales lead management for 70+ agents.',
   'Successfully managed manual business operations for 1.5 months, achieving 3.0M+ NR.'
-]
-
-const technicalSkills = [
-  'SQL',
-  'Advanced Excel',
-  'Python (Pandas)',
-  'Data Visualization',
-  'Dashboard Development',
-  'Metabase',
-  'Apache Superset',
-  'DBGate',
-  'Google Sheets Automation',
-  'MySQL'
 ]
 
 const navigation = [
@@ -217,22 +215,49 @@ function App() {
               </div>
             </div>
 
-            <div className="hero-skills">
-              <div className="hero-skills-header">
-                <span>TECHNICAL SKILLS</span>
-                <i></i>
+            <div className="hero-stack">
+              <div className="stack-top">
+                <div>
+                  <span className="stack-dot"></span>
+                  <span>TECHNICAL STACK</span>
+                </div>
+
+                <span className="stack-count">08</span>
               </div>
 
-              <div className="hero-skills-list">
-                {technicalSkills.map((skill, index) => (
-                  <span
-                    key={skill}
-                    className="hero-skill"
-                    style={{ '--skill-delay': `${0.8 + index * 0.08}s` }}
+              <div className="stack-line"></div>
+
+              <div className="stack-list">
+                {heroSkills.map((skill, index) => (
+                  <div
+                    className="stack-item"
+                    key={skill.name}
+                    style={{ '--skill-delay': `${0.5 + index * 0.12}s` }}
                   >
-                    {skill}
-                  </span>
+                    <div className="stack-number">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+
+                    <div className="stack-main">
+                      <div className="stack-name">{skill.name}</div>
+
+                      <div className="stack-meta">
+                        <span>{skill.type}</span>
+                        <i></i>
+                        <span>{skill.level}</span>
+                      </div>
+                    </div>
+
+                    <div className="stack-arrow">↗</div>
+                  </div>
                 ))}
+              </div>
+
+              <div className="stack-footer">
+                <span>DATA</span>
+                <span>BI</span>
+                <span>AUTOMATION</span>
+                <span>CRM</span>
               </div>
             </div>
           </div>
@@ -305,7 +330,6 @@ function App() {
               <article
                 className="expertise-item"
                 key={group.title}
-                style={{ '--delay': `${index * 0.12}s` }}
               >
                 <div className="expertise-index">
                   {String(index + 1).padStart(2, '0')}
@@ -472,9 +496,16 @@ function App() {
               <p>TECHNICAL SKILLS</p>
 
               <div className="technical-list">
-                {technicalSkills.map(skill => (
-                  <span key={skill}>{skill}</span>
-                ))}
+                <span>SQL</span>
+                <span>Advanced Excel</span>
+                <span>Python (Pandas)</span>
+                <span>Data Visualization</span>
+                <span>Dashboard Development</span>
+                <span>Metabase</span>
+                <span>Apache Superset</span>
+                <span>DBGate</span>
+                <span>Google Sheets Automation</span>
+                <span>MySQL</span>
               </div>
             </div>
           </div>
