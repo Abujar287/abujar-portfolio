@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
   background: #07090d;
   color: white;
@@ -31,55 +37,14 @@ body {
   font-weight: bold;
   border: 2px solid #66a3ff;
   margin-bottom: 30px;
-  animation: photo 1s ease;
 }
 
 h1 {
-  font-size: clamp(45px, 8vw, 100px);
-  letter-spacing: -4px;
-  animation: title 1.2s ease;
+  font-size: 60px;
 }
 
 p {
   margin-top: 20px;
   color: #8f98a8;
-  font-size: clamp(12px, 1.5vw, 18px);
-  letter-spacing: 2px;
-  animation: subtitle 1.6s ease;
-}
-
-@keyframes photo {
-  from {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes title {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes subtitle {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  font-size: 16px;
 }
