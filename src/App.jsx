@@ -108,9 +108,7 @@ function App() {
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollTo = section => {
@@ -146,67 +144,66 @@ function App() {
 
       <main>
         <section id="home" className="hero section">
-          <div className="hero-grid">
-            <div className="hero-content">
-              <h1>
-                ABUJAR
-                <strong>AL-GIFARI</strong>
-              </h1>
+          <div className="hero-content">
+            <p className="hero-label">DATA & BUSINESS INSIGHTS</p>
 
-              <div className="hero-title">
-                <div className="title-line">
-                  <span className="word word-1">DATA</span>
-                  <span className="word word-2">ANALYST</span>
-                  <span className="word word-3 separator">|</span>
-                  <span className="word word-4">BUSINESS</span>
-                  <span className="word word-5">INTELLIGENCE</span>
-                </div>
+            <h1>
+              ABUJAR
+              <strong>AL-GIFARI</strong>
+            </h1>
 
-                <div className="title-line second-line">
-                  <span className="word word-6">EXCEL,</span>
-                  <span className="word word-7">SQL</span>
-                  <span className="word word-8">&amp;</span>
-                  <span className="word word-9">PYTHON</span>
-                  <span className="word word-10 separator">|</span>
-                  <span className="word word-11">CRM</span>
-                  <span className="word word-12">&amp;</span>
-                  <span className="word word-13">CLM</span>
-                </div>
+            <div className="hero-title">
+              <div className="title-line">
+                <span className="word word-1">DATA</span>
+                <span className="word word-2">ANALYST</span>
+                <span className="word separator word-3">|</span>
+                <span className="word word-4">BUSINESS</span>
+                <span className="word word-5">INTELLIGENCE</span>
               </div>
 
-              <p className="hero-description">
-                Turning complex data into actionable insights, intelligent
-                dashboards, automated reporting solutions and data-driven
-                business decisions.
-              </p>
+              <div className="title-line second-line">
+                <span className="word word-6">EXCEL,</span>
+                <span className="word word-7">SQL</span>
+                <span className="word word-8">&amp;</span>
+                <span className="word word-9">PYTHON</span>
+                <span className="word separator word-10">|</span>
+                <span className="word word-11">CRM</span>
+                <span className="word word-12">&amp;</span>
+                <span className="word word-13">CLM</span>
+              </div>
+            </div>
 
-              <div className="hero-buttons">
-                <button
-                  className="primary-button"
-                  onClick={() => scrollTo('projects')}
-                >
-                  View My Work
-                  <span>↗</span>
-                </button>
+            <p className="hero-description">
+              Turning complex data into actionable insights, intelligent
+              dashboards, automated reporting solutions and data-driven
+              business decisions.
+            </p>
 
-                <button
-                  className="secondary-button"
-                  onClick={() => scrollTo('contact')}
-                >
-                  Contact Me
-                </button>
+            <div className="hero-buttons">
+              <button
+                className="primary-button"
+                onClick={() => scrollTo('projects')}
+              >
+                View My Work <span>↗</span>
+              </button>
+
+              <button
+                className="secondary-button"
+                onClick={() => scrollTo('contact')}
+              >
+                Contact Me
+              </button>
+            </div>
+
+            <div className="hero-metrics">
+              <div>
+                <strong>5+</strong>
+                <span>Years Experience</span>
               </div>
 
-              <div className="hero-metrics">
-                <div>
-                  <strong>5+</strong>
-                  <span>Years Experience</span>
-                </div>
-
-                <div>
-                  <strong>8+</strong>
-                  <span>Teams Analyzed</span>
-                </div>
+              <div>
+                <strong>8+</strong>
+                <span>Teams Analyzed</span>
               </div>
             </div>
           </div>
@@ -283,9 +280,7 @@ function App() {
                 key={group.number}
                 style={{ '--delay': `${index * 0.12}s` }}
               >
-                <div className="expertise-index">
-                  {group.number}
-                </div>
+                <div className="expertise-index">{group.number}</div>
 
                 <div className="expertise-main">
                   <div className="expertise-heading">
@@ -318,9 +313,7 @@ function App() {
 
               <div className="timeline-content">
                 <p className="date">NOV 2023 — PRESENT</p>
-
                 <h3>Senior Officer – Data & Analytics</h3>
-
                 <h4>sheba.xyz Service Ltd.</h4>
 
                 <p>
@@ -346,9 +339,7 @@ function App() {
 
               <div className="timeline-content">
                 <p className="date">SEP 2021 — OCT 2023</p>
-
                 <h3>Junior Data Analyst</h3>
-
                 <h4>Chaldal PLC</h4>
 
                 <p>
@@ -371,9 +362,7 @@ function App() {
 
               <div className="timeline-content">
                 <p className="date">MAR 2021 — AUG 2021</p>
-
                 <h3>Academic Counselor</h3>
-
                 <h4>Shikho PLC</h4>
 
                 <p>
@@ -405,7 +394,6 @@ function App() {
                 </div>
 
                 <h3>{project.title}</h3>
-
                 <p>{project.text}</p>
 
                 <div className="tags">
