@@ -39,39 +39,6 @@ const expertiseGroups = [
   }
 ]
 
-const projects = [
-  {
-    title: 'Telesales Lead Management Automation',
-    text: 'Developed an automated telesales lead management solution using Python and Google Sheets for 70+ agents, streamlining lead generation, distribution, tracking and management.',
-    tags: ['Python', 'Google Sheets', 'Automation']
-  },
-  {
-    title: 'Operational BI Dashboards',
-    text: 'Built operational dashboards for Call Center, DQM, Complaint Management, Back Office and QAT teams to monitor KPIs and business performance.',
-    tags: ['SQL', 'BI', 'Dashboard']
-  },
-  {
-    title: 'Payroll & Attendance Automation',
-    text: 'Automated payroll, attendance and agent utilization processes using digiGo Attendance, variable calculation logic and Google Sheets, reducing manual effort and improving reporting accuracy.',
-    tags: ['digiGo Attendance', 'Variable Calculation', 'Google Sheets']
-  },
-  {
-    title: 'Reporting Workflow Automation',
-    text: 'Built automated reporting workflows using SQL, Python and Google Sheets to streamline recurring operational reports.',
-    tags: ['SQL', 'Python', 'Google Sheets']
-  },
-  {
-    title: 'Customer Cohort & Lead Analysis',
-    text: 'Performed customer cohort analysis and lead optimization to identify customer behavior patterns and improve acquisition and retention strategies.',
-    tags: ['SQL', 'Cohort Analysis', 'CRM']
-  },
-  {
-    title: 'Calling System Implementation',
-    text: 'Implemented Gplex, Cube and Pendulum calling systems and related operational processes to support telesales activities.',
-    tags: ['Gplex', 'Cube', 'Pendulum']
-  }
-]
-
 const achievements = [
   'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
   'Developed Python & Google Sheets-based reporting automation solutions to reduce manual reporting efforts.',
@@ -149,7 +116,7 @@ function App() {
       </nav>
 
       <main>
-        <section id="home" className="hero section">
+        <section id="home" className="section hero">
           <div className="hero-grid">
             <div className="hero-content">
               <p className="hero-label">DATA & BUSINESS INSIGHTS</p>
@@ -237,6 +204,7 @@ function App() {
 
               <div className="photo-caption">
                 <span>01</span>
+
                 <div>
                   <strong>ABUJAR AL-GIFARI</strong>
                   <small>DATA ANALYST</small>
@@ -308,17 +276,17 @@ function App() {
                 <span>TECHNICAL STACK</span>
               </div>
 
-              <span className="technical-count">08</span>
+              <span className="technical-count">08 SKILLS</span>
             </div>
-
-            <div className="technical-line"></div>
 
             <div className="technical-list">
               {heroSkills.map((skill, index) => (
                 <div
                   className="technical-item"
                   key={skill.name}
-                  style={{ '--technical-delay': `${index * 0.08}s` }}
+                  style={{
+                    '--technical-delay': `${index * 0.08}s`
+                  }}
                 >
                   <div className="technical-number">
                     {String(index + 1).padStart(2, '0')}
