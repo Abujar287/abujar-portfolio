@@ -6,6 +6,8 @@ const skills = [
   'SQL',
   'Advanced Excel',
   'Python',
+  'Pandas',
+  'Power BI',
   'Metabase',
   'Apache Superset',
   'DBGate',
@@ -60,17 +62,8 @@ const achievements = [
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
-  const [titleVisible, setTitleVisible] = useState(true)
 
   useEffect(() => {
-    const titleTimer = setInterval(() => {
-      setTitleVisible(false)
-
-      setTimeout(() => {
-        setTitleVisible(true)
-      }, 450)
-    }, 5000)
-
     const handleScroll = () => {
       const sections = [
         'home',
@@ -99,7 +92,6 @@ function App() {
     window.addEventListener('scroll', handleScroll)
 
     return () => {
-      clearInterval(titleTimer)
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
@@ -143,19 +135,30 @@ function App() {
         <section id="home" className="hero section">
           <div className="hero-grid">
             <div className="hero-content">
-              <div className="hero-label">
-                <span></span>
-                DATA ANALYST • BUSINESS INTELLIGENCE
-              </div>
-
               <h1>
                 ABUJAR
                 <strong>AL-GIFARI</strong>
               </h1>
 
-              <div className={`hero-title ${titleVisible ? 'show' : ''}`}>
-                <span>DATA ANALYST | BUSINESS INTELLIGENCE</span>
-                <span>EXCEL, SQL & PYTHON | CRM & CLM</span>
+              <div className="hero-title">
+                <div className="title-line">
+                  <span className="word word-1">DATA</span>
+                  <span className="word word-2">ANALYST</span>
+                  <span className="word word-3 separator">|</span>
+                  <span className="word word-4">BUSINESS</span>
+                  <span className="word word-5">INTELLIGENCE</span>
+                </div>
+
+                <div className="title-line second-line">
+                  <span className="word word-6">EXCEL,</span>
+                  <span className="word word-7">SQL</span>
+                  <span className="word word-8">&amp;</span>
+                  <span className="word word-9">PYTHON</span>
+                  <span className="word word-10 separator">|</span>
+                  <span className="word word-11">CRM</span>
+                  <span className="word word-12">&amp;</span>
+                  <span className="word word-13">CLM</span>
+                </div>
               </div>
 
               <p className="hero-description">
