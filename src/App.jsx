@@ -122,14 +122,10 @@ export default function Portfolio() {
               <div className="photo-corner bottom-left"></div>
               <div className="photo-corner bottom-right"></div>
               
-              {/* public ফোল্ডারে hero-photo.jpg ছবিটি রাখবেন */}
+              {/* public ফোল্ডারে থাকা profile_picture.jpg ব্যবহার করা হয়েছে */}
               <img 
-                src="/hero-photo.jpg" 
+                src="/profile_picture.jpg" 
                 alt="Abujar Al-Gifari" 
-                onError={(e) => {
-                  // যদি ছবি লোড না হয়, তবে টেক্সট মেসেজ হাইড থাকবে
-                  e.target.style.display = 'block';
-                }}
               />
             </div>
           </div>
