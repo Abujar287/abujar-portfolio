@@ -105,10 +105,8 @@ const navigation = [
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [technicalVisible, setTechnicalVisible] = useState(false)
-  const [imgError, setImgError] = useState(false)
   const technicalRef = useRef(null)
 
-  // Intersection Observer for Navbar active links tracking
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -132,7 +130,6 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
-  // Technical Section Observer
   useEffect(() => {
     const element = technicalRef.current
     if (!element) return
@@ -249,6 +246,7 @@ function App() {
               </div>
             </div>
 
+            {/* CLEAN PHOTO CONTAINER WITH NO TEXT OVERLAYS */}
             <div className="hero-photo">
               <div className="photo-frame">
                 <div className="photo-corner top-left"></div>
@@ -256,30 +254,13 @@ function App() {
                 <div className="photo-corner bottom-left"></div>
                 <div className="photo-corner bottom-right"></div>
 
-                {!imgError ? (
-                  <img
-                    src="/profile_picture.jpg"
-                    alt="Abujar Al-Gifari"
-                    onError={() => setImgError(true)}
-                  />
-                ) : (
-                  <div className="photo-placeholder">
-                    <span>AG</span>
-                  </div>
-                )}
-
-                <div className="photo-label">
-                  <span className="photo-dot"></span>
-                  DATA & ANALYTICS
-                </div>
-              </div>
-
-              <div className="photo-caption">
-                <span>01</span>
-                <div>
-                  <strong>ABUJAR AL-GIFARI</strong>
-                  <small>DATA ANALYST</small>
-                </div>
+                <img
+                  src="/profile_picture.jpg"
+                  alt="Abujar Al-Gifari"
+                  onError={e => {
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
               </div>
             </div>
           </div>
