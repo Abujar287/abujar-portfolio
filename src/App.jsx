@@ -69,6 +69,19 @@ const achievements = [
   'Successfully managed manual business operations for 1.5 months, achieving 3.0M+ NR.'
 ]
 
+const technicalSkills = [
+  'SQL',
+  'Advanced Excel',
+  'Python (Pandas)',
+  'Data Visualization',
+  'Dashboard Development',
+  'Metabase',
+  'Apache Superset',
+  'DBGate',
+  'Google Sheets Automation',
+  'MySQL'
+]
+
 const navigation = [
   'home',
   'about',
@@ -139,66 +152,87 @@ function App() {
 
       <main>
         <section id="home" className="hero section">
-          <div className="hero-content">
-            <p className="hero-label">DATA & BUSINESS INSIGHTS</p>
+          <div className="hero-grid">
+            <div className="hero-content">
+              <p className="hero-label">DATA & BUSINESS INSIGHTS</p>
 
-            <h1>
-              ABUJAR
-              <strong>AL-GIFARI</strong>
-            </h1>
+              <h1>
+                ABUJAR
+                <strong>AL-GIFARI</strong>
+              </h1>
 
-            <div className="hero-title">
-              <div className="title-line">
-                <span className="word word-1">DATA</span>
-                <span className="word word-2">ANALYST</span>
-                <span className="word separator word-3">|</span>
-                <span className="word word-4">BUSINESS</span>
-                <span className="word word-5">INTELLIGENCE</span>
+              <div className="hero-title">
+                <div className="title-line">
+                  <span className="word word-1">DATA</span>
+                  <span className="word word-2">ANALYST</span>
+                  <span className="word separator word-3">|</span>
+                  <span className="word word-4">BUSINESS</span>
+                  <span className="word word-5">INTELLIGENCE</span>
+                </div>
+
+                <div className="title-line second-line">
+                  <span className="word word-6">EXCEL,</span>
+                  <span className="word word-7">SQL</span>
+                  <span className="word word-8">&amp;</span>
+                  <span className="word word-9">PYTHON</span>
+                  <span className="word separator word-10">|</span>
+                  <span className="word word-11">CRM</span>
+                  <span className="word word-12">&amp;</span>
+                  <span className="word word-13">CLM</span>
+                </div>
               </div>
 
-              <div className="title-line second-line">
-                <span className="word word-6">EXCEL,</span>
-                <span className="word word-7">SQL</span>
-                <span className="word word-8">&amp;</span>
-                <span className="word word-9">PYTHON</span>
-                <span className="word separator word-10">|</span>
-                <span className="word word-11">CRM</span>
-                <span className="word word-12">&amp;</span>
-                <span className="word word-13">CLM</span>
+              <p className="hero-description">
+                Turning complex data into actionable insights, intelligent
+                dashboards, automated reporting solutions and data-driven
+                business decisions.
+              </p>
+
+              <div className="hero-buttons">
+                <button
+                  className="primary-button"
+                  onClick={() => scrollTo('projects')}
+                >
+                  View My Work <span>↗</span>
+                </button>
+
+                <button
+                  className="secondary-button"
+                  onClick={() => scrollTo('contact')}
+                >
+                  Contact Me
+                </button>
+              </div>
+
+              <div className="hero-metrics">
+                <div>
+                  <strong>5+</strong>
+                  <span>Years Experience</span>
+                </div>
+
+                <div>
+                  <strong>8+</strong>
+                  <span>Teams Analyzed</span>
+                </div>
               </div>
             </div>
 
-            <p className="hero-description">
-              Turning complex data into actionable insights, intelligent
-              dashboards, automated reporting solutions and data-driven
-              business decisions.
-            </p>
-
-            <div className="hero-buttons">
-              <button
-                className="primary-button"
-                onClick={() => scrollTo('projects')}
-              >
-                View My Work <span>↗</span>
-              </button>
-
-              <button
-                className="secondary-button"
-                onClick={() => scrollTo('contact')}
-              >
-                Contact Me
-              </button>
-            </div>
-
-            <div className="hero-metrics">
-              <div>
-                <strong>5+</strong>
-                <span>Years Experience</span>
+            <div className="hero-skills">
+              <div className="hero-skills-header">
+                <span>TECHNICAL SKILLS</span>
+                <i></i>
               </div>
 
-              <div>
-                <strong>8+</strong>
-                <span>Teams Analyzed</span>
+              <div className="hero-skills-list">
+                {technicalSkills.map((skill, index) => (
+                  <span
+                    key={skill}
+                    className="hero-skill"
+                    style={{ '--skill-delay': `${0.8 + index * 0.08}s` }}
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -270,10 +304,12 @@ function App() {
             {expertiseGroups.map((group, index) => (
               <article
                 className="expertise-item"
-                key={group.number}
+                key={group.title}
                 style={{ '--delay': `${index * 0.12}s` }}
               >
-                <div className="expertise-index">{group.number}</div>
+                <div className="expertise-index">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
 
                 <div className="expertise-main">
                   <div className="expertise-heading">
@@ -403,7 +439,7 @@ function App() {
           </div>
 
           <div className="achievement-grid">
-            {achievements.map((achievement, index) => (
+            {achievements.map(achievement => (
               <div className="achievement-card" key={achievement}>
                 <p>{achievement}</p>
               </div>
@@ -436,16 +472,9 @@ function App() {
               <p>TECHNICAL SKILLS</p>
 
               <div className="technical-list">
-                <span>SQL</span>
-                <span>Advanced Excel</span>
-                <span>Python (Pandas)</span>
-                <span>Data Visualization</span>
-                <span>Dashboard Development</span>
-                <span>Metabase</span>
-                <span>Apache Superset</span>
-                <span>DBGate</span>
-                <span>Google Sheets Automation</span>
-                <span>MySQL</span>
+                {technicalSkills.map(skill => (
+                  <span key={skill}>{skill}</span>
+                ))}
               </div>
             </div>
           </div>
