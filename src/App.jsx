@@ -10,28 +10,34 @@ const navItems = [
 
 const coreExpertise = [
   {
-    title: 'Business Intelligence & Dashboards',
+    title: 'Analytics & BI',
     description:
-      'Designing and building interactive dashboards in Metabase and Apache Superset that give stakeholders real-time visibility into KPIs, sales performance, and operational metrics.',
-    skills: ['Metabase', 'Apache Superset', 'KPI Design', 'Data Visualization', 'Reporting'],
+      'Turning business data into clear insights and decision-ready dashboards.',
+    skills: ['Data Analysis', 'Business Intelligence', 'Dashboard Development'],
   },
   {
-    title: 'Data Analysis & Reporting Automation',
+    title: 'Data & Querying',
     description:
-      'Writing SQL queries and Python scripts to extract, clean, and analyze large datasets, then automating recurring reports to eliminate manual work and reduce human error.',
-    skills: ['SQL', 'Python', 'Advanced Excel', 'Google Sheets', 'Automation'],
+      'Working with structured data, databases and efficient SQL workflows.',
+    skills: ['SQL', 'MySQL', 'DBGate'],
   },
   {
-    title: 'CRM & CLM Operations',
+    title: 'Automation & Productivity',
     description:
-      'Managing customer relationship and contract lifecycle workflows — tracking engagement, analyzing customer behavior, and ensuring data integrity across CRM and CLM platforms.',
-    skills: ['CRM', 'CLM', 'Customer Analytics', 'Data Quality', 'Process Optimization'],
+      'Automating repetitive reporting and operational processes.',
+    skills: ['Advanced Excel', 'Google Sheets', 'Python', 'Process Automation'],
   },
   {
-    title: 'Operational Performance Analysis',
+    title: 'BI Platforms',
     description:
-      'Collaborating with cross-functional teams to identify bottlenecks, measure performance against targets, and deliver actionable recommendations that drive operational improvements.',
-    skills: ['Performance Metrics', 'Trend Analysis', 'Stakeholder Reporting', 'Process Improvement'],
+      'Building and monitoring interactive business intelligence solutions.',
+    skills: ['Metabase', 'Apache Superset'],
+  },
+  {
+    title: 'Customer Intelligence',
+    description:
+      'Using customer and lifecycle data to improve business performance.',
+    skills: ['CRM', 'CLM'],
   },
 ]
 
