@@ -2,31 +2,26 @@ import React, { useEffect, useState } from 'react'
 
 const expertiseGroups = [
   {
-    number: '01',
     title: 'Analytics & BI',
     description: 'Turning business data into clear insights and decision-ready dashboards.',
     skills: ['Data Analysis', 'Business Intelligence', 'Dashboard Development']
   },
   {
-    number: '02',
     title: 'Data & Querying',
     description: 'Working with structured data, databases and efficient SQL workflows.',
     skills: ['SQL', 'MySQL', 'DBGate']
   },
   {
-    number: '03',
     title: 'Automation & Productivity',
     description: 'Automating repetitive reporting and operational processes.',
     skills: ['Advanced Excel', 'Google Sheets', 'Python', 'Process Automation']
   },
   {
-    number: '04',
     title: 'BI Platforms',
     description: 'Building and monitoring interactive business intelligence solutions.',
     skills: ['Metabase', 'Apache Superset']
   },
   {
-    number: '05',
     title: 'Customer Intelligence',
     description: 'Using customer and lifecycle data to improve business performance.',
     skills: ['CRM', 'CLM']
