@@ -1,20 +1,36 @@
 import React, { useEffect, useState } from 'react'
 
-const skills = [
-  'Data Analysis',
-  'Business Intelligence',
-  'SQL',
-  'Advanced Excel',
-  'Python',
-  'Metabase',
-  'Apache Superset',
-  'DBGate',
-  'Google Sheets',
-  'MySQL',
-  'CRM',
-  'CLM',
-  'Dashboard Development',
-  'Process Automation'
+const expertiseGroups = [
+  {
+    number: '01',
+    title: 'Analytics & BI',
+    description: 'Turning business data into clear insights and decision-ready dashboards.',
+    skills: ['Data Analysis', 'Business Intelligence', 'Dashboard Development']
+  },
+  {
+    number: '02',
+    title: 'Data & Querying',
+    description: 'Working with structured data, databases and efficient SQL workflows.',
+    skills: ['SQL', 'MySQL', 'DBGate']
+  },
+  {
+    number: '03',
+    title: 'Automation & Productivity',
+    description: 'Automating repetitive reporting and operational processes.',
+    skills: ['Advanced Excel', 'Google Sheets', 'Python', 'Process Automation']
+  },
+  {
+    number: '04',
+    title: 'BI Platforms',
+    description: 'Building and monitoring interactive business intelligence solutions.',
+    skills: ['Metabase', 'Apache Superset']
+  },
+  {
+    number: '05',
+    title: 'Customer Intelligence',
+    description: 'Using customer and lifecycle data to improve business performance.',
+    skills: ['CRM', 'CLM']
+  }
 ]
 
 const projects = [
@@ -58,36 +74,41 @@ const achievements = [
   'Successfully managed manual business operations for 1.5 months, achieving 3.0M+ NR.'
 ]
 
+const navigation = [
+  'home',
+  'about',
+  'skills',
+  'experience',
+  'projects',
+  'achievements',
+  'education',
+  'contact'
+]
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = [
-        'home',
-        'about',
-        'skills',
-        'experience',
-        'projects',
-        'achievements',
-        'education',
-        'contact'
-      ]
+      let currentSection = 'home'
 
-      sections.forEach(section => {
+      navigation.forEach(section => {
         const element = document.getElementById(section)
 
         if (!element) return
 
         const top = element.getBoundingClientRect().top
 
-        if (top <= 150 && top >= -element.offsetHeight + 150) {
-          setActiveSection(section)
+        if (top <= 180) {
+          currentSection = section
         }
       })
+
+      setActiveSection(currentSection)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -95,8 +116,13 @@ function App() {
   }, [])
 
   const scrollTo = section => {
-    document.getElementById(section)?.scrollIntoView({
-      behavior: 'smooth'
+    const element = document.getElementById(section)
+
+    if (!element) return
+
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
     })
   }
 
@@ -108,16 +134,7 @@ function App() {
         </div>
 
         <div className="nav-links">
-          {[
-            'home',
-            'about',
-            'skills',
-            'experience',
-            'projects',
-            'achievements',
-            'education',
-            'contact'
-          ].map(item => (
+          {navigation.map(item => (
             <button
               key={item}
               className={activeSection === item ? 'active' : ''}
@@ -248,18 +265,45 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section">
+        <section id="skills" className="section expertise-section">
           <div className="section-title">
             <span>02</span>
             <h2>Core Expertise</h2>
           </div>
 
-          <div className="skills-grid">
-            {skills.map(skill => (
-              <div className="skill-card" key={skill}>
-                <h3>{skill}</h3>
-                <div className="skill-line"></div>
-              </div>
+          <div className="expertise-intro">
+            <p>
+              Data, technology and business expertise combined to build
+              smarter decisions and scalable solutions.
+            </p>
+          </div>
+
+          <div className="expertise-showcase">
+            {expertiseGroups.map((group, index) => (
+              <article
+                className="expertise-item"
+                key={group.number}
+                style={{ '--delay': `${index * 0.12}s` }}
+              >
+                <div className="expertise-index">
+                  {group.number}
+                </div>
+
+                <div className="expertise-main">
+                  <div className="expertise-heading">
+                    <h3>{group.title}</h3>
+                    <span className="expertise-icon">↗</span>
+                  </div>
+
+                  <p>{group.description}</p>
+
+                  <div className="expertise-skills">
+                    {group.skills.map(skill => (
+                      <span key={skill}>{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </section>
