@@ -211,7 +211,6 @@ function App() {
 
         <section id="about" className="section about">
           <div className="section-title">
-            <span>01</span>
             <h2>Professional Summary</h2>
           </div>
 
@@ -406,7 +405,6 @@ function App() {
           <div className="achievement-grid">
             {achievements.map((achievement, index) => (
               <div className="achievement-card" key={achievement}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
                 <p>{achievement}</p>
               </div>
             ))}
