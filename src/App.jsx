@@ -296,7 +296,7 @@ function App() {
           ref={technicalRef}
         >
           <div className="section-title">
-            <h2>Technical Stack</h2>
+            <h2>Technical Skills</h2>
           </div>
 
           <div
@@ -307,10 +307,10 @@ function App() {
             <div className="technical-top">
               <div className="technical-heading">
                 <span className="technical-dot"></span>
-                <span>TECHNICAL STACK</span>
+                <span>TECHNICAL SKILLS</span>
               </div>
 
-              <span className="technical-count">08 SKILLS</span>
+              <span className="technical-count">SKILLS</span>
             </div>
 
             <div className="technical-list">
