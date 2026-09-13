@@ -104,8 +104,7 @@ export default function Portfolio() {
 
             <div className="hero-metrics">
               <div>
-                <strong>5+</strong>
-                <span>Years Experience</span>
+                <strong>5+ Years Experience</strong>
               </div>
               <div>
                 <strong>8+</strong>
