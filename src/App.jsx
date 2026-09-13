@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const skills = [
   'Data Analysis & Business Intelligence',
   'SQL & Database Analysis',
   'Query Optimization',
   'Advanced Excel & Google Sheets',
-  'Python Data Processing (Pandas)',
+  'Python Data Processing',
   'Dashboard Development',
   'KPI & Performance Analytics',
   'Business Process Automation',
@@ -89,18 +89,55 @@ const experiences = [
 ]
 
 function App() {
+  const [activeSection, setActiveSection] = useState('home')
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]')
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { rootMargin: '-30% 0px -60% 0px' }
+    )
+
+    sections.forEach(section => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="app">
+      <div className="background-glow glow-one"></div>
+      <div className="background-glow glow-two"></div>
+
       <header className="navbar">
-        <a className="logo" href="#">AA</a>
+        <a className="logo" href="#home">
+          AA
+        </a>
 
         <nav>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
+          {[
+            ['home', 'Home'],
+            ['about', 'About'],
+            ['skills', 'Skills'],
+            ['experience', 'Experience'],
+            ['projects', 'Projects'],
+            ['education', 'Education'],
+            ['contact', 'Contact']
+          ].map(([id, label]) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={activeSection === id ? 'active' : ''}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
         <a className="nav-button" href="#contact">
@@ -109,31 +146,33 @@ function App() {
       </header>
 
       <main>
-        <section className="hero">
+        <section id="home" className="hero">
           <div className="hero-content">
-            <p className="eyebrow">DATA ANALYST • BUSINESS INTELLIGENCE</p>
+            <p className="eyebrow reveal">
+              DATA ANALYST • BUSINESS INTELLIGENCE
+            </p>
 
-            <h1>
+            <h1 className="hero-title reveal">
               ABUJAR <span>AL-GIFARI</span>
             </h1>
 
-            <h2>
+            <h2 className="hero-subtitle reveal">
               Data Analyst | Business Intelligence | Excel, SQL & Python | CRM & CLM
             </h2>
 
-            <p className="hero-text">
+            <p className="hero-text reveal">
               Data & Business Insights Analyst with nearly 5 years of experience
               in Business Intelligence, Data Analytics, Reporting Automation,
               and Operational Performance Analysis.
             </p>
 
-            <p className="hero-text">
+            <p className="hero-text reveal">
               I transform complex data into actionable insights, optimize
               business processes and build automated reporting solutions to
               support data-driven decision-making.
             </p>
 
-            <div className="buttons">
+            <div className="buttons reveal">
               <a className="primary-button" href="#projects">
                 View Projects
               </a>
@@ -148,13 +187,13 @@ function App() {
               </a>
             </div>
 
-            <div className="links">
+            <div className="links reveal">
               <a
                 href="https://www.linkedin.com/in/abujar-al-gifari/"
                 target="_blank"
                 rel="noreferrer"
               >
-                LinkedIn
+                LinkedIn ↗
               </a>
 
               <a
@@ -162,72 +201,84 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                GitHub
+                GitHub ↗
               </a>
 
               <a href="mailto:abujar287.algifari@gmail.com">
-                Email
+                Email ↗
               </a>
             </div>
           </div>
 
-          <div className="profile-card">
-            <p>ANALYTICS PROFILE</p>
+          <div className="profile-card floating">
+            <div className="profile-top">
+              <span className="status-dot"></span>
+              AVAILABLE FOR OPPORTUNITIES
+            </div>
 
-            <div>
+            <p className="profile-label">ANALYTICS PROFILE</p>
+
+            <div className="profile-stat">
               <strong>5+</strong>
               <span>Years Experience</span>
             </div>
 
-            <div>
+            <div className="profile-stat">
               <strong>SQL</strong>
               <span>Database Analysis</span>
             </div>
 
-            <div>
+            <div className="profile-stat">
               <strong>BI</strong>
               <span>Business Intelligence</span>
             </div>
 
-            <div>
+            <div className="profile-stat">
               <strong>Excel</strong>
               <span>Advanced Analytics</span>
             </div>
 
-            <div>
+            <div className="profile-stat">
               <strong>CRM</strong>
               <span>Customer Analytics</span>
             </div>
           </div>
         </section>
 
-        <section id="about" className="section">
-          <p className="eyebrow">PROFESSIONAL SUMMARY</p>
+        <section id="about" className="section reveal-section">
+          <p className="eyebrow">01 — ABOUT ME</p>
 
           <h2>Turning data into actionable business insights.</h2>
 
-          <p className="section-text">
-            Data & Business Insights Analyst with nearly 5 years of experience
-            in Business Intelligence, Data Analytics, Reporting Automation,
-            and Operational Performance Analysis.
-          </p>
+          <div className="about-grid">
+            <p className="section-text">
+              Data & Business Insights Analyst with nearly 5 years of experience
+              in Business Intelligence, Data Analytics, Reporting Automation,
+              and Operational Performance Analysis.
+            </p>
 
-          <p className="section-text">
-            Experienced in SQL, Advanced Excel, Python, BI tools and reporting
-            automation to transform complex data into actionable insights,
-            optimize business processes and support data-driven decisions.
-          </p>
+            <p className="section-text">
+              Experienced in SQL, Advanced Excel, Python, BI tools and reporting
+              automation to transform complex data into actionable insights,
+              optimize business processes and support data-driven decisions.
+            </p>
+          </div>
         </section>
 
-        <section id="skills" className="section">
-          <p className="eyebrow">CORE EXPERTISE</p>
+        <section id="skills" className="section reveal-section">
+          <p className="eyebrow">02 — CORE EXPERTISE</p>
 
           <h2>What I work with.</h2>
 
           <div className="skill-grid">
-            {skills.map(skill => (
-              <div className="skill-card" key={skill}>
-                {skill}
+            {skills.map((skill, index) => (
+              <div
+                className="skill-card"
+                key={skill}
+                style={{ '--delay': `${index * 0.04}s` }}
+              >
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <strong>{skill}</strong>
               </div>
             ))}
           </div>
@@ -243,16 +294,24 @@ function App() {
           </div>
         </section>
 
-        <section id="experience" className="section">
-          <p className="eyebrow">PROFESSIONAL EXPERIENCE</p>
+        <section id="experience" className="section reveal-section">
+          <p className="eyebrow">03 — EXPERIENCE</p>
 
           <h2>My professional journey.</h2>
 
           <div className="timeline">
-            {experiences.map(experience => (
-              <article className="experience" key={experience.role}>
+            {experiences.map((experience, index) => (
+              <article
+                className="experience"
+                key={experience.role}
+                style={{ '--delay': `${index * 0.12}s` }}
+              >
                 <div className="experience-date">
                   {experience.date}
+                </div>
+
+                <div className="experience-line">
+                  <span></span>
                 </div>
 
                 <div className="experience-content">
@@ -270,16 +329,21 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="section">
-          <p className="eyebrow">KEY PROJECTS</p>
+        <section id="projects" className="section reveal-section">
+          <p className="eyebrow">04 — KEY PROJECTS</p>
 
           <h2>Analytics & process improvements.</h2>
 
           <div className="project-grid">
-            {projects.map(project => (
-              <article className="project-card" key={project.title}>
-                <div className="project-number">
-                  0{projects.indexOf(project) + 1}
+            {projects.map((project, index) => (
+              <article
+                className="project-card"
+                key={project.title}
+                style={{ '--delay': `${index * 0.1}s` }}
+              >
+                <div className="project-top">
+                  <span>0{index + 1}</span>
+                  <span>↗</span>
                 </div>
 
                 <h3>{project.title}</h3>
@@ -296,38 +360,38 @@ function App() {
           </div>
         </section>
 
-        <section className="section achievements">
-          <p className="eyebrow">KEY ACHIEVEMENTS</p>
+        <section className="section achievements reveal-section">
+          <p className="eyebrow">05 — KEY ACHIEVEMENTS</p>
 
           <h2>Impact through automation & analytics.</h2>
 
           <div className="achievement-grid">
-            <div>
+            <div className="achievement-card">
               <strong>70+</strong>
               <span>Telesales agents supported through lead automation</span>
             </div>
 
-            <div>
+            <div className="achievement-card">
               <strong>3.0M+</strong>
               <span>NR achieved during manual business operations</span>
             </div>
 
-            <div>
+            <div className="achievement-card">
               <strong>5+</strong>
               <span>Years of data & business analytics experience</span>
             </div>
 
-            <div>
+            <div className="achievement-card">
               <strong>4+</strong>
               <span>Major operational areas supported</span>
             </div>
           </div>
         </section>
 
-        <section id="education" className="section">
-          <p className="eyebrow">ACADEMIC QUALIFICATIONS</p>
+        <section id="education" className="section reveal-section">
+          <p className="eyebrow">06 — EDUCATION</p>
 
-          <h2>Education.</h2>
+          <h2>Academic qualifications.</h2>
 
           <div className="education-grid">
             <article className="education-card">
@@ -347,8 +411,8 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="contact">
-          <p className="eyebrow">GET IN TOUCH</p>
+        <section id="contact" className="contact reveal-section">
+          <p className="eyebrow">07 — GET IN TOUCH</p>
 
           <h2>Let's turn data into decisions.</h2>
 
@@ -357,8 +421,28 @@ function App() {
             Reporting, Automation and data-driven business operations.
           </p>
 
+          <div className="contact-details">
+            <a href="mailto:abujar287.algifari@gmail.com">
+              <span>Email</span>
+              abujar287.algifari@gmail.com
+            </a>
+
+            <a href="tel:+8801952980445">
+              <span>Phone</span>
+              +880 1952-980445
+            </a>
+
+            <a href="tel:+8801605089778">
+              <span>Phone</span>
+              +880 1605-089778
+            </a>
+          </div>
+
           <div className="buttons">
-            <a className="primary-button" href="mailto:abujar287.algifari@gmail.com">
+            <a
+              className="primary-button"
+              href="mailto:abujar287.algifari@gmail.com"
+            >
               Contact Me
             </a>
 
@@ -368,7 +452,7 @@ function App() {
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn
+              LinkedIn ↗
             </a>
           </div>
         </section>
