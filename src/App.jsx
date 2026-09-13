@@ -6,8 +6,6 @@ const skills = [
   'SQL',
   'Advanced Excel',
   'Python',
-  'Pandas',
-  'Power BI',
   'Metabase',
   'Apache Superset',
   'DBGate',
@@ -62,46 +60,16 @@ const achievements = [
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
-  const [typedText, setTypedText] = useState('')
-
-  const titles = [
-    'Data Analyst',
-    'Business Intelligence Analyst',
-    'Data & Business Insights Analyst'
-  ]
+  const [titleVisible, setTitleVisible] = useState(true)
 
   useEffect(() => {
-    let titleIndex = 0
-    let charIndex = 0
-    let deleting = false
-    let timer
+    const titleTimer = setInterval(() => {
+      setTitleVisible(false)
 
-    const type = () => {
-      const current = titles[titleIndex]
-
-      if (!deleting) {
-        setTypedText(current.substring(0, charIndex + 1))
-        charIndex++
-
-        if (charIndex === current.length) {
-          deleting = true
-          timer = setTimeout(type, 1800)
-          return
-        }
-      } else {
-        setTypedText(current.substring(0, charIndex - 1))
-        charIndex--
-
-        if (charIndex === 0) {
-          deleting = false
-          titleIndex = (titleIndex + 1) % titles.length
-        }
-      }
-
-      timer = setTimeout(type, deleting ? 45 : 85)
-    }
-
-    type()
+      setTimeout(() => {
+        setTitleVisible(true)
+      }, 450)
+    }, 5000)
 
     const handleScroll = () => {
       const sections = [
@@ -131,7 +99,7 @@ function App() {
     window.addEventListener('scroll', handleScroll)
 
     return () => {
-      clearTimeout(timer)
+      clearInterval(titleTimer)
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
@@ -185,15 +153,10 @@ function App() {
                 <strong>AL-GIFARI</strong>
               </h1>
 
-              <div className="hero-role">
-                {typedText}
-                <span className="cursor">|</span>
+              <div className={`hero-title ${titleVisible ? 'show' : ''}`}>
+                <span>DATA ANALYST | BUSINESS INTELLIGENCE</span>
+                <span>EXCEL, SQL & PYTHON | CRM & CLM</span>
               </div>
-
-              <h2>
-                Excel, SQL & Python
-                <span> | CRM & CLM</span>
-              </h2>
 
               <p className="hero-description">
                 Turning complex data into actionable insights, intelligent
