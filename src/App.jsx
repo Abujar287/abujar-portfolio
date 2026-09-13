@@ -39,6 +39,51 @@ const expertiseGroups = [
   }
 ]
 
+const experiences = [
+  {
+    period: 'NOV 2023 — PRESENT',
+    role: 'Senior Officer – Data & Analytics',
+    company: 'sheba.xyz Service Ltd.',
+    description:
+      'Responsible for business data analysis, SQL reporting, BI dashboards, operational performance analysis and data-driven decision support.',
+    highlights: [
+      'Analyzed business data and delivered actionable insights.',
+      'Developed automated dashboards and operational reports.',
+      'Monitored telesales and KAM performance through KPI analytics.',
+      'Performed customer cohort analysis and lead optimization.',
+      'Analyzed Call Center, DQM, Back Office, Complaint Management and QAT operations.',
+      'Automated payroll, attendance and agent utilization reporting.',
+      'Optimized SQL queries and reporting workflows.'
+    ]
+  },
+  {
+    period: 'SEP 2021 — OCT 2023',
+    role: 'Junior Data Analyst',
+    company: 'Chaldal PLC',
+    description:
+      'Supported business monitoring and operational decision-making through dashboards, reporting automation and business data analysis.',
+    highlights: [
+      'Created performance dashboards and operational reports.',
+      'Automated reporting processes.',
+      'Analyzed business data to improve operational efficiency.',
+      'Managed product pricing, mapping and inventory analysis.',
+      'Identified data gaps and provided business insights.'
+    ]
+  },
+  {
+    period: 'MAR 2021 — AUG 2021',
+    role: 'Academic Counselor',
+    company: 'Shikho PLC',
+    description:
+      'Managed customer communication, enrollment activities and sales support through effective student and parent engagement.',
+    highlights: [
+      'Guided students and parents regarding academic programs.',
+      'Managed customer communication and enrollment activities.',
+      'Supported sales operations through customer engagement.'
+    ]
+  }
+]
+
 const achievements = [
   'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
   'Developed Python & Google Sheets-based reporting automation solutions to reduce manual reporting efforts.',
@@ -52,7 +97,6 @@ const navigation = [
   'about',
   'skills',
   'experience',
-  'projects',
   'achievements',
   'education',
   'contact'
@@ -61,34 +105,36 @@ const navigation = [
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [technicalVisible, setTechnicalVisible] = useState(false)
+  const [imgError, setImgError] = useState(false)
   const technicalRef = useRef(null)
 
+  // Intersection Observer for Navbar active links tracking
   useEffect(() => {
-    const handleScroll = () => {
-      let currentSection = 'home'
-
-      navigation.forEach(section => {
-        const element = document.getElementById(section)
-
-        if (!element) return
-
-        if (element.getBoundingClientRect().top <= 180) {
-          currentSection = section
-        }
-      })
-
-      setActiveSection(currentSection)
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
     }
 
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, observerOptions)
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    navigation.forEach(id => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
+  // Technical Section Observer
   useEffect(() => {
     const element = technicalRef.current
-
     if (!element) return
 
     const observer = new IntersectionObserver(
@@ -99,19 +145,15 @@ function App() {
           }
         })
       },
-      {
-        threshold: 0.18
-      }
+      { threshold: 0.18 }
     )
 
     observer.observe(element)
-
     return () => observer.disconnect()
   }, [])
 
-  const scrollTo = section => {
-    const element = document.getElementById(section)
-
+  const scrollTo = sectionId => {
+    const element = document.getElementById(sectionId)
     if (!element) return
 
     element.scrollIntoView({
@@ -123,7 +165,7 @@ function App() {
   return (
     <div className="portfolio">
       <nav className="navbar">
-        <div className="logo">
+        <div className="logo" onClick={() => scrollTo('home')}>
           AG<span>.</span>
         </div>
 
@@ -141,14 +183,14 @@ function App() {
       </nav>
 
       <main>
+        {/* HERO SECTION */}
         <section id="home" className="section hero">
           <div className="hero-grid">
             <div className="hero-content">
               <p className="hero-label">DATA & BUSINESS INSIGHTS</p>
 
               <h1>
-                ABUJAR
-                <strong>AL-GIFARI</strong>
+                ABUJAR <strong>AL-GIFARI</strong>
               </h1>
 
               <div className="hero-title">
@@ -181,9 +223,9 @@ function App() {
               <div className="hero-buttons">
                 <button
                   className="primary-button"
-                  onClick={() => scrollTo('projects')}
+                  onClick={() => scrollTo('experience')}
                 >
-                  View My Work <span>↗</span>
+                  View My Experience <span>↗</span>
                 </button>
 
                 <button
@@ -214,13 +256,17 @@ function App() {
                 <div className="photo-corner bottom-left"></div>
                 <div className="photo-corner bottom-right"></div>
 
-                <img
-                  src="/profile_picture.jpg"
-                  alt="Abujar Al-Gifari"
-                  onError={event => {
-                    event.currentTarget.style.display = 'none'
-                  }}
-                />
+                {!imgError ? (
+                  <img
+                    src="/profile_picture.jpg"
+                    alt="Abujar Al-Gifari"
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <div className="photo-placeholder">
+                    <span>AG</span>
+                  </div>
+                )}
 
                 <div className="photo-label">
                   <span className="photo-dot"></span>
@@ -230,7 +276,6 @@ function App() {
 
               <div className="photo-caption">
                 <span>01</span>
-
                 <div>
                   <strong>ABUJAR AL-GIFARI</strong>
                   <small>DATA ANALYST</small>
@@ -245,6 +290,7 @@ function App() {
           </div>
         </section>
 
+        {/* ABOUT SECTION */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
@@ -259,10 +305,9 @@ function App() {
               </p>
 
               <p>
-                Proficient in SQL, Python, Advanced Excel, and BI tools
-                to transform complex data into actionable insights,
-                optimize business processes, and support data-driven
-                decision-making.
+                Proficient in SQL, Python, Advanced Excel, and BI tools to
+                transform complex data into actionable insights, optimize
+                business processes, and support data-driven decision-making.
               </p>
             </div>
 
@@ -290,6 +335,7 @@ function App() {
           </div>
         </section>
 
+        {/* TECHNICAL SKILLS SECTION */}
         <section
           id="skills"
           className="section technical-section"
@@ -327,9 +373,7 @@ function App() {
                   </div>
 
                   <div className="technical-main">
-                    <div className="technical-name">
-                      {skill.name}
-                    </div>
+                    <div className="technical-name">{skill.name}</div>
 
                     <div className="technical-meta">
                       <span>{skill.type}</span>
@@ -352,7 +396,8 @@ function App() {
           </div>
         </section>
 
-        <section id="experience" className="section expertise-section">
+        {/* CORE EXPERTISE SECTION */}
+        <section className="section expertise-section">
           <div className="section-title">
             <h2>Core Expertise</h2>
           </div>
@@ -366,10 +411,7 @@ function App() {
 
           <div className="expertise-showcase">
             {expertiseGroups.map((group, index) => (
-              <article
-                className="expertise-item"
-                key={group.title}
-              >
+              <article className="expertise-item" key={group.title}>
                 <div className="expertise-index">
                   {String(index + 1).padStart(2, '0')}
                 </div>
@@ -393,98 +435,51 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="section experience">
+        {/* PROFESSIONAL EXPERIENCE SECTION */}
+        <section id="experience" className="section experience">
           <div className="section-title">
             <h2>Professional Experience</h2>
           </div>
 
           <div className="timeline">
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
+            {experiences.map((exp, index) => (
+              <div className="timeline-item" key={index}>
+                <div className="timeline-dot"></div>
 
-              <div className="timeline-content">
-                <p className="date">NOV 2023 — PRESENT</p>
-                <h3>Senior Officer – Data & Analytics</h3>
-                <h4>sheba.xyz Service Ltd.</h4>
+                <div className="timeline-content">
+                  <p className="date">{exp.period}</p>
+                  <h3>{exp.role}</h3>
+                  <h4>{exp.company}</h4>
 
-                <p>
-                  Responsible for business data analysis, SQL reporting,
-                  BI dashboards, operational performance analysis and
-                  data-driven decision support.
-                </p>
+                  <p>{exp.description}</p>
 
-                <ul>
-                  <li>Analyzed business data and delivered actionable insights.</li>
-                  <li>Developed automated dashboards and operational reports.</li>
-                  <li>Monitored telesales and KAM performance through KPI analytics.</li>
-                  <li>Performed customer cohort analysis and lead optimization.</li>
-                  <li>Analyzed Call Center, DQM, Back Office, Complaint Management and QAT operations.</li>
-                  <li>Automated payroll, attendance and agent utilization reporting.</li>
-                  <li>Optimized SQL queries and reporting workflows.</li>
-                </ul>
+                  <ul>
+                    {exp.highlights.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-
-              <div className="timeline-content">
-                <p className="date">SEP 2021 — OCT 2023</p>
-                <h3>Junior Data Analyst</h3>
-                <h4>Chaldal PLC</h4>
-
-                <p>
-                  Supported business monitoring and operational decision-making
-                  through dashboards, reporting automation and business data analysis.
-                </p>
-
-                <ul>
-                  <li>Created performance dashboards and operational reports.</li>
-                  <li>Automated reporting processes.</li>
-                  <li>Analyzed business data to improve operational efficiency.</li>
-                  <li>Managed product pricing, mapping and inventory analysis.</li>
-                  <li>Identified data gaps and provided business insights.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-dot"></div>
-
-              <div className="timeline-content">
-                <p className="date">MAR 2021 — AUG 2021</p>
-                <h3>Academic Counselor</h3>
-                <h4>Shikho PLC</h4>
-
-                <p>
-                  Managed customer communication, enrollment activities and
-                  sales support through effective student and parent engagement.
-                </p>
-
-                <ul>
-                  <li>Guided students and parents regarding academic programs.</li>
-                  <li>Managed customer communication and enrollment activities.</li>
-                  <li>Supported sales operations through customer engagement.</li>
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
         </section>
 
+        {/* KEY ACHIEVEMENTS SECTION */}
         <section id="achievements" className="section achievements">
           <div className="section-title">
             <h2>Key Achievements</h2>
           </div>
 
           <div className="achievement-grid">
-            {achievements.map(achievement => (
-              <div className="achievement-card" key={achievement}>
+            {achievements.map((achievement, index) => (
+              <div className="achievement-card" key={index}>
                 <p>{achievement}</p>
               </div>
             ))}
           </div>
         </section>
 
+        {/* EDUCATION SECTION */}
         <section id="education" className="section education">
           <div className="section-title">
             <h2>Education</h2>
@@ -519,6 +514,7 @@ function App() {
           </div>
         </section>
 
+        {/* CONTACT SECTION */}
         <section id="contact" className="section contact">
           <div className="contact-content">
             <p className="eyebrow">LET'S CONNECT</p>
