@@ -82,14 +82,7 @@ function App() {
     type()
 
     const handleScroll = () => {
-      const sections = [
-        'home',
-        'about',
-        'skills',
-        'experience',
-        'projects',
-        'contact'
-      ]
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact']
 
       sections.forEach(section => {
         const element = document.getElementById(section)
@@ -120,21 +113,13 @@ function App() {
 
   return (
     <div className="portfolio">
-
       <nav className="navbar">
         <div className="logo">
           AG<span>.</span>
         </div>
 
         <div className="nav-links">
-          {[
-            'home',
-            'about',
-            'skills',
-            'experience',
-            'projects',
-            'contact'
-          ].map(item => (
+          {['home', 'about', 'skills', 'experience', 'projects', 'contact'].map(item => (
             <button
               key={item}
               className={activeSection === item ? 'active' : ''}
@@ -147,114 +132,150 @@ function App() {
       </nav>
 
       <main>
-
         <section id="home" className="hero section">
-
-          <div className="hero-glow glow-one"></div>
-          <div className="hero-glow glow-two"></div>
-
-          <div className="hero-content">
-
-            <p className="eyebrow">
-              DATA ANALYST • BUSINESS INTELLIGENCE
-            </p>
-
-            <h1>
-              ABUJAR
-              <span>AL-GIFARI</span>
-            </h1>
-
-            <div className="typing">
-              {typedText}
-              <span className="cursor">|</span>
-            </div>
-
-            <p className="hero-text">
-              Turning complex data into actionable insights,
-              intelligent dashboards and business decisions.
-            </p>
-
-            <div className="hero-buttons">
-              <button
-                className="primary-button"
-                onClick={() => scrollTo('projects')}
-              >
-                View My Work
-              </button>
-
-              <button
-                className="secondary-button"
-                onClick={() => scrollTo('contact')}
-              >
-                Contact Me
-              </button>
-            </div>
-
-            <div className="hero-stats">
-
-              <div>
-                <strong>5+</strong>
-                <span>Years Experience</span>
+          <div className="hero-grid">
+            <div className="hero-content">
+              <div className="hero-label">
+                <span></span>
+                DATA ANALYST • BUSINESS INTELLIGENCE
               </div>
 
-              <div>
-                <strong>10+</strong>
-                <span>Analytics Skills</span>
+              <h1>
+                ABUJAR
+                <strong>AL-GIFARI</strong>
+              </h1>
+
+              <div className="hero-role">
+                {typedText}
+                <span className="cursor">|</span>
               </div>
 
-              <div>
-                <strong>20+</strong>
-                <span>Automation Projects</span>
+              <h2>
+                Excel, SQL & Python
+                <span> | CRM & CLM</span>
+              </h2>
+
+              <p className="hero-description">
+                Turning complex data into actionable insights, intelligent
+                dashboards and data-driven business decisions.
+              </p>
+
+              <div className="hero-buttons">
+                <button
+                  className="primary-button"
+                  onClick={() => scrollTo('projects')}
+                >
+                  View My Work
+                  <span>↗</span>
+                </button>
+
+                <button
+                  className="secondary-button"
+                  onClick={() => scrollTo('contact')}
+                >
+                  Contact Me
+                </button>
               </div>
 
+              <div className="hero-metrics">
+                <div>
+                  <strong>5+</strong>
+                  <span>Years Experience</span>
+                </div>
+
+                <div>
+                  <strong>70+</strong>
+                  <span>Agents Supported</span>
+                </div>
+
+                <div>
+                  <strong>20+</strong>
+                  <span>Automation Projects</span>
+                </div>
+              </div>
             </div>
 
+            <div className="hero-visual">
+              <div className="visual-glow"></div>
+
+              <div className="visual-ring ring-one"></div>
+              <div className="visual-ring ring-two"></div>
+
+              <div className="analytics-card">
+                <div className="analytics-top">
+                  <div>
+                    <span>BUSINESS ANALYTICS</span>
+                    <strong>Performance Overview</strong>
+                  </div>
+
+                  <div className="status">
+                    <i></i>
+                    LIVE
+                  </div>
+                </div>
+
+                <div className="analytics-value">
+                  <strong>+32.8%</strong>
+                  <span>Performance Growth</span>
+                </div>
+
+                <div className="chart">
+                  <div style={{ height: '34%' }}></div>
+                  <div style={{ height: '48%' }}></div>
+                  <div style={{ height: '42%' }}></div>
+                  <div style={{ height: '65%' }}></div>
+                  <div style={{ height: '57%' }}></div>
+                  <div style={{ height: '82%' }}></div>
+                  <div style={{ height: '73%' }}></div>
+                  <div style={{ height: '92%' }}></div>
+                </div>
+
+                <div className="chart-labels">
+                  <span>JAN</span>
+                  <span>FEB</span>
+                  <span>MAR</span>
+                  <span>APR</span>
+                  <span>MAY</span>
+                  <span>JUN</span>
+                  <span>JUL</span>
+                  <span>AUG</span>
+                </div>
+              </div>
+
+              <div className="floating-card sql-card">
+                <span>01</span>
+                <strong>SQL</strong>
+                <small>Data Analysis</small>
+              </div>
+
+              <div className="floating-card excel-card">
+                <span>02</span>
+                <strong>EXCEL</strong>
+                <small>Automation</small>
+              </div>
+
+              <div className="floating-card python-card">
+                <span>03</span>
+                <strong>PYTHON</strong>
+                <small>Data Processing</small>
+              </div>
+            </div>
           </div>
 
-          <div className="hero-card">
-
-            <div className="card-orbit orbit-one"></div>
-            <div className="card-orbit orbit-two"></div>
-
-            <div className="data-card">
-
-              <div className="card-header">
-                <span>DATA INSIGHTS</span>
-                <span className="live-dot">● LIVE</span>
-              </div>
-
-              <div className="chart">
-                <div style={{ height: '35%' }}></div>
-                <div style={{ height: '52%' }}></div>
-                <div style={{ height: '44%' }}></div>
-                <div style={{ height: '68%' }}></div>
-                <div style={{ height: '61%' }}></div>
-                <div style={{ height: '82%' }}></div>
-                <div style={{ height: '74%' }}></div>
-              </div>
-
-              <div className="chart-footer">
-                <span>Performance</span>
-                <strong>+32.8%</strong>
-              </div>
-
-            </div>
-
+          <div className="scroll-indicator">
+            <span></span>
+            SCROLL TO EXPLORE
           </div>
-
         </section>
 
         <section id="about" className="section about">
-
           <div className="section-title">
             <span>01</span>
             <h2>Professional Summary</h2>
           </div>
 
           <div className="about-grid">
-
             <div>
-
               <p className="large-text">
                 Data & Business Insights Analyst with nearly 5 years of
                 experience in Business Intelligence, Data Analytics,
@@ -267,11 +288,9 @@ function App() {
                 optimize business processes, and support data-driven
                 decision-making.
               </p>
-
             </div>
 
             <div className="about-box">
-
               <div>
                 <span>FOCUS</span>
                 <strong>Business Intelligence</strong>
@@ -291,66 +310,43 @@ function App() {
                 <span>APPROACH</span>
                 <strong>Data Driven</strong>
               </div>
-
             </div>
-
           </div>
-
         </section>
 
         <section id="skills" className="section">
-
           <div className="section-title">
             <span>02</span>
             <h2>Core Expertise</h2>
           </div>
 
           <div className="skills-grid">
-
             {skills.map((skill, index) => (
               <div className="skill-card" key={skill}>
-
-                <span>
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-
+                <span>{String(index + 1).padStart(2, '0')}</span>
                 <h3>{skill}</h3>
-
                 <div className="skill-line"></div>
-
               </div>
             ))}
-
           </div>
-
         </section>
 
         <section id="experience" className="section experience">
-
           <div className="section-title">
             <span>03</span>
             <h2>Experience</h2>
           </div>
 
           <div className="timeline">
-
             <div className="timeline-item">
-
               <div className="timeline-dot"></div>
 
               <div className="timeline-content">
+                <p className="date">NOV 2023 — PRESENT</p>
 
-                <p className="date">
-                  NOV 2023 — PRESENT
-                </p>
+                <h3>Senior Officer – Data & Analytics</h3>
 
-                <h3>
-                  Senior Officer – Data & Analytics
-                </h3>
-
-                <h4>
-                  Sheba.xyz Service Ltd.
-                </h4>
+                <h4>Sheba.xyz Service Ltd.</h4>
 
                 <p>
                   Responsible for business data analysis, SQL reporting,
@@ -366,70 +362,45 @@ function App() {
                   <li>Payroll & attendance automation</li>
                   <li>Operational reporting automation</li>
                 </ul>
-
               </div>
-
             </div>
-
           </div>
-
         </section>
 
         <section id="projects" className="section">
-
           <div className="section-title">
             <span>04</span>
             <h2>Selected Projects</h2>
           </div>
 
           <div className="projects-grid">
-
             {projects.map((project, index) => (
-              <article
-                className="project-card"
-                key={project.title}
-              >
-
+              <article className="project-card" key={project.title}>
                 <div className="project-number">
                   {String(index + 1).padStart(2, '0')}
                 </div>
 
-                <h3>
-                  {project.title}
-                </h3>
+                <h3>{project.title}</h3>
 
-                <p>
-                  {project.text}
-                </p>
+                <p>{project.text}</p>
 
                 <div className="tags">
-
                   {project.tags.map(tag => (
-                    <span key={tag}>
-                      {tag}
-                    </span>
+                    <span key={tag}>{tag}</span>
                   ))}
-
                 </div>
-
               </article>
             ))}
-
           </div>
-
         </section>
 
         <section id="contact" className="section contact">
-
           <div className="contact-content">
-
-            <p className="eyebrow">
-              LET'S CONNECT
-            </p>
+            <p className="eyebrow">LET'S CONNECT</p>
 
             <h2>
               Let's turn data into
-              <span> meaningful insights.</span>
+              <span>meaningful insights.</span>
             </h2>
 
             <p>
@@ -438,7 +409,6 @@ function App() {
             </p>
 
             <div className="contact-info">
-
               <a href="mailto:abujar287.algifari@gmail.com">
                 <span>Email</span>
                 abujar287.algifari@gmail.com
@@ -453,11 +423,9 @@ function App() {
                 <span>Phone</span>
                 +880 1605-089778
               </a>
-
             </div>
 
             <div className="contact-buttons">
-
               <a
                 href="mailto:abujar287.algifari@gmail.com"
                 className="primary-button"
@@ -473,25 +441,15 @@ function App() {
               >
                 LinkedIn
               </a>
-
             </div>
-
           </div>
-
         </section>
-
       </main>
 
       <footer>
-        <span>
-          © 2026 Abujar Al-Gifari
-        </span>
-
-        <span>
-          Data • Insights • Intelligence
-        </span>
+        <span>© 2026 Abujar Al-Gifari</span>
+        <span>Data • Insights • Intelligence</span>
       </footer>
-
     </div>
   )
 }
