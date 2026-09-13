@@ -32,7 +32,7 @@ a {
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 80% 10%, rgba(99, 78, 220, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(99, 78, 220, .08), transparent 30%),
     #050505;
 }
 
@@ -46,8 +46,8 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 22px 7%;
-  background: rgba(5, 5, 5, 0.75);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(5, 5, 5, .75);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
   backdrop-filter: blur(20px);
 }
 
@@ -65,19 +65,22 @@ a {
 
 .nav-links {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  max-width: 80%;
+  overflow-x: auto;
 }
 
 .nav-links button {
-  padding: 8px 13px;
+  padding: 8px 11px;
   color: #777;
   background: transparent;
   border: 0;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.3px;
   text-transform: uppercase;
-  transition: 0.3s;
+  white-space: nowrap;
+  transition: .3s;
 }
 
 .nav-links button:hover,
@@ -102,7 +105,7 @@ a {
 .hero-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.05fr .95fr;
   align-items: center;
   gap: 60px;
 }
@@ -133,7 +136,7 @@ a {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(60px, 7.5vw, 105px);
-  line-height: 0.88;
+  line-height: .88;
   letter-spacing: -6px;
 }
 
@@ -156,7 +159,7 @@ a {
 
 .cursor {
   color: #8b7cff;
-  animation: blink 0.8s infinite;
+  animation: blink .8s infinite;
 }
 
 .hero h2 {
@@ -165,7 +168,6 @@ a {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(18px, 2.4vw, 25px);
   font-weight: 500;
-  letter-spacing: -0.5px;
 }
 
 .hero h2 span {
@@ -198,25 +200,25 @@ a {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .primary-button {
   color: #fff;
   background: #8274f5;
   border: 1px solid #8274f5;
-  box-shadow: 0 15px 40px rgba(130, 116, 245, 0.18);
+  box-shadow: 0 15px 40px rgba(130, 116, 245, .18);
 }
 
 .primary-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(130, 116, 245, 0.3);
+  box-shadow: 0 18px 45px rgba(130, 116, 245, .3);
 }
 
 .secondary-button {
   color: #ddd;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, .15);
 }
 
 .secondary-button:hover {
@@ -267,12 +269,12 @@ a {
   border-radius: 50%;
   background: #6754ff;
   filter: blur(120px);
-  opacity: 0.17;
+  opacity: .17;
 }
 
 .visual-ring {
   position: absolute;
-  border: 1px solid rgba(139, 124, 255, 0.13);
+  border: 1px solid rgba(139, 124, 255, .13);
   border-radius: 50%;
 }
 
@@ -294,10 +296,10 @@ a {
   z-index: 3;
   width: 350px;
   padding: 27px;
-  background: rgba(15, 15, 17, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 15, 17, .9);
+  border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 18px;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, .55);
   backdrop-filter: blur(20px);
   animation: floating 5s ease-in-out infinite;
 }
@@ -363,7 +365,7 @@ a {
   gap: 9px;
   margin-top: 25px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 
 .chart div {
@@ -396,10 +398,10 @@ a {
   z-index: 5;
   min-width: 125px;
   padding: 13px 16px;
-  background: rgba(12, 12, 13, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(12, 12, 13, .92);
+  border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 9px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .4);
   backdrop-filter: blur(15px);
   animation: floating 4s ease-in-out infinite;
 }
@@ -537,16 +539,16 @@ a {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
 .skill-card {
   position: relative;
-  min-height: 155px;
+  min-height: 145px;
   display: flex;
   align-items: center;
-  padding: 32px;
+  padding: 30px;
   background: #090909;
   border: 1px solid rgba(255, 255, 255, .07);
   border-radius: 10px;
@@ -564,15 +566,15 @@ a {
   margin: 0;
   color: #f2f2f2;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 700;
   letter-spacing: -.5px;
 }
 
 .skill-line {
   position: absolute;
-  left: 32px;
-  bottom: 24px;
+  left: 30px;
+  bottom: 23px;
   width: 40px;
   height: 2px;
   background: #8b7cff;
@@ -597,6 +599,11 @@ a {
 
 .timeline-item {
   position: relative;
+  margin-bottom: 90px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 
 .timeline-dot {
@@ -632,7 +639,7 @@ a {
 }
 
 .timeline-content > p {
-  max-width: 700px;
+  max-width: 750px;
   color: #777;
   line-height: 1.8;
 }
@@ -640,7 +647,7 @@ a {
 .timeline-content ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 14px;
   margin-top: 30px;
   padding: 0;
   list-style: none;
@@ -649,6 +656,7 @@ a {
 .timeline-content li {
   color: #aaa;
   font-size: 13px;
+  line-height: 1.6;
 }
 
 .timeline-content li::before {
@@ -712,6 +720,121 @@ a {
   letter-spacing: 1px;
 }
 
+.achievements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.achievement-card {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 28px;
+  background: #090909;
+  border: 1px solid rgba(255, 255, 255, .07);
+  transition: .3s;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 124, 255, .45);
+}
+
+.achievement-card > span {
+  color: #8b7cff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.achievement-card p {
+  margin: 0;
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.education {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.education-card {
+  min-height: 230px;
+  padding: 35px;
+  background: #090909;
+  border: 1px solid rgba(255, 255, 255, .07);
+}
+
+.education-card p {
+  margin: 0 0 18px;
+  color: #8b7cff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.education-card h3 {
+  margin: 0 0 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+}
+
+.education-card h4 {
+  margin: 0 0 8px;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.education-card span {
+  display: block;
+  color: #666;
+  font-size: 12px;
+}
+
+.education-card strong {
+  display: block;
+  margin-top: 25px;
+  color: #ddd;
+  font-size: 13px;
+}
+
+.technical-card {
+  grid-column: span 2;
+}
+
+.technical-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.technical-list span {
+  display: inline-block;
+  padding: 9px 13px;
+  color: #aaa;
+  background: rgba(139, 124, 255, .06);
+  border: 1px solid rgba(139, 124, 255, .15);
+  border-radius: 5px;
+  font-size: 11px;
+}
+
 .contact {
   display: flex;
   justify-content: center;
@@ -722,6 +845,14 @@ a {
 .contact-content {
   width: 100%;
   max-width: 850px;
+}
+
+.eyebrow {
+  margin-bottom: 25px;
+  color: #8b7cff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
 .contact h2 {
@@ -843,7 +974,7 @@ footer {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -871,7 +1002,23 @@ footer {
   }
 
   .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid,
+  .achievement-grid,
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-card {
+    grid-column: span 1;
   }
 }
 
@@ -955,8 +1102,14 @@ footer {
   }
 
   .skills-grid,
-  .projects-grid {
+  .projects-grid,
+  .achievement-grid,
+  .education-grid {
     grid-template-columns: 1fr;
+  }
+
+  .technical-card {
+    grid-column: span 1;
   }
 
   .skill-card {
