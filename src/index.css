@@ -523,10 +523,10 @@ a {
 
 .technical-heading > span:last-child,
 .technical-count {
-  color: #777781;
-  font-size: 9px;
+  color: #9a9aa6;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
 }
 
 .technical-dot {
@@ -641,8 +641,9 @@ a {
 .technical-name {
   color: #f5f5f7;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 700;
+  letter-spacing: -0.3px;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -654,29 +655,35 @@ a {
 
 .technical-meta {
   min-width: 0;
-  display: grid;
-  grid-template-columns: 1fr 8px 1fr;
+  display: flex;
   align-items: center;
-  gap: 9px;
+  justify-content: flex-end;
+  gap: 14px;
 }
 
 .technical-meta span {
-  color: #676772;
-  font-size: 8px;
+  color: #8a8a95;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.6px;
   white-space: nowrap;
 }
 
 .technical-meta span:last-child {
-  color: #a2a2ad;
+  color: var(--accent);
+  padding: 5px 12px;
+  border: 1px solid rgba(139, 124, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(139, 124, 255, 0.08);
+  letter-spacing: 1.2px;
 }
 
 .technical-meta i {
   width: 4px;
   height: 4px;
+  flex: 0 0 4px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #4a4a55;
 }
 
 .technical-arrow {
