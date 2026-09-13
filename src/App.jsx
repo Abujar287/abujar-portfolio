@@ -1,14 +1,28 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ]
 
+const technicalSkills = [
+  { name: 'SQL', category: 'Querying', level: 'Advanced' },
+  { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
+  { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
+  { name: 'Power BI', category: 'Dashboards', level: 'Advanced' },
+  { name: 'Reporting Automation', category: 'Workflows', level: 'Proficient' },
+  { name: 'CRM & CLM', category: 'Operations', level: 'Specialist' },
+]
+
+const technicalTags = ['ETL', 'DAX', 'PANDAS', 'PIVOT TABLES', 'DATA VIZ', 'KPIs', 'FORECASTING']
+
 export default function App() {
   const [active, setActive] = useState('home')
+  const [skillsVisible, setSkillsVisible] = useState(false)
+  const skillsRef = useRef(null)
 
   const scrollTo = (id) => {
     const el = document.getElementById(id)
@@ -22,6 +36,22 @@ export default function App() {
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const node = skillsRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSkillsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.25 },
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
   }, [])
 
   return (
@@ -141,6 +171,51 @@ export default function App() {
                 <span>APPROACH</span>
                 <strong>Data Driven</strong>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="section technical-section">
+          <div className="section-title">
+            <h2>Technical Skills</h2>
+          </div>
+          <div
+            ref={skillsRef}
+            className={`technical-showcase${skillsVisible ? ' technical-active' : ''}`}
+          >
+            <div className="technical-top">
+              <div className="technical-heading">
+                <span className="technical-dot" />
+                <span>CORE TOOLKIT</span>
+              </div>
+              <span className="technical-count">{`0${technicalSkills.length} DISCIPLINES`}</span>
+            </div>
+
+            <div className="technical-list">
+              {technicalSkills.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className="technical-item"
+                  style={{ '--technical-delay': `${index * 0.1}s` }}
+                >
+                  <span className="technical-number">{`0${index + 1}`}</span>
+                  <div className="technical-main">
+                    <span className="technical-name">{skill.name}</span>
+                    <div className="technical-meta">
+                      <span>{skill.category.toUpperCase()}</span>
+                      <i />
+                      <span>{skill.level.toUpperCase()}</span>
+                    </div>
+                  </div>
+                  <span className="technical-arrow">↗</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="technical-footer">
+              {technicalTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
             </div>
           </div>
         </section>
