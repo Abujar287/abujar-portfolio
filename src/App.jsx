@@ -6,8 +6,6 @@ const skills = [
   'SQL',
   'Advanced Excel',
   'Python',
-  'Pandas',
-  'Power BI',
   'Metabase',
   'Apache Superset',
   'DBGate',
