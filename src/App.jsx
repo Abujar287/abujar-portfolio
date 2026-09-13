@@ -3,7 +3,7 @@ import './styles.css'
 function App() {
   return (
     <main className="hero">
-      <img src="/cv%20pic.jpg" alt="Abujar Al-Gifari" />
+      <div className="photo">AA</div>
 
       <h1>ABUJAR AL-GIFARI</h1>
 
