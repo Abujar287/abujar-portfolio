@@ -8,6 +8,33 @@ const navItems = [
   { id: 'contact', label: 'Contact' },
 ]
 
+const coreExpertise = [
+  {
+    title: 'Business Intelligence & Dashboards',
+    description:
+      'Designing and building interactive dashboards in Metabase and Apache Superset that give stakeholders real-time visibility into KPIs, sales performance, and operational metrics.',
+    skills: ['Metabase', 'Apache Superset', 'KPI Design', 'Data Visualization', 'Reporting'],
+  },
+  {
+    title: 'Data Analysis & Reporting Automation',
+    description:
+      'Writing SQL queries and Python scripts to extract, clean, and analyze large datasets, then automating recurring reports to eliminate manual work and reduce human error.',
+    skills: ['SQL', 'Python', 'Advanced Excel', 'Google Sheets', 'Automation'],
+  },
+  {
+    title: 'CRM & CLM Operations',
+    description:
+      'Managing customer relationship and contract lifecycle workflows — tracking engagement, analyzing customer behavior, and ensuring data integrity across CRM and CLM platforms.',
+    skills: ['CRM', 'CLM', 'Customer Analytics', 'Data Quality', 'Process Optimization'],
+  },
+  {
+    title: 'Operational Performance Analysis',
+    description:
+      'Collaborating with cross-functional teams to identify bottlenecks, measure performance against targets, and deliver actionable recommendations that drive operational improvements.',
+    skills: ['Performance Metrics', 'Trend Analysis', 'Stakeholder Reporting', 'Process Improvement'],
+  },
+]
+
 const technicalSkills = [
   { name: 'SQL', category: 'Querying', level: 'Advanced' },
   { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
@@ -210,6 +237,35 @@ export default function App() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="expertise" className="section expertise-section">
+          <div className="section-title">
+            <h2>Core Expertise</h2>
+          </div>
+          <p className="expertise-intro">
+            A blend of technical depth and business acumen — turning raw data into strategic
+            assets across analytics, automation, and operations.
+          </p>
+          <div className="expertise-showcase">
+            {coreExpertise.map((item, index) => (
+              <div key={item.title} className="expertise-item">
+                <div className="expertise-index">{`0${index + 1}`}</div>
+                <div className="expertise-main">
+                  <div className="expertise-heading">
+                    <h3>{item.title}</h3>
+                    <span className="expertise-icon">↗</span>
+                  </div>
+                  <p>{item.description}</p>
+                  <div className="expertise-skills">
+                    {item.skills.map((skill) => (
+                      <span key={skill}>{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
