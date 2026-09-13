@@ -1,39 +1,63 @@
 import React, { useEffect, useState } from 'react'
 
 const skills = [
+  'Data Analysis',
+  'Business Intelligence',
   'SQL',
   'Advanced Excel',
   'Python',
+  'Pandas',
+  'Power BI',
   'Metabase',
-  'Superset',
+  'Apache Superset',
+  'DBGate',
   'Google Sheets',
+  'MySQL',
   'CRM',
   'CLM',
-  'Data Analytics',
-  'Automation'
+  'Dashboard Development',
+  'Process Automation'
 ]
 
 const projects = [
   {
-    title: 'Telesales Lead Management',
-    text: 'Automated lead distribution, tracking and performance monitoring for telesales operations with 70+ agents.',
-    tags: ['Google Sheets', 'Automation', 'KPI']
+    title: 'Telesales Lead Management Automation',
+    text: 'Developed Google Sheets-based telesales lead management automation solutions for 70+ agents, improving lead tracking and distribution efficiency.',
+    tags: ['Google Sheets', 'Automation', '70+ Agents']
   },
   {
-    title: 'Business Intelligence Dashboard',
-    text: 'Developed operational dashboards for monitoring sales, KAM, call center and back-office performance.',
+    title: 'Operational BI Dashboards',
+    text: 'Built operational dashboards for Call Center, DQM, Complaint Management, Back Office and QAT teams to monitor KPIs and business performance.',
     tags: ['SQL', 'BI', 'Dashboard']
   },
   {
-    title: 'Customer Cohort Analysis',
-    text: 'Analyzed customer behavior, service history and order patterns to support retention and acquisition strategies.',
-    tags: ['SQL', 'Python', 'Analytics']
+    title: 'Payroll & Attendance Automation',
+    text: 'Automated payroll, attendance and agent utilization reporting processes to reduce manual effort and improve reporting accuracy.',
+    tags: ['Excel', 'Python', 'Automation']
   },
   {
-    title: 'Payroll & Attendance Automation',
-    text: 'Automated payroll, attendance and utilization reporting to reduce manual operational workload.',
-    tags: ['Excel', 'Python', 'Automation']
+    title: 'Reporting Workflow Automation',
+    text: 'Built automated reporting workflows using SQL, Python and Google Sheets to streamline recurring operational reports.',
+    tags: ['SQL', 'Python', 'Google Sheets']
+  },
+  {
+    title: 'Customer Cohort & Lead Analysis',
+    text: 'Performed customer cohort analysis and lead optimization to identify customer behavior patterns and improve acquisition and retention strategies.',
+    tags: ['SQL', 'Cohort Analysis', 'CRM']
+  },
+  {
+    title: 'Calling System Implementation',
+    text: 'Implemented Gplex, Cube and Pendulum calling systems and related operational processes to support telesales activities.',
+    tags: ['Gplex', 'Cube', 'Pendulum']
   }
+]
+
+const achievements = [
+  'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
+  'Developed Python & Google Sheets-based reporting automation solutions to reduce manual reporting efforts.',
+  'Developed operational dashboards for Call Center, DQM, Complaint Management and Back Office teams.',
+  'Automated telesales lead management for 70+ agents.',
+  'Successfully managed manual business operations for 1.5 months, achieving 3.0M+ NR.'
 ]
 
 function App() {
@@ -80,7 +104,7 @@ function App() {
     type()
 
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'contact']
+      const sections = ['home', 'about', 'skills', 'experience', 'projects', 'achievements', 'education', 'contact']
 
       sections.forEach(section => {
         const element = document.getElementById(section)
@@ -117,7 +141,16 @@ function App() {
         </div>
 
         <div className="nav-links">
-          {['home', 'about', 'skills', 'experience', 'projects', 'contact'].map(item => (
+          {[
+            'home',
+            'about',
+            'skills',
+            'experience',
+            'projects',
+            'achievements',
+            'education',
+            'contact'
+          ].map(item => (
             <button
               key={item}
               className={activeSection === item ? 'active' : ''}
@@ -155,7 +188,8 @@ function App() {
 
               <p className="hero-description">
                 Turning complex data into actionable insights, intelligent
-                dashboards and data-driven business decisions.
+                dashboards, automated reporting solutions and data-driven
+                business decisions.
               </p>
 
               <div className="hero-buttons">
@@ -187,8 +221,8 @@ function App() {
                 </div>
 
                 <div>
-                  <strong>20+</strong>
-                  <span>Automation Projects</span>
+                  <strong>3.0M+</strong>
+                  <span>NR Achieved</span>
                 </div>
               </div>
             </div>
@@ -330,7 +364,7 @@ function App() {
         <section id="experience" className="section experience">
           <div className="section-title">
             <span>03</span>
-            <h2>Experience</h2>
+            <h2>Professional Experience</h2>
           </div>
 
           <div className="timeline">
@@ -342,7 +376,7 @@ function App() {
 
                 <h3>Senior Officer – Data & Analytics</h3>
 
-                <h4>Sheba.xyz Service Ltd.</h4>
+                <h4>sheba.xyz Service Ltd.</h4>
 
                 <p>
                   Responsible for business data analysis, SQL reporting,
@@ -351,12 +385,61 @@ function App() {
                 </p>
 
                 <ul>
-                  <li>Telesales & KAM KPI monitoring</li>
-                  <li>Customer cohort & lead optimization</li>
-                  <li>Call Center & DQM analytics</li>
-                  <li>Complaint Management analytics</li>
-                  <li>Payroll & attendance automation</li>
-                  <li>Operational reporting automation</li>
+                  <li>Analyzed business data and delivered actionable insights.</li>
+                  <li>Developed automated dashboards and operational reports.</li>
+                  <li>Monitored telesales and KAM performance through KPI analytics.</li>
+                  <li>Performed customer cohort analysis and lead optimization.</li>
+                  <li>Analyzed Call Center, DQM, Back Office, Complaint Management and QAT operations.</li>
+                  <li>Automated payroll, attendance and agent utilization reporting.</li>
+                  <li>Optimized SQL queries and reporting workflows.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+
+              <div className="timeline-content">
+                <p className="date">SEP 2021 — OCT 2023</p>
+
+                <h3>Junior Data Analyst</h3>
+
+                <h4>Chaldal PLC</h4>
+
+                <p>
+                  Supported business monitoring and operational decision-making
+                  through dashboards, reporting automation and business data analysis.
+                </p>
+
+                <ul>
+                  <li>Created performance dashboards and operational reports.</li>
+                  <li>Automated reporting processes.</li>
+                  <li>Analyzed business data to improve operational efficiency.</li>
+                  <li>Managed product pricing, mapping and inventory analysis.</li>
+                  <li>Identified data gaps and provided business insights.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+
+              <div className="timeline-content">
+                <p className="date">MAR 2021 — AUG 2021</p>
+
+                <h3>Academic Counselor</h3>
+
+                <h4>Shikho PLC</h4>
+
+                <p>
+                  Managed customer communication, enrollment activities and
+                  sales support through effective student and parent engagement.
+                </p>
+
+                <ul>
+                  <li>Guided students and parents regarding academic programs.</li>
+                  <li>Managed customer communication and enrollment activities.</li>
+                  <li>Supported sales operations through customer engagement.</li>
                 </ul>
               </div>
             </div>
@@ -366,7 +449,7 @@ function App() {
         <section id="projects" className="section">
           <div className="section-title">
             <span>04</span>
-            <h2>Selected Projects</h2>
+            <h2>Key Projects</h2>
           </div>
 
           <div className="projects-grid">
@@ -387,6 +470,63 @@ function App() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="achievements" className="section achievements">
+          <div className="section-title">
+            <span>05</span>
+            <h2>Key Achievements</h2>
+          </div>
+
+          <div className="achievement-grid">
+            {achievements.map((achievement, index) => (
+              <div className="achievement-card" key={achievement}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <p>{achievement}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="education" className="section education">
+          <div className="section-title">
+            <span>06</span>
+            <h2>Education & Technical Skills</h2>
+          </div>
+
+          <div className="education-grid">
+            <div className="education-card">
+              <p>BACHELOR OF SCIENCE</p>
+              <h3>B.Sc. in Botany</h3>
+              <h4>Jashore Govt. City College</h4>
+              <span>National University</span>
+              <strong>CGPA: 2.99 / 4.00</strong>
+            </div>
+
+            <div className="education-card">
+              <p>HIGHER SECONDARY CERTIFICATE</p>
+              <h3>H.S.C. in Science</h3>
+              <h4>Raipur School & College, Jashore</h4>
+              <strong>GPA: 3.50 / 5.00</strong>
+            </div>
+
+            <div className="education-card technical-card">
+              <p>TECHNICAL SKILLS</p>
+
+              <div className="technical-list">
+                <span>SQL</span>
+                <span>Advanced Excel</span>
+                <span>Python (Pandas)</span>
+                <span>Data Visualization</span>
+                <span>Dashboard Development</span>
+                <span>Metabase</span>
+                <span>Apache Superset</span>
+                <span>DBGate</span>
+                <span>Google Sheets Automation</span>
+                <span>MySQL</span>
+              </div>
+            </div>
           </div>
         </section>
 
