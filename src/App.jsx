@@ -10,34 +10,40 @@ const navItems = [
 
 const coreExpertise = [
   {
-    title: 'Analytics & BI',
+    title: 'Analytics & Business Intelligence',
     description:
-      'Turning business data into clear insights and decision-ready dashboards.',
-    skills: ['Data Analysis', 'Business Intelligence', 'Dashboard Development'],
+      'Turning business data into meaningful insights, KPI analysis and decision-ready dashboards.',
+    skills: ['Data Analysis', 'Business Intelligence', 'KPI Analysis', 'Dashboard Development'],
   },
   {
-    title: 'Data & Querying',
+    title: 'SQL & Data',
     description:
-      'Working with structured data, databases and efficient SQL workflows.',
-    skills: ['SQL', 'MySQL', 'DBGate'],
+      'Working with structured data and databases to extract, analyze and deliver reliable business insights.',
+    skills: ['SQL', 'MySQL', 'Database Analysis', 'Query Optimization', 'DBGate'],
   },
   {
     title: 'Automation & Productivity',
     description:
-      'Automating repetitive reporting and operational processes.',
-    skills: ['Advanced Excel', 'Google Sheets', 'Python', 'Process Automation'],
+      'Automating reporting and repetitive processes to improve efficiency, accuracy and operational productivity.',
+    skills: ['Advanced Excel', 'Google Sheets', 'Python', 'Pandas', 'Process Automation'],
   },
   {
-    title: 'BI Platforms',
+    title: 'BI & Dashboards',
     description:
-      'Building and monitoring interactive business intelligence solutions.',
-    skills: ['Metabase', 'Apache Superset'],
+      'Building interactive dashboards that provide clear visibility into KPIs, business performance and operational metrics.',
+    skills: ['Metabase', 'Apache Superset', 'Data Visualization', 'KPI Reporting'],
   },
   {
     title: 'Customer Intelligence',
     description:
-      'Using customer and lifecycle data to improve business performance.',
-    skills: ['CRM', 'CLM'],
+      'Using customer and lifecycle data to understand behavior, improve data quality and support better business decisions.',
+    skills: ['CRM', 'CLM', 'Customer Analytics', 'Customer Insights'],
+  },
+  {
+    title: 'Operational Analytics',
+    description:
+      'Analyzing performance, identifying process gaps and transforming operational data into actionable improvements.',
+    skills: ['Performance Analysis', 'Trend Analysis', 'Operational Reporting', 'Process Improvement'],
   },
 ]
 
@@ -251,8 +257,8 @@ export default function App() {
             <h2>Core Expertise</h2>
           </div>
           <p className="expertise-intro">
-            A blend of technical depth and business acumen — turning raw data into strategic
-            assets across analytics, automation, and operations.
+            Data, technology and business expertise combined to turn complex data into clear
+            insights, smarter decisions and scalable solutions.
           </p>
           <div className="expertise-showcase">
             {coreExpertise.map((item, index) => (
