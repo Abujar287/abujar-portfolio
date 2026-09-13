@@ -263,7 +263,6 @@ export default function App() {
           <div className="expertise-showcase">
             {coreExpertise.map((item, index) => (
               <div key={item.title} className="expertise-item">
-                <div className="expertise-index">{`0${index + 1}`}</div>
                 <div className="expertise-main">
                   <div className="expertise-heading">
                     <h3>{item.title}</h3>

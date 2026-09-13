@@ -744,9 +744,6 @@ a {
 }
 
 .expertise-item {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 30px;
   padding: 38px 0;
   border-bottom: 1px solid var(--border);
   transition: 0.3s;
@@ -1199,11 +1196,6 @@ footer {
     min-height: 65px;
     padding: 0 16px;
     flex-wrap: wrap;
-  }
-
-  .expertise-item {
-    grid-template-columns: 45px 1fr;
-    gap: 15px;
   }
 
   .expertise-heading h3 {
