@@ -212,7 +212,54 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <section id="contact" className="section contact">
+          <div className="contact-content">
+            <p className="eyebrow">GET IN TOUCH</p>
+            <h2>
+              LET'S WORK
+              <span>TOGETHER</span>
+            </h2>
+            <p>
+              Open to opportunities in data analysis, business intelligence, and reporting
+              automation. Whether you have a question, a project, or just want to connect — feel
+              free to reach out.
+            </p>
+            <div className="contact-info">
+              <a href="mailto:abujar287.algifari@gmail.com">
+                <span>EMAIL</span>
+                abujar287.algifari@gmail.com
+              </a>
+              <a href="tel:+8801952980445">
+                <span>PRIMARY PHONE</span>
+                +880 1952-980445
+              </a>
+              <a href="tel:+8801605089778">
+                <span>SECONDARY PHONE</span>
+                +880 1605089778
+              </a>
+            </div>
+            <div className="contact-buttons">
+              <a href="mailto:abujar287.algifari@gmail.com" className="primary-button">
+                Send Email <span>↗</span>
+              </a>
+              <a
+                href="/Abujar-Al-Gifari-CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="secondary-button"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <footer>
+        <span>{`© ${new Date().getFullYear()} ABUJAR AL-GIFARI`}</span>
+        <span>DATA ANALYST · BUSINESS INTELLIGENCE</span>
+      </footer>
     </div>
   )
 }
