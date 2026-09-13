@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('home');
