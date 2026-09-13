@@ -214,18 +214,12 @@ function App() {
                   <strong>5+</strong>
                   <span>Years Experience</span>
                 </div>
-
+              
                 <div>
-                  <strong>70+</strong>
-                  <span>Agents Supported</span>
-                </div>
-
-                <div>
-                  <strong>3.0M+</strong>
-                  <span>NR Achieved</span>
+                  <strong>8+</strong>
+                  <span>Teams Analyzed</span>
                 </div>
               </div>
-            </div>
 
             <div className="hero-visual">
               <div className="visual-glow"></div>
