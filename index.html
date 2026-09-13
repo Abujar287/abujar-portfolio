@@ -1,26 +1,261 @@
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+.expertise-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    <meta
-      name="description"
-      content="Abujar Al-Gifari | Data Analyst | Business Intelligence | Excel, SQL, Python | CRM & CLM"
-    />
+.expertise-intro {
+  max-width: 650px;
+  margin: -35px 0 55px;
+}
 
-    <meta
-      name="keywords"
-      content="Abujar Al-Gifari, Data Analyst, Business Intelligence, SQL, Excel, Python, CRM, CLM"
-    />
+.expertise-intro p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+}
 
-    <title>Abujar Al-Gifari | Data Analyst</title>
-  </head>
+.expertise-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
-```
+.expertise-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  min-height: 150px;
+  overflow: hidden;
+  background:
+    linear-gradient(100deg, rgba(139, 124, 255, .035), transparent 55%),
+    #090909;
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(25px);
+  animation: expertiseReveal .7s cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: var(--delay);
+  transition:
+    transform .4s ease,
+    border-color .4s ease,
+    background .4s ease,
+    box-shadow .4s ease;
+}
+
+.expertise-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #8b7cff;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .4s ease;
+}
+
+.expertise-item::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(139, 124, 255, .13), transparent 70%);
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+
+.expertise-item:hover {
+  transform: translateX(8px);
+  border-color: rgba(139, 124, 255, .35);
+  background:
+    linear-gradient(100deg, rgba(139, 124, 255, .08), transparent 65%),
+    #0b0b0b;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+}
+
+.expertise-item:hover::before {
+  transform: scaleY(1);
+}
+
+.expertise-item:hover::after {
+  opacity: 1;
+}
+
+.expertise-index {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 32px;
+  color: #8b7cff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.expertise-main {
+  position: relative;
+  z-index: 2;
+  padding: 28px 35px 28px 0;
+}
+
+.expertise-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expertise-heading h3 {
+  margin: 0;
+  color: #f2f2f2;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -.7px;
+  transition: color .3s ease;
+}
+
+.expertise-item:hover .expertise-heading h3 {
+  color: #fff;
+}
+
+.expertise-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  color: #666;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 50%;
+  font-size: 14px;
+  transition: .4s;
+}
+
+.expertise-item:hover .expertise-icon {
+  color: #fff;
+  background: #8274f5;
+  border-color: #8274f5;
+  transform: rotate(45deg);
+}
+
+.expertise-main > p {
+  max-width: 700px;
+  margin: 9px 0 18px;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.7;
+  transition: color .3s ease;
+}
+
+.expertise-item:hover .expertise-main > p {
+  color: #858585;
+}
+
+.expertise-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.expertise-skills span {
+  padding: 7px 11px;
+  color: #999;
+  background: rgba(255, 255, 255, .035);
+  border: 1px solid rgba(255, 255, 255, .07);
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  transition: .3s;
+}
+
+.expertise-item:hover .expertise-skills span {
+  color: #c4bfff;
+  background: rgba(139, 124, 255, .07);
+  border-color: rgba(139, 124, 255, .18);
+}
+
+@keyframes expertiseReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 700px) {
+  .expertise-intro {
+    margin: -35px 0 35px;
+  }
+
+  .expertise-intro p {
+    font-size: 13px;
+  }
+
+  .expertise-item {
+    grid-template-columns: 55px 1fr;
+    min-height: 155px;
+  }
+
+  .expertise-index {
+    padding-top: 28px;
+    font-size: 10px;
+  }
+
+  .expertise-main {
+    padding: 25px 20px 25px 0;
+  }
+
+  .expertise-heading h3 {
+    font-size: 20px;
+  }
+
+  .expertise-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .expertise-main > p {
+    font-size: 11px;
+    margin: 8px 0 15px;
+  }
+
+  .expertise-skills {
+    gap: 6px;
+  }
+
+  .expertise-skills span {
+    padding: 6px 9px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .expertise-item {
+    grid-template-columns: 42px 1fr;
+  }
+
+  .expertise-main {
+    padding-right: 15px;
+  }
+
+  .expertise-heading h3 {
+    font-size: 18px;
+  }
+
+  .expertise-main > p {
+    font-size: 10px;
+  }
+}
