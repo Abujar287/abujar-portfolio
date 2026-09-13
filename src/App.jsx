@@ -10,9 +10,12 @@ const navItems = [
 
 const technicalSkills = [
   { name: 'SQL', category: 'Querying', level: 'Advanced' },
-  { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
   { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
-  { name: 'Reporting Automation', category: 'Workflows', level: 'Proficient' },
+  { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
+  { name: 'Business Intelligence', category: 'Analytics', level: 'Advanced' },
+  { name: 'Metabase', category: 'Dashboards', level: 'Proficient' },
+  { name: 'Apache Superset', category: 'Dashboards', level: 'Proficient' },
+  { name: 'Google Sheets', category: 'Modeling', level: 'Advanced' },
   { name: 'CRM & CLM', category: 'Operations', level: 'Specialist' },
 ]
 
