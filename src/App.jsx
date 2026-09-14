@@ -160,20 +160,24 @@ const professionalExperience = [
 
 const achievementsData = [
   {
-    category: 'Process & System Improvements',
+    title: 'Process & System Improvements',
+    subtitle: 'System Architecture & Automation',
+    period: 'Core Optimization',
+    duration: 'Infrastructure',
     icon: '⚡',
-    theme: 'cyan',
-    items: [
+    responsibilities: [
       'Implemented Gplex, Cube, and Pendulum calling systems & processes.',
       'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time and improving reporting accuracy.',
       'Developed Google Sheets-based Telesales Lead Management automation solutions for 70+ agents, improving lead tracking efficiency.',
     ],
   },
   {
-    category: 'Key Achievements & Impact',
+    title: 'Key Achievements & Impact',
+    subtitle: 'Operational Excellence & Analytics',
+    period: 'Business Growth',
+    duration: 'Impact Driven',
     icon: '🎯',
-    theme: 'purple',
-    items: [
+    responsibilities: [
       'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
       'Developed Python & Google Sheets-based reporting automation solutions to streamline recurring reports and reduce manual reporting efforts.',
       'Developed operational dashboards for Call Center, DQM, Complaint Management, and Back Office teams.',
@@ -579,8 +583,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- KEY ACHIEVEMENTS (RE-DESIGNED & ANIMATED) --- */}
-        <section id="achievements" className="section achievements-section">
+        {/* --- KEY ACHIEVEMENTS (MATCHING EXPERIENCE & EXPERTISE STYLE) --- */}
+        <section id="achievements" className="section expertise-section">
           <div className="section-title">
             <h2>Key Achievements</h2>
           </div>
@@ -591,43 +595,54 @@ export default function App() {
 
           <div
             ref={achievementsRef}
-            className={`achievements-wrapper${
-              achievementsVisible ? ' achievements-active' : ''
+            className={`expertise-showcase exp-grid-layout${
+              achievementsVisible ? ' expertise-active' : ''
             }`}
           >
-            {achievementsData.map((group, groupIdx) => (
+            {achievementsData.map((group, index) => (
               <div
-                key={group.category}
-                className={`achievement-group theme-${group.theme}`}
+                key={`${group.title}-${index}`}
+                className="expertise-item exp-card"
+                style={{
+                  '--expertise-delay': `${index * 0.15}s`,
+                }}
               >
-                <div className="group-header">
-                  <div className="group-title-badge">
-                    <span className="group-icon">{group.icon}</span>
-                    <h3>{group.category}</h3>
-                  </div>
-                  <div className="group-line" />
-                </div>
+                <div className="expertise-bar" />
 
-                <div className="achievement-grid">
-                  {group.items.map((item, itemIdx) => {
-                    const globalIndex = groupIdx * 3 + itemIdx
-                    return (
-                      <div
-                        key={itemIdx}
-                        className="achievement-card"
+                <div className="expertise-main">
+                  <div className="exp-heading">
+                    <h3 className="exp-title">
+                      <span style={{ marginRight: '8px' }}>{group.icon}</span>
+                      {group.title}
+                    </h3>
+                    <span className="expertise-icon">↗</span>
+                  </div>
+
+                  <p className="exp-company">
+                    <span className="company-name">{group.subtitle}</span>
+                  </p>
+
+                  <div className="exp-badge">
+                    <span className="exp-period">{group.period}</span>
+                    <span className="exp-dot">•</span>
+                    <span className="exp-duration">{group.duration}</span>
+                  </div>
+
+                  <div className="expertise-skills exp-list">
+                    {group.responsibilities.map((resp, idx) => (
+                      <span
+                        key={idx}
+                        className="exp-item-tag"
                         style={{
-                          '--card-delay': `${globalIndex * 0.12}s`,
+                          '--skill-delay': `${
+                            index * 0.12 + idx * 0.05 + 0.2
+                          }s`,
                         }}
                       >
-                        <div className="card-top-indicator">
-                          <span className="sparkle">✦</span>
-                          <span className="card-num">0{itemIdx + 1}</span>
-                        </div>
-                        <p className="achievement-text">{item}</p>
-                        <div className="card-hover-glow" />
-                      </div>
-                    )
-                  })}
+                        <span className="bullet-symbol">✦</span> {resp}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -658,7 +673,7 @@ export default function App() {
 
               <a href="tel:+8801952980445">
                 <span>PRIMARY PHONE</span>
-                +880 1952-980445
+                +880 1952980445
               </a>
 
               <a href="tel:+8801605089778">
@@ -828,20 +843,14 @@ export default function App() {
           font-size: 0.9rem;
         }
 
-        /* --- PROFESSIONAL EXPERIENCE --- */
+        /* --- PROFESSIONAL EXPERIENCE & ACHIEVEMENTS SHARED LAYOUT --- */
         .exp-grid-layout {
           display: grid !important;
-          grid-template-columns: repeat(3, 1fr) !important;
-          gap: 20px !important;
+          grid-template-columns: repeat(2, 1fr) !important;
+          gap: 24px !important;
         }
 
         @media (max-width: 1024px) {
-          .exp-grid-layout {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-
-        @media (max-width: 768px) {
           .exp-grid-layout {
             grid-template-columns: 1fr !important;
           }
@@ -859,6 +868,8 @@ export default function App() {
           font-weight: 700 !important;
           color: #ffffff !important;
           margin: 0 !important;
+          display: flex;
+          align-items: center;
         }
 
         .exp-company {
@@ -926,173 +937,6 @@ export default function App() {
           color: #a78bfa;
           font-weight: bold;
           margin-right: 2px;
-        }
-
-        /* --- MODERN ANIMATED KEY ACHIEVEMENTS --- */
-        .achievements-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: 40px;
-          margin-top: 24px;
-        }
-
-        .achievement-group {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-        }
-
-        .group-header {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-        }
-
-        .group-title-badge {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          padding: 8px 18px;
-          border-radius: 30px;
-          backdrop-filter: blur(8px);
-        }
-
-        .theme-cyan .group-title-badge {
-          border-color: rgba(56, 189, 248, 0.3);
-        }
-
-        .theme-purple .group-title-badge {
-          border-color: rgba(167, 139, 250, 0.3);
-        }
-
-        .group-icon {
-          font-size: 1.2rem;
-        }
-
-        .group-title-badge h3 {
-          font-size: 1.05rem;
-          font-weight: 700;
-          color: #ffffff;
-          margin: 0;
-          letter-spacing: 0.5px;
-        }
-
-        .group-line {
-          flex: 1;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
-        }
-
-        .achievement-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
-        }
-
-        @media (max-width: 1024px) {
-          .achievement-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .achievement-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        .achievement-card {
-          position: relative;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.07);
-          border-radius: 12px;
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          gap: 14px;
-          overflow: hidden;
-          opacity: 0;
-          transform: translateY(25px) scale(0.98);
-          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .achievements-active .achievement-card {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-          transition-delay: var(--card-delay, 0s);
-        }
-
-        .achievement-card:hover {
-          background: rgba(255, 255, 255, 0.05);
-          transform: translateY(-5px);
-        }
-
-        .theme-cyan .achievement-card:hover {
-          border-color: rgba(56, 189, 248, 0.5);
-          box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
-        }
-
-        .theme-purple .achievement-card:hover {
-          border-color: rgba(167, 139, 250, 0.5);
-          box-shadow: 0 10px 30px -10px rgba(167, 139, 250, 0.15);
-        }
-
-        .card-top-indicator {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .sparkle {
-          font-size: 0.9rem;
-        }
-
-        .theme-cyan .sparkle {
-          color: #38bdf8;
-        }
-
-        .theme-purple .sparkle {
-          color: #a78bfa;
-        }
-
-        .card-num {
-          font-size: 0.75rem;
-          font-weight: 700;
-          color: #64748b;
-          letter-spacing: 1px;
-        }
-
-        .achievement-text {
-          font-size: 0.92rem;
-          line-height: 1.6;
-          color: #cbd5e1;
-          margin: 0;
-          font-weight: 400;
-        }
-
-        .achievement-card:hover .achievement-text {
-          color: #ffffff;
-        }
-
-        .card-hover-glow {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: transparent;
-          transition: background 0.3s ease;
-        }
-
-        .theme-cyan .achievement-card:hover .card-hover-glow {
-          background: linear-gradient(90deg, transparent, #38bdf8, transparent);
-        }
-
-        .theme-purple .achievement-card:hover .card-hover-glow {
-          background: linear-gradient(90deg, transparent, #a78bfa, transparent);
         }
       `}</style>
     </div>
