@@ -273,6 +273,7 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
+  const [aboutVisible, setAboutVisible] = useState(false)
   const [expandedProjectIndex, setExpandedProjectIndex] = useState(0)
 
   const skillsRef = useRef(null)
@@ -280,6 +281,7 @@ export default function App() {
   const experienceRef = useRef(null)
   const projectsRef = useRef(null)
   const achievementsRef = useRef(null)
+  const aboutRef = useRef(null)
 
   const scrollTo = (id) => {
     const element = document.getElementById(id)
@@ -383,6 +385,22 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    const node = aboutRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAboutVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
     const styleId = 'portfolio-custom-global-styles'
     if (!document.getElementById(styleId)) {
       const tag = document.createElement('style')
@@ -436,13 +454,34 @@ export default function App() {
           margin-left: 0 !important;
           min-width: 0;
         }
-        /* Responsive scaling for full name to prevent cutoff */
+        /* Full Name Styling */
         .hero-content h1 {
           font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
           font-weight: 800;
           letter-spacing: -0.5px;
           line-height: 1.1;
-          white-space: nowrap;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.3em;
+          margin-bottom: 12px;
+        }
+        /* Adjusted Subtitle/Role Styling */
+        .hero-title {
+          font-size: 0.85rem !important;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          color: #94a3b8;
+          text-transform: uppercase;
+          line-height: 1.5;
+          margin-bottom: 16px;
+        }
+        .hero-title .title-line {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.4ch;
+        }
+        .hero-title .separator {
+          color: #a78bfa;
         }
         .hero-photo {
           flex-shrink: 0;
@@ -454,27 +493,118 @@ export default function App() {
           left: 2rem !important;
           transform: none !important;
         }
+
+        /* Restored About/Contact Section Animations & Styling */
         .contact-wrapper {
           align-items: flex-start !important;
           text-align: left !important;
           margin: 0 !important;
+          background: linear-gradient(135deg, rgba(167, 139, 250, 0.04) 0%, rgba(20, 20, 30, 0.6) 100%);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 16px;
+          padding: 40px;
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .contact-wrapper.about-active {
+          opacity: 1;
+          transform: translateY(0);
         }
         .contact-main-heading {
           align-items: flex-start !important;
           text-align: left !important;
+          width: 100%;
+          margin-bottom: 24px;
+        }
+        .contact-subtag {
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 2px;
+          color: #a78bfa;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+          display: block;
         }
         .contact-title-row {
-          justify-content: flex-start !important;
+          display: flex;
+          gap: 12px;
+          align-items: baseline;
+          flex-wrap: wrap;
+          margin-bottom: 12px;
+        }
+        .contact-title-solid {
+          font-size: 2rem;
+          font-weight: 800;
+          color: #ffffff;
+          letter-spacing: -0.5px;
+        }
+        .contact-title-outline {
+          font-size: 2rem;
+          font-weight: 800;
+          color: transparent;
+          -webkit-text-stroke: 1px rgba(167, 139, 250, 0.6);
+          letter-spacing: -0.5px;
         }
         .contact-desc {
           margin: 0 !important;
           text-align: left !important;
+          font-size: 0.9rem !important;
+          line-height: 1.5;
+          color: #94a3b8;
+          max-width: 700px;
         }
         .contact-details-stacked {
-          align-items: flex-start !important;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          width: 100%;
+          margin-bottom: 30px;
+        }
+        .contact-field-group {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-left: 3px solid #a78bfa;
+          border-radius: 8px;
+          padding: 12px 18px;
+          transition: all 0.3s ease;
+        }
+        .contact-field-group:hover {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(167, 139, 250, 0.3);
+          transform: translateX(4px);
+        }
+        .contact-field-label {
+          font-size: 0.7rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: #94a3b8;
+          display: block;
+          margin-bottom: 4px;
+        }
+        .contact-field-value {
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #f1f5f9;
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .contact-field-value:hover {
+          color: #38bdf8;
+        }
+        .contact-buttons-row {
+          display: flex;
+          gap: 12px;
+          margin-bottom: 30px;
         }
         .footer-banner {
           text-align: left !important;
+          font-size: 0.7rem;
+          color: #64748b;
+          letter-spacing: 1px;
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          padding-top: 20px;
+          width: 100%;
         }
 
         /* Fully flush left alignment container override for Technical Skills */
@@ -537,9 +667,6 @@ export default function App() {
           }
           .hero-grid {
             flex-direction: column;
-          }
-          .hero-content h1 {
-            white-space: normal !important;
           }
         }
         @media (max-width: 640px) {
@@ -852,7 +979,7 @@ export default function App() {
           <div className="hero-grid">
             <div className="hero-content">
               <h1>
-                ABUJAR <strong>AL-GIFARI</strong>
+                <span>ABUJAR</span> <strong>AL-GIFARI</strong>
               </h1>
 
               <div className="hero-title">
@@ -1244,9 +1371,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- ABOUT (Contact Section acting as About at the end) --- */}
+        {/* --- ABOUT / CONTACT SECTION --- */}
         <section id="about" className="section expertise-section">
-          <div className="contact-wrapper">
+          <div ref={aboutRef} className={`contact-wrapper ${aboutVisible ? 'about-active' : ''}`}>
             <div className="contact-main-heading">
               <span className="contact-subtag">Get In Touch</span>
               <div className="contact-title-row">
