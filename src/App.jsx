@@ -493,7 +493,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PROFESSIONAL EXPERIENCE (GRID LAYOUT + PERFECT FORMAT) --- */}
+        {/* --- PROFESSIONAL EXPERIENCE (SAME FORMAT & STYLING AS CORE EXPERTISE) --- */}
         <section id="experience" className="section expertise-section">
           <div className="section-title">
             <h2>Professional Experience</h2>
@@ -512,7 +512,7 @@ export default function App() {
             {professionalExperience.map((job, index) => (
               <div
                 key={`${job.company}-${index}`}
-                className="expertise-item exp-card-item"
+                className="expertise-item"
                 style={{
                   '--expertise-delay': `${index * 0.15}s`,
                 }}
@@ -520,24 +520,33 @@ export default function App() {
                 <div className="expertise-bar" />
 
                 <div className="expertise-main">
+                  {/* Core Expertise Header Style */}
                   <div className="expertise-heading">
                     <h3>{job.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
 
-                  <p className="exp-company-name">{job.company}</p>
+                  {/* Core Expertise Subtitle Text Style */}
+                  <p className="exp-company">{job.company}</p>
 
-                  {/* আপনার চাওয়া হুবহু ফরম্যাট */}
-                  <div className="exp-sub-info">
+                  <p className="exp-meta">
                     📍 {job.location} · 📅 {job.period} ({job.duration})
-                  </div>
+                  </p>
 
-                  <div className="exp-bullet-list">
+                  {/* Core Expertise Tag/Pill Style List */}
+                  <div className="expertise-skills exp-list">
                     {job.responsibilities.map((resp, idx) => (
-                      <div key={idx} className="exp-bullet-item">
-                        <span className="exp-arrow-bullet">▸</span>
-                        <span>{resp}</span>
-                      </div>
+                      <span
+                        key={idx}
+                        className="exp-item-tag"
+                        style={{
+                          '--skill-delay': `${
+                            index * 0.12 + idx * 0.05 + 0.2
+                          }s`,
+                        }}
+                      >
+                        ▸ {resp}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -608,7 +617,7 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
-        /* Experience Section Grid Customization */
+        /* Experience Grid Matching Core Expertise */
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
@@ -627,49 +636,42 @@ export default function App() {
           }
         }
 
-        .exp-card-item {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-
-        .exp-company-name {
-          color: #8b5cf6 !important;
-          font-weight: 600 !important;
+        /* Core Expertise font styling for company name */
+        .exp-company {
+          color: #a78bfa !important;
+          font-weight: 500 !important;
           font-size: 0.95rem !important;
-          margin-top: 4px !important;
-          margin-bottom: 8px !important;
+          margin-top: -4px !important;
+          margin-bottom: 6px !important;
         }
 
-        .exp-sub-info {
-          font-size: 0.8rem;
-          color: #94a3b8;
-          margin-bottom: 16px;
-          letter-spacing: 0.01em;
-          line-height: 1.5;
+        /* Core Expertise intro text style for meta info */
+        .exp-meta {
+          font-size: 0.82rem !important;
+          color: #94a3b8 !important;
+          margin-bottom: 16px !important;
+          line-height: 1.4 !important;
         }
 
-        .exp-bullet-list {
+        /* Responsibilities using Core Expertise tags animation & font */
+        .exp-list {
           display: flex;
           flex-direction: column;
-          gap: 8px;
-          margin-top: 6px;
-        }
-
-        .exp-bullet-item {
-          display: flex;
           align-items: flex-start;
-          gap: 8px;
-          font-size: 0.88rem;
-          line-height: 1.45;
-          color: #cbd5e1;
+          gap: 8px !important;
+          margin-top: 10px;
         }
 
-        .exp-arrow-bullet {
-          color: #6366f1;
-          font-size: 0.75rem;
-          margin-top: 2px;
-          flex-shrink: 0;
+        .exp-item-tag {
+          font-size: 0.85rem !important;
+          line-height: 1.4 !important;
+          color: #e2e8f0 !important;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 6px;
+          padding: 6px 10px;
+          width: 100%;
+          text-align: left;
         }
       `}</style>
     </div>
