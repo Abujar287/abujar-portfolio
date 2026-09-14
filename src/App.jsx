@@ -3,12 +3,11 @@ import { useEffect, useRef, useState } from 'react'
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
   { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'achievements', label: 'Achievements' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'skills', label: 'Skills' },
 ]
 
 const coreExpertise = [
@@ -288,7 +287,6 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
-  const [contactVisible, setContactVisible] = useState(false)
   const [expandedProjectIndex, setExpandedProjectIndex] = useState(0)
 
   const skillsRef = useRef(null)
@@ -296,7 +294,6 @@ export default function App() {
   const experienceRef = useRef(null)
   const projectsRef = useRef(null)
   const achievementsRef = useRef(null)
-  const contactRef = useRef(null)
 
   const scrollTo = (id) => {
     const element = document.getElementById(id)
@@ -390,22 +387,6 @@ export default function App() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setAchievementsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    observer.observe(node)
-    return () => observer.disconnect()
-  }, [])
-
-  useEffect(() => {
-    const node = contactRef.current
-    if (!node) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setContactVisible(true)
           observer.disconnect()
         }
       },
@@ -882,7 +863,7 @@ export default function App() {
 
                 <button
                   className="secondary-button"
-                  onClick={() => scrollTo('contact')}
+                  onClick={() => scrollTo('about')}
                 >
                   Contact Me
                 </button>
@@ -910,48 +891,54 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- TECHNICAL SKILLS --- */}
-        <section id="skills" className="section technical-section">
-          <div className="section-title">
-            <h2>Technical Skills</h2>
-          </div>
-
-          <div
-            ref={skillsRef}
-            className={`technical-showcase${
-              skillsVisible ? ' technical-active' : ''
-            }`}
-          >
-            <div className="technical-top">
-              <div className="technical-heading">
-                <span className="technical-dot" />
-                <span>CORE TOOLKIT &amp; PROFICIENCIES</span>
+        {/* --- GET IN TOUCH / CONTACT SECTION (Now acting as ABOUT) --- */}
+        <section id="about" className="section expertise-section">
+          <div className="contact-wrapper">
+            <div className="contact-main-heading">
+              <span className="contact-subtag">Get In Touch</span>
+              <div className="contact-title-row">
+                <span className="contact-title-solid">LET'S WORK</span>
+                <span className="contact-title-outline">TOGETHER</span>
               </div>
-
-              <span className="technical-count">
-                SKILLS CATEGORIES
-              </span>
+              <p className="contact-desc">
+                Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
+              </p>
             </div>
 
-            <div className="skills-category-wrapper">
-              {technicalSkillCategories.map((group) => (
-                <div
-                  key={group.category}
-                  className="skill-category-card"
-                >
-                  <h3 className="category-title">{group.category}</h3>
-                  <div className="category-skills-list">
-                    {group.skills.map((skill) => (
-                      <div key={skill.name} className="skill-row">
-                        <span className="skill-name">{skill.name}</span>
-                        <span className={`skill-level-badge level-${skill.level.toLowerCase()}`}>
-                          {skill.level}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="contact-details-stacked">
+              <div className="contact-field-group">
+                <span className="contact-field-label">Email</span>
+                <a href="mailto:abujar287.algifari@gmail.com" className="contact-field-value">
+                  abujar287.algifari@gmail.com
+                </a>
+              </div>
+
+              <div className="contact-field-group">
+                <span className="contact-field-label">Primary Phone</span>
+                <a href="tel:+8801952980445" className="contact-field-value">
+                  +880 1952980445
+                </a>
+              </div>
+
+              <div className="contact-field-group">
+                <span className="contact-field-label">Secondary Phone</span>
+                <a href="tel:+8801605089778" className="contact-field-value">
+                  +880 1605089778
+                </a>
+              </div>
+            </div>
+
+            <div className="contact-buttons-row">
+              <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                Send Email <span>↗</span>
+              </a>
+              <a href="#cv" className="secondary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+                Download CV
+              </a>
+            </div>
+
+            <div className="footer-banner">
+              © 2026 ABUJAR AL-GIFARI · DATA ANALYST · BUSINESS INTELLIGENCE
             </div>
           </div>
         </section>
@@ -1158,54 +1145,47 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- GET IN TOUCH / CONTACT SECTION --- */}
-        <section id="contact" className="section expertise-section" ref={contactRef}>
-          <div className={`contact-wrapper ${contactVisible ? 'expertise-active' : ''}`}>
-            <div className="contact-main-heading">
-              <span className="contact-subtag">Get In Touch</span>
-              <div className="contact-title-row">
-                <span className="contact-title-solid">LET'S WORK</span>
-                <span className="contact-title-outline">TOGETHER</span>
+        {/* --- TECHNICAL SKILLS (Moved below Achievements) --- */}
+        <section id="skills" className="section technical-section" ref={skillsRef}>
+          <div className="section-title">
+            <h2>Technical Skills</h2>
+          </div>
+
+          <div
+            className={`technical-showcase${
+              skillsVisible ? ' technical-active' : ''
+            }`}
+          >
+            <div className="technical-top">
+              <div className="technical-heading">
+                <span className="technical-dot" />
+                <span>CORE TOOLKIT &amp; PROFICIENCIES</span>
               </div>
-              <p className="contact-desc">
-                Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
-              </p>
+
+              <span className="technical-count">
+                SKILLS CATEGORIES
+              </span>
             </div>
 
-            <div className="contact-details-stacked">
-              <div className="contact-field-group">
-                <span className="contact-field-label">Email</span>
-                <a href="mailto:abujar287.algifari@gmail.com" className="contact-field-value">
-                  abujar287.algifari@gmail.com
-                </a>
-              </div>
-
-              <div className="contact-field-group">
-                <span className="contact-field-label">Primary Phone</span>
-                <a href="tel:+8801952980445" className="contact-field-value">
-                  +880 1952980445
-                </a>
-              </div>
-
-              <div className="contact-field-group">
-                <span className="contact-field-label">Secondary Phone</span>
-                <a href="tel:+8801605089778" className="contact-field-value">
-                  +880 1605089778
-                </a>
-              </div>
-            </div>
-
-            <div className="contact-buttons-row">
-              <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                Send Email <span>↗</span>
-              </a>
-              <a href="#cv" className="secondary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
-                Download CV
-              </a>
-            </div>
-
-            <div className="footer-banner">
-              © 2026 ABUJAR AL-GIFARI · DATA ANALYST · BUSINESS INTELLIGENCE
+            <div className="skills-category-wrapper">
+              {technicalSkillCategories.map((group) => (
+                <div
+                  key={group.category}
+                  className="skill-category-card"
+                >
+                  <h3 className="category-title">{group.category}</h3>
+                  <div className="category-skills-list">
+                    {group.skills.map((skill) => (
+                      <div key={skill.name} className="skill-row">
+                        <span className="skill-name">{skill.name}</span>
+                        <span className={`skill-level-badge level-${skill.level.toLowerCase()}`}>
+                          {skill.level}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
