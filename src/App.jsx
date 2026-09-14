@@ -125,7 +125,7 @@ const professionalExperience = [
       'Customer Cohort Analysis & Lead Optimization',
       'Cross-functional Team Performance Analysis',
       'Payroll, Attendance & Agent Utilization Automation',
-      'SQL Query Optimization & Reporting Workflow Improvement',
+      'SQL Query Optimization & Reporting',
     ],
   },
   {
@@ -640,7 +640,6 @@ export default function App() {
           }
         }
 
-        /* --- EXPERIENCE TYPOGRAPHY UPGRADES --- */
         .exp-card {
           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
         }
