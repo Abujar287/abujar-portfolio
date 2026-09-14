@@ -493,7 +493,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PROFESSIONAL EXPERIENCE (SAME FORMAT & STYLING AS CORE EXPERTISE) --- */}
+        {/* --- PROFESSIONAL EXPERIENCE --- */}
         <section id="experience" className="section expertise-section">
           <div className="section-title">
             <h2>Professional Experience</h2>
@@ -520,20 +520,23 @@ export default function App() {
                 <div className="expertise-bar" />
 
                 <div className="expertise-main">
-                  {/* Core Expertise Header Style */}
+                  {/* Job Title */}
                   <div className="expertise-heading">
                     <h3>{job.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
 
-                  {/* Core Expertise Subtitle Text Style */}
-                  <p className="exp-company">{job.company}</p>
-
-                  <p className="exp-meta">
-                    📍 {job.location} · 📅 {job.period} ({job.duration})
+                  {/* Company & Location in brackets */}
+                  <p className="exp-company">
+                    {job.company} ({job.location})
                   </p>
 
-                  {/* Core Expertise Tag/Pill Style List */}
+                  {/* Date format as requested */}
+                  <p className="exp-meta">
+                    📅 {job.period} ({job.duration})
+                  </p>
+
+                  {/* Responsibilities */}
                   <div className="expertise-skills exp-list">
                     {job.responsibilities.map((resp, idx) => (
                       <span
@@ -617,7 +620,6 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
-        /* Experience Grid Matching Core Expertise */
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
@@ -636,7 +638,6 @@ export default function App() {
           }
         }
 
-        /* Core Expertise font styling for company name */
         .exp-company {
           color: #a78bfa !important;
           font-weight: 500 !important;
@@ -645,7 +646,6 @@ export default function App() {
           margin-bottom: 6px !important;
         }
 
-        /* Core Expertise intro text style for meta info */
         .exp-meta {
           font-size: 0.82rem !important;
           color: #94a3b8 !important;
@@ -653,7 +653,6 @@ export default function App() {
           line-height: 1.4 !important;
         }
 
-        /* Responsibilities using Core Expertise tags animation & font */
         .exp-list {
           display: flex;
           flex-direction: column;
