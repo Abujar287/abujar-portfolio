@@ -288,6 +288,7 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
+  const [contactVisible, setContactVisible] = useState(false)
   const [expandedProjectIndex, setExpandedProjectIndex] = useState(0)
 
   const skillsRef = useRef(null)
@@ -295,6 +296,7 @@ export default function App() {
   const experienceRef = useRef(null)
   const projectsRef = useRef(null)
   const achievementsRef = useRef(null)
+  const contactRef = useRef(null)
 
   const scrollTo = (id) => {
     const element = document.getElementById(id)
@@ -388,6 +390,22 @@ export default function App() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setAchievementsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const node = contactRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setContactVisible(true)
           observer.disconnect()
         }
       },
@@ -597,7 +615,7 @@ export default function App() {
           color: #ffffff !important;
         }
         
-        /* New Project Card Styling */
+        /* Project Card Styling */
         .project-card {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -664,6 +682,31 @@ export default function App() {
           color: #94a3b8;
           font-style: italic;
           margin-top: 4px;
+        }
+
+        /* Contact Section Styling */
+        .contact-card {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .contact-info-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 0.9rem;
+          color: #cbd5e1;
+        }
+        .contact-label {
+          font-weight: 600;
+          color: #a78bfa;
+          min-width: 80px;
         }
       `
       document.head.appendChild(tag)
@@ -1033,6 +1076,32 @@ export default function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* --- CONTACT SECTION --- */}
+        <section id="contact" className="section contact-section" ref={contactRef}>
+          <div className="section-title">
+            <h2>Contact</h2>
+          </div>
+
+          <p className="expertise-intro">
+            Feel free to reach out for collaborations, job opportunities, or professional queries.
+          </p>
+
+          <div className={`contact-card ${contactVisible ? 'expertise-active' : ''}`}>
+            <div className="contact-info-item">
+              <span className="contact-label">Location:</span>
+              <span>Jashore, Bangladesh</span>
+            </div>
+            <div className="contact-info-item">
+              <span className="contact-label">Email:</span>
+              <span>abujar.algifari@gmail.com</span>
+            </div>
+            <div className="contact-info-item">
+              <span className="contact-label">LinkedIn:</span>
+              <span style={{ color: '#38bdf8' }}>linkedin.com/in/abujar-algifari</span>
+            </div>
           </div>
         </section>
       </main>
