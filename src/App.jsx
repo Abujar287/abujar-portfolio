@@ -685,28 +685,67 @@ export default function App() {
         }
 
         /* Contact Section Styling */
-        .contact-card {
+        .contact-container {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 12px;
           padding: 24px;
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          max-width: 600px;
+          gap: 20px;
+          max-width: 700px;
           margin: 0 auto;
         }
-        .contact-info-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-size: 0.9rem;
-          color: #cbd5e1;
+        .contact-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
         }
-        .contact-label {
-          font-weight: 600;
+        @media (max-width: 640px) {
+          .contact-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        .contact-box {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 8px;
+          padding: 14px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .contact-label-title {
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
           color: #a78bfa;
-          min-width: 80px;
+        }
+        .contact-value {
+          font-size: 0.88rem;
+          color: #ffffff;
+          font-weight: 500;
+          text-decoration: none;
+        }
+        .contact-value:hover {
+          color: #38bdf8;
+        }
+        .contact-actions {
+          display: flex;
+          gap: 12px;
+          margin-top: 6px;
+          flex-wrap: wrap;
+        }
+        .footer-banner {
+          margin-top: 40px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          text-align: center;
+          font-size: 0.75rem;
+          color: #94a3b8;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
         }
       `
       document.head.appendChild(tag)
@@ -1079,29 +1118,52 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- CONTACT SECTION --- */}
-        <section id="contact" className="section contact-section" ref={contactRef}>
+        {/* --- GET IN TOUCH / CONTACT SECTION --- */}
+        <section id="contact" className="section expertise-section" ref={contactRef}>
           <div className="section-title">
-            <h2>Contact</h2>
+            <h2>Get In Touch</h2>
           </div>
 
           <p className="expertise-intro">
-            Feel free to reach out for collaborations, job opportunities, or professional queries.
+            Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
           </p>
 
-          <div className={`contact-card ${contactVisible ? 'expertise-active' : ''}`}>
-            <div className="contact-info-item">
-              <span className="contact-label">Location:</span>
-              <span>Jashore, Bangladesh</span>
+          <div className={`contact-container ${contactVisible ? 'expertise-active' : ''}`}>
+            <div className="contact-grid">
+              <div className="contact-box">
+                <span className="contact-label-title">Email</span>
+                <a href="mailto:abujar287.algifari@gmail.com" className="contact-value">
+                  abujar287.algifari@gmail.com
+                </a>
+              </div>
+
+              <div className="contact-box">
+                <span className="contact-label-title">Primary Phone</span>
+                <a href="tel:+8801952980445" className="contact-value">
+                  +880 1952980445
+                </a>
+              </div>
+
+              <div className="contact-box">
+                <span className="contact-label-title">Secondary Phone</span>
+                <a href="tel:+8801605089778" className="contact-value">
+                  +880 1605089778
+                </a>
+              </div>
             </div>
-            <div className="contact-info-item">
-              <span className="contact-label">Email:</span>
-              <span>abujar.algifari@gmail.com</span>
+
+            <div className="contact-actions">
+              <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                Send Email <span>↗</span>
+              </a>
+              <a href="#cv" className="secondary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+                Download CV
+              </a>
             </div>
-            <div className="contact-info-item">
-              <span className="contact-label">LinkedIn:</span>
-              <span style={{ color: '#38bdf8' }}>linkedin.com/in/abujar-algifari</span>
-            </div>
+          </div>
+
+          <div className="footer-banner">
+            © 2026 ABUJAR AL-GIFARI · DATA ANALYST · BUSINESS INTELLIGENCE
           </div>
         </section>
       </main>
