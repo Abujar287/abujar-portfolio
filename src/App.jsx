@@ -110,20 +110,19 @@ const technicalSkillCategories = [
     category: 'Querying',
     skills: [
       { name: 'SQL', level: 'Advanced' },
-      { name: 'MySQL', level: 'Advanced' },
     ],
   },
   {
-    category: 'Modeling & Spreadsheets',
+    category: 'Spreadsheets & Tools',
     skills: [
-      { name: 'Advanced Excel', level: 'Expert' },
+      { name: 'Advanced Excel', level: 'Advanced' },
       { name: 'Google Sheets', level: 'Advanced' },
     ],
   },
   {
-    category: 'Programming & Analysis',
+    category: 'Programming & Analytics',
     skills: [
-      { name: 'Python', level: 'Advanced' },
+      { name: 'Python — Pandas', level: 'Proficient' },
       { name: 'Business Intelligence', level: 'Advanced' },
     ],
   },
@@ -132,11 +131,10 @@ const technicalSkillCategories = [
     skills: [
       { name: 'Metabase', level: 'Proficient' },
       { name: 'Apache Superset', level: 'Proficient' },
-      { name: 'Power BI', level: 'Proficient' },
     ],
   },
   {
-    category: 'Operations',
+    category: 'CRM & Operations',
     skills: [
       { name: 'CRM & CLM', level: 'Specialist' },
     ],
