@@ -186,73 +186,60 @@ const professionalExperience = [
 
 const projectList = [
   {
-    title: 'Telesales Lead Management & Reporting Automation',
-    tech: ['Excel', 'Google Sheets', 'iHelpBD', 'gPlex', 'Cube', 'Pendulum'],
-    subtitle: 'From Manual Lead Sharing to Automated Telesales Operations',
+    title: 'Telesales Lead Management Automation',
+    tech: ['Python', 'Google Sheets'],
+    subtitle: 'Automated Telesales Operations & Tracking',
     description:
-      'Started with manual Excel-based lead sharing and tracking, then developed structured Google Sheets workflows for automation, reporting, and performance monitoring. As the telesales operation evolved, the calling process moved from manual calling through iHelpBD to automated workflows using gPlex, followed by Cube and Pendulum.',
+      'Automated lead generation, distribution, tracking, and management workflows to improve telesales lead operations and reporting efficiency.',
     points: [
-      'Lead Management — Sharing, tracking & follow-up',
-      'Reporting — Agent-wise & daily performance reporting',
-      'Automation — Google Sheets-based workflow automation',
-      'Analytics — Lead & agent performance monitoring',
-      'Process Evolution — iHelpBD → gPlex → Cube → Pendulum',
+      'Automated lead generation & distribution workflows',
+      'Lead tracking and management improvements',
+      'Improved telesales operations and reporting efficiency',
+      'Python + Google Sheets integration',
     ],
     priority: 'Priority 1',
   },
   {
-    title: 'Agent Performance Analytics',
-    tech: ['SQL', 'Excel', 'Google Sheets', 'BI'],
-    subtitle: 'Turning Agent-Level Data into Performance Insights',
+    title: 'Agent Performance & Operations Dashboard',
+    tech: ['SQL', 'Excel', 'BI'],
+    subtitle: 'Operational Performance & KPI Reporting',
     description:
-      'Analyzing agent-level operational data to monitor target achievement, productivity, conversion, quality, customer activity, and performance trends across multiple teams.',
+      'Developed operational performance reporting across Telesales, KAM, Inbound, DQM, and Back Office teams, covering agent KPIs, productivity, hygiene, and performance trends.',
     points: [
-      'Performance Analysis & Target Achievement',
-      'Productivity & Work Capacity',
-      'Conversion Ratio & Agent Ranking',
-      'Quality, Complaint & CQ Score Analysis',
-      'Team Coverage: Telesales · Call Center · Facebook · KAM · Inbound · Back Office · VOC · DQM',
+      'Operational performance tracking across multiple teams',
+      'Agent KPIs, productivity, and hygiene monitoring',
+      'Coverage: Telesales, KAM, Inbound, DQM, and Back Office',
+      'Performance trend analysis and reporting',
     ],
     priority: 'Priority 2',
   },
   {
     title: 'Customer & Cohort Analytics',
     tech: ['SQL', 'Excel', 'BI'],
-    subtitle: 'Customer Segmentation & Retention Tracking',
+    subtitle: 'Customer Behavior & Retention Tracking',
     description:
-      'Analyzing customer behaviors, lifecycle cohorts, and retention metrics to support long-term business growth.',
+      'Analyzed customer cohorts, acquisition, retention, lead performance, and customer behavior to identify business and operational insights.',
     points: [
-      'Customer behavior analysis',
-      'Cohort & retention analysis',
-      'Lead & customer segmentation',
-      'Performance trend tracking',
+      'Customer cohort and behavior tracking',
+      'Acquisition and retention metrics analysis',
+      'Lead performance evaluation',
+      'Actionable business and operational insights',
     ],
+    priority: 'Priority 3',
   },
   {
     title: 'Complaint & VOC Analytics',
-    tech: ['SQL', 'Excel', 'Reporting'],
-    subtitle: 'Voice of Customer & SLA Tracking',
+    tech: ['SQL', 'Excel', 'BI'],
+    subtitle: 'Service Improvement & Complaint Monitoring',
     description:
-      'Monitoring complaints, SLA/TAT metrics, and resolving operational bottlenecks using voice of customer feedback.',
+      'Analyzed complaint and VOC data across categories, trends, resolution, pending cases, and operational performance to support service improvement.',
     points: [
-      'Complaint data & trend analysis',
-      'Pending & aging monitoring',
-      'Resolution performance tracking',
-      'VOC insights & reporting',
+      'Complaint and VOC data breakdown across categories',
+      'Trend analysis, resolution rates, and pending cases monitoring',
+      'Operational performance tracking for service improvement',
+      'Data-driven feedback loops',
     ],
-  },
-  {
-    title: 'Payroll & Workforce Reporting Automation',
-    tech: ['Excel', 'Google Sheets', 'Automation'],
-    subtitle: 'Automated Attendance & Workforce Management',
-    description:
-      'Automating attendance aggregation, VSE metrics, and salary calculations to minimize human error and save time.',
-    points: [
-      'Attendance data processing',
-      'VSE reporting',
-      'Salary calculation & validation',
-      'Automated monthly workforce reporting',
-    ],
+    priority: 'Priority 4',
   },
 ]
 
@@ -401,24 +388,229 @@ export default function App() {
       const tag = document.createElement('style')
       tag.id = styleId
       tag.innerHTML = `
+        /* Left-aligned layout override */
+        body {
+          text-align: left !important;
+        }
+        .portfolio, .section, .hero-content, .expertise-section, .contact-wrapper {
+          text-align: left !important;
+        }
+        .navbar {
+          justify-content: flex-start !important;
+          padding-left: 2rem !important;
+        }
+        .nav-links {
+          justify-content: flex-start !important;
+        }
         .section-title h2 {
           text-transform: uppercase;
           font-size: 1.4rem !important;
           letter-spacing: 0.5px;
+          text-align: left !important;
         }
         .section {
-          padding: 22px 0 !important;
+          padding: 22px 5% !important;
+          max-width: 1400px;
+          margin: 0 auto;
         }
+        .hero-grid {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          text-align: left !important;
+          gap: 40px;
+        }
+        .hero-content {
+          flex: 1;
+          text-align: left !important;
+        }
+        .hero-photo {
+          flex-shrink: 0;
+        }
+        .hero-buttons, .contact-buttons-row {
+          justify-content: flex-start !important;
+        }
+        .scroll-indicator {
+          left: 5% !important;
+          transform: none !important;
+        }
+        .contact-wrapper {
+          align-items: flex-start !important;
+          text-align: left !important;
+          margin: 0 !important;
+        }
+        .contact-main-heading {
+          align-items: flex-start !important;
+          text-align: left !important;
+        }
+        .contact-title-row {
+          justify-content: flex-start !important;
+        }
+        .contact-desc {
+          margin: 0 !important;
+          text-align: left !important;
+        }
+        .contact-details-stacked {
+          align-items: flex-start !important;
+        }
+        .footer-banner {
+          text-align: left !important;
+        }
+
+        /* Enhanced styling for Technical Skills */
+        .technical-section {
+          background: linear-gradient(180deg, rgba(20, 20, 30, 0.4) 0%, rgba(10, 10, 15, 0.8) 100%);
+          border-radius: 16px;
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          padding: 32px 36px !important;
+          margin: 30px auto;
+        }
+        .technical-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          padding-bottom: 12px;
+        }
+        .technical-heading {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          color: #a78bfa;
+        }
+        .technical-dot {
+          width: 8px;
+          height: 8px;
+          background: #a78bfa;
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+        }
+        .technical-count {
+          font-size: 0.7rem;
+          color: #94a3b8;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+        .skills-category-wrapper {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+          margin-top: 10px;
+        }
+        @media (max-width: 1024px) {
+          .skills-category-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .hero-grid {
+            flex-direction: column;
+          }
+        }
+        @media (max-width: 640px) {
+          .skills-category-wrapper {
+            grid-template-columns: 1fr;
+          }
+        }
+        .skill-category-card {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 18px 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+        .skill-category-card:hover {
+          border-color: rgba(167, 139, 250, 0.3);
+          background: rgba(255, 255, 255, 0.05);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px -10px rgba(167, 139, 250, 0.15);
+        }
+        .skill-category-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 3px;
+          height: 100%;
+          background: #a78bfa;
+          opacity: 0.7;
+        }
+        .category-title {
+          font-size: 0.85rem !important;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #ffffff;
+          margin: 0 0 6px 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          padding-bottom: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .category-skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .skill-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 6px 8px;
+          background: rgba(255, 255, 255, 0.02);
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.03);
+          transition: background 0.2s;
+        }
+        .skill-row:hover {
+          background: rgba(255, 255, 255, 0.06);
+        }
+        .skill-name {
+          font-size: 0.85rem !important;
+          font-weight: 600;
+          color: #f1f5f9;
+        }
+        .skill-level-badge {
+          font-size: 0.6rem;
+          font-weight: 600;
+          padding: 3px 8px;
+          border-radius: 10px;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+        }
+        .level-advanced {
+          color: #38bdf8;
+          background: rgba(56, 189, 248, 0.12);
+          border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        .level-proficient, .level-specialist {
+          color: #a78bfa;
+          background: rgba(167, 139, 250, 0.12);
+          border: 1px solid rgba(167, 139, 250, 0.2);
+        }
+
+        /* Standardized layout adjustments for consistency */
         .expertise-intro, .projects-intro {
           font-size: 0.88rem !important;
-          margin-bottom: 12px !important;
+          margin-bottom: 16px !important;
           color: #94a3b8;
+          text-align: left !important;
         }
         .expertise-main p, .ach-desc {
           font-size: 0.82rem !important;
           line-height: 1.45 !important;
           color: #cbd5e1;
           margin-bottom: 8px !important;
+          text-align: left !important;
         }
         .clean-bullet-list {
           list-style: none;
@@ -427,6 +619,7 @@ export default function App() {
           display: flex;
           flex-direction: column;
           gap: 6px;
+          text-align: left !important;
         }
         .clean-bullet-list li {
           font-size: 0.78rem !important;
@@ -435,7 +628,7 @@ export default function App() {
           display: flex;
           align-items: flex-start;
           gap: 6px;
-          text-align: left;
+          text-align: left !important;
         }
         .bullet-dot {
           color: #a78bfa;
@@ -450,6 +643,7 @@ export default function App() {
           border-radius: 8px;
           padding: 12px 16px;
           margin: 16px 0;
+          text-align: left !important;
         }
         .hero-summary-text {
           font-size: 0.88rem !important;
@@ -457,6 +651,7 @@ export default function App() {
           color: #cbd5e1;
           margin: 0;
           font-weight: 400;
+          text-align: left !important;
         }
         .highlight-purple {
           color: #a78bfa;
@@ -466,74 +661,10 @@ export default function App() {
           color: #38bdf8;
           font-weight: 600;
         }
-        .skills-category-wrapper {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 12px;
-          margin-top: 10px;
-        }
-        @media (max-width: 1024px) {
-          .skills-category-wrapper {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 640px) {
-          .skills-category-wrapper {
-            grid-template-columns: 1fr;
-          }
-        }
-        .skill-category-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 8px;
-          padding: 12px 14px;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-        .category-title {
-          font-size: 0.8rem !important;
-          font-weight: 700;
-          letter-spacing: 0.8px;
-          text-transform: uppercase;
-          color: #a78bfa;
-          margin: 0 0 4px 0 !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-          padding-bottom: 6px;
-        }
-        .category-skills-list {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-        .skill-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-        .skill-name {
-          font-size: 0.85rem !important;
-          font-weight: 600;
-          color: #ffffff;
-        }
-        .skill-level-badge {
-          font-size: 0.58rem;
-          font-weight: 600;
-          padding: 2px 6px;
-          border-radius: 8px;
-        }
-        .level-advanced {
-          color: #38bdf8;
-          background: rgba(56, 189, 248, 0.12);
-        }
-        .level-proficient, .level-specialist {
-          color: #a78bfa;
-          background: rgba(167, 139, 250, 0.12);
-        }
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
-          gap: 12px !important;
+          gap: 16px !important;
         }
         .project-2col-layout {
           grid-template-columns: repeat(2, 1fr) !important;
@@ -551,7 +682,7 @@ export default function App() {
             grid-template-columns: 1fr !important;
           }
         }
-        .exp-heading {
+        .exp-heading, .expertise-heading {
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -562,10 +693,12 @@ export default function App() {
           font-weight: 700 !important;
           color: #ffffff !important;
           margin: 0 !important;
+          text-align: left !important;
         }
         .exp-company {
           font-size: 0.8rem !important;
           margin-bottom: 6px !important;
+          text-align: left !important;
         }
         .company-name {
           font-weight: 600 !important;
@@ -589,7 +722,6 @@ export default function App() {
         .exp-duration {
           color: #ffffff !important;
         }
-        
         .project-card {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -600,6 +732,7 @@ export default function App() {
           display: flex;
           flex-direction: column;
           gap: 10px;
+          text-align: left !important;
         }
         .project-card:hover {
           border-color: rgba(167, 139, 250, 0.4);
@@ -656,103 +789,6 @@ export default function App() {
           color: #94a3b8;
           font-style: italic;
           margin-top: 4px;
-        }
-
-        .contact-wrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto;
-          gap: 24px;
-        }
-        .contact-main-heading {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-          width: 100%;
-        }
-        .contact-subtag {
-          font-size: 0.75rem;
-          font-weight: 700;
-          letter-spacing: 2px;
-          text-transform: uppercase;
-          color: #818cf8;
-        }
-        .contact-title-row {
-          font-size: clamp(2rem, 5vw, 3.5rem);
-          font-weight: 900;
-          letter-spacing: -1px;
-          text-transform: uppercase;
-          display: flex;
-          gap: 12px;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-        }
-        .contact-title-solid {
-          color: #ffffff;
-        }
-        .contact-title-outline {
-          color: transparent;
-          -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
-        }
-        .contact-desc {
-          font-size: 0.9rem;
-          line-height: 1.5;
-          color: #94a3b8;
-          max-width: 600px;
-          margin: 0 auto;
-        }
-        .contact-details-stacked {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          width: 100%;
-          align-items: center;
-          margin: 4px 0;
-        }
-        .contact-field-group {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 2px;
-        }
-        .contact-field-label {
-          font-size: 0.65rem;
-          font-weight: 700;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          color: #64748b;
-        }
-        .contact-field-value {
-          font-size: 1.05rem;
-          font-weight: 600;
-          color: #ffffff;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .contact-field-value:hover {
-          color: #a78bfa;
-        }
-        .contact-buttons-row {
-          display: flex;
-          gap: 12px;
-          justify-content: center;
-          margin-top: 4px;
-        }
-        .footer-banner {
-          margin-top: 48px;
-          padding-top: 20px;
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
-          text-align: center;
-          font-size: 0.72rem;
-          color: #64748b;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          width: 100%;
         }
       `
       document.head.appendChild(tag)
@@ -1098,7 +1134,9 @@ export default function App() {
                   key={group.category}
                   className="skill-category-card"
                 >
-                  <h3 className="category-title">{group.category}</h3>
+                  <h3 className="category-title">
+                    <span>{group.category}</span>
+                  </h3>
                   <div className="category-skills-list">
                     {group.skills.map((skill) => (
                       <div key={skill.name} className="skill-row">
