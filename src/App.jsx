@@ -100,8 +100,10 @@ export default function App() {
   const [active, setActive] = useState('home')
   const [skillsVisible, setSkillsVisible] = useState(false)
   const [expertiseVisible, setExpertiseVisible] = useState(false)
+  const [experienceVisible, setExperienceVisible] = useState(false)
   const skillsRef = useRef(null)
   const expertiseRef = useRef(null)
+  const experienceRef = useRef(null)
 
   const scrollTo = (id) => {
     const el = document.getElementById(id)
@@ -144,6 +146,22 @@ export default function App() {
         }
       },
       { threshold: 0.15 },
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const node = experienceRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setExperienceVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 },
     )
     observer.observe(node)
     return () => observer.disconnect()
@@ -353,9 +371,16 @@ export default function App() {
           <div className="section-title">
             <h2>Professional Experience</h2>
           </div>
-          <div className="experience-timeline">
+          <div
+            ref={experienceRef}
+            className={`experience-timeline${experienceVisible ? ' experience-active' : ''}`}
+          >
             {professionalExperience.map((job, index) => (
-              <div key={job.company} className="experience-item">
+              <div
+                key={job.company}
+                className="experience-item"
+                style={{ '--experience-delay': `${index * 0.15}s` }}
+              >
                 <div className="experience-header">
                   <div>
                     <h3>{job.title}</h3>
