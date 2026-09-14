@@ -430,27 +430,27 @@ export default function App() {
           letter-spacing: -0.5px;
           line-height: 1.1;
           color: #ffffff;
-          margin-bottom: 14px;
+          margin-bottom: 12px;
           display: block;
         }
         .hero-name-clean span {
           color: #a78bfa;
         }
 
-        /* Subtitle Styling - Smaller and cleaner */
+        /* Subtitle Styling - Much Smaller, Neat & Compact */
         .hero-title {
-          font-size: 0.68rem !important;
-          font-weight: 600;
-          letter-spacing: 0.8px;
+          font-size: 0.55rem !important;
+          font-weight: 500;
+          letter-spacing: 0.6px;
           color: #94a3b8;
           text-transform: uppercase;
-          line-height: 1.5;
-          margin-bottom: 18px;
+          line-height: 1.4;
+          margin-bottom: 16px;
         }
         .hero-title .title-line {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.4ch;
+          gap: 0.3ch;
         }
         .hero-title .separator {
           color: #a78bfa;
