@@ -60,38 +60,43 @@ const technicalSkills = [
 
 const professionalExperience = [
   {
-    title: 'Senior Officer – Data & Analytics',
-    company: 'sheba.xyz Service Ltd',
-    period: 'Nov 2023 – Present',
+    period: '11/2023 - Present',
+    location: 'Jashore, Bangladesh',
+    title: 'Sr. Data Analyst',
+    company: 'Sheba.xyz Services Limited',
     responsibilities: [
-      'Analyzed business data and delivered actionable insights to support strategic business decision-making.',
-      'Developed automated dashboards and operational reports using SQL, Python, and BI tools, improving reporting efficiency.',
-      'Monitored telesales and KAM performance through KPI tracking and performance analytics to identify improvement opportunities.',
-      'Performed customer cohort analysis and lead optimization to improve campaign effectiveness and business performance.',
-      'Tracked and analyzed operational performance across Call Center, DQM, Back Office, Complaint Management, and QAT teams.',
-      'Automated payroll, attendance, and agent utilization reporting processes, reducing manual effort and improving reporting accuracy.',
-      'Optimized SQL queries and improved reporting workflows to enhance data processing efficiency.',
+      'Business Data Analysis & Actionable Insights.',
+      'Automated Dashboard & Operational Reporting.',
+      'Telesales & KAM KPI Performance Analysis.',
+      'Customer Cohort Analysis & Lead Optimization.',
+      'Cross-functional Team Performance Analysis.',
+      'Payroll, Attendance & Agent Utilization Automation.',
+      'SQL Query Optimization & Reporting Workflow Improvement.',
     ],
   },
   {
-    title: 'Junior Data Analyst',
+    period: '09/2022 - 10/2023',
+    location: 'Jashore, Bangladesh',
+    title: 'Jr. Data Analyst',
     company: 'Chaldal PLC',
-    period: 'Sep 2021 – Oct 2023',
     responsibilities: [
-      'Created performance dashboards and operational reports to support business monitoring and decision-making.',
-      'Automated reporting processes and analyzed business data to improve operational efficiency.',
-      'Managed product pricing, mapping, and inventory-related analysis.',
-      'Identified data gaps and provided insights to support business decisions.',
+      'Financial Reconciliation.',
+      'Customer Clustering.',
+      'Monetization Planning.',
+      'Product Reconciliation.',
+      'Team-wise KPI & Dashboard Analysis.',
     ],
   },
   {
-    title: 'Academic Counselor',
-    company: 'Shikho PLC',
-    period: 'Mar 2021 – Aug 2021',
+    period: '03/2021 - 08/2022',
+    location: 'Jashore, Bangladesh',
+    title: 'Associate Data Analyst',
+    company: 'Chaldal PLC',
     responsibilities: [
-      'Guided students and parents regarding academic programs.',
-      'Managed customer communication and enrollment activities.',
-      'Supported sales operations through effective customer engagement.',
+      'Product Pricing & Mapping.',
+      'Sudden Report Analysis.',
+      'Cohort Analysis.',
+      'Protocol Ticket Analysis.',
     ],
   },
 ]
@@ -377,22 +382,26 @@ export default function App() {
           >
             {professionalExperience.map((job, index) => (
               <div
-                key={job.company}
+                key={`${job.company}-${job.period}`}
                 className="experience-card"
                 style={{ '--experience-delay': `${index * 0.12}s` }}
               >
-                <div className="experience-top">
-                  <div>
-                    <h3>{job.title}</h3>
-                    <p className="experience-company">{job.company}</p>
+                <div className="experience-header">
+                  <div className="experience-meta">
+                    <span className="experience-period">{job.period}</span>
+                    <span className="experience-location">{job.location}</span>
                   </div>
-                  <span className="experience-period">{job.period}</span>
+                </div>
+
+                <div className="experience-title-group">
+                  <h3 className="experience-role">{job.title}</h3>
+                  <p className="experience-company">{job.company}</p>
                 </div>
 
                 <div className="experience-divider" />
 
                 <ul className="experience-list">
-                  {job.responsibilities.slice(0, 3).map((responsibility, idx) => (
+                  {job.responsibilities.map((responsibility, idx) => (
                     <li key={idx}>{responsibility}</li>
                   ))}
                 </ul>
