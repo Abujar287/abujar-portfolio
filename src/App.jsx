@@ -354,6 +354,266 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
+  // Inject styles safely via DOM style tag for non-Next.js environments
+  useEffect(() => {
+    const styleId = 'portfolio-custom-global-styles';
+    if (!document.getElementById(styleId)) {
+      const tag = document.createElement('style');
+      tag.id = styleId;
+      tag.innerHTML = `
+        /* --- GLOBAL SECTION TITLE FORMATTING (UPPERCASE) --- */
+        .section-title h2 {
+          text-transform: uppercase;
+          font-size: 1.4rem !important;
+          letter-spacing: 0.5px;
+        }
+
+        .section {
+          padding: 22px 0 !important;
+        }
+
+        .expertise-intro {
+          font-size: 0.88rem !important;
+          margin-bottom: 12px !important;
+          color: #94a3b8;
+        }
+
+        .expertise-main p, .ach-desc {
+          font-size: 0.82rem !important;
+          line-height: 1.45 !important;
+          color: #cbd5e1;
+          margin-bottom: 8px !important;
+        }
+
+        /* --- CLEAN UNBOXED BULLET LIST STYLES --- */
+        .clean-bullet-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .clean-bullet-list li {
+          font-size: 0.78rem !important;
+          line-height: 1.35 !important;
+          color: #cbd5e1 !important;
+          display: flex;
+          align-items: flex-start;
+          gap: 6px;
+          text-align: left;
+        }
+
+        .bullet-dot {
+          color: #a78bfa;
+          font-weight: bold;
+          flex-shrink: 0;
+          margin-top: 1px;
+        }
+
+        /* --- PROFESSIONAL SUMMARY STYLES --- */
+        .summary-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          width: 100%;
+        }
+
+        .summary-hero-card {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-left: 3px solid #a78bfa;
+          border-radius: 8px;
+          padding: 14px 18px;
+        }
+
+        .summary-hero-text {
+          font-size: 0.92rem !important;
+          line-height: 1.5 !important;
+          color: #cbd5e1;
+          margin: 0;
+          font-weight: 400;
+        }
+
+        .highlight-purple {
+          color: #a78bfa;
+          font-weight: 600;
+        }
+
+        .highlight-blue {
+          color: #38bdf8;
+          font-weight: 600;
+        }
+
+        /* --- TECHNICAL SKILLS CATEGORY STYLES --- */
+        .skills-category-wrapper {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+          margin-top: 10px;
+        }
+
+        @media (max-width: 1024px) {
+          .skills-category-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .skills-category-wrapper {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .skill-category-card {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 8px;
+          padding: 12px 14px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .category-title {
+          font-size: 0.8rem !important;
+          font-weight: 700;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          color: #a78bfa;
+          margin: 0 0 4px 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          padding-bottom: 6px;
+        }
+
+        .category-skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .skill-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .skill-name {
+          font-size: 0.85rem !important;
+          font-weight: 600;
+          color: #ffffff;
+        }
+
+        .skill-level-badge {
+          font-size: 0.58rem;
+          font-weight: 600;
+          padding: 2px 6px;
+          border-radius: 8px;
+        }
+
+        .level-expert {
+          color: #f472b6;
+          background: rgba(244, 114, 182, 0.12);
+        }
+
+        .level-advanced {
+          color: #38bdf8;
+          background: rgba(56, 189, 248, 0.12);
+        }
+
+        .level-proficient, .level-specialist {
+          color: #a78bfa;
+          background: rgba(167, 139, 250, 0.12);
+        }
+
+        /* --- PROFESSIONAL EXPERIENCE & PROJECTS LAYOUT --- */
+        .exp-grid-layout {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 12px !important;
+        }
+
+        /* Projects 2-Column Grid Layout */
+        .project-2col-layout {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        /* Achievements 2-Column Grid Layout */
+        .achievements-2col {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        @media (max-width: 1024px) {
+          .exp-grid-layout, .project-2col-layout, .achievements-2col {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .exp-grid-layout, .project-2col-layout, .achievements-2col {
+            grid-template-columns: 1fr !important;
+          }
+        }
+
+        .exp-heading {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 4px;
+        }
+
+        .exp-title {
+          font-size: 1rem !important;
+          font-weight: 700 !important;
+          color: #ffffff !important;
+          margin: 0 !important;
+        }
+
+        .exp-company {
+          font-size: 0.8rem !important;
+          margin-bottom: 6px !important;
+        }
+
+        .company-name {
+          font-weight: 600 !important;
+          color: #a78bfa;
+        }
+
+        .exp-location {
+          color: #94a3b8 !important;
+        }
+
+        .exp-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(167, 139, 250, 0.08);
+          border: 1px solid rgba(167, 139, 250, 0.2);
+          border-radius: 20px;
+          padding: 2px 8px;
+          font-size: 0.65rem !important;
+          font-weight: 600 !important;
+          margin-bottom: 8px !important;
+        }
+
+        .exp-period {
+          color: #38bdf8 !important;
+        }
+
+        .exp-duration {
+          color: #ffffff !important;
+        }
+
+        .exp-dot {
+          color: #94a3b8;
+          opacity: 0.5;
+        }
+      `;
+      document.head.appendChild(tag);
+    }
+  }, []);
+
   return (
     <div className="portfolio">
       <header className="navbar">
@@ -786,258 +1046,6 @@ export default function App() {
 
         <span>DATA ANALYST · BUSINESS INTELLIGENCE</span>
       </footer>
-
-      <style jsx global>{`
-        /* --- GLOBAL SECTION TITLE FORMATTING (UPPERCASE) --- */
-        .section-title h2 {
-          text-transform: uppercase;
-          font-size: 1.4rem !important;
-          letter-spacing: 0.5px;
-        }
-
-        .section {
-          padding: 22px 0 !important;
-        }
-
-        .expertise-intro {
-          font-size: 0.88rem !important;
-          margin-bottom: 12px !important;
-          color: #94a3b8;
-        }
-
-        .expertise-main p, .ach-desc {
-          font-size: 0.82rem !important;
-          line-height: 1.45 !important;
-          color: #cbd5e1;
-          margin-bottom: 8px !important;
-        }
-
-        /* --- CLEAN UNBOXED BULLET LIST STYLES --- */
-        .clean-bullet-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-
-        .clean-bullet-list li {
-          font-size: 0.78rem !important;
-          line-height: 1.35 !important;
-          color: #cbd5e1 !important;
-          display: flex;
-          align-items: flex-start;
-          gap: 6px;
-          text-align: left;
-        }
-
-        .bullet-dot {
-          color: #a78bfa;
-          font-weight: bold;
-          flex-shrink: 0;
-          margin-top: 1px;
-        }
-
-        /* --- PROFESSIONAL SUMMARY STYLES --- */
-        .summary-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          width: 100%;
-        }
-
-        .summary-hero-card {
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-left: 3px solid #a78bfa;
-          border-radius: 8px;
-          padding: 14px 18px;
-        }
-
-        .summary-hero-text {
-          font-size: 0.92rem !important;
-          line-height: 1.5 !important;
-          color: #cbd5e1;
-          margin: 0;
-          font-weight: 400;
-        }
-
-        .highlight-purple {
-          color: #a78bfa;
-          font-weight: 600;
-        }
-
-        .highlight-blue {
-          color: #38bdf8;
-          font-weight: 600;
-        }
-
-        /* --- TECHNICAL SKILLS CATEGORY STYLES --- */
-        .skills-category-wrapper {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 12px;
-          margin-top: 10px;
-        }
-
-        @media (max-width: 1024px) {
-          .skills-category-wrapper {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 640px) {
-          .skills-category-wrapper {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        .skill-category-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 8px;
-          padding: 12px 14px;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .category-title {
-          font-size: 0.8rem !important;
-          font-weight: 700;
-          letter-spacing: 0.8px;
-          text-transform: uppercase;
-          color: #a78bfa;
-          margin: 0 0 4px 0 !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-          padding-bottom: 6px;
-        }
-
-        .category-skills-list {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-
-        .skill-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .skill-name {
-          font-size: 0.85rem !important;
-          font-weight: 600;
-          color: #ffffff;
-        }
-
-        .skill-level-badge {
-          font-size: 0.58rem;
-          font-weight: 600;
-          padding: 2px 6px;
-          border-radius: 8px;
-        }
-
-        .level-expert {
-          color: #f472b6;
-          background: rgba(244, 114, 182, 0.12);
-        }
-
-        .level-advanced {
-          color: #38bdf8;
-          background: rgba(56, 189, 248, 0.12);
-        }
-
-        .level-proficient, .level-specialist {
-          color: #a78bfa;
-          background: rgba(167, 139, 250, 0.12);
-        }
-
-        /* --- PROFESSIONAL EXPERIENCE & PROJECTS LAYOUT --- */
-        .exp-grid-layout {
-          display: grid !important;
-          grid-template-columns: repeat(3, 1fr) !important;
-          gap: 12px !important;
-        }
-
-        /* Projects 2-Column Grid Layout */
-        .project-2col-layout {
-          grid-template-columns: repeat(2, 1fr) !important;
-        }
-
-        /* Achievements 2-Column Grid Layout */
-        .achievements-2col {
-          grid-template-columns: repeat(2, 1fr) !important;
-        }
-
-        @media (max-width: 1024px) {
-          .exp-grid-layout, .project-2col-layout, .achievements-2col {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .exp-grid-layout, .project-2col-layout, .achievements-2col {
-            grid-template-columns: 1fr !important;
-          }
-        }
-
-        .exp-heading {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 4px;
-        }
-
-        .exp-title {
-          font-size: 1rem !important;
-          font-weight: 700 !important;
-          color: #ffffff !important;
-          margin: 0 !important;
-        }
-
-        .exp-company {
-          font-size: 0.8rem !important;
-          margin-bottom: 6px !important;
-        }
-
-        .company-name {
-          font-weight: 600 !important;
-          color: #a78bfa;
-        }
-
-        .exp-location {
-          color: #94a3b8 !important;
-        }
-
-        .exp-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          background: rgba(167, 139, 250, 0.08);
-          border: 1px solid rgba(167, 139, 250, 0.2);
-          border-radius: 20px;
-          padding: 2px 8px;
-          font-size: 0.65rem !important;
-          font-weight: 600 !important;
-          margin-bottom: 8px !important;
-        }
-
-        .exp-period {
-          color: #38bdf8 !important;
-        }
-
-        .exp-duration {
-          color: #ffffff !important;
-        }
-
-        .exp-dot {
-          color: #94a3b8;
-          opacity: 0.5;
-        }
-      `}</style>
     </div>
   )
 }
-```[cite: 1]
