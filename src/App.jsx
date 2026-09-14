@@ -58,6 +58,44 @@ const technicalSkills = [
   { name: 'CRM & CLM', category: 'Operations', level: 'Specialist' },
 ]
 
+const professionalExperience = [
+  {
+    title: 'Senior Officer – Data & Analytics',
+    company: 'sheba.xyz Service Ltd',
+    period: 'Nov 2023 – Present',
+    responsibilities: [
+      'Analyzed business data and delivered actionable insights to support strategic business decision-making.',
+      'Developed automated dashboards and operational reports using SQL, Python, and BI tools, improving reporting efficiency.',
+      'Monitored telesales and KAM performance through KPI tracking and performance analytics to identify improvement opportunities.',
+      'Performed customer cohort analysis and lead optimization to improve campaign effectiveness and business performance.',
+      'Tracked and analyzed operational performance across Call Center, DQM, Back Office, Complaint Management, and QAT teams.',
+      'Automated payroll, attendance, and agent utilization reporting processes, reducing manual effort and improving reporting accuracy.',
+      'Optimized SQL queries and improved reporting workflows to enhance data processing efficiency.',
+    ],
+  },
+  {
+    title: 'Junior Data Analyst',
+    company: 'Chaldal PLC',
+    period: 'Sep 2021 – Oct 2023',
+    responsibilities: [
+      'Created performance dashboards and operational reports to support business monitoring and decision-making.',
+      'Automated reporting processes and analyzed business data to improve operational efficiency.',
+      'Managed product pricing, mapping, and inventory-related analysis.',
+      'Identified data gaps and provided insights to support business decisions.',
+    ],
+  },
+  {
+    title: 'Academic Counselor',
+    company: 'Shikho PLC',
+    period: 'Mar 2021 – Aug 2021',
+    responsibilities: [
+      'Guided students and parents regarding academic programs.',
+      'Managed customer communication and enrollment activities.',
+      'Supported sales operations through effective customer engagement.',
+    ],
+  },
+]
+
 export default function App() {
   const [active, setActive] = useState('home')
   const [skillsVisible, setSkillsVisible] = useState(false)
@@ -305,6 +343,32 @@ export default function App() {
                       </span>
                     ))}
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="experience" className="section experience-section">
+          <div className="section-title">
+            <h2>Professional Experience</h2>
+          </div>
+          <div className="experience-timeline">
+            {professionalExperience.map((job, index) => (
+              <div key={job.company} className="experience-item">
+                <div className="experience-header">
+                  <div>
+                    <h3>{job.title}</h3>
+                    <p className="experience-company">{job.company}</p>
+                  </div>
+                  <span className="experience-period">{job.period}</span>
+                </div>
+                <div className="experience-responsibilities">
+                  <ul>
+                    {job.responsibilities.map((responsibility, idx) => (
+                      <li key={idx}>{responsibility}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
