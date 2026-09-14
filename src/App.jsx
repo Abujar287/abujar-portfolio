@@ -579,7 +579,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- KEY ACHIEVEMENTS (MATCHING CORE EXPERTISE STYLE) --- */}
+        {/* --- KEY ACHIEVEMENTS --- */}
         <section id="achievements" className="section expertise-section">
           <div className="section-title">
             <h2>Key Achievements</h2>
@@ -659,7 +659,7 @@ export default function App() {
 
               <a href="tel:+8801952980445">
                 <span>PRIMARY PHONE</span>
-                +880 1952-980445
+                +880 1952980445
               </a>
 
               <a href="tel:+8801605089778">
@@ -698,6 +698,11 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
+        /* --- GLOBAL SECTION TITLE FORMATTING (ABC/UPPERCASE) --- */
+        .section-title h2 {
+          text-transform: uppercase;
+        }
+
         /* --- PROFESSIONAL SUMMARY STYLES --- */
         .summary-wrapper {
           display: flex;
