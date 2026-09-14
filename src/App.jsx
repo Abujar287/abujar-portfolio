@@ -6,6 +6,7 @@ const navItems = [
   { id: 'skills', label: 'Skills' },
   { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'achievements', label: 'Achievements' },
   { id: 'contact', label: 'Contact' },
 ]
@@ -193,6 +194,33 @@ const professionalExperience = [
   },
 ]
 
+const projectList = [
+  {
+    title: 'Telesales Lead Management Automation',
+    tech: 'Python + Google Sheets',
+    description:
+      'Automated lead generation, distribution, tracking, and management workflows to improve telesales lead operations and reporting efficiency.',
+  },
+  {
+    title: 'Agent Performance & Operations Dashboard',
+    tech: 'SQL + Excel + BI',
+    description:
+      'Developed operational performance reporting across Telesales, KAM, Inbound, DQM, and Back Office teams, covering agent KPIs, productivity, hygiene, and performance trends.',
+  },
+  {
+    title: 'Customer & Cohort Analytics',
+    tech: 'SQL + Excel + BI',
+    description:
+      'Analyzed customer cohorts, acquisition, retention, lead performance, and customer behavior to identify business and operational insights.',
+  },
+  {
+    title: 'Complaint & VOC Analytics',
+    tech: 'SQL + Excel + BI',
+    description:
+      'Analyzed complaint and VOC data across categories, trends, resolution, pending cases, and operational performance to support service improvement.',
+  },
+]
+
 const keyAchievements = [
   {
     title: 'Process & System Improvements',
@@ -221,11 +249,13 @@ export default function App() {
   const [skillsVisible, setSkillsVisible] = useState(false)
   const [expertiseVisible, setExpertiseVisible] = useState(false)
   const [experienceVisible, setExperienceVisible] = useState(false)
+  const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
 
   const skillsRef = useRef(null)
   const expertiseRef = useRef(null)
   const experienceRef = useRef(null)
+  const projectsRef = useRef(null)
   const achievementsRef = useRef(null)
 
   const scrollTo = (id) => {
@@ -288,6 +318,22 @@ export default function App() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setExperienceVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const node = projectsRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setProjectsVisible(true)
           observer.disconnect()
         }
       },
@@ -594,6 +640,49 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- PROJECTS --- */}
+        <section id="projects" className="section expertise-section">
+          <div className="section-title">
+            <h2>Projects</h2>
+          </div>
+
+          <p className="expertise-intro">
+            Key analytical and automation projects built to solve complex business operations and data workflows.
+          </p>
+
+          <div
+            ref={projectsRef}
+            className={`expertise-showcase exp-grid-layout project-2col-layout${
+              projectsVisible ? ' expertise-active' : ''
+            }`}
+          >
+            {projectList.map((project, index) => (
+              <div
+                key={project.title}
+                className="expertise-item exp-card"
+                style={{
+                  '--expertise-delay': `${index * 0.12}s`,
+                }}
+              >
+                <div className="expertise-bar" />
+
+                <div className="expertise-main">
+                  <div className="exp-heading">
+                    <h3 className="exp-title">{project.title}</h3>
+                    <span className="expertise-icon">↗</span>
+                  </div>
+
+                  <div className="exp-badge">
+                    <span className="exp-period">{project.tech}</span>
+                  </div>
+
+                  <p className="ach-desc">{project.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* --- ACHIEVEMENTS --- */}
         <section id="achievements" className="section expertise-section">
           <div className="section-title">
@@ -870,11 +959,16 @@ export default function App() {
           background: rgba(167, 139, 250, 0.12);
         }
 
-        /* --- PROFESSIONAL EXPERIENCE & ACHIEVEMENTS LAYOUT --- */
+        /* --- PROFESSIONAL EXPERIENCE & PROJECTS LAYOUT --- */
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
           gap: 12px !important;
+        }
+
+        /* Projects 2-Column Grid Layout */
+        .project-2col-layout {
+          grid-template-columns: repeat(2, 1fr) !important;
         }
 
         /* Achievements 2-Column Grid Layout */
@@ -883,13 +977,13 @@ export default function App() {
         }
 
         @media (max-width: 1024px) {
-          .exp-grid-layout, .achievements-2col {
+          .exp-grid-layout, .project-2col-layout, .achievements-2col {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
 
         @media (max-width: 768px) {
-          .exp-grid-layout, .achievements-2col {
+          .exp-grid-layout, .project-2col-layout, .achievements-2col {
             grid-template-columns: 1fr !important;
           }
         }
