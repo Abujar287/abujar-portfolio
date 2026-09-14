@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react'
 
 const navItems = [
@@ -61,10 +60,10 @@ const technicalSkills = [
 
 const professionalExperience = [
   {
-    period: '11/2023 - Present',
-    location: 'Jashore, Bangladesh',
     title: 'Sr. Data Analyst',
-    company: 'Sheba.xyz Services Limited',
+    company: 'Sheba.xyz',
+    period: '11/2023 - Present',
+    duration: '2 Years 10 Months',
     responsibilities: [
       'Business Data Analysis & Actionable Insights.',
       'Automated Dashboard & Operational Reporting.',
@@ -76,10 +75,10 @@ const professionalExperience = [
     ],
   },
   {
-    period: '09/2022 - 10/2023',
-    location: 'Jashore, Bangladesh',
     title: 'Jr. Data Analyst',
     company: 'Chaldal PLC',
+    period: '09/2022 - 10/2023',
+    duration: '1 Year 2 Months',
     responsibilities: [
       'Financial Reconciliation.',
       'Customer Clustering.',
@@ -89,10 +88,10 @@ const professionalExperience = [
     ],
   },
   {
-    period: '03/2021 - 08/2022',
-    location: 'Jashore, Bangladesh',
     title: 'Associate Data Analyst',
     company: 'Chaldal PLC',
+    period: '03/2021 - 08/2022',
+    duration: '1 Year 6 Months',
     responsibilities: [
       'Product Pricing & Mapping.',
       'Sudden Report Analysis.',
@@ -149,7 +148,7 @@ export default function App() {
           observer.disconnect()
         }
       },
-      { threshold: 0.25 },
+      { threshold: 0.2 },
     )
 
     observer.observe(node)
@@ -456,63 +455,53 @@ export default function App() {
 
           <div
             ref={experienceRef}
-            className={`experience-timeline${
+            className={`experience-grid${
               experienceVisible ? ' experience-active' : ''
             }`}
           >
             {professionalExperience.map((job, index) => (
               <article
                 key={`${job.company}-${job.period}`}
-                className="experience-item"
+                className="experience-card"
                 style={{
                   '--experience-delay': `${index * 0.18}s`,
                 }}
               >
-                <div className="experience-number">
+                <div className="experience-index">
                   {String(index + 1).padStart(2, '0')}
                 </div>
 
-                <div className="experience-line">
-                  <span />
+                <div className="experience-heading">
+                  <h3>{job.title}</h3>
+                  <p>{job.company}</p>
                 </div>
 
-                <div className="experience-card">
-                  <div className="experience-top">
-                    <div className="experience-date">
-                      <span>{job.period}</span>
-                      <small>{job.location}</small>
-                    </div>
-
-                    <span className="experience-arrow">↗</span>
-                  </div>
-
-                  <div className="experience-heading">
-                    <h3>{job.title}</h3>
-                    <p>{job.company}</p>
-                  </div>
-
-                  <div className="experience-divider" />
-
-                  <ul className="experience-list">
-                    {job.responsibilities.map(
-                      (responsibility, responsibilityIndex) => (
-                        <li
-                          key={responsibilityIndex}
-                          style={{
-                            '--bullet-delay': `${
-                              index * 0.18 +
-                              responsibilityIndex * 0.07 +
-                              0.3
-                            }s`,
-                          }}
-                        >
-                          <span className="experience-bullet" />
-                          <span>{responsibility}</span>
-                        </li>
-                      ),
-                    )}
-                  </ul>
+                <div className="experience-period">
+                  <span>{job.period}</span>
+                  <strong>({job.duration})</strong>
                 </div>
+
+                <div className="experience-divider" />
+
+                <ul className="experience-list">
+                  {job.responsibilities.map(
+                    (responsibility, responsibilityIndex) => (
+                      <li
+                        key={responsibilityIndex}
+                        style={{
+                          '--point-delay': `${
+                            index * 0.18 +
+                            responsibilityIndex * 0.08 +
+                            0.35
+                          }s`,
+                        }}
+                      >
+                        <span className="experience-bullet" />
+                        <span>{responsibility}</span>
+                      </li>
+                    ),
+                  )}
+                </ul>
               </article>
             ))}
           </div>
@@ -578,4 +567,3 @@ export default function App() {
     </div>
   )
 }
-
