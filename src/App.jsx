@@ -398,19 +398,7 @@ export default function App() {
           <div className="summary-wrapper">
             <div className="summary-hero-card">
               <p className="summary-hero-text">
-                <strong className="highlight-purple">
-                  Data Analyst with nearly 5 years of experience
-                </strong>{' '}
-                in Business Intelligence, Data Analytics, Reporting Automation, and
-                Business Performance Analysis. Experienced in analyzing operational
-                and customer data, developing KPI dashboards, automating reporting
-                workflows, and delivering insights for business decision-making.
-                Specialized in <strong className="highlight-blue">Operational Analytics, Agent Performance, and Lead Analytics</strong>, 
-                along with strong proficiency in{' '}
-                <strong className="highlight-blue">
-                  SQL, Advanced Excel, Python, and BI tools
-                </strong>
-                .
+                Data Analyst with nearly 5 years of experience in Business Intelligence, Data Analytics, Reporting Automation, and Operational Performance Analysis. Experienced in analyzing operational, agent, lead, and customer data, developing KPI dashboards, automating reporting workflows, and delivering actionable insights for data-driven business decisions. Specialized in <strong className="highlight-purple">Operational Analytics, Agent Performance, Lead &amp; Customer Analytics</strong>, with strong proficiency in <strong className="highlight-blue">SQL, Advanced Excel, Python, and BI tools</strong>.
               </p>
             </div>
           </div>
