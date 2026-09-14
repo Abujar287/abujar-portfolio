@@ -326,9 +326,10 @@ export default function App() {
                   <span className="word word-8">&amp;</span>
                   <span className="word word-9">PYTHON</span>
                   <span className="word separator word-10">|</span>
-                  <span className="word word-11">CRM</span>
-                  <span className="word word-12">&amp;</span>
-                  <span className="word word-13">CLM</span>
+                  <span className="word word-11">CRM,</span>
+                  <span className="word word-12">CLM</span>
+                  <span className="word word-13">&amp;</span>
+                  <span className="word word-14">OPERATIONS</span>
                 </div>
               </div>
 
@@ -404,12 +405,12 @@ export default function App() {
                 Business Performance Analysis. Experienced in analyzing operational
                 and customer data, developing KPI dashboards, automating reporting
                 workflows, and delivering insights for business decision-making.
-                Proficient in{' '}
+                Specialized in <strong className="highlight-blue">Operational Analytics, Agent Performance, and Lead Analytics</strong>, 
+                along with strong proficiency in{' '}
                 <strong className="highlight-blue">
                   SQL, Advanced Excel, Python, and BI tools
                 </strong>
-                , with a strong focus on improving processes, performance, and
-                data-driven operations.
+                .
               </p>
             </div>
           </div>
