@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react'
 
 const navItems = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
   { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'achievements', label: 'Achievements' },
   { id: 'skills', label: 'Skills' },
+  { id: 'about', label: 'About' },
 ]
 
 const coreExpertise = [
@@ -868,58 +868,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- ABOUT (Contact Section acting as About) --- */}
-        <section id="about" className="section expertise-section">
-          <div className="contact-wrapper">
-            <div className="contact-main-heading">
-              <span className="contact-subtag">Get In Touch</span>
-              <div className="contact-title-row">
-                <span className="contact-title-solid">LET'S WORK</span>
-                <span className="contact-title-outline">TOGETHER</span>
-              </div>
-              <p className="contact-desc">
-                Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
-              </p>
-            </div>
-
-            <div className="contact-details-stacked">
-              <div className="contact-field-group">
-                <span className="contact-field-label">Email</span>
-                <a href="mailto:abujar287.algifari@gmail.com" className="contact-field-value">
-                  abujar287.algifari@gmail.com
-                </a>
-              </div>
-
-              <div className="contact-field-group">
-                <span className="contact-field-label">Primary Phone</span>
-                <a href="tel:+8801952980445" className="contact-field-value">
-                  +880 1952980445
-                </a>
-              </div>
-
-              <div className="contact-field-group">
-                <span className="contact-field-label">Secondary Phone</span>
-                <a href="tel:+8801605089778" className="contact-field-value">
-                  +880 1605089778
-                </a>
-              </div>
-            </div>
-
-            <div className="contact-buttons-row">
-              <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                Send Email <span>↗</span>
-              </a>
-              <a href="#cv" className="secondary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
-                Download CV
-              </a>
-            </div>
-
-            <div className="footer-banner">
-              © 2026 ABUJAR AL-GIFARI · DATA ANALYST · BUSINESS INTELLIGENCE
-            </div>
-          </div>
-        </section>
-
         {/* --- CORE EXPERTISE --- */}
         <section id="expertise" className="section expertise-section">
           <div className="section-title">
@@ -1122,7 +1070,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- TECHNICAL SKILLS (Placed after Achievements) --- */}
+        {/* --- TECHNICAL SKILLS --- */}
         <section id="skills" className="section technical-section" ref={skillsRef}>
           <div className="section-title">
             <h2>Technical Skills</h2>
@@ -1163,6 +1111,58 @@ export default function App() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* --- ABOUT (Contact Section acting as About at the end) --- */}
+        <section id="about" className="section expertise-section">
+          <div className="contact-wrapper">
+            <div className="contact-main-heading">
+              <span className="contact-subtag">Get In Touch</span>
+              <div className="contact-title-row">
+                <span className="contact-title-solid">LET'S WORK</span>
+                <span className="contact-title-outline">TOGETHER</span>
+              </div>
+              <p className="contact-desc">
+                Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
+              </p>
+            </div>
+
+            <div className="contact-details-stacked">
+              <div className="contact-field-group">
+                <span className="contact-field-label">Email</span>
+                <a href="mailto:abujar287.algifari@gmail.com" className="contact-field-value">
+                  abujar287.algifari@gmail.com
+                </a>
+              </div>
+
+              <div className="contact-field-group">
+                <span className="contact-field-label">Primary Phone</span>
+                <a href="tel:+8801952980445" className="contact-field-value">
+                  +880 1952980445
+                </a>
+              </div>
+
+              <div className="contact-field-group">
+                <span className="contact-field-label">Secondary Phone</span>
+                <a href="tel:+8801605089778" className="contact-field-value">
+                  +880 1605089778
+                </a>
+              </div>
+            </div>
+
+            <div className="contact-buttons-row">
+              <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                Send Email <span>↗</span>
+              </a>
+              <a href="#cv" className="secondary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+                Download CV
+              </a>
+            </div>
+
+            <div className="footer-banner">
+              © 2026 ABUJAR AL-GIFARI · DATA ANALYST · BUSINESS INTELLIGENCE
             </div>
           </div>
         </section>
