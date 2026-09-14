@@ -558,21 +558,13 @@ export default function App() {
                     <span className="exp-duration">{job.duration}</span>
                   </div>
 
-                  <div className="expertise-skills exp-list">
+                  <ul className="clean-bullet-list">
                     {job.responsibilities.map((resp, idx) => (
-                      <span
-                        key={idx}
-                        className="exp-item-tag"
-                        style={{
-                          '--skill-delay': `${
-                            index * 0.12 + idx * 0.05 + 0.2
-                          }s`,
-                        }}
-                      >
-                        <span className="bullet-symbol">▸</span> {resp}
-                      </span>
+                      <li key={idx}>
+                        <span className="bullet-dot">▸</span> {resp}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             ))}
@@ -591,14 +583,14 @@ export default function App() {
 
           <div
             ref={achievementsRef}
-            className={`expertise-showcase${
+            className={`expertise-showcase exp-grid-layout${
               achievementsVisible ? ' expertise-active' : ''
             }`}
           >
             {keyAchievements.map((item, index) => (
               <div
                 key={item.title}
-                className="expertise-item"
+                className="expertise-item exp-card"
                 style={{
                   '--expertise-delay': `${index * 0.12}s`,
                 }}
@@ -611,24 +603,15 @@ export default function App() {
                     <span className="expertise-icon">↗</span>
                   </div>
 
-                  <p>{item.description}</p>
+                  <p className="ach-desc">{item.description}</p>
 
-                  <div className="expertise-skills">
+                  <ul className="clean-bullet-list">
                     {item.points.map((point, pointIndex) => (
-                      <span
-                        key={pointIndex}
-                        style={{
-                          '--skill-delay': `${
-                            index * 0.12 +
-                            pointIndex * 0.06 +
-                            0.3
-                          }s`,
-                        }}
-                      >
-                        {point}
-                      </span>
+                      <li key={pointIndex}>
+                        <span className="bullet-dot">▸</span> {point}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             ))}
@@ -701,40 +684,63 @@ export default function App() {
         /* --- GLOBAL SECTION TITLE FORMATTING (UPPERCASE) --- */
         .section-title h2 {
           text-transform: uppercase;
-          font-size: 1.6rem !important;
+          font-size: 1.5rem !important;
+          letter-spacing: 0.5px;
         }
 
-        /* --- OPTIMIZED FONT SIZES FOR 1-PAGE FIT & READABILITY --- */
         .section {
-          padding: 30px 0 !important;
+          padding: 24px 0 !important;
         }
 
         .expertise-intro {
-          font-size: 0.95rem !important;
-          margin-bottom: 16px !important;
+          font-size: 0.9rem !important;
+          margin-bottom: 14px !important;
           color: #94a3b8;
         }
 
-        .expertise-main p {
-          font-size: 0.9rem !important;
+        .expertise-main p, .ach-desc {
+          font-size: 0.85rem !important;
           line-height: 1.5 !important;
           color: #cbd5e1;
+          margin-bottom: 10px !important;
         }
 
         .expertise-main h3 {
-          font-size: 1.1rem !important;
+          font-size: 1.05rem !important;
         }
 
-        .expertise-skills span {
-          font-size: 0.82rem !important;
-          padding: 5px 10px !important;
+        /* --- CLEAN UNBOXED BULLET LIST STYLES --- */
+        .clean-bullet-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .clean-bullet-list li {
+          font-size: 0.8rem !important;
+          line-height: 1.4 !important;
+          color: #cbd5e1 !important;
+          display: flex;
+          align-items: flex-start;
+          gap: 6px;
+          text-align: left;
+        }
+
+        .bullet-dot {
+          color: #a78bfa;
+          font-weight: bold;
+          flex-shrink: 0;
+          margin-top: 1px;
         }
 
         /* --- PROFESSIONAL SUMMARY STYLES --- */
         .summary-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 20px;
           width: 100%;
         }
 
@@ -743,12 +749,12 @@ export default function App() {
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-left: 3px solid #a78bfa;
           border-radius: 8px;
-          padding: 20px 24px;
+          padding: 16px 20px;
         }
 
         .summary-hero-text {
-          font-size: 1rem !important;
-          line-height: 1.6 !important;
+          font-size: 0.95rem !important;
+          line-height: 1.55 !important;
           color: #cbd5e1;
           margin: 0;
           font-weight: 400;
@@ -768,8 +774,8 @@ export default function App() {
         .skills-grid-wrapper {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 12px;
-          margin-top: 16px;
+          gap: 10px;
+          margin-top: 12px;
         }
 
         @media (max-width: 1024px) {
@@ -787,23 +793,22 @@ export default function App() {
         .skills-card {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 10px;
-          padding: 12px 16px;
+          border-radius: 8px;
+          padding: 10px 14px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .skills-card-header {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 8px;
+          margin-bottom: 6px;
         }
 
         .skill-cat-badge {
-          font-size: 0.65rem;
+          font-size: 0.62rem;
           font-weight: 700;
           letter-spacing: 0.8px;
           text-transform: uppercase;
@@ -814,10 +819,10 @@ export default function App() {
         }
 
         .skill-level-badge {
-          font-size: 0.65rem;
+          font-size: 0.62rem;
           font-weight: 600;
           padding: 2px 6px;
-          border-radius: 10px;
+          border-radius: 8px;
         }
 
         .level-expert {
@@ -842,7 +847,7 @@ export default function App() {
         }
 
         .skill-title {
-          font-size: 0.95rem !important;
+          font-size: 0.9rem !important;
           font-weight: 600;
           color: #ffffff;
           margin: 0;
@@ -850,14 +855,14 @@ export default function App() {
 
         .skills-icon {
           color: #64748b;
-          font-size: 0.85rem;
+          font-size: 0.8rem;
         }
 
-        /* --- PROFESSIONAL EXPERIENCE --- */
+        /* --- PROFESSIONAL EXPERIENCE & ACHIEVEMENTS LAYOUT --- */
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
-          gap: 16px !important;
+          gap: 14px !important;
         }
 
         @media (max-width: 1024px) {
@@ -880,15 +885,15 @@ export default function App() {
         }
 
         .exp-title {
-          font-size: 1.1rem !important;
+          font-size: 1.05rem !important;
           font-weight: 700 !important;
           color: #ffffff !important;
           margin: 0 !important;
         }
 
         .exp-company {
-          font-size: 0.85rem !important;
-          margin-bottom: 8px !important;
+          font-size: 0.82rem !important;
+          margin-bottom: 6px !important;
         }
 
         .company-name {
@@ -907,10 +912,10 @@ export default function App() {
           background: rgba(167, 139, 250, 0.08);
           border: 1px solid rgba(167, 139, 250, 0.2);
           border-radius: 20px;
-          padding: 3px 8px;
-          font-size: 0.7rem !important;
+          padding: 2px 8px;
+          font-size: 0.68rem !important;
           font-weight: 600 !important;
-          margin-bottom: 12px !important;
+          margin-bottom: 10px !important;
         }
 
         .exp-period {
@@ -924,33 +929,6 @@ export default function App() {
         .exp-dot {
           color: #94a3b8;
           opacity: 0.5;
-        }
-
-        .exp-list {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 5px !important;
-        }
-
-        .exp-item-tag {
-          font-size: 0.8rem !important;
-          font-weight: 400 !important;
-          line-height: 1.4 !important;
-          color: #e2e8f0 !important;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-left: 2px solid #a78bfa !important;
-          border-radius: 4px;
-          padding: 4px 8px;
-          width: 100%;
-          text-align: left;
-        }
-
-        .bullet-symbol {
-          color: #a78bfa;
-          font-weight: bold;
-          margin-right: 2px;
         }
       `}</style>
     </div>
