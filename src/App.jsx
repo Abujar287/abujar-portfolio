@@ -337,48 +337,48 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- PROFESSIONAL SUMMARY SECTION --- */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
           </div>
 
           <div className="about-grid">
-            <div>
-              <p className="large-text">
-                Data Analyst with nearly 5 years of experience
-                in Business Intelligence, Data Analytics,
-                Reporting Automation, and Business Performance
-                Analysis.
+            <div className="about-main-content">
+              <div className="about-highlight-card">
+                <p className="large-text">
+                  Data Analyst with nearly <span className="highlight-text">5 years</span> of hands-on experience driving business impact through <span className="highlight-text">Business Intelligence</span>, advanced reporting automation, and performance analytics.
+                </p>
+              </div>
+
+              <p className="about-desc">
+                Experienced in analyzing operational and customer data, developing interactive KPI dashboards, automating complex reporting workflows, and delivering strategic insights for business decision-making. Highly proficient in SQL, Advanced Excel, Python, and modern BI tools with a strong focus on optimizing processes and data-driven operations.
               </p>
 
-              <p>
-                Experienced in analyzing operational and customer
-                data, developing KPI dashboards, automating
-                reporting workflows, and delivering insights for
-                business decision-making. Proficient in SQL,
-                Advanced Excel, Python, and BI tools, with a
-                strong focus on improving processes, performance,
-                and data-driven operations.
-              </p>
+              <div className="about-pills">
+                <span>⚡ KPI Dashboards</span>
+                <span>📊 Workflow Automation</span>
+                <span>🎯 Strategic Data Insights</span>
+              </div>
             </div>
 
             <div className="about-box">
-              <div>
+              <div className="about-stat-item">
                 <span>FOCUS</span>
                 <strong>Business Intelligence</strong>
               </div>
 
-              <div>
+              <div className="about-stat-item">
                 <span>EXPERTISE</span>
                 <strong>Data Analytics</strong>
               </div>
 
-              <div>
+              <div className="about-stat-item">
                 <span>SPECIALIZATION</span>
                 <strong>CRM &amp; CLM</strong>
               </div>
 
-              <div>
+              <div className="about-stat-item">
                 <span>APPROACH</span>
                 <strong>Data Driven</strong>
               </div>
@@ -618,6 +618,64 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
+        /* --- PROFESSIONAL SUMMARY ENHANCEMENTS --- */
+        .about-main-content {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .about-highlight-card {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-left: 3px solid #a78bfa;
+          padding: 20px;
+          border-radius: 8px;
+        }
+
+        .highlight-text {
+          color: #38bdf8;
+          font-weight: 600;
+        }
+
+        .about-desc {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: #94a3b8;
+          margin: 0;
+        }
+
+        .about-pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 6px;
+        }
+
+        .about-pills span {
+          font-size: 0.78rem;
+          font-weight: 500;
+          color: #cbd5e1;
+          background: rgba(167, 139, 250, 0.08);
+          border: 1px solid rgba(167, 139, 250, 0.2);
+          padding: 5px 12px;
+          border-radius: 20px;
+        }
+
+        .about-stat-item {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          padding: 16px;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+        }
+
+        .about-stat-item:hover {
+          background: rgba(167, 139, 250, 0.05);
+          border-color: rgba(167, 139, 250, 0.25);
+          transform: translateY(-2px);
+        }
+
         /* --- TECHNICAL SKILLS ENHANCEMENTS --- */
         .skills-grid-wrapper {
           display: grid;
