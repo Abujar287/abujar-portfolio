@@ -6,6 +6,7 @@ const navItems = [
   { id: 'skills', label: 'Skills' },
   { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
+  { id: 'achievements', label: 'Achievements' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -157,15 +158,39 @@ const professionalExperience = [
   },
 ]
 
+const achievementsData = [
+  {
+    category: 'Process & System Improvements',
+    icon: '⚡',
+    items: [
+      'Implemented Gplex, Cube, and Pendulum calling systems & processes.',
+      'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time and improving reporting accuracy.',
+      'Developed Google Sheets-based Telesales Lead Management automation solutions for 70+ agents, improving lead tracking efficiency.',
+    ],
+  },
+  {
+    category: 'Key Achievements & Impact',
+    icon: '🎯',
+    items: [
+      'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
+      'Developed Python & Google Sheets-based reporting automation solutions to streamline recurring reports and reduce manual reporting efforts.',
+      'Developed operational dashboards for Call Center, DQM, Complaint Management, and Back Office teams.',
+      'Automated telesales lead management for 70+ agents.',
+    ],
+  },
+]
+
 export default function App() {
   const [active, setActive] = useState('home')
   const [skillsVisible, setSkillsVisible] = useState(false)
   const [expertiseVisible, setExpertiseVisible] = useState(false)
   const [experienceVisible, setExperienceVisible] = useState(false)
+  const [achievementsVisible, setAchievementsVisible] = useState(false)
 
   const skillsRef = useRef(null)
   const expertiseRef = useRef(null)
   const experienceRef = useRef(null)
+  const achievementsRef = useRef(null)
 
   const scrollTo = (id) => {
     const element = document.getElementById(id)
@@ -227,6 +252,22 @@ export default function App() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setExperienceVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const node = achievementsRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAchievementsVisible(true)
           observer.disconnect()
         }
       },
@@ -337,7 +378,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PROFESSIONAL SUMMARY (CLEAN & MINIMAL) --- */}
+        {/* --- PROFESSIONAL SUMMARY --- */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
@@ -413,6 +454,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- CORE EXPERTISE --- */}
         <section id="expertise" className="section expertise-section">
           <div className="section-title">
             <h2>Core Expertise</h2>
@@ -534,6 +576,55 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- KEY ACHIEVEMENTS (NEW SECTION) --- */}
+        <section id="achievements" className="section achievements-section">
+          <div className="section-title">
+            <h2>Key Achievements</h2>
+          </div>
+
+          <p className="expertise-intro">
+            Key system optimizations, process automations, and operational milestones achieved throughout my career.
+          </p>
+
+          <div
+            ref={achievementsRef}
+            className={`achievements-grid${
+              achievementsVisible ? ' achievements-active' : ''
+            }`}
+          >
+            {achievementsData.map((group, groupIdx) => (
+              <div
+                key={group.category}
+                className="achievement-card"
+                style={{
+                  '--achieve-delay': `${groupIdx * 0.2}s`,
+                }}
+              >
+                <div className="achievement-card-header">
+                  <span className="achievement-icon">{group.icon}</span>
+                  <h3>{group.category}</h3>
+                </div>
+
+                <div className="achievement-list">
+                  {group.items.map((item, itemIdx) => (
+                    <div
+                      key={itemIdx}
+                      className="achievement-item"
+                      style={{
+                        '--item-delay': `${groupIdx * 0.2 + itemIdx * 0.08 + 0.2}s`,
+                      }}
+                    >
+                      <span className="achieve-bullet">✦</span>
+                      <p>{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* --- CONTACT --- */}
         <section id="contact" className="section contact">
           <div className="contact-content">
             <p className="eyebrow">GET IN TOUCH</p>
@@ -825,6 +916,101 @@ export default function App() {
           color: #a78bfa;
           font-weight: bold;
           margin-right: 2px;
+        }
+
+        /* --- KEY ACHIEVEMENTS STYLES & ANIMATION --- */
+        .achievements-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+          margin-top: 24px;
+        }
+
+        @media (max-width: 868px) {
+          .achievements-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .achievement-card {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-top: 3px solid #38bdf8;
+          border-radius: 12px;
+          padding: 24px;
+          opacity: 0;
+          transform: translateY(30px);
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                      border-color 0.3s ease;
+        }
+
+        .achievement-card:hover {
+          background: rgba(255, 255, 255, 0.04);
+          border-color: rgba(56, 189, 248, 0.4);
+          transform: translateY(-4px);
+        }
+
+        .achievements-active .achievement-card {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: var(--achieve-delay, 0s);
+        }
+
+        .achievement-card-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          padding-bottom: 12px;
+        }
+
+        .achievement-icon {
+          font-size: 1.4rem;
+        }
+
+        .achievement-card-header h3 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin: 0;
+        }
+
+        .achievement-list {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .achievement-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          opacity: 0;
+          transform: translateX(-15px);
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .achievements-active .achievement-item {
+          opacity: 1;
+          transform: translateX(0);
+          transition-delay: var(--item-delay, 0s);
+        }
+
+        .achieve-bullet {
+          color: #38bdf8;
+          font-size: 0.9rem;
+          margin-top: 2px;
+          flex-shrink: 0;
+        }
+
+        .achievement-item p {
+          color: #cbd5e1;
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin: 0;
         }
       `}</style>
     </div>
