@@ -1,24 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import './index.css'
 
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
-  { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
-]
-
-const technicalSkills = [
-  { name: 'SQL', category: 'Querying', level: 'Advanced' },
-  { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
-  { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
-  { name: 'Business Intelligence', category: 'Analytics', level: 'Advanced' },
-  { name: 'Metabase', category: 'Dashboards', level: 'Proficient' },
-  { name: 'Apache Superset', category: 'Dashboards', level: 'Proficient' },
-  { name: 'Google Sheets', category: 'Modeling', level: 'Advanced' },
-  { name: 'CRM & CLM', category: 'Operations', level: 'Specialist' },
 ]
 
 const coreExpertise = [
@@ -72,7 +59,12 @@ const coreExpertise = [
     title: 'Customer Intelligence',
     description:
       'Using customer and lifecycle data to understand behavior, improve data quality and support better business decisions.',
-    skills: ['CRM', 'CLM', 'Customer Analytics', 'Customer Insights'],
+    skills: [
+      'CRM',
+      'CLM',
+      'Customer Analytics',
+      'Customer Insights',
+    ],
   },
   {
     title: 'Operational Analytics',
@@ -87,12 +79,43 @@ const coreExpertise = [
   },
 ]
 
+const technicalSkills = [
+  { name: 'SQL', category: 'Querying', level: 'Advanced' },
+  { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
+  { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
+  {
+    name: 'Business Intelligence',
+    category: 'Analytics',
+    level: 'Advanced',
+  },
+  {
+    name: 'Metabase',
+    category: 'Dashboards',
+    level: 'Proficient',
+  },
+  {
+    name: 'Apache Superset',
+    category: 'Dashboards',
+    level: 'Proficient',
+  },
+  {
+    name: 'Google Sheets',
+    category: 'Modeling',
+    level: 'Advanced',
+  },
+  {
+    name: 'CRM & CLM',
+    category: 'Operations',
+    level: 'Specialist',
+  },
+]
+
 const professionalExperience = [
   {
-    title: 'Sr. Data Analyst',
-    company: 'Sheba.xyz',
     period: '11/2023 - Present',
-    duration: '2 Years 10 Months',
+    location: 'Jashore, Bangladesh',
+    title: 'Sr. Data Analyst',
+    company: 'Sheba.xyz Services Limited',
     responsibilities: [
       'Business Data Analysis & Actionable Insights.',
       'Automated Dashboard & Operational Reporting.',
@@ -104,10 +127,10 @@ const professionalExperience = [
     ],
   },
   {
+    period: '09/2022 - 10/2023',
+    location: 'Jashore, Bangladesh',
     title: 'Jr. Data Analyst',
     company: 'Chaldal PLC',
-    period: '09/2022 - 10/2023',
-    duration: '1 Year 2 Months',
     responsibilities: [
       'Financial Reconciliation.',
       'Customer Clustering.',
@@ -117,10 +140,10 @@ const professionalExperience = [
     ],
   },
   {
+    period: '03/2021 - 08/2022',
+    location: 'Jashore, Bangladesh',
     title: 'Associate Data Analyst',
     company: 'Chaldal PLC',
-    period: '03/2021 - 08/2022',
-    duration: '1 Year 6 Months',
     responsibilities: [
       'Product Pricing & Mapping.',
       'Sudden Report Analysis.',
@@ -130,7 +153,7 @@ const professionalExperience = [
   },
 ]
 
-function App() {
+export default function App() {
   const [active, setActive] = useState('home')
   const [skillsVisible, setSkillsVisible] = useState(false)
   const [expertiseVisible, setExpertiseVisible] = useState(false)
@@ -148,103 +171,108 @@ function App() {
         behavior: 'smooth',
         block: 'start',
       })
-
-      setActive(id)
     }
+
+    setActive(id)
   }
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.getElementById(item.id))
-      .filter(Boolean)
+    const onScroll = () => {
+      if (window.scrollY < 200) {
+        setActive('home')
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, {
+      passive: true,
+    })
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
+  useEffect(() => {
+    const node = skillsRef.current
+
+    if (!node) return
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id)
-          }
-        })
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSkillsVisible(true)
+          observer.disconnect()
+        }
       },
       {
-        rootMargin: '-35% 0px -55% 0px',
-        threshold: 0,
+        threshold: 0.25,
       },
     )
 
-    sections.forEach((section) => observer.observe(section))
+    observer.observe(node)
 
     return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
-    const createObserver = (ref, callback) => {
-      if (!ref.current) return null
+    const node = expertiseRef.current
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            callback(true)
-            observer.disconnect()
-          }
-        },
-        {
-          threshold: 0.15,
-        },
-      )
+    if (!node) return
 
-      observer.observe(ref.current)
-
-      return observer
-    }
-
-    const skillsObserver = createObserver(
-      skillsRef,
-      setSkillsVisible,
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setExpertiseVisible(true)
+          observer.disconnect()
+        }
+      },
+      {
+        threshold: 0.15,
+      },
     )
 
-    const expertiseObserver = createObserver(
-      expertiseRef,
-      setExpertiseVisible,
+    observer.observe(node)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const node = experienceRef.current
+
+    if (!node) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setExperienceVisible(true)
+          observer.disconnect()
+        }
+      },
+      {
+        threshold: 0.15,
+      },
     )
 
-    const experienceObserver = createObserver(
-      experienceRef,
-      setExperienceVisible,
-    )
+    observer.observe(node)
 
-    return () => {
-      skillsObserver?.disconnect()
-      expertiseObserver?.disconnect()
-      experienceObserver?.disconnect()
-    }
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <div className="app">
-      <nav className="navbar">
-        <div className="navbar-inner">
-          <button
-            className="logo"
-            onClick={() => scrollTo('home')}
-          >
-            ABUJAR<span>.</span>
-          </button>
-
-          <ul className="nav-links">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <button
-                  className={active === item.id ? 'active' : ''}
-                  onClick={() => scrollTo(item.id)}
-                >
-                  {item.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+    <div className="portfolio">
+      <header className="navbar">
+        <nav className="nav-links" aria-label="Primary">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              className={active === item.id ? 'active' : ''}
+              onClick={() => scrollTo(item.id)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+      </header>
 
       <main>
         <section id="home" className="section hero">
@@ -260,7 +288,9 @@ function App() {
                   <span className="word word-2">ANALYST</span>
                   <span className="word separator word-3">|</span>
                   <span className="word word-4">BUSINESS</span>
-                  <span className="word word-5">INTELLIGENCE</span>
+                  <span className="word word-5">
+                    INTELLIGENCE
+                  </span>
                 </div>
 
                 <div className="title-line second-line">
@@ -268,7 +298,9 @@ function App() {
                   <span className="word word-7">SQL</span>
                   <span className="word word-8">&amp;</span>
                   <span className="word word-9">PYTHON</span>
-                  <span className="word separator word-10">|</span>
+                  <span className="word separator word-10">
+                    |
+                  </span>
                   <span className="word word-11">CRM</span>
                   <span className="word word-12">&amp;</span>
                   <span className="word word-13">CLM</span>
@@ -276,9 +308,9 @@ function App() {
               </div>
 
               <p className="hero-description">
-                Turning complex data into actionable insights, intelligent
-                dashboards, automated reporting solutions and data-driven
-                business decisions.
+                Turning complex data into actionable insights,
+                intelligent dashboards, automated reporting
+                solutions and data-driven business decisions.
               </p>
 
               <div className="hero-buttons">
@@ -331,66 +363,111 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="section about-section">
+        <section id="about" className="section about">
+          <div className="section-title">
+            <h2>Professional Summary</h2>
+          </div>
+
           <div className="about-grid">
             <div>
-              <span className="about-label">ABOUT ME</span>
+              <p className="large-text">
+                Data Analyst with nearly 5 years of experience
+                in Business Intelligence, Data Analytics,
+                Reporting Automation, and Business Performance
+                Analysis.
+              </p>
+
+              <p>
+                Experienced in analyzing operational and customer
+                data, developing KPI dashboards, automating
+                reporting workflows, and delivering insights for
+                business decision-making. Proficient in SQL,
+                Advanced Excel, Python, and BI tools, with a
+                strong focus on improving processes, performance,
+                and data-driven operations.
+              </p>
             </div>
 
-            <div className="about-content">
-              <h3>
-                Data &amp; Business Insights Analyst focused on turning
-                complex data into practical business decisions.
-              </h3>
+            <div className="about-box">
+              <div>
+                <span>FOCUS</span>
+                <strong>Business Intelligence</strong>
+              </div>
 
-              <p>
-                With nearly 5 years of experience in Business Intelligence,
-                Data Analytics, Reporting Automation and Operational
-                Performance Analysis, I work across data, technology and
-                business operations.
-              </p>
+              <div>
+                <span>EXPERTISE</span>
+                <strong>Data Analytics</strong>
+              </div>
 
-              <p>
-                My work focuses on transforming raw business data into
-                meaningful insights, automated reporting solutions,
-                dashboards and performance-driven recommendations.
-              </p>
+              <div>
+                <span>SPECIALIZATION</span>
+                <strong>CRM &amp; CLM</strong>
+              </div>
+
+              <div>
+                <span>APPROACH</span>
+                <strong>Data Driven</strong>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="skills" className="section skills-section">
+        <section
+          id="skills"
+          className="section technical-section"
+        >
           <div className="section-title">
             <h2>Technical Skills</h2>
           </div>
 
           <div
             ref={skillsRef}
-            className={`skills-grid${
-              skillsVisible ? ' skills-active' : ''
+            className={`technical-showcase${
+              skillsVisible ? ' technical-active' : ''
             }`}
           >
-            {technicalSkills.map((skill, index) => (
-              <article
-                key={skill.name}
-                className="skill-card"
-                style={{
-                  '--skill-delay': `${index * 0.08}s`,
-                }}
-              >
-                <span className="skill-category">
-                  {skill.category}
-                </span>
+            <div className="technical-top">
+              <div className="technical-heading">
+                <span className="technical-dot" />
+                <span>CORE TOOLKIT</span>
+              </div>
 
-                <span className="skill-arrow">↗</span>
+              <span className="technical-count">
+                {`0${technicalSkills.length} DISCIPLINES`}
+              </span>
+            </div>
 
-                <h3>{skill.name}</h3>
+            <div className="technical-list">
+              {technicalSkills.map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className="technical-item"
+                  style={{
+                    '--technical-delay': `${index * 0.1}s`,
+                  }}
+                >
+                  <div className="technical-main">
+                    <span className="technical-name">
+                      {skill.name}
+                    </span>
 
-                <span className="skill-level">
-                  {skill.level}
-                </span>
-              </article>
-            ))}
+                    <div className="technical-meta">
+                      <span>
+                        {skill.category.toUpperCase()}
+                      </span>
+
+                      <i />
+
+                      <span>
+                        {skill.level.toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+
+                  <span className="technical-arrow">↗</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -400,39 +477,56 @@ function App() {
         >
           <div className="section-title">
             <h2>Core Expertise</h2>
-
-            <p>
-              Data, technology and business expertise combined to build
-              smarter decisions and scalable solutions.
-            </p>
           </div>
+
+          <p className="expertise-intro">
+            Data, technology and business expertise combined to
+            turn complex data into clear insights, smarter
+            decisions and scalable solutions.
+          </p>
 
           <div
             ref={expertiseRef}
-            className={`expertise-grid${
+            className={`expertise-showcase${
               expertiseVisible ? ' expertise-active' : ''
             }`}
           >
             {coreExpertise.map((item, index) => (
-              <article
+              <div
                 key={item.title}
-                className="expertise-card"
+                className="expertise-item"
                 style={{
-                  '--expertise-delay': `${index * 0.08}s`,
+                  '--expertise-delay': `${index * 0.12}s`,
                 }}
               >
-                <span className="expertise-arrow">↗</span>
+                <div className="expertise-bar" />
 
-                <h3>{item.title}</h3>
+                <div className="expertise-main">
+                  <div className="expertise-heading">
+                    <h3>{item.title}</h3>
+                    <span className="expertise-icon">↗</span>
+                  </div>
 
-                <p>{item.description}</p>
+                  <p>{item.description}</p>
 
-                <div className="expertise-skills">
-                  {item.skills.map((skill) => (
-                    <span key={skill}>{skill}</span>
-                  ))}
+                  <div className="expertise-skills">
+                    {item.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skill}
+                        style={{
+                          '--skill-delay': `${
+                            index * 0.12 +
+                            skillIndex * 0.06 +
+                            0.3
+                          }s`,
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </section>
@@ -447,118 +541,117 @@ function App() {
 
           <div
             ref={experienceRef}
-            className={`experience-showcase${
+            className={`experience-grid${
               experienceVisible ? ' experience-active' : ''
             }`}
           >
             {professionalExperience.map((job, index) => (
-              <article
+              <div
                 key={`${job.company}-${job.period}`}
                 className="experience-card"
                 style={{
-                  '--experience-delay': `${index * 0.18}s`,
+                  '--experience-delay': `${index * 0.12}s`,
                 }}
               >
-                <div className="experience-card-top">
-                  <span className="experience-label">
-                    PROFESSIONAL EXPERIENCE
-                  </span>
+                <div className="experience-header">
+                  <div className="experience-meta">
+                    <span className="experience-period">
+                      {job.period}
+                    </span>
 
-                  <span className="experience-arrow">↗</span>
+                    <span className="experience-location">
+                      {job.location}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="experience-heading">
-                  <h3>{job.title}</h3>
-                  <p>{job.company}</p>
-                </div>
+                <div className="experience-title-group">
+                  <h3 className="experience-role">
+                    {job.title}
+                  </h3>
 
-                <div className="experience-meta">
-                  <span>{job.period}</span>
-                  <strong>({job.duration})</strong>
+                  <p className="experience-company">
+                    {job.company}
+                  </p>
                 </div>
 
                 <div className="experience-divider" />
 
                 <ul className="experience-list">
                   {job.responsibilities.map(
-                    (responsibility, responsibilityIndex) => (
-                      <li
-                        key={responsibilityIndex}
-                        style={{
-                          '--point-delay': `${
-                            index * 0.18 +
-                            responsibilityIndex * 0.08 +
-                            0.35
-                          }s`,
-                        }}
-                      >
-                        <span className="experience-bullet" />
-                        <span>{responsibility}</span>
-                      </li>
+                    (responsibility, index) => (
+                      <li key={index}>{responsibility}</li>
                     ),
                   )}
                 </ul>
-              </article>
+              </div>
             ))}
           </div>
         </section>
 
-        <section id="contact" className="section contact-section">
-          <div className="contact-box">
-            <h2>Let&apos;s build something meaningful with data.</h2>
+        <section id="contact" className="section contact">
+          <div className="contact-content">
+            <p className="eyebrow">GET IN TOUCH</p>
+
+            <h2>
+              LET&apos;S WORK
+              <span>TOGETHER</span>
+            </h2>
 
             <p>
-              Open to opportunities, collaborations and data-driven
-              projects where analytics can create measurable business
-              impact.
+              Open to opportunities in data analysis, business
+              intelligence, and reporting automation. Whether
+              you have a question, a project, or just want to
+              connect — feel free to reach out.
             </p>
 
-            <div className="contact-links">
-              <a
-                className="contact-link"
-                href="mailto:abujar287.algifari@gmail.com"
-              >
+            <div className="contact-info">
+              <a href="mailto:abujar287.algifari@gmail.com">
+                <span>EMAIL</span>
                 abujar287.algifari@gmail.com
               </a>
 
-              <a
-                className="contact-link"
-                href="tel:+8801952980445"
-              >
+              <a href="tel:+8801952980445">
+                <span>PRIMARY PHONE</span>
                 +880 1952-980445
               </a>
 
-              <a
-                className="contact-link"
-                href="tel:+8801605089778"
-              >
+              <a href="tel:+8801605089778">
+                <span>SECONDARY PHONE</span>
                 +880 1605089778
+              </a>
+            </div>
+
+            <div className="contact-buttons">
+              <a
+                href="mailto:abujar287.algifari@gmail.com"
+                className="primary-button"
+              >
+                Send Email <span>↗</span>
               </a>
 
               <a
-                className="contact-link"
-                href="https://www.linkedin.com/in/abujar-al-gifari/"
+                href="/Abujar-Al-Gifari-CV.pdf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                className="secondary-button"
               >
-                LinkedIn ↗
+                Download CV
               </a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="footer">
-        <p>
-          © 2026 ABUJAR AL-GIFARI. All rights reserved.
-        </p>
+      <footer>
+        <span>
+          {`© ${new Date().getFullYear()} ABUJAR AL-GIFARI`}
+        </span>
 
-        <p>
-          DATA ANALYST <span>•</span> BUSINESS INTELLIGENCE
-        </p>
+        <span>
+          DATA ANALYST · BUSINESS INTELLIGENCE
+        </span>
       </footer>
     </div>
   )
 }
-
-export default App
