@@ -463,6 +463,21 @@ export default function App() {
           flex-shrink: 0;
           margin-top: 1px;
         }
+        .hero-summary-box {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-left: 3px solid #a78bfa;
+          border-radius: 8px;
+          padding: 12px 16px;
+          margin: 16px 0;
+        }
+        .hero-summary-text {
+          font-size: 0.88rem !important;
+          line-height: 1.5 !important;
+          color: #cbd5e1;
+          margin: 0;
+          font-weight: 400;
+        }
         .summary-wrapper {
           display: flex;
           flex-direction: column;
@@ -833,6 +848,24 @@ export default function App() {
                 </div>
               </div>
 
+              <div className="hero-metrics">
+                <div>
+                  <strong>5+</strong>
+                  <span>Years Experience</span>
+                </div>
+
+                <div>
+                  <strong>8+</strong>
+                  <span>Teams Analyzed</span>
+                </div>
+              </div>
+
+              <div className="hero-summary-box">
+                <p className="hero-summary-text">
+                  Data Analyst with nearly 5 years of experience in Business Intelligence, Data Analytics, Reporting Automation, and Operational Performance Analysis. Experienced in analyzing operational, agent, lead, and customer data, developing KPI dashboards, automating reporting workflows, and delivering actionable insights for data-driven business decisions. Specialized in <strong className="highlight-purple">Operational Analytics, Agent Performance, Lead &amp; Customer Analytics</strong>, with strong proficiency in <strong className="highlight-blue">SQL, Advanced Excel, Python, and BI tools</strong>.
+                </p>
+              </div>
+
               <p className="hero-description">
                 Turning complex data into actionable insights,
                 intelligent dashboards, automated reporting
@@ -854,18 +887,6 @@ export default function App() {
                   Contact Me
                 </button>
               </div>
-
-              <div className="hero-metrics">
-                <div>
-                  <strong>5+</strong>
-                  <span>Years Experience</span>
-                </div>
-
-                <div>
-                  <strong>8+</strong>
-                  <span>Teams Analyzed</span>
-                </div>
-              </div>
             </div>
 
             <div className="hero-photo">
@@ -886,21 +907,6 @@ export default function App() {
           <div className="scroll-indicator">
             <span />
             SCROLL TO EXPLORE
-          </div>
-        </section>
-
-        {/* --- PROFESSIONAL SUMMARY --- */}
-        <section id="about" className="section about">
-          <div className="section-title">
-            <h2>Professional Summary</h2>
-          </div>
-
-          <div className="summary-wrapper">
-            <div className="summary-hero-card">
-              <p className="summary-hero-text">
-                Data Analyst with nearly 5 years of experience in Business Intelligence, Data Analytics, Reporting Automation, and Operational Performance Analysis. Experienced in analyzing operational, agent, lead, and customer data, developing KPI dashboards, automating reporting workflows, and delivering actionable insights for data-driven business decisions. Specialized in <strong className="highlight-purple">Operational Analytics, Agent Performance, Lead &amp; Customer Analytics</strong>, with strong proficiency in <strong className="highlight-blue">SQL, Advanced Excel, Python, and BI tools</strong>.
-              </p>
-            </div>
           </div>
         </section>
 
