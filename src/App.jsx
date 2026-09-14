@@ -119,13 +119,13 @@ const professionalExperience = [
     period: '11/2023 - PRESENT',
     duration: '2 YEARS 10 MONTHS',
     responsibilities: [
-      'Business Data Analysis & Insights',
-      'Automated Dashboards & Reporting',
-      'TS, KAM, CC, FB, BO & VOC KPIs',
-      'Cohort & Lead Optimization',
-      'Cross-Functional Analytics',
-      'Payroll & Agent Utilization',
-      'SQL & Workflow Optimization',
+      'Business Data Analysis & Actionable Insights',
+      'Automated Dashboard & Operational Reporting',
+      'Telesales & KAM KPI Performance Analysis',
+      'Customer Cohort Analysis & Lead Optimization',
+      'Cross-functional Team Performance Analysis',
+      'Payroll, Attendance & Agent Utilization Automation',
+      'SQL Query Optimization & Reporting Workflow Improvement',
     ],
   },
   {
@@ -139,7 +139,7 @@ const professionalExperience = [
       'Customer Clustering',
       'Monetization Planning',
       'Product Reconciliation',
-      'Team KPI & Dashboards',
+      'Team-wise KPI & Dashboard Analysis',
     ],
   },
   {
@@ -150,7 +150,7 @@ const professionalExperience = [
     duration: '1 YEAR 6 MONTHS',
     responsibilities: [
       'Product Pricing & Mapping',
-      'Ad-hoc Report Analysis',
+      'Sudden Report Analysis',
       'Cohort Analysis',
       'Protocol Ticket Analysis',
     ],
