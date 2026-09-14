@@ -158,14 +158,12 @@ const professionalExperience = [
   },
 ]
 
-const achievementsData = [
+const keyAchievements = [
   {
     title: 'Process & System Improvements',
-    subtitle: 'System Architecture & Automation',
-    period: 'Core Optimization',
-    duration: 'Infrastructure',
-    icon: '⚡',
-    responsibilities: [
+    description:
+      'Implemented calling systems, automated payroll and attendance reporting, and developed Google Sheets-based telesales lead management solutions.',
+    points: [
       'Implemented Gplex, Cube, and Pendulum calling systems & processes.',
       'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time and improving reporting accuracy.',
       'Developed Google Sheets-based Telesales Lead Management automation solutions for 70+ agents, improving lead tracking efficiency.',
@@ -173,11 +171,9 @@ const achievementsData = [
   },
   {
     title: 'Key Achievements & Impact',
-    subtitle: 'Operational Excellence & Analytics',
-    period: 'Business Growth',
-    duration: 'Impact Driven',
-    icon: '🎯',
-    responsibilities: [
+    description:
+      'Streamlined reporting workflows, developed Python and Google Sheets automation solutions, and built operational dashboards for multi-functional teams.',
+    points: [
       'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
       'Developed Python & Google Sheets-based reporting automation solutions to streamline recurring reports and reduce manual reporting efforts.',
       'Developed operational dashboards for Call Center, DQM, Complaint Management, and Back Office teams.',
@@ -583,7 +579,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- KEY ACHIEVEMENTS (MATCHING EXPERIENCE & EXPERTISE STYLE) --- */}
+        {/* --- KEY ACHIEVEMENTS (MATCHING CORE EXPERTISE STYLE) --- */}
         <section id="achievements" className="section expertise-section">
           <div className="section-title">
             <h2>Key Achievements</h2>
@@ -595,51 +591,41 @@ export default function App() {
 
           <div
             ref={achievementsRef}
-            className={`expertise-showcase exp-grid-layout${
+            className={`expertise-showcase${
               achievementsVisible ? ' expertise-active' : ''
             }`}
           >
-            {achievementsData.map((group, index) => (
+            {keyAchievements.map((item, index) => (
               <div
-                key={`${group.title}-${index}`}
-                className="expertise-item exp-card"
+                key={item.title}
+                className="expertise-item"
                 style={{
-                  '--expertise-delay': `${index * 0.15}s`,
+                  '--expertise-delay': `${index * 0.12}s`,
                 }}
               >
                 <div className="expertise-bar" />
 
                 <div className="expertise-main">
-                  <div className="exp-heading">
-                    <h3 className="exp-title">
-                      <span style={{ marginRight: '8px' }}>{group.icon}</span>
-                      {group.title}
-                    </h3>
+                  <div className="expertise-heading">
+                    <h3>{item.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
 
-                  <p className="exp-company">
-                    <span className="company-name">{group.subtitle}</span>
-                  </p>
+                  <p>{item.description}</p>
 
-                  <div className="exp-badge">
-                    <span className="exp-period">{group.period}</span>
-                    <span className="exp-dot">•</span>
-                    <span className="exp-duration">{group.duration}</span>
-                  </div>
-
-                  <div className="expertise-skills exp-list">
-                    {group.responsibilities.map((resp, idx) => (
+                  <div className="expertise-skills">
+                    {item.points.map((point, pointIndex) => (
                       <span
-                        key={idx}
-                        className="exp-item-tag"
+                        key={pointIndex}
                         style={{
                           '--skill-delay': `${
-                            index * 0.12 + idx * 0.05 + 0.2
+                            index * 0.12 +
+                            pointIndex * 0.06 +
+                            0.3
                           }s`,
                         }}
                       >
-                        <span className="bullet-symbol">✦</span> {resp}
+                        {point}
                       </span>
                     ))}
                   </div>
@@ -673,7 +659,7 @@ export default function App() {
 
               <a href="tel:+8801952980445">
                 <span>PRIMARY PHONE</span>
-                +880 1952980445
+                +880 1952-980445
               </a>
 
               <a href="tel:+8801605089778">
@@ -843,14 +829,20 @@ export default function App() {
           font-size: 0.9rem;
         }
 
-        /* --- PROFESSIONAL EXPERIENCE & ACHIEVEMENTS SHARED LAYOUT --- */
+        /* --- PROFESSIONAL EXPERIENCE --- */
         .exp-grid-layout {
           display: grid !important;
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 24px !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 20px !important;
         }
 
         @media (max-width: 1024px) {
+          .exp-grid-layout {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+
+        @media (max-width: 768px) {
           .exp-grid-layout {
             grid-template-columns: 1fr !important;
           }
@@ -868,8 +860,6 @@ export default function App() {
           font-weight: 700 !important;
           color: #ffffff !important;
           margin: 0 !important;
-          display: flex;
-          align-items: center;
         }
 
         .exp-company {
