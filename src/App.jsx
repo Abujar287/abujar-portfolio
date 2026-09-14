@@ -105,38 +105,6 @@ const coreExpertise = [
   },
 ]
 
-const technicalSkillCategories = [
-  {
-    category: 'Querying',
-    skills: [{ name: 'SQL', level: 'Advanced' }],
-  },
-  {
-    category: 'Spreadsheets & Tools',
-    skills: [
-      { name: 'Advanced Excel', level: 'Advanced' },
-      { name: 'Google Sheets', level: 'Advanced' },
-    ],
-  },
-  {
-    category: 'Programming & Analytics',
-    skills: [
-      { name: 'Python — Pandas', level: 'Proficient' },
-      { name: 'Business Intelligence', level: 'Advanced' },
-    ],
-  },
-  {
-    category: 'Visualization & Dashboards',
-    skills: [
-      { name: 'Metabase', level: 'Proficient' },
-      { name: 'Apache Superset', level: 'Proficient' },
-    ],
-  },
-  {
-    category: 'CRM & Operations',
-    skills: [{ name: 'CRM & CLM', level: 'Specialist' }],
-  },
-]
-
 const professionalExperience = [
   {
     title: 'Sr. Data Analyst',
@@ -406,7 +374,6 @@ export default function App() {
       const tag = document.createElement('style')
       tag.id = styleId
       tag.innerHTML = `
-        /* Left-aligned layout override */
         body {
           text-align: left !important;
           margin: 0 !important;
@@ -500,7 +467,6 @@ export default function App() {
           transform: none !important;
         }
 
-        /* Restored About/Contact Section Animations & Styling */
         .contact-wrapper {
           align-items: flex-start !important;
           text-align: left !important;
@@ -613,7 +579,6 @@ export default function App() {
           width: 100%;
         }
 
-        /* Fully flush left alignment container override for Technical Skills */
         .technical-section {
           background: linear-gradient(180deg, rgba(20, 20, 30, 0.4) 0%, rgba(10, 10, 15, 0.8) 100%);
           border-radius: 16px;
@@ -765,7 +730,6 @@ export default function App() {
           border: 1px solid rgba(167, 139, 250, 0.2);
         }
 
-        /* Standardized layout adjustments for consistency */
         .expertise-intro, .projects-intro {
           font-size: 0.88rem !important;
           margin-bottom: 16px !important;
@@ -1297,7 +1261,6 @@ export default function App() {
             </div>
 
             <div className="skills-category-wrapper">
-              {/* Card 1: Querying */}
               <div className="skill-category-card">
                 <h3 className="category-title">
                   <span>Querying</span>
@@ -1310,7 +1273,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Card 2: Spreadsheets & Tools */}
               <div className="skill-category-card">
                 <h3 className="category-title">
                   <span>Spreadsheets & Tools</span>
@@ -1343,7 +1305,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Card 4: Visualization & Dashboards */}
               <div className="skill-category-card">
                 <h3 className="category-title">
                   <span>Visualization & Dashboards</span>
@@ -1360,7 +1321,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Card 5: CRM & Operations */}
               <div className="skill-category-card">
                 <h3 className="category-title">
                   <span>CRM & Operations</span>
