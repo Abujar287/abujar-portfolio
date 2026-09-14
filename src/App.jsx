@@ -657,18 +657,19 @@ export default function App() {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: 8px !important;
+          gap: 6px !important;
           margin-top: 10px;
         }
 
+        /* ফন্ট সাইজ এবং প্যাডিং কমানো হয়েছে */
         .exp-item-tag {
-          font-size: 0.85rem !important;
-          line-height: 1.4 !important;
-          color: #e2e8f0 !important;
+          font-size: 0.78rem !important;
+          line-height: 1.35 !important;
+          color: #cbd5e1 !important;
           background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 6px;
-          padding: 6px 10px;
+          border: 1px solid rgba(255, 255, 255, 0.07);
+          border-radius: 5px;
+          padding: 4px 8px;
           width: 100%;
           text-align: left;
         }
