@@ -227,6 +227,8 @@ const projectList = [
   {
     title: 'Customer & Cohort Analytics',
     tech: 'SQL · Excel · BI',
+    subtitle: 'Customer Segmentation & Retention Tracking',
+    description: 'Analyzing customer behaviors, lifecycle cohorts, and retention metrics to support long-term business growth.',
     points: [
       'Customer behavior analysis',
       'Cohort analysis',
@@ -238,6 +240,8 @@ const projectList = [
   {
     title: 'Complaint & VOC Analytics',
     tech: 'SQL · Excel · Reporting',
+    subtitle: 'Voice of Customer & SLA Tracking',
+    description: 'Monitoring complaints, SLA/TAT metrics, and resolving operational bottlenecks using voice of customer feedback.',
     points: [
       'Complaint data analysis',
       'Trend & category analysis',
@@ -249,6 +253,8 @@ const projectList = [
   {
     title: 'Payroll & Workforce Reporting Automation',
     tech: 'Excel · Google Sheets · Automation',
+    subtitle: 'Automated Attendance & Workforce Management',
+    description: 'Automating attendance aggregation, VSE metrics, and salary calculations to minimize human error and save time.',
     points: [
       'Attendance data processing',
       'VSE reporting',
@@ -289,7 +295,7 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
-  const [expandedProjectIndex, setExpandedProjectIndex] = useState(0) // Default first project expanded for clear display
+  const [expandedProjectIndex, setExpandedProjectIndex] = useState(0)
 
   const skillsRef = useRef(null)
   const expertiseRef = useRef(null)
@@ -398,38 +404,31 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
-  // Inject styles safely via DOM style tag for non-Next.js environments
   useEffect(() => {
-    const styleId = 'portfolio-custom-global-styles';
+    const styleId = 'portfolio-custom-global-styles'
     if (!document.getElementById(styleId)) {
-      const tag = document.createElement('style');
-      tag.id = styleId;
+      const tag = document.createElement('style')
+      tag.id = styleId
       tag.innerHTML = `
-        /* --- GLOBAL SECTION TITLE FORMATTING (UPPERCASE) --- */
         .section-title h2 {
           text-transform: uppercase;
           font-size: 1.4rem !important;
           letter-spacing: 0.5px;
         }
-
         .section {
           padding: 22px 0 !important;
         }
-
         .expertise-intro {
           font-size: 0.88rem !important;
           margin-bottom: 12px !important;
           color: #94a3b8;
         }
-
         .expertise-main p, .ach-desc {
           font-size: 0.82rem !important;
           line-height: 1.45 !important;
           color: #cbd5e1;
           margin-bottom: 8px !important;
         }
-
-        /* --- CLEAN UNBOXED BULLET LIST STYLES --- */
         .clean-bullet-list {
           list-style: none;
           padding: 0;
@@ -438,7 +437,6 @@ export default function App() {
           flex-direction: column;
           gap: 6px;
         }
-
         .clean-bullet-list li {
           font-size: 0.78rem !important;
           line-height: 1.35 !important;
@@ -448,22 +446,18 @@ export default function App() {
           gap: 6px;
           text-align: left;
         }
-
         .bullet-dot {
           color: #a78bfa;
           font-weight: bold;
           flex-shrink: 0;
           margin-top: 1px;
         }
-
-        /* --- PROFESSIONAL SUMMARY STYLES --- */
         .summary-wrapper {
           display: flex;
           flex-direction: column;
           gap: 16px;
           width: 100%;
         }
-
         .summary-hero-card {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -471,7 +465,6 @@ export default function App() {
           border-radius: 8px;
           padding: 14px 18px;
         }
-
         .summary-hero-text {
           font-size: 0.92rem !important;
           line-height: 1.5 !important;
@@ -479,37 +472,30 @@ export default function App() {
           margin: 0;
           font-weight: 400;
         }
-
         .highlight-purple {
           color: #a78bfa;
           font-weight: 600;
         }
-
         .highlight-blue {
           color: #38bdf8;
           font-weight: 600;
         }
-
-        /* --- TECHNICAL SKILLS CATEGORY STYLES --- */
         .skills-category-wrapper {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 12px;
           margin-top: 10px;
         }
-
         @media (max-width: 1024px) {
           .skills-category-wrapper {
             grid-template-columns: repeat(2, 1fr);
           }
         }
-
         @media (max-width: 640px) {
           .skills-category-wrapper {
             grid-template-columns: 1fr;
           }
         }
-
         .skill-category-card {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -519,7 +505,6 @@ export default function App() {
           flex-direction: column;
           gap: 8px;
         }
-
         .category-title {
           font-size: 0.8rem !important;
           font-weight: 700;
@@ -530,110 +515,84 @@ export default function App() {
           border-bottom: 1px solid rgba(255, 255, 255, 0.06);
           padding-bottom: 6px;
         }
-
         .category-skills-list {
           display: flex;
           flex-direction: column;
           gap: 6px;
         }
-
         .skill-row {
           display: flex;
           align-items: center;
           justify-content: space-between;
         }
-
         .skill-name {
           font-size: 0.85rem !important;
           font-weight: 600;
           color: #ffffff;
         }
-
         .skill-level-badge {
           font-size: 0.58rem;
           font-weight: 600;
           padding: 2px 6px;
           border-radius: 8px;
         }
-
-        .level-expert {
-          color: #f472b6;
-          background: rgba(244, 114, 182, 0.12);
-        }
-
         .level-advanced {
           color: #38bdf8;
           background: rgba(56, 189, 248, 0.12);
         }
-
         .level-proficient, .level-specialist {
           color: #a78bfa;
           background: rgba(167, 139, 250, 0.12);
         }
-
-        /* --- PROFESSIONAL EXPERIENCE & PROJECTS LAYOUT --- */
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
           gap: 12px !important;
         }
-
-        /* Projects 2-Column Grid Layout with Custom Distinct Borders for Highlighted Cards */
         .project-2col-layout {
           grid-template-columns: repeat(2, 1fr) !important;
         }
-
         .featured-project-card {
           border: 1px solid rgba(167, 139, 250, 0.4) !important;
           background: rgba(167, 139, 250, 0.04) !important;
           box-shadow: 0 4px 20px rgba(167, 139, 250, 0.08);
         }
-
-        /* Achievements 2-Column Grid Layout */
         .achievements-2col {
           grid-template-columns: repeat(2, 1fr) !important;
         }
-
         @media (max-width: 1024px) {
           .exp-grid-layout, .project-2col-layout, .achievements-2col {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
-
         @media (max-width: 768px) {
           .exp-grid-layout, .project-2col-layout, .achievements-2col {
             grid-template-columns: 1fr !important;
           }
         }
-
         .exp-heading {
           display: flex;
           align-items: center;
           justify-content: space-between;
           margin-bottom: 4px;
         }
-
         .exp-title {
           font-size: 1rem !important;
           font-weight: 700 !important;
           color: #ffffff !important;
           margin: 0 !important;
         }
-
         .exp-company {
           font-size: 0.8rem !important;
           margin-bottom: 6px !important;
         }
-
         .company-name {
           font-weight: 600 !important;
           color: #a78bfa;
         }
-
         .exp-location {
           color: #94a3b8 !important;
         }
-
         .exp-badge {
           display: inline-flex;
           align-items: center;
@@ -646,20 +605,16 @@ export default function App() {
           font-weight: 600 !important;
           margin-bottom: 8px !important;
         }
-
         .exp-period {
           color: #38bdf8 !important;
         }
-
         .exp-duration {
           color: #ffffff !important;
         }
-
         .exp-dot {
           color: #94a3b8;
           opacity: 0.5;
         }
-
         .clickable-card {
           cursor: pointer;
           transition: border-color 0.2s ease, transform 0.2s ease;
@@ -673,10 +628,10 @@ export default function App() {
           margin-top: 8px;
           font-style: italic;
         }
-      `;
-      document.head.appendChild(tag);
+      `
+      document.head.appendChild(tag)
     }
-  }, []);
+  }, [])
 
   return (
     <div className="portfolio">
@@ -820,13 +775,10 @@ export default function App() {
             </div>
 
             <div className="skills-category-wrapper">
-              {technicalSkillCategories.map((group, index) => (
+              {technicalSkillCategories.map((group) => (
                 <div
                   key={group.category}
                   className="skill-category-card"
-                  style={{
-                    '--technical-delay': `${index * 0.1}s`,
-                  }}
                 >
                   <h3 className="category-title">{group.category}</h3>
                   <div className="category-skills-list">
@@ -863,13 +815,10 @@ export default function App() {
               expertiseVisible ? ' expertise-active' : ''
             }`}
           >
-            {coreExpertise.map((item, index) => (
+            {coreExpertise.map((item) => (
               <div
                 key={item.title}
                 className="expertise-item"
-                style={{
-                  '--expertise-delay': `${index * 0.12}s`,
-                }}
               >
                 <div className="expertise-bar" />
 
@@ -882,17 +831,8 @@ export default function App() {
                   <p>{item.description}</p>
 
                   <div className="expertise-skills">
-                    {item.skills.map((skill, skillIndex) => (
-                      <span
-                        key={skill}
-                        style={{
-                          '--skill-delay': `${
-                            index * 0.12 +
-                            skillIndex * 0.06 +
-                            0.3
-                          }s`,
-                        }}
-                      >
+                    {item.skills.map((skill) => (
+                      <span key={skill}>
                         {skill}
                       </span>
                     ))}
@@ -923,9 +863,6 @@ export default function App() {
               <div
                 key={`${job.company}-${index}`}
                 className="expertise-item exp-card"
-                style={{
-                  '--expertise-delay': `${index * 0.15}s`,
-                }}
               >
                 <div className="expertise-bar" />
 
@@ -977,24 +914,22 @@ export default function App() {
           >
             {projectList.map((project, index) => {
               const isExpanded = expandedProjectIndex === index;
-              const isTopFeatured = index === 0; // Telesales Lead Management is first
-              const isSecondFeatured = index === 1; // Agent Performance Analytics is second
+              const isTopFeatured = index === 0; 
+              const isSecondFeatured = index === 1;
 
               return (
                 <div
                   key={project.title}
                   className={`expertise-item exp-card clickable-card ${isTopFeatured || isSecondFeatured ? 'featured-project-card' : ''}`}
                   onClick={() => setExpandedProjectIndex(isExpanded ? null : index)}
-                  style={{
-                    '--expertise-delay': `${index * 0.12}s`,
-                  }}
                 >
                   <div className="expertise-bar" />
 
                   <div className="expertise-main">
                     <div className="exp-heading">
                       <h3 className="exp-title">
-                        {project.title} {isTopFeatured && <span style={{fontSize: '0.7rem', color: '#a78bfa', background: 'rgba(167, 139, 250, 0.15)', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', verticalAlign: 'middle'}}>Priority 1</span>}
+                        {project.title} 
+                        {isTopFeatured && <span style={{fontSize: '0.7rem', color: '#a78bfa', background: 'rgba(167, 139, 250, 0.15)', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', verticalAlign: 'middle'}}>Priority 1</span>}
                         {isSecondFeatured && <span style={{fontSize: '0.7rem', color: '#38bdf8', background: 'rgba(56, 189, 248, 0.15)', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', verticalAlign: 'middle'}}>Priority 2</span>}
                       </h3>
                       <span className="expertise-icon">{isExpanded ? '↙' : '↗'}</span>
@@ -1010,21 +945,26 @@ export default function App() {
                       </p>
                     )}
 
-                    {project.description && (
-                      <p className="ach-desc">{project.description}</p>
+                    {isExpanded && (
+                      <>
+                        {project.description && (
+                          <p className="ach-desc" style={{ marginTop: '8px' }}>
+                            {project.description}
+                          </p>
+                        )}
+                        <ul className="clean-bullet-list" style={{ marginTop: '10px' }}>
+                          {project.points.map((point, idx) => (
+                            <li key={idx}>
+                              <span className="bullet-dot">▸</span> {point}
+                            </li>
+                          ))}
+                        </ul>
+                      </>
                     )}
 
-                    {isExpanded ? (
-                      <ul className="clean-bullet-list" style={{ marginTop: '10px' }}>
-                        {project.points.map((pt, idx) => (
-                          <li key={idx}>
-                            <span className="bullet-dot">▸</span> {pt}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <div className="project-hint">Click to view details ▾</div>
-                    )}
+                    <div className="project-hint">
+                      {isExpanded ? 'Click to collapse' : 'Click to view details'}
+                    </div>
                   </div>
                 </div>
               );
@@ -1035,12 +975,8 @@ export default function App() {
         {/* --- ACHIEVEMENTS --- */}
         <section id="achievements" className="section expertise-section">
           <div className="section-title">
-            <h2>Achievements</h2>
+            <h2>Key Achievements</h2>
           </div>
-
-          <p className="expertise-intro">
-            Key system optimizations, process automations, and operational milestones achieved throughout my career.
-          </p>
 
           <div
             ref={achievementsRef}
@@ -1048,28 +984,16 @@ export default function App() {
               achievementsVisible ? ' expertise-active' : ''
             }`}
           >
-            {keyAchievements.map((item, index) => (
-              <div
-                key={item.title}
-                className="expertise-item exp-card"
-                style={{
-                  '--expertise-delay': `${index * 0.12}s`,
-                }}
-              >
+            {keyAchievements.map((ach) => (
+              <div key={ach.title} className="expertise-item exp-card">
                 <div className="expertise-bar" />
-
                 <div className="expertise-main">
-                  <div className="exp-heading">
-                    <h3 className="exp-title">{item.title}</h3>
-                    <span className="expertise-icon">↗</span>
-                  </div>
-
-                  <p className="ach-desc">{item.description}</p>
-
-                  <ul className="clean-bullet-list">
-                    {item.points.map((point, pointIndex) => (
-                      <li key={pointIndex}>
-                        <span className="bullet-dot">▸</span> {point}
+                  <h3 className="exp-title" style={{ marginBottom: '8px' }}>{ach.title}</h3>
+                  <p className="ach-desc">{ach.description}</p>
+                  <ul className="clean-bullet-list" style={{ marginTop: '8px' }}>
+                    {ach.points.map((pt, i) => (
+                      <li key={i}>
+                        <span className="bullet-dot">▸</span> {pt}
                       </li>
                     ))}
                   </ul>
@@ -1078,68 +1002,7 @@ export default function App() {
             ))}
           </div>
         </section>
-
-        {/* --- CONTACT --- */}
-        <section id="contact" className="section contact">
-          <div className="contact-content">
-            <p className="eyebrow">GET IN TOUCH</p>
-
-            <h2>
-              LET&apos;S WORK <span>TOGETHER</span>
-            </h2>
-
-            <p>
-              Open to opportunities in data analysis, business
-              intelligence, and reporting automation. Whether
-              you have a question, a project, or just want to
-              connect — feel free to reach out.
-            </p>
-
-            <div className="contact-info">
-              <a href="mailto:abujar287.algifari@gmail.com">
-                <span>EMAIL</span>
-                abujar287.algifari@gmail.com
-              </a>
-
-              <a href="tel:+8801952980445">
-                <span>PRIMARY PHONE</span>
-                +880 1952980445
-              </a>
-
-              <a href="tel:+8801605089778">
-                <span>SECONDARY PHONE</span>
-                +880 1605089778
-              </a>
-            </div>
-
-            <div className="contact-buttons">
-              <a
-                href="mailto:abujar287.algifari@gmail.com"
-                className="primary-button"
-              >
-                Send Email <span>↗</span>
-              </a>
-
-              <a
-                href="/Abujar-Al-Gifari-CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="secondary-button"
-              >
-                Download CV
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
-
-      <footer>
-        <span>
-          {`© ${new Date().getFullYear()} ABUJAR AL-GIFARI`}
-        </span>
-
-        <span>DATA ANALYST · BUSINESS INTELLIGENCE</span>
-      </footer>
     </div>
   )
 }
