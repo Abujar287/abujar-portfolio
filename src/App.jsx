@@ -191,14 +191,17 @@ const professionalExperience = [
 
 const projectList = [
   {
-    title: 'Telesales Lead Management Automation',
-    tech: 'Python · Google Sheets · Automation',
+    title: 'Telesales Lead Management & Reporting Automation',
+    tech: 'Excel · Google Sheets · iHelpBD · gPlex · Cube · Pendulum',
+    subtitle: 'From Manual Lead Sharing to Automated Telesales Operations',
+    description:
+      'Started with manual Excel-based lead sharing and tracking, then developed structured Google Sheets workflows for automation, reporting, and performance monitoring. As the telesales operation evolved, the calling process moved from manual calling through iHelpBD to automated workflows using gPlex, followed by Cube and Pendulum.',
     points: [
-      'Lead generation & distribution',
-      'Lead tracking & follow-up',
-      'Agent-wise lead management',
-      'Lead performance analysis',
-      'Automated reporting workflow',
+      'Lead Management — Sharing, tracking & follow-up',
+      'Reporting — Agent-wise & daily performance reporting',
+      'Automation — Google Sheets-based workflow automation',
+      'Analytics — Lead & agent performance monitoring',
+      'Process Evolution — iHelpBD → gPlex → Cube → Pendulum',
     ],
   },
   {
@@ -979,6 +982,16 @@ export default function App() {
                     <div className="exp-badge">
                       <span className="exp-period">{project.tech}</span>
                     </div>
+
+                    {project.subtitle && (
+                      <p style={{ fontWeight: '600', color: '#a78bfa', fontSize: '0.84rem', marginBottom: '6px' }}>
+                        {project.subtitle}
+                      </p>
+                    )}
+
+                    {project.description && (
+                      <p className="ach-desc">{project.description}</p>
+                    )}
 
                     {isExpanded ? (
                       <ul className="clean-bullet-list" style={{ marginTop: '10px' }}>
