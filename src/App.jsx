@@ -337,25 +337,25 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- REVISED PROFESSIONAL & CLEAN PROFESSIONAL SUMMARY --- */}
+        {/* --- PROFESSIONAL SUMMARY (CLEAN & NO NUMBERS) --- */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
           </div>
 
           <div className="summary-wrapper">
-            {/* Core Overview Card */}
+            {/* Core Overview */}
             <div className="summary-hero-card">
               <p className="summary-hero-text">
-                Results-driven <strong className="highlight-purple">Data Analyst with nearly 5 years</strong> of hands-on experience driving measurable business impact through <strong className="highlight-blue">Business Intelligence</strong>, advanced reporting automation, and operational performance analytics. Proven expertise in transforming complex data into decision-ready insights for senior leadership.
+                <strong className="highlight-purple">Data Analyst with nearly 5 years of experience</strong> in Business Intelligence, Data Analytics, Reporting Automation, and Business Performance Analysis. Experienced in analyzing operational and customer data, developing KPI dashboards, automating reporting workflows, and delivering insights for business decision-making. Proficient in <strong className="highlight-blue">SQL, Advanced Excel, Python, and BI tools</strong>, with a strong focus on improving processes, performance, and data-driven operations.
               </p>
             </div>
 
-            {/* Structured Pillars */}
+            {/* Key Expertise Cards */}
             <div className="summary-pillars-grid">
               <div className="pillar-card">
                 <div className="pillar-header">
-                  <span className="pillar-tag">01</span>
+                  <span className="pillar-bullet">▸</span>
                   <h3>Business Intelligence &amp; Dashboards</h3>
                 </div>
                 <p>
@@ -365,7 +365,7 @@ export default function App() {
 
               <div className="pillar-card">
                 <div className="pillar-header">
-                  <span className="pillar-tag">02</span>
+                  <span className="pillar-bullet">▸</span>
                   <h3>Automation &amp; Workflow Efficiency</h3>
                 </div>
                 <p>
@@ -375,7 +375,7 @@ export default function App() {
 
               <div className="pillar-card">
                 <div className="pillar-header">
-                  <span className="pillar-tag">03</span>
+                  <span className="pillar-bullet">▸</span>
                   <h3>Strategic &amp; Customer Analytics</h3>
                 </div>
                 <p>
@@ -384,9 +384,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* Core Competencies Badges */}
+            {/* Core Competencies Tags */}
             <div className="summary-competencies">
-              <span className="competency-title">CORE COMPETENCIES:</span>
+              <span className="competency-title">CORE COMPETENCIES</span>
               <div className="competency-tags">
                 <span className="badge-tag">SQL Query Optimization</span>
                 <span className="badge-tag">Cohort &amp; Clustering Analysis</span>
@@ -647,7 +647,7 @@ export default function App() {
         }
 
         .summary-hero-text {
-          font-size: 1.15rem;
+          font-size: 1.1rem;
           line-height: 1.7;
           color: #cbd5e1;
           margin: 0;
@@ -694,18 +694,14 @@ export default function App() {
         .pillar-header {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 8px;
           margin-bottom: 12px;
         }
 
-        .pillar-tag {
-          font-size: 0.75rem;
-          font-weight: 700;
+        .pillar-bullet {
+          font-size: 1rem;
           color: #a78bfa;
-          background: rgba(167, 139, 250, 0.1);
-          padding: 2px 8px;
-          border-radius: 4px;
-          letter-spacing: 0.5px;
+          font-weight: bold;
         }
 
         .pillar-header h3 {
