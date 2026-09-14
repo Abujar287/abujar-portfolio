@@ -289,7 +289,7 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
-  const [expandedProjectIndex, setExpandedProjectIndex] = useState(null)
+  const [expandedProjectIndex, setExpandedProjectIndex] = useState(0) // Default first project expanded for clear display
 
   const skillsRef = useRef(null)
   const expertiseRef = useRef(null)
@@ -578,9 +578,15 @@ export default function App() {
           gap: 12px !important;
         }
 
-        /* Projects 2-Column Grid Layout */
+        /* Projects 2-Column Grid Layout with Custom Distinct Borders for Highlighted Cards */
         .project-2col-layout {
           grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        .featured-project-card {
+          border: 1px solid rgba(167, 139, 250, 0.4) !important;
+          background: rgba(167, 139, 250, 0.04) !important;
+          box-shadow: 0 4px 20px rgba(167, 139, 250, 0.08);
         }
 
         /* Achievements 2-Column Grid Layout */
@@ -659,7 +665,7 @@ export default function App() {
           transition: border-color 0.2s ease, transform 0.2s ease;
         }
         .clickable-card:hover {
-          border-color: rgba(167, 139, 250, 0.4);
+          border-color: rgba(167, 139, 250, 0.6);
         }
         .project-hint {
           font-size: 0.7rem;
@@ -971,10 +977,13 @@ export default function App() {
           >
             {projectList.map((project, index) => {
               const isExpanded = expandedProjectIndex === index;
+              const isTopFeatured = index === 0; // Telesales Lead Management is first
+              const isSecondFeatured = index === 1; // Agent Performance Analytics is second
+
               return (
                 <div
                   key={project.title}
-                  className="expertise-item exp-card clickable-card"
+                  className={`expertise-item exp-card clickable-card ${isTopFeatured || isSecondFeatured ? 'featured-project-card' : ''}`}
                   onClick={() => setExpandedProjectIndex(isExpanded ? null : index)}
                   style={{
                     '--expertise-delay': `${index * 0.12}s`,
@@ -984,7 +993,10 @@ export default function App() {
 
                   <div className="expertise-main">
                     <div className="exp-heading">
-                      <h3 className="exp-title">{project.title}</h3>
+                      <h3 className="exp-title">
+                        {project.title} {isTopFeatured && <span style={{fontSize: '0.7rem', color: '#a78bfa', background: 'rgba(167, 139, 250, 0.15)', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', verticalAlign: 'middle'}}>Priority 1</span>}
+                        {isSecondFeatured && <span style={{fontSize: '0.7rem', color: '#38bdf8', background: 'rgba(56, 189, 248, 0.15)', padding: '2px 6px', borderRadius: '4px', marginLeft: '6px', verticalAlign: 'middle'}}>Priority 2</span>}
+                      </h3>
                       <span className="expertise-icon">{isExpanded ? '↙' : '↗'}</span>
                     </div>
 
