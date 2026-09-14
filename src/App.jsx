@@ -337,63 +337,29 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PROFESSIONAL SUMMARY (CLEAN & NO NUMBERS) --- */}
+        {/* --- PROFESSIONAL SUMMARY (CLEAN & MINIMAL) --- */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
           </div>
 
           <div className="summary-wrapper">
-            {/* Core Overview */}
             <div className="summary-hero-card">
               <p className="summary-hero-text">
-                <strong className="highlight-purple">Data Analyst with nearly 5 years of experience</strong> in Business Intelligence, Data Analytics, Reporting Automation, and Business Performance Analysis. Experienced in analyzing operational and customer data, developing KPI dashboards, automating reporting workflows, and delivering insights for business decision-making. Proficient in <strong className="highlight-blue">SQL, Advanced Excel, Python, and BI tools</strong>, with a strong focus on improving processes, performance, and data-driven operations.
+                <strong className="highlight-purple">
+                  Data Analyst with nearly 5 years of experience
+                </strong>{' '}
+                in Business Intelligence, Data Analytics, Reporting Automation, and
+                Business Performance Analysis. Experienced in analyzing operational
+                and customer data, developing KPI dashboards, automating reporting
+                workflows, and delivering insights for business decision-making.
+                Proficient in{' '}
+                <strong className="highlight-blue">
+                  SQL, Advanced Excel, Python, and BI tools
+                </strong>
+                , with a strong focus on improving processes, performance, and
+                data-driven operations.
               </p>
-            </div>
-
-            {/* Key Expertise Cards */}
-            <div className="summary-pillars-grid">
-              <div className="pillar-card">
-                <div className="pillar-header">
-                  <span className="pillar-bullet">▸</span>
-                  <h3>Business Intelligence &amp; Dashboards</h3>
-                </div>
-                <p>
-                  Adept at transforming raw, complex datasets into executive-ready interactive dashboards (Metabase, Apache Superset) to deliver real-time KPI visibility and support enterprise strategy.
-                </p>
-              </div>
-
-              <div className="pillar-card">
-                <div className="pillar-header">
-                  <span className="pillar-bullet">▸</span>
-                  <h3>Automation &amp; Workflow Efficiency</h3>
-                </div>
-                <p>
-                  Specialized in building scalable data pipelines using Python, SQL, and Advanced Excel to reduce manual reporting overhead, streamline team workflows, and optimize resource allocation.
-                </p>
-              </div>
-
-              <div className="pillar-card">
-                <div className="pillar-header">
-                  <span className="pillar-bullet">▸</span>
-                  <h3>Strategic &amp; Customer Analytics</h3>
-                </div>
-                <p>
-                  Experienced in customer cohort analysis, telesales/KAM performance monitoring, lifecycle management (CRM/CLM), and financial reconciliation to drive revenue growth.
-                </p>
-              </div>
-            </div>
-
-            {/* Core Competencies Tags */}
-            <div className="summary-competencies">
-              <span className="competency-title">CORE COMPETENCIES</span>
-              <div className="competency-tags">
-                <span className="badge-tag">SQL Query Optimization</span>
-                <span className="badge-tag">Cohort &amp; Clustering Analysis</span>
-                <span className="badge-tag">KPI Dashboarding</span>
-                <span className="badge-tag">Python Data Processing</span>
-                <span className="badge-tag">Cross-functional Analytics</span>
-              </div>
             </div>
           </div>
         </section>
@@ -662,98 +628,6 @@ export default function App() {
         .highlight-blue {
           color: #38bdf8;
           font-weight: 600;
-        }
-
-        /* Pillars Grid */
-        .summary-pillars-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
-        }
-
-        @media (max-width: 1024px) {
-          .summary-pillars-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        .pillar-card {
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 8px;
-          padding: 22px;
-          transition: all 0.3s ease;
-        }
-
-        .pillar-card:hover {
-          background: rgba(255, 255, 255, 0.04);
-          border-color: rgba(167, 139, 250, 0.3);
-          transform: translateY(-2px);
-        }
-
-        .pillar-header {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 12px;
-        }
-
-        .pillar-bullet {
-          font-size: 1rem;
-          color: #a78bfa;
-          font-weight: bold;
-        }
-
-        .pillar-header h3 {
-          font-size: 1.05rem;
-          font-weight: 600;
-          color: #ffffff;
-          margin: 0;
-        }
-
-        .pillar-card p {
-          font-size: 0.92rem;
-          line-height: 1.6;
-          color: #94a3b8;
-          margin: 0;
-        }
-
-        /* Competencies Bar */
-        .summary-competencies {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          margin-top: 6px;
-        }
-
-        .competency-title {
-          font-size: 0.75rem;
-          font-weight: 700;
-          color: #64748b;
-          letter-spacing: 1px;
-        }
-
-        .competency-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-        }
-
-        .badge-tag {
-          font-size: 0.82rem;
-          font-weight: 500;
-          color: #cbd5e1;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          padding: 6px 14px;
-          border-radius: 6px;
-          transition: all 0.2s ease;
-        }
-
-        .badge-tag:hover {
-          border-color: rgba(167, 139, 250, 0.4);
-          color: #ffffff;
-          background: rgba(167, 139, 250, 0.08);
         }
 
         /* --- TECHNICAL SKILLS --- */
