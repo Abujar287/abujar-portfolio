@@ -391,6 +391,9 @@ export default function App() {
         /* Left-aligned layout override */
         body {
           text-align: left !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow-x: hidden;
         }
         .portfolio, .section, .hero-content, .expertise-section, .contact-wrapper {
           text-align: left !important;
@@ -398,20 +401,25 @@ export default function App() {
         .navbar {
           justify-content: flex-start !important;
           padding-left: 2rem !important;
+          margin-left: 0 !important;
         }
         .nav-links {
           justify-content: flex-start !important;
+          margin-left: 0 !important;
+          flex-wrap: wrap;
         }
         .section-title h2 {
           text-transform: uppercase;
           font-size: 1.4rem !important;
           letter-spacing: 0.5px;
           text-align: left !important;
+          margin-left: 0 !important;
         }
         .section {
-          padding: 22px 5% !important;
+          padding: 22px 2rem !important;
           max-width: 1400px;
-          margin: 0 auto;
+          margin: 0 !important;
+          margin-right: auto !important;
         }
         .hero-grid {
           display: flex;
@@ -420,10 +428,21 @@ export default function App() {
           justify-content: space-between;
           text-align: left !important;
           gap: 40px;
+          margin-left: 0 !important;
         }
         .hero-content {
           flex: 1;
           text-align: left !important;
+          margin-left: 0 !important;
+          min-width: 0;
+        }
+        /* Responsive scaling for full name to prevent cutoff */
+        .hero-content h1 {
+          font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
+          font-weight: 800;
+          letter-spacing: -0.5px;
+          line-height: 1.1;
+          white-space: nowrap;
         }
         .hero-photo {
           flex-shrink: 0;
@@ -432,7 +451,7 @@ export default function App() {
           justify-content: flex-start !important;
         }
         .scroll-indicator {
-          left: 5% !important;
+          left: 2rem !important;
           transform: none !important;
         }
         .contact-wrapper {
@@ -458,13 +477,20 @@ export default function App() {
           text-align: left !important;
         }
 
-        /* Enhanced styling for Technical Skills */
+        /* Fully flush left alignment container override for Technical Skills */
         .technical-section {
           background: linear-gradient(180deg, rgba(20, 20, 30, 0.4) 0%, rgba(10, 10, 15, 0.8) 100%);
           border-radius: 16px;
           border: 1px solid rgba(255, 255, 255, 0.06);
           padding: 32px 36px !important;
-          margin: 30px auto;
+          margin: 30px 0 !important;
+          margin-right: auto !important;
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .technical-showcase {
+          margin-left: 0 !important;
+          width: 100%;
         }
         .technical-top {
           display: flex;
@@ -473,6 +499,7 @@ export default function App() {
           margin-bottom: 20px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
           padding-bottom: 12px;
+          margin-left: 0 !important;
         }
         .technical-heading {
           display: flex;
@@ -501,6 +528,8 @@ export default function App() {
           grid-template-columns: repeat(3, 1fr);
           gap: 16px;
           margin-top: 10px;
+          margin-left: 0 !important;
+          width: 100%;
         }
         @media (max-width: 1024px) {
           .skills-category-wrapper {
@@ -508,6 +537,9 @@ export default function App() {
           }
           .hero-grid {
             flex-direction: column;
+          }
+          .hero-content h1 {
+            white-space: normal !important;
           }
         }
         @media (max-width: 640px) {
@@ -526,6 +558,7 @@ export default function App() {
           transition: all 0.3s ease;
           position: relative;
           overflow: hidden;
+          text-align: left !important;
         }
         .skill-category-card:hover {
           border-color: rgba(167, 139, 250, 0.3);
@@ -555,6 +588,7 @@ export default function App() {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          text-align: left !important;
         }
         .category-skills-list {
           display: flex;
@@ -665,6 +699,7 @@ export default function App() {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
           gap: 16px !important;
+          margin-left: 0 !important;
         }
         .project-2col-layout {
           grid-template-columns: repeat(2, 1fr) !important;
@@ -1129,26 +1164,82 @@ export default function App() {
             </div>
 
             <div className="skills-category-wrapper">
-              {technicalSkillCategories.map((group) => (
-                <div
-                  key={group.category}
-                  className="skill-category-card"
-                >
-                  <h3 className="category-title">
-                    <span>{group.category}</span>
-                  </h3>
-                  <div className="category-skills-list">
-                    {group.skills.map((skill) => (
-                      <div key={skill.name} className="skill-row">
-                        <span className="skill-name">{skill.name}</span>
-                        <span className={`skill-level-badge level-${skill.level.toLowerCase()}`}>
-                          {skill.level}
-                        </span>
-                      </div>
-                    ))}
+              {/* Card 1: Querying */}
+              <div className="skill-category-card">
+                <h3 className="category-title">
+                  <span>Querying</span>
+                </h3>
+                <div className="category-skills-list">
+                  <div className="skill-row">
+                    <span className="skill-name">SQL</span>
+                    <span className="skill-level-badge level-advanced">Advanced</span>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Card 2: Spreadsheets & Tools */}
+              <div className="skill-category-card">
+                <h3 className="category-title">
+                  <span>Spreadsheets & Tools</span>
+                </h3>
+                <div className="category-skills-list">
+                  <div className="skill-row">
+                    <span className="skill-name">Advanced Excel</span>
+                    <span className="skill-level-badge level-advanced">Advanced</span>
+                  </div>
+                  <div className="skill-row">
+                    <span className="skill-name">Google Sheets</span>
+                    <span className="skill-level-badge level-advanced">Advanced</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Programming & Analytics */}
+              <div className="skill-category-card">
+                <h3 className="category-title">
+                  <span>Programming & Analytics</span>
+                </h3>
+                <div className="category-skills-list">
+                  <div className="skill-row">
+                    <span className="skill-name">Python — Pandas</span>
+                    <span className="skill-level-badge level-proficient">Proficient</span>
+                  </div>
+                  <div className="skill-row">
+                    <span className="skill-name">Business Intelligence</span>
+                    <span className="skill-level-badge level-advanced">Advanced</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 4: Visualization & Dashboards */}
+              <div className="skill-category-card">
+                <h3 className="category-title">
+                  <span>Visualization & Dashboards</span>
+                </h3>
+                <div className="category-skills-list">
+                  <div className="skill-row">
+                    <span className="skill-name">Metabase</span>
+                    <span className="skill-level-badge level-proficient">Proficient</span>
+                  </div>
+                  <div className="skill-row">
+                    <span className="skill-name">Apache Superset</span>
+                    <span className="skill-level-badge level-proficient">Proficient</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 5: CRM & Operations */}
+              <div className="skill-category-card">
+                <h3 className="category-title">
+                  <span>CRM & Operations</span>
+                </h3>
+                <div className="category-skills-list">
+                  <div className="skill-row">
+                    <span className="skill-name">CRM & CLM</span>
+                    <span className="skill-level-badge level-specialist">Specialist</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
