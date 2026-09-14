@@ -165,19 +165,18 @@ const keyAchievements = [
       'Implemented calling systems, automated payroll and attendance reporting, and developed Google Sheets-based telesales lead management solutions.',
     points: [
       'Implemented Gplex, Cube, and Pendulum calling systems & processes.',
-      'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time and improving reporting accuracy.',
-      'Developed Google Sheets-based Telesales Lead Management automation solutions for 70+ agents, improving lead tracking efficiency.',
+      'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time.',
+      'Developed Google Sheets-based Telesales Lead Management automation solutions for 70+ agents.',
     ],
   },
   {
-    title: 'Key Achievements & Impact',
+    title: 'Achievements & Impact',
     description:
       'Streamlined reporting workflows, developed Python and Google Sheets automation solutions, and built operational dashboards for multi-functional teams.',
     points: [
       'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
-      'Developed Python & Google Sheets-based reporting automation solutions to streamline recurring reports and reduce manual reporting efforts.',
+      'Developed Python & Google Sheets-based reporting automation solutions to streamline recurring reports.',
       'Developed operational dashboards for Call Center, DQM, Complaint Management, and Back Office teams.',
-      'Automated telesales lead management for 70+ agents.',
     ],
   },
 ]
@@ -571,10 +570,10 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- KEY ACHIEVEMENTS --- */}
+        {/* --- ACHIEVEMENTS --- */}
         <section id="achievements" className="section expertise-section">
           <div className="section-title">
-            <h2>Key Achievements</h2>
+            <h2>Achievements</h2>
           </div>
 
           <p className="expertise-intro">
@@ -583,7 +582,7 @@ export default function App() {
 
           <div
             ref={achievementsRef}
-            className={`expertise-showcase exp-grid-layout${
+            className={`expertise-showcase exp-grid-layout achievements-2col${
               achievementsVisible ? ' expertise-active' : ''
             }`}
           >
@@ -598,8 +597,8 @@ export default function App() {
                 <div className="expertise-bar" />
 
                 <div className="expertise-main">
-                  <div className="expertise-heading">
-                    <h3>{item.title}</h3>
+                  <div className="exp-heading">
+                    <h3 className="exp-title">{item.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
 
@@ -684,29 +683,25 @@ export default function App() {
         /* --- GLOBAL SECTION TITLE FORMATTING (UPPERCASE) --- */
         .section-title h2 {
           text-transform: uppercase;
-          font-size: 1.5rem !important;
+          font-size: 1.4rem !important;
           letter-spacing: 0.5px;
         }
 
         .section {
-          padding: 24px 0 !important;
+          padding: 22px 0 !important;
         }
 
         .expertise-intro {
-          font-size: 0.9rem !important;
-          margin-bottom: 14px !important;
+          font-size: 0.88rem !important;
+          margin-bottom: 12px !important;
           color: #94a3b8;
         }
 
         .expertise-main p, .ach-desc {
-          font-size: 0.85rem !important;
-          line-height: 1.5 !important;
+          font-size: 0.82rem !important;
+          line-height: 1.45 !important;
           color: #cbd5e1;
-          margin-bottom: 10px !important;
-        }
-
-        .expertise-main h3 {
-          font-size: 1.05rem !important;
+          margin-bottom: 8px !important;
         }
 
         /* --- CLEAN UNBOXED BULLET LIST STYLES --- */
@@ -720,8 +715,8 @@ export default function App() {
         }
 
         .clean-bullet-list li {
-          font-size: 0.8rem !important;
-          line-height: 1.4 !important;
+          font-size: 0.78rem !important;
+          line-height: 1.35 !important;
           color: #cbd5e1 !important;
           display: flex;
           align-items: flex-start;
@@ -740,7 +735,7 @@ export default function App() {
         .summary-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 16px;
           width: 100%;
         }
 
@@ -749,12 +744,12 @@ export default function App() {
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-left: 3px solid #a78bfa;
           border-radius: 8px;
-          padding: 16px 20px;
+          padding: 14px 18px;
         }
 
         .summary-hero-text {
-          font-size: 0.95rem !important;
-          line-height: 1.55 !important;
+          font-size: 0.92rem !important;
+          line-height: 1.5 !important;
           color: #cbd5e1;
           margin: 0;
           font-weight: 400;
@@ -775,7 +770,7 @@ export default function App() {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 10px;
-          margin-top: 12px;
+          margin-top: 10px;
         }
 
         @media (max-width: 1024px) {
@@ -808,7 +803,7 @@ export default function App() {
         }
 
         .skill-cat-badge {
-          font-size: 0.62rem;
+          font-size: 0.6rem;
           font-weight: 700;
           letter-spacing: 0.8px;
           text-transform: uppercase;
@@ -819,7 +814,7 @@ export default function App() {
         }
 
         .skill-level-badge {
-          font-size: 0.62rem;
+          font-size: 0.6rem;
           font-weight: 600;
           padding: 2px 6px;
           border-radius: 8px;
@@ -847,7 +842,7 @@ export default function App() {
         }
 
         .skill-title {
-          font-size: 0.9rem !important;
+          font-size: 0.88rem !important;
           font-weight: 600;
           color: #ffffff;
           margin: 0;
@@ -855,24 +850,29 @@ export default function App() {
 
         .skills-icon {
           color: #64748b;
-          font-size: 0.8rem;
+          font-size: 0.75rem;
         }
 
         /* --- PROFESSIONAL EXPERIENCE & ACHIEVEMENTS LAYOUT --- */
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
-          gap: 14px !important;
+          gap: 12px !important;
+        }
+
+        /* Achievements 2-Column Grid Layout */
+        .achievements-2col {
+          grid-template-columns: repeat(2, 1fr) !important;
         }
 
         @media (max-width: 1024px) {
-          .exp-grid-layout {
+          .exp-grid-layout, .achievements-2col {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
 
         @media (max-width: 768px) {
-          .exp-grid-layout {
+          .exp-grid-layout, .achievements-2col {
             grid-template-columns: 1fr !important;
           }
         }
@@ -885,14 +885,14 @@ export default function App() {
         }
 
         .exp-title {
-          font-size: 1.05rem !important;
+          font-size: 1rem !important;
           font-weight: 700 !important;
           color: #ffffff !important;
           margin: 0 !important;
         }
 
         .exp-company {
-          font-size: 0.82rem !important;
+          font-size: 0.8rem !important;
           margin-bottom: 6px !important;
         }
 
@@ -913,9 +913,9 @@ export default function App() {
           border: 1px solid rgba(167, 139, 250, 0.2);
           border-radius: 20px;
           padding: 2px 8px;
-          font-size: 0.68rem !important;
+          font-size: 0.65rem !important;
           font-weight: 600 !important;
-          margin-bottom: 10px !important;
+          margin-bottom: 8px !important;
         }
 
         .exp-period {
