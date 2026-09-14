@@ -112,10 +112,10 @@ const technicalSkills = [
 
 const professionalExperience = [
   {
-    period: '11/2023 - Present (2 Years 10 Months)',
-    location: '📍 Jashore, Bangladesh',
     title: 'Sr. Data Analyst',
     company: 'Sheba.xyz Services Limited',
+    location: '📍 Jashore, Bangladesh',
+    period: '📅 11/2023 - Present (2 Years 10 Months)',
     responsibilities: [
       'Business Data Analysis & Actionable Insights.',
       'Automated Dashboard & Operational Reporting.',
@@ -127,10 +127,10 @@ const professionalExperience = [
     ],
   },
   {
-    period: '09/2022 - 10/2023 (1 Year 2 Months)',
-    location: '📍 Jashore, Bangladesh',
     title: 'Jr. Data Analyst',
     company: 'Chaldal PLC',
+    location: '📍 Jashore, Bangladesh',
+    period: '📅 09/2022 - 10/2023 (1 Year 2 Months)',
     responsibilities: [
       'Financial Reconciliation.',
       'Customer Clustering.',
@@ -140,10 +140,10 @@ const professionalExperience = [
     ],
   },
   {
-    period: '03/2021 - 08/2022 (1 Year 6 Months)',
-    location: '📍 Jashore, Bangladesh',
     title: 'Associate Data Analyst',
     company: 'Chaldal PLC',
+    location: '📍 Jashore, Bangladesh',
+    period: '📅 03/2021 - 08/2022 (1 Year 6 Months)',
     responsibilities: [
       'Product Pricing & Mapping.',
       'Sudden Report Analysis.',
@@ -547,24 +547,12 @@ export default function App() {
           >
             {professionalExperience.map((job, index) => (
               <div
-                key={`${job.company}-${job.period}`}
+                key={`${job.company}-${index}`}
                 className="experience-card"
                 style={{
                   '--experience-delay': `${index * 0.12}s`,
                 }}
               >
-                <div className="experience-header">
-                  <div className="experience-meta">
-                    <span className="experience-period">
-                      📅 {job.period}
-                    </span>
-
-                    <span className="experience-location">
-                      {job.location}
-                    </span>
-                  </div>
-                </div>
-
                 <div className="experience-title-group">
                   <h3 className="experience-role">
                     {job.title}
@@ -575,12 +563,24 @@ export default function App() {
                   </p>
                 </div>
 
+                <div className="experience-header">
+                  <div className="experience-meta">
+                    <span className="experience-location">
+                      {job.location}
+                    </span>
+
+                    <span className="experience-period">
+                      {job.period}
+                    </span>
+                  </div>
+                </div>
+
                 <div className="experience-divider" />
 
                 <ul className="experience-list">
                   {job.responsibilities.map(
-                    (responsibility, index) => (
-                      <li key={index}>{responsibility}</li>
+                    (responsibility, idx) => (
+                      <li key={idx}>{responsibility}</li>
                     ),
                   )}
                 </ul>
