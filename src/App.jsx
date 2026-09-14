@@ -386,6 +386,7 @@ export default function App() {
           </div>
         </section>
 
+        {/* --- TECHNICAL SKILLS --- */}
         <section id="skills" className="section technical-section">
           <div className="section-title">
             <h2>Technical Skills</h2>
@@ -400,7 +401,7 @@ export default function App() {
             <div className="technical-top">
               <div className="technical-heading">
                 <span className="technical-dot" />
-                <span>CORE TOOLKIT</span>
+                <span>CORE TOOLKIT &amp; PROFICIENCIES</span>
               </div>
 
               <span className="technical-count">
@@ -408,28 +409,26 @@ export default function App() {
               </span>
             </div>
 
-            <div className="technical-list">
+            <div className="skills-grid-wrapper">
               {technicalSkills.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="technical-item"
+                  className="skills-card"
                   style={{
-                    '--technical-delay': `${index * 0.1}s`,
+                    '--technical-delay': `${index * 0.08}s`,
                   }}
                 >
-                  <div className="technical-main">
-                    <span className="technical-name">
-                      {skill.name}
+                  <div className="skills-card-header">
+                    <span className="skill-cat-badge">{skill.category}</span>
+                    <span className={`skill-level-badge level-${skill.level.toLowerCase()}`}>
+                      {skill.level}
                     </span>
-
-                    <div className="technical-meta">
-                      <span>{skill.category.toUpperCase()}</span>
-                      <i />
-                      <span>{skill.level.toUpperCase()}</span>
-                    </div>
                   </div>
 
-                  <span className="technical-arrow">↗</span>
+                  <div className="skills-card-body">
+                    <h3 className="skill-title">{skill.name}</h3>
+                    <span className="skills-icon">↗</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -520,26 +519,22 @@ export default function App() {
                 <div className="expertise-bar" />
 
                 <div className="expertise-main">
-                  {/* Job Title */}
                   <div className="exp-heading">
                     <h3 className="exp-title">{job.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
 
-                  {/* Company & Location */}
                   <p className="exp-company">
                     <span className="company-name">{job.company}</span>{' '}
                     <span className="exp-location">• {job.location}</span>
                   </p>
 
-                  {/* Date format Tag */}
                   <div className="exp-badge">
                     <span className="exp-period">{job.period}</span>
                     <span className="exp-dot">•</span>
                     <span className="exp-duration">{job.duration}</span>
                   </div>
 
-                  {/* Responsibilities */}
                   <div className="expertise-skills exp-list">
                     {job.responsibilities.map((resp, idx) => (
                       <span
@@ -623,6 +618,132 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
+        /* --- TECHNICAL SKILLS ENHANCEMENTS --- */
+        .skills-grid-wrapper {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          margin-top: 20px;
+        }
+
+        @media (max-width: 1024px) {
+          .skills-grid-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .skills-grid-wrapper {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .skills-card {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 16px 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .skills-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 3px;
+          height: 100%;
+          background: linear-gradient(180deg, #a78bfa 0%, #38bdf8 100%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .skills-card:hover {
+          background: rgba(255, 255, 255, 0.06);
+          border-color: rgba(167, 139, 250, 0.3);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px -10px rgba(167, 139, 250, 0.15);
+        }
+
+        .skills-card:hover::before {
+          opacity: 1;
+        }
+
+        .skills-card-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 12px;
+        }
+
+        .skill-cat-badge {
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          color: #94a3b8;
+          background: rgba(255, 255, 255, 0.05);
+          padding: 3px 8px;
+          border-radius: 4px;
+        }
+
+        .skill-level-badge {
+          font-size: 0.68rem;
+          font-weight: 600;
+          padding: 3px 8px;
+          border-radius: 12px;
+          letter-spacing: 0.3px;
+        }
+
+        .level-expert {
+          color: #f472b6;
+          background: rgba(244, 114, 182, 0.12);
+          border: 1px solid rgba(244, 114, 182, 0.25);
+        }
+
+        .level-advanced {
+          color: #38bdf8;
+          background: rgba(56, 189, 248, 0.12);
+          border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .level-proficient, .level-specialist {
+          color: #a78bfa;
+          background: rgba(167, 139, 250, 0.12);
+          border: 1px solid rgba(167, 139, 250, 0.25);
+        }
+
+        .skills-card-body {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .skill-title {
+          font-size: 1.05rem;
+          font-weight: 600;
+          color: #ffffff;
+          margin: 0;
+          letter-spacing: 0.2px;
+        }
+
+        .skills-icon {
+          color: #64748b;
+          font-size: 0.9rem;
+          transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .skills-card:hover .skills-icon {
+          color: #a78bfa;
+          transform: translate(2px, -2px);
+        }
+
+        /* --- PROFESSIONAL EXPERIENCE --- */
         .exp-grid-layout {
           display: grid !important;
           grid-template-columns: repeat(3, 1fr) !important;
@@ -666,7 +787,6 @@ export default function App() {
           letter-spacing: 0.2px;
         }
 
-        /* Company Name Gradient */
         .company-name {
           font-weight: 600 !important;
           background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
@@ -694,12 +814,10 @@ export default function App() {
           margin-bottom: 16px !important;
         }
 
-        /* Date Period Color (e.g., 11/2023 - PRESENT) */
         .exp-period {
           color: #38bdf8 !important;
         }
 
-        /* Duration Color (e.g., 2 YEARS 10 MONTHS) */
         .exp-duration {
           color: #ffffff !important;
         }
