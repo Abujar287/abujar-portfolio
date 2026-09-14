@@ -4,6 +4,7 @@ const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
+  { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ]
@@ -114,8 +115,9 @@ const professionalExperience = [
   {
     title: 'Sr. Data Analyst',
     company: 'Sheba.xyz Services Limited',
-    location: '📍 Jashore, Bangladesh',
-    period: '📅 11/2023 - Present (2 Years 10 Months)',
+    location: 'Jashore, Bangladesh',
+    period: '11/2023 - PRESENT',
+    duration: '2 YEARS 10 MONTHS',
     responsibilities: [
       'Business Data Analysis & Actionable Insights.',
       'Automated Dashboard & Operational Reporting.',
@@ -129,8 +131,9 @@ const professionalExperience = [
   {
     title: 'Jr. Data Analyst',
     company: 'Chaldal PLC',
-    location: '📍 Jashore, Bangladesh',
-    period: '📅 09/2022 - 10/2023 (1 Year 2 Months)',
+    location: 'Jashore, Bangladesh',
+    period: '09/2022 - 10/2023',
+    duration: '1 YEAR 2 MONTHS',
     responsibilities: [
       'Financial Reconciliation.',
       'Customer Clustering.',
@@ -142,8 +145,9 @@ const professionalExperience = [
   {
     title: 'Associate Data Analyst',
     company: 'Chaldal PLC',
-    location: '📍 Jashore, Bangladesh',
-    period: '📅 03/2021 - 08/2022 (1 Year 6 Months)',
+    location: 'Jashore, Bangladesh',
+    period: '03/2021 - 08/2022',
+    duration: '1 YEAR 6 MONTHS',
     responsibilities: [
       'Product Pricing & Mapping.',
       'Sudden Report Analysis.',
@@ -165,14 +169,12 @@ export default function App() {
 
   const scrollTo = (id) => {
     const element = document.getElementById(id)
-
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       })
     }
-
     setActive(id)
   }
 
@@ -182,21 +184,13 @@ export default function App() {
         setActive('home')
       }
     }
-
-    window.addEventListener('scroll', onScroll, {
-      passive: true,
-    })
-
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
     const node = skillsRef.current
-
     if (!node) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -204,21 +198,15 @@ export default function App() {
           observer.disconnect()
         }
       },
-      {
-        threshold: 0.25,
-      },
+      { threshold: 0.25 }
     )
-
     observer.observe(node)
-
     return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
     const node = expertiseRef.current
-
     if (!node) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -226,21 +214,15 @@ export default function App() {
           observer.disconnect()
         }
       },
-      {
-        threshold: 0.15,
-      },
+      { threshold: 0.15 }
     )
-
     observer.observe(node)
-
     return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
     const node = experienceRef.current
-
     if (!node) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -248,13 +230,9 @@ export default function App() {
           observer.disconnect()
         }
       },
-      {
-        threshold: 0.15,
-      },
+      { threshold: 0.15 }
     )
-
     observer.observe(node)
-
     return () => observer.disconnect()
   }, [])
 
@@ -288,9 +266,7 @@ export default function App() {
                   <span className="word word-2">ANALYST</span>
                   <span className="word separator word-3">|</span>
                   <span className="word word-4">BUSINESS</span>
-                  <span className="word word-5">
-                    INTELLIGENCE
-                  </span>
+                  <span className="word word-5">INTELLIGENCE</span>
                 </div>
 
                 <div className="title-line second-line">
@@ -298,9 +274,7 @@ export default function App() {
                   <span className="word word-7">SQL</span>
                   <span className="word word-8">&amp;</span>
                   <span className="word word-9">PYTHON</span>
-                  <span className="word separator word-10">
-                    |
-                  </span>
+                  <span className="word separator word-10">|</span>
                   <span className="word word-11">CRM</span>
                   <span className="word word-12">&amp;</span>
                   <span className="word word-13">CLM</span>
@@ -412,10 +386,7 @@ export default function App() {
           </div>
         </section>
 
-        <section
-          id="skills"
-          className="section technical-section"
-        >
+        <section id="skills" className="section technical-section">
           <div className="section-title">
             <h2>Technical Skills</h2>
           </div>
@@ -452,15 +423,9 @@ export default function App() {
                     </span>
 
                     <div className="technical-meta">
-                      <span>
-                        {skill.category.toUpperCase()}
-                      </span>
-
+                      <span>{skill.category.toUpperCase()}</span>
                       <i />
-
-                      <span>
-                        {skill.level.toUpperCase()}
-                      </span>
+                      <span>{skill.level.toUpperCase()}</span>
                     </div>
                   </div>
 
@@ -471,10 +436,7 @@ export default function App() {
           </div>
         </section>
 
-        <section
-          id="expertise"
-          className="section expertise-section"
-        >
+        <section id="expertise" className="section expertise-section">
           <div className="section-title">
             <h2>Core Expertise</h2>
           </div>
@@ -531,59 +493,57 @@ export default function App() {
           </div>
         </section>
 
-        <section
-          id="experience"
-          className="section experience-section"
-        >
+        {/* --- PERFECT MATCH WITH CORE EXPERTISE DESIGN --- */}
+        <section id="experience" className="section expertise-section">
           <div className="section-title">
             <h2>Professional Experience</h2>
           </div>
 
+          <p className="expertise-intro">
+            Proven track record of transforming business analytics, driving operational efficiency, and optimizing data workflows.
+          </p>
+
           <div
             ref={experienceRef}
-            className={`experience-grid${
-              experienceVisible ? ' experience-active' : ''
+            className={`expertise-showcase${
+              experienceVisible ? ' expertise-active' : ''
             }`}
           >
             {professionalExperience.map((job, index) => (
               <div
                 key={`${job.company}-${index}`}
-                className="experience-card"
+                className="expertise-item"
                 style={{
-                  '--experience-delay': `${index * 0.12}s`,
+                  '--expertise-delay': `${index * 0.15}s`,
                 }}
               >
-                <div className="experience-title-group">
-                  <h3 className="experience-role">
-                    {job.title}
-                  </h3>
+                <div className="expertise-bar" />
 
-                  <p className="experience-company">
-                    {job.company}
-                  </p>
-                </div>
+                <div className="expertise-main">
+                  <div className="expertise-heading">
+                    <h3>{job.title}</h3>
+                    <span className="expertise-icon">↗</span>
+                  </div>
 
-                <div className="experience-header">
-                  <div className="experience-meta">
-                    <span className="experience-location">
-                      {job.location}
-                    </span>
+                  <p className="exp-company-name">{job.company}</p>
 
-                    <span className="experience-period">
-                      {job.period}
-                    </span>
+                  <div className="exp-sub-info">
+                    <span className="exp-pin">📍</span>
+                    <span className="exp-loc">{job.location}</span>
+                    <span className="exp-sep">·</span>
+                    <span className="exp-date">📅 {job.period}</span>
+                    <span className="exp-badge">({job.duration})</span>
+                  </div>
+
+                  <div className="exp-bullet-list">
+                    {job.responsibilities.map((resp, idx) => (
+                      <div key={idx} className="exp-bullet-item">
+                        <span className="exp-arrow-bullet">▸</span>
+                        <span>{resp}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-
-                <div className="experience-divider" />
-
-                <ul className="experience-list">
-                  {job.responsibilities.map(
-                    (responsibility, idx) => (
-                      <li key={idx}>{responsibility}</li>
-                    ),
-                  )}
-                </ul>
               </div>
             ))}
           </div>
@@ -594,8 +554,7 @@ export default function App() {
             <p className="eyebrow">GET IN TOUCH</p>
 
             <h2>
-              LET&apos;S WORK
-              <span>TOGETHER</span>
+              LET&apos;S WORK <span>TOGETHER</span>
             </h2>
 
             <p>
@@ -648,10 +607,75 @@ export default function App() {
           {`© ${new Date().getFullYear()} ABUJAR AL-GIFARI`}
         </span>
 
-        <span>
-          DATA ANALYST · BUSINESS INTELLIGENCE
-        </span>
+        <span>DATA ANALYST · BUSINESS INTELLIGENCE</span>
       </footer>
+
+      <style jsx global>{`
+        .exp-company-name {
+          color: #8b5cf6 !important;
+          font-weight: 600 !important;
+          font-size: 1rem !important;
+          margin-top: 4px !important;
+          margin-bottom: 12px !important;
+        }
+
+        .exp-sub-info {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 6px;
+          font-size: 0.85rem;
+          color: #94a3b8;
+          margin-bottom: 20px;
+          letter-spacing: 0.02em;
+        }
+
+        .exp-pin {
+          font-size: 0.9rem;
+        }
+
+        .exp-loc {
+          color: #cbd5e1;
+          font-weight: 500;
+        }
+
+        .exp-sep {
+          color: #475569;
+        }
+
+        .exp-date {
+          color: #94a3b8;
+        }
+
+        .exp-badge {
+          color: #64748b;
+          font-size: 0.8rem;
+          font-weight: 600;
+        }
+
+        .exp-bullet-list {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 10px;
+        }
+
+        .exp-bullet-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          font-size: 0.92rem;
+          line-height: 1.5;
+          color: #cbd5e1;
+        }
+
+        .exp-arrow-bullet {
+          color: #6366f1;
+          font-size: 0.8rem;
+          margin-top: 2px;
+          flex-shrink: 0;
+        }
+      `}</style>
     </div>
   )
 }
