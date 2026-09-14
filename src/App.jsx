@@ -150,19 +150,14 @@ const professionalExperience = [
     period: '11/2023 - PRESENT',
     duration: '2 YEARS 10 MONTHS',
     responsibilities: [
-      'Analyze business and operational data to support data-driven decision-making.',
-      'Develop and maintain KPI dashboards, MIS reports, and operational performance reports.',
-      'Provide ad-hoc and sudden report support across multiple business functions.',
-      'Monitor agent performance across Telesales, Inbound, KAM, DQM, and Back Office teams.',
-      'Analyze agent productivity, hygiene, tagging, capacity, and performance trends.',
-      'Maintain live agent performance dashboards and daily performance summaries.',
-      'Analyze Telesales, Call Center, and digital lead data to support lead distribution, follow-up, and conversion monitoring.',
-      'Perform customer analysis, cohort analysis, and retention-focused reporting.',
-      'Support lead optimization through data-driven performance analysis.',
-      'Track Back Office operational activities including cancellation, disputes, order journey, work capacity, and HLT data.',
-      'Analyze complaint and VOC data to monitor trends, resolution, pending cases, and operational performance.',
-      'Automate recurring reporting workflows using SQL, Python, Excel, and Google Sheets.',
-      'Prepare and validate monthly VSE, payroll, attendance, and workforce-related reports.',
+      'Business & Operational Data Analysis',
+      'KPI, MIS & Performance Reporting',
+      'Agent Performance & Productivity Analysis',
+      'Lead & Customer Analytics',
+      'Cohort & Retention Analysis',
+      'Dashboard & Reporting Automation',
+      'Cross-Functional & Ad-hoc Analytics',
+      'SQL, Excel, Python & BI Tools',
     ],
   },
   {
@@ -1045,3 +1040,4 @@ export default function App() {
     </div>
   )
 }
+```[cite: 1]
