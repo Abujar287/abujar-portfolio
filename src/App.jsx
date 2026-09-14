@@ -262,14 +262,14 @@ export default function App() {
           <div className="about-grid">
             <div>
               <p className="large-text">
-                Data &amp; Business Insights Analyst with nearly 5 years of experience in Business
-                Intelligence, Data Analytics, Reporting Automation, and Operational Performance
-                Analysis.
+                Data Analyst with nearly 5 years of experience in Business Intelligence, Data
+                Analytics, Reporting Automation, and Business Performance Analysis.
               </p>
               <p>
-                Proficient in SQL, Python, Advanced Excel, and BI tools to transform complex data
-                into actionable insights, optimize business processes, and support data-driven
-                decision-making.
+                Experienced in analyzing operational and customer data, developing KPI dashboards,
+                automating reporting workflows, and delivering insights for business decision-making.
+                Proficient in SQL, Advanced Excel, Python, and BI tools, with a strong focus on
+                improving processes, performance, and data-driven operations.
               </p>
             </div>
             <div className="about-box">
