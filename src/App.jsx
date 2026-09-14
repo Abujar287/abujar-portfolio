@@ -337,64 +337,28 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PROFESSIONAL SUMMARY SECTION --- */}
+        {/* --- CLEAN PROFESSIONAL SUMMARY SECTION --- */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
           </div>
 
-          <div className="about-grid">
-            <div className="about-main-content">
-              <div className="about-highlight-card">
-                <p className="large-text">
-                  Data Analyst with nearly <span className="highlight-text">5 years</span> of hands-on experience driving business impact through <span className="highlight-text">Business Intelligence</span>, advanced reporting automation, and performance analytics.
-                </p>
-              </div>
-
-              <p className="about-desc">
-                Experienced in analyzing operational and customer data, developing interactive KPI dashboards, automating complex reporting workflows, and delivering strategic insights for business decision-making. Highly proficient in SQL, Advanced Excel, Python, and modern BI tools with a strong focus on optimizing processes and data-driven operations.
+          <div className="about-main-content full-width">
+            <div className="about-highlight-card">
+              <p className="large-text">
+                Data Analyst with nearly <span className="highlight-text">5 years</span> of hands-on experience driving business impact through <span className="highlight-text">Business Intelligence</span>, advanced reporting automation, and performance analytics.
               </p>
-
-              <div className="about-pills">
-                <span>⚡ KPI Dashboards</span>
-                <span>📊 Workflow Automation</span>
-                <span>🎯 Strategic Data Insights</span>
-              </div>
             </div>
 
-            {/* --- REVISED STATS / SUMMARY HIGHLIGHTS GRID --- */}
-            <div className="about-stats-grid">
-              <div className="stat-card">
-                <div className="stat-card-header">
-                  <span className="stat-number">01</span>
-                  <span className="stat-label">FOCUS</span>
-                </div>
-                <strong className="stat-value">Business Intelligence</strong>
-              </div>
+            <p className="about-desc">
+              Experienced in analyzing operational and customer data, developing interactive KPI dashboards, automating complex reporting workflows, and delivering strategic insights for business decision-making. Highly proficient in SQL, Advanced Excel, Python, and modern BI tools with a strong focus on optimizing processes and data-driven operations.
+            </p>
 
-              <div className="stat-card">
-                <div className="stat-card-header">
-                  <span className="stat-number">02</span>
-                  <span className="stat-label">EXPERTISE</span>
-                </div>
-                <strong className="stat-value">Data Analytics</strong>
-              </div>
-
-              <div className="stat-card">
-                <div className="stat-card-header">
-                  <span className="stat-number">03</span>
-                  <span className="stat-label">SPECIALIZATION</span>
-                </div>
-                <strong className="stat-value">CRM &amp; CLM</strong>
-              </div>
-
-              <div className="stat-card">
-                <div className="stat-card-header">
-                  <span className="stat-number">04</span>
-                  <span className="stat-label">APPROACH</span>
-                </div>
-                <strong className="stat-value">Data Driven</strong>
-              </div>
+            <div className="about-pills">
+              <span>⚡ KPI Dashboards</span>
+              <span>📊 Workflow Automation</span>
+              <span>🎯 Strategic Data Insights</span>
+              <span>🚀 Process Optimization</span>
             </div>
           </div>
         </section>
@@ -631,18 +595,19 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
-        /* --- PROFESSIONAL SUMMARY ENHANCEMENTS --- */
-        .about-main-content {
+        /* --- CLEAN PROFESSIONAL SUMMARY --- */
+        .about-main-content.full-width {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 18px;
+          max-width: 900px;
         }
 
         .about-highlight-card {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-left: 3px solid #a78bfa;
-          padding: 20px;
+          padding: 24px;
           border-radius: 8px;
         }
 
@@ -652,8 +617,8 @@ export default function App() {
         }
 
         .about-desc {
-          font-size: 0.95rem;
-          line-height: 1.6;
+          font-size: 1rem;
+          line-height: 1.7;
           color: #94a3b8;
           margin: 0;
         }
@@ -666,79 +631,13 @@ export default function App() {
         }
 
         .about-pills span {
-          font-size: 0.78rem;
+          font-size: 0.82rem;
           font-weight: 500;
           color: #cbd5e1;
           background: rgba(167, 139, 250, 0.08);
           border: 1px solid rgba(167, 139, 250, 0.2);
-          padding: 5px 12px;
+          padding: 6px 14px;
           border-radius: 20px;
-        }
-
-        /* --- MODERN STATS GRID DESIGN --- */
-        .about-stats-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 14px;
-        }
-
-        @media (max-width: 640px) {
-          .about-stats-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        .stat-card {
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 12px;
-          padding: 16px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          transition: all 0.3s ease;
-          position: relative;
-          overflow: hidden;
-        }
-
-        .stat-card:hover {
-          background: rgba(167, 139, 250, 0.05);
-          border-color: rgba(167, 139, 250, 0.3);
-          transform: translateY(-3px);
-          box-shadow: 0 10px 20px -10px rgba(167, 139, 250, 0.2);
-        }
-
-        .stat-card-header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 10px;
-        }
-
-        .stat-number {
-          font-size: 0.75rem;
-          font-weight: 700;
-          color: #a78bfa;
-          background: rgba(167, 139, 250, 0.12);
-          padding: 2px 8px;
-          border-radius: 4px;
-          letter-spacing: 0.5px;
-        }
-
-        .stat-label {
-          font-size: 0.68rem;
-          font-weight: 700;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          color: #64748b;
-        }
-
-        .stat-value {
-          font-size: 1.05rem;
-          font-weight: 600;
-          color: #f8fafc;
-          letter-spacing: 0.2px;
-          line-height: 1.3;
         }
 
         /* --- TECHNICAL SKILLS ENHANCEMENTS --- */
