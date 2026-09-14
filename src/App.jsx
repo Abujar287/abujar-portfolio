@@ -337,28 +337,60 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- CLEAN PROFESSIONAL SUMMARY SECTION --- */}
+        {/* --- REVISED FULL-WIDTH PROFESSIONAL SUMMARY --- */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
           </div>
 
-          <div className="about-main-content full-width">
-            <div className="about-highlight-card">
-              <p className="large-text">
-                Data Analyst with nearly <span className="highlight-text">5 years</span> of hands-on experience driving business impact through <span className="highlight-text">Business Intelligence</span>, advanced reporting automation, and performance analytics.
-              </p>
+          <div className="summary-wrapper">
+            {/* Main Highlight Card */}
+            <div className="summary-hero-card">
+              <div className="summary-hero-text">
+                Data Analyst with nearly <span className="gradient-highlight">5 years of hands-on experience</span> driving measurable business impact through <span className="blue-highlight">Business Intelligence</span>, advanced reporting automation, and operational performance analytics.
+              </div>
             </div>
 
-            <p className="about-desc">
-              Experienced in analyzing operational and customer data, developing interactive KPI dashboards, automating complex reporting workflows, and delivering strategic insights for business decision-making. Highly proficient in SQL, Advanced Excel, Python, and modern BI tools with a strong focus on optimizing processes and data-driven operations.
-            </p>
+            {/* Three Pillar Cards Layout */}
+            <div className="summary-pillars-grid">
+              <div className="pillar-card">
+                <div className="pillar-header">
+                  <span className="pillar-icon">📊</span>
+                  <h3>Business Intelligence &amp; Dashboards</h3>
+                </div>
+                <p>
+                  Adept at transforming raw, complex datasets into executive-ready interactive dashboards (Metabase, Superset). Expert in defining and tracking key operational KPIs to give business leaders real-time visibility.
+                </p>
+              </div>
 
-            <div className="about-pills">
-              <span>⚡ KPI Dashboards</span>
-              <span>📊 Workflow Automation</span>
-              <span>🎯 Strategic Data Insights</span>
-              <span>🚀 Process Optimization</span>
+              <div className="pillar-card">
+                <div className="pillar-header">
+                  <span className="pillar-icon">⚡</span>
+                  <h3>Automation &amp; Efficiency</h3>
+                </div>
+                <p>
+                  Specialized in building automated data pipelines using Python, SQL, and Advanced Excel to eliminate manual reporting overhead, streamline team attendance/payroll analysis, and optimize agent utilization.
+                </p>
+              </div>
+
+              <div className="pillar-card">
+                <div className="pillar-header">
+                  <span className="pillar-icon">🎯</span>
+                  <h3>Strategic &amp; Customer Analytics</h3>
+                </div>
+                <p>
+                  Experienced in customer cohort analysis, telesales/KAM performance monitoring, lifecycle management (CRM/CLM), and financial reconciliation to drive revenue growth and operational excellence.
+                </p>
+              </div>
+            </div>
+
+            {/* Capabilities Badges */}
+            <div className="summary-badges-bar">
+              <span className="badge-tag">SQL Query Optimization</span>
+              <span className="badge-tag">Cohort &amp; Clustering Analysis</span>
+              <span className="badge-tag">KPI Dashboarding</span>
+              <span className="badge-tag">Python Data Processing</span>
+              <span className="badge-tag">Cross-functional Analytics</span>
             </div>
           </div>
         </section>
@@ -595,49 +627,128 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
-        /* --- CLEAN PROFESSIONAL SUMMARY --- */
-        .about-main-content.full-width {
+        /* --- STYLES FOR REVISED PROFESSIONAL SUMMARY --- */
+        .summary-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 18px;
-          max-width: 900px;
+          gap: 24px;
+          width: 100%;
         }
 
-        .about-highlight-card {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-left: 3px solid #a78bfa;
-          padding: 24px;
-          border-radius: 8px;
+        .summary-hero-card {
+          background: linear-gradient(135deg, rgba(167, 139, 250, 0.08) 0%, rgba(56, 189, 248, 0.03) 100%);
+          border: 1px solid rgba(167, 139, 250, 0.25);
+          border-left: 4px solid #a78bfa;
+          border-radius: 12px;
+          padding: 28px 32px;
+          box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
         }
 
-        .highlight-text {
+        .summary-hero-text {
+          font-size: 1.25rem;
+          line-height: 1.7;
+          color: #f1f5f9;
+          font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+          .summary-hero-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+          }
+          .summary-hero-card {
+            padding: 20px;
+          }
+        }
+
+        .gradient-highlight {
+          color: #a78bfa;
+          font-weight: 700;
+        }
+
+        .blue-highlight {
           color: #38bdf8;
           font-weight: 600;
         }
 
-        .about-desc {
-          font-size: 1rem;
-          line-height: 1.7;
+        /* Pillars Grid */
+        .summary-pillars-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
+
+        @media (max-width: 1024px) {
+          .summary-pillars-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .pillar-card {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.07);
+          border-radius: 12px;
+          padding: 22px;
+          transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .pillar-card:hover {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(167, 139, 250, 0.3);
+          transform: translateY(-4px);
+        }
+
+        .pillar-header {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 12px;
+        }
+
+        .pillar-icon {
+          font-size: 1.2rem;
+        }
+
+        .pillar-header h3 {
+          font-size: 1.05rem;
+          font-weight: 600;
+          color: #ffffff;
+          margin: 0;
+        }
+
+        .pillar-card p {
+          font-size: 0.92rem;
+          line-height: 1.6;
           color: #94a3b8;
           margin: 0;
         }
 
-        .about-pills {
+        /* Badges Bar */
+        .summary-badges-bar {
           display: flex;
           flex-wrap: wrap;
           gap: 10px;
-          margin-top: 6px;
+          align-items: center;
+          padding-top: 6px;
         }
 
-        .about-pills span {
-          font-size: 0.82rem;
+        .badge-tag {
+          font-size: 0.8rem;
           font-weight: 500;
           color: #cbd5e1;
-          background: rgba(167, 139, 250, 0.08);
-          border: 1px solid rgba(167, 139, 250, 0.2);
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           padding: 6px 14px;
           border-radius: 20px;
+          transition: all 0.2s ease;
+        }
+
+        .badge-tag:hover {
+          border-color: rgba(167, 139, 250, 0.4);
+          color: #ffffff;
+          background: rgba(167, 139, 250, 0.1);
         }
 
         /* --- TECHNICAL SKILLS ENHANCEMENTS --- */
