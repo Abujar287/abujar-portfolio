@@ -162,6 +162,7 @@ const achievementsData = [
   {
     category: 'Process & System Improvements',
     icon: '⚡',
+    theme: 'cyan',
     items: [
       'Implemented Gplex, Cube, and Pendulum calling systems & processes.',
       'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time and improving reporting accuracy.',
@@ -171,6 +172,7 @@ const achievementsData = [
   {
     category: 'Key Achievements & Impact',
     icon: '🎯',
+    theme: 'purple',
     items: [
       'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
       'Developed Python & Google Sheets-based reporting automation solutions to streamline recurring reports and reduce manual reporting efforts.',
@@ -294,6 +296,7 @@ export default function App() {
       </header>
 
       <main>
+        {/* --- HERO SECTION --- */}
         <section id="home" className="section hero">
           <div className="hero-grid">
             <div className="hero-content">
@@ -576,7 +579,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- KEY ACHIEVEMENTS (NEW SECTION) --- */}
+        {/* --- KEY ACHIEVEMENTS (RE-DESIGNED & ANIMATED) --- */}
         <section id="achievements" className="section achievements-section">
           <div className="section-title">
             <h2>Key Achievements</h2>
@@ -588,36 +591,43 @@ export default function App() {
 
           <div
             ref={achievementsRef}
-            className={`achievements-grid${
+            className={`achievements-wrapper${
               achievementsVisible ? ' achievements-active' : ''
             }`}
           >
             {achievementsData.map((group, groupIdx) => (
               <div
                 key={group.category}
-                className="achievement-card"
-                style={{
-                  '--achieve-delay': `${groupIdx * 0.2}s`,
-                }}
+                className={`achievement-group theme-${group.theme}`}
               >
-                <div className="achievement-card-header">
-                  <span className="achievement-icon">{group.icon}</span>
-                  <h3>{group.category}</h3>
+                <div className="group-header">
+                  <div className="group-title-badge">
+                    <span className="group-icon">{group.icon}</span>
+                    <h3>{group.category}</h3>
+                  </div>
+                  <div className="group-line" />
                 </div>
 
-                <div className="achievement-list">
-                  {group.items.map((item, itemIdx) => (
-                    <div
-                      key={itemIdx}
-                      className="achievement-item"
-                      style={{
-                        '--item-delay': `${groupIdx * 0.2 + itemIdx * 0.08 + 0.2}s`,
-                      }}
-                    >
-                      <span className="achieve-bullet">✦</span>
-                      <p>{item}</p>
-                    </div>
-                  ))}
+                <div className="achievement-grid">
+                  {group.items.map((item, itemIdx) => {
+                    const globalIndex = groupIdx * 3 + itemIdx
+                    return (
+                      <div
+                        key={itemIdx}
+                        className="achievement-card"
+                        style={{
+                          '--card-delay': `${globalIndex * 0.12}s`,
+                        }}
+                      >
+                        <div className="card-top-indicator">
+                          <span className="sparkle">✦</span>
+                          <span className="card-num">0{itemIdx + 1}</span>
+                        </div>
+                        <p className="achievement-text">{item}</p>
+                        <div className="card-hover-glow" />
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             ))}
@@ -918,99 +928,171 @@ export default function App() {
           margin-right: 2px;
         }
 
-        /* --- KEY ACHIEVEMENTS STYLES & ANIMATION --- */
-        .achievements-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
+        /* --- MODERN ANIMATED KEY ACHIEVEMENTS --- */
+        .achievements-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
           margin-top: 24px;
         }
 
-        @media (max-width: 868px) {
-          .achievements-grid {
+        .achievement-group {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .group-header {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+
+        .group-title-badge {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 8px 18px;
+          border-radius: 30px;
+          backdrop-filter: blur(8px);
+        }
+
+        .theme-cyan .group-title-badge {
+          border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .theme-purple .group-title-badge {
+          border-color: rgba(167, 139, 250, 0.3);
+        }
+
+        .group-icon {
+          font-size: 1.2rem;
+        }
+
+        .group-title-badge h3 {
+          font-size: 1.05rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin: 0;
+          letter-spacing: 0.5px;
+        }
+
+        .group-line {
+          flex: 1;
+          height: 1px;
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+        }
+
+        .achievement-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+        }
+
+        @media (max-width: 1024px) {
+          .achievement-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .achievement-grid {
             grid-template-columns: 1fr;
           }
         }
 
         .achievement-card {
+          position: relative;
           background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-top: 3px solid #38bdf8;
+          border: 1px solid rgba(255, 255, 255, 0.07);
           border-radius: 12px;
-          padding: 24px;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 14px;
+          overflow: hidden;
           opacity: 0;
-          transform: translateY(30px);
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                      border-color 0.3s ease;
-        }
-
-        .achievement-card:hover {
-          background: rgba(255, 255, 255, 0.04);
-          border-color: rgba(56, 189, 248, 0.4);
-          transform: translateY(-4px);
+          transform: translateY(25px) scale(0.98);
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .achievements-active .achievement-card {
           opacity: 1;
-          transform: translateY(0);
-          transition-delay: var(--achieve-delay, 0s);
+          transform: translateY(0) scale(1);
+          transition-delay: var(--card-delay, 0s);
         }
 
-        .achievement-card-header {
+        .achievement-card:hover {
+          background: rgba(255, 255, 255, 0.05);
+          transform: translateY(-5px);
+        }
+
+        .theme-cyan .achievement-card:hover {
+          border-color: rgba(56, 189, 248, 0.5);
+          box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+        }
+
+        .theme-purple .achievement-card:hover {
+          border-color: rgba(167, 139, 250, 0.5);
+          box-shadow: 0 10px 30px -10px rgba(167, 139, 250, 0.15);
+        }
+
+        .card-top-indicator {
           display: flex;
           align-items: center;
-          gap: 12px;
-          margin-bottom: 20px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-          padding-bottom: 12px;
+          justify-content: space-between;
         }
 
-        .achievement-icon {
-          font-size: 1.4rem;
-        }
-
-        .achievement-card-header h3 {
-          font-size: 1.2rem;
-          font-weight: 700;
-          color: #ffffff;
-          margin: 0;
-        }
-
-        .achievement-list {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-        }
-
-        .achievement-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 10px;
-          opacity: 0;
-          transform: translateX(-15px);
-          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-                      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .achievements-active .achievement-item {
-          opacity: 1;
-          transform: translateX(0);
-          transition-delay: var(--item-delay, 0s);
-        }
-
-        .achieve-bullet {
-          color: #38bdf8;
+        .sparkle {
           font-size: 0.9rem;
-          margin-top: 2px;
-          flex-shrink: 0;
         }
 
-        .achievement-item p {
-          color: #cbd5e1;
-          font-size: 0.95rem;
+        .theme-cyan .sparkle {
+          color: #38bdf8;
+        }
+
+        .theme-purple .sparkle {
+          color: #a78bfa;
+        }
+
+        .card-num {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #64748b;
+          letter-spacing: 1px;
+        }
+
+        .achievement-text {
+          font-size: 0.92rem;
           line-height: 1.6;
+          color: #cbd5e1;
           margin: 0;
+          font-weight: 400;
+        }
+
+        .achievement-card:hover .achievement-text {
+          color: #ffffff;
+        }
+
+        .card-hover-glow {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: transparent;
+          transition: background 0.3s ease;
+        }
+
+        .theme-cyan .achievement-card:hover .card-hover-glow {
+          background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+        }
+
+        .theme-purple .achievement-card:hover .card-hover-glow {
+          background: linear-gradient(90deg, transparent, #a78bfa, transparent);
         }
       `}</style>
     </div>
