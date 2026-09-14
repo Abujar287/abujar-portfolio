@@ -161,7 +161,7 @@ export default function App() {
           observer.disconnect()
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.15 },
     )
     observer.observe(node)
     return () => observer.disconnect()
@@ -373,28 +373,29 @@ export default function App() {
           </div>
           <div
             ref={experienceRef}
-            className={`experience-timeline${experienceVisible ? ' experience-active' : ''}`}
+            className={`experience-grid${experienceVisible ? ' experience-active' : ''}`}
           >
             {professionalExperience.map((job, index) => (
               <div
                 key={job.company}
-                className="experience-item"
-                style={{ '--experience-delay': `${index * 0.15}s` }}
+                className="experience-card"
+                style={{ '--experience-delay': `${index * 0.12}s` }}
               >
-                <div className="experience-header">
+                <div className="experience-top">
                   <div>
                     <h3>{job.title}</h3>
                     <p className="experience-company">{job.company}</p>
                   </div>
                   <span className="experience-period">{job.period}</span>
                 </div>
-                <div className="experience-responsibilities">
-                  <ul>
-                    {job.responsibilities.map((responsibility, idx) => (
-                      <li key={idx}>{responsibility}</li>
-                    ))}
-                  </ul>
-                </div>
+
+                <div className="experience-divider" />
+
+                <ul className="experience-list">
+                  {job.responsibilities.slice(0, 3).map((responsibility, idx) => (
+                    <li key={idx}>{responsibility}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
