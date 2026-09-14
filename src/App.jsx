@@ -12,72 +12,95 @@ const navItems = [
 
 const coreExpertise = [
   {
-    title: 'Analytics & Business Intelligence',
+    title: 'Analytics & BI',
     description:
-      'Turning business data into meaningful insights, KPI analysis and decision-ready dashboards.',
+      'Turning business data into meaningful insights, KPI tracking, and operational reporting.',
     skills: [
       'Data Analysis',
       'Business Intelligence',
-      'KPI Analysis',
+      'KPI & Performance Analytics',
       'Dashboard Development',
+      'MIS & Operational Reporting',
     ],
   },
   {
-    title: 'SQL & Data',
+    title: 'Data & Querying',
     description:
-      'Working with structured data and databases to extract, analyze and deliver reliable business insights.',
+      'Working with structured databases to extract, transform, and analyze business information.',
     skills: [
       'SQL',
       'MySQL',
-      'Database Analysis',
-      'Query Optimization',
-      'DBGate',
+      'Data Extraction',
+      'Data Transformation',
+      'Query-based Analysis',
     ],
   },
   {
-    title: 'Automation & Productivity',
+    title: 'Excel & Automation',
     description:
-      'Automating reporting and repetitive processes to improve efficiency, accuracy and operational productivity.',
+      'Building automated reporting workflows, spreadsheets, and data validation systems.',
     skills: [
       'Advanced Excel',
       'Google Sheets',
-      'Python',
-      'Pandas',
-      'Process Automation',
+      'Reporting Automation',
+      'Data Validation',
+      'Automated MIS Reporting',
     ],
   },
   {
-    title: 'BI & Dashboards',
+    title: 'Agent & Operations Analytics',
     description:
-      'Building interactive dashboards that provide clear visibility into KPIs, business performance and operational metrics.',
+      'Analyzing call center productivity, agent performance, work capacity, and operational workflows.',
+    skills: [
+      'Agent Performance Analysis',
+      'Agent Productivity Analysis',
+      'Call Center Analytics',
+      'Telesales Analytics',
+      'Inbound Analytics',
+      'Back Office Operations',
+      'Agent Hygiene Analysis',
+      'Work Capacity Analysis',
+    ],
+  },
+  {
+    title: 'CRM & Customer Analytics',
+    description:
+      'Optimizing lead distribution, tracking customer cohorts, and analyzing conversion metrics.',
+    skills: [
+      'Lead Management & Optimization',
+      'Lead Distribution & Assignment',
+      'Telesales Lead Analytics',
+      'Call Center Lead Analytics',
+      'Customer Analysis',
+      'Customer Follow-up Analysis',
+      'Customer Cohort Analysis',
+      'Conversion & Retention Analysis',
+    ],
+  },
+  {
+    title: 'Complaint & VOC Analytics',
+    description:
+      'Monitoring SLA/TAT, analyzing complaints, and utilizing voice of customer insights.',
+    skills: [
+      'Complaint Analysis',
+      'Complaint Trend Analysis',
+      'Resolution & Closure Analysis',
+      'Pending & Aging Analysis',
+      'SLA / TAT Monitoring',
+      'VOC Analytics',
+      'Root Cause Analysis',
+    ],
+  },
+  {
+    title: 'BI & Dashboard Tools',
+    description:
+      'Developing live interactive operational dashboards and monitoring business visualizations.',
     skills: [
       'Metabase',
       'Apache Superset',
-      'Power BI',
-      'Data Visualization',
-      'KPI Reporting',
-    ],
-  },
-  {
-    title: 'Customer Intelligence',
-    description:
-      'Using customer and lifecycle data to understand behavior, improve data quality and support better business decisions.',
-    skills: [
-      'CRM',
-      'CLM',
-      'Customer Analytics',
-      'Customer Insights',
-    ],
-  },
-  {
-    title: 'Operational Analytics',
-    description:
-      'Analyzing performance, identifying process gaps and transforming operational data into actionable improvements.',
-    skills: [
-      'Performance Analysis',
-      'Trend Analysis',
-      'Operational Reporting',
-      'Process Improvement',
+      'Google Sheets',
+      'Operational Dashboards',
+      'Live Performance Dashboards',
     ],
   },
 ]
