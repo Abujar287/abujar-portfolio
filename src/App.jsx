@@ -121,7 +121,7 @@ const professionalExperience = [
     responsibilities: [
       'Business Data Analysis & Actionable Insights.',
       'Automated Dashboard & Operational Reporting.',
-      'Telesales & KAM KPI Performance Analysis.',
+      'TS, KAM, CC, FB, BO & VOC KPI Performance Analysis.',
       'Customer Cohort Analysis & Lead Optimization.',
       'Cross-functional Team Performance Analysis.',
       'Payroll, Attendance & Agent Utilization Automation.',
@@ -531,7 +531,7 @@ export default function App() {
                     {job.company} ({job.location})
                   </p>
 
-                  {/* Date format as requested */}
+                  {/* Date format */}
                   <p className="exp-meta">
                     📅 {job.period} ({job.duration})
                   </p>
