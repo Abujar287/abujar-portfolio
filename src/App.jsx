@@ -108,9 +108,7 @@ const coreExpertise = [
 const technicalSkillCategories = [
   {
     category: 'Querying',
-    skills: [
-      { name: 'SQL', level: 'Advanced' },
-    ],
+    skills: [{ name: 'SQL', level: 'Advanced' }],
   },
   {
     category: 'Spreadsheets & Tools',
@@ -135,9 +133,7 @@ const technicalSkillCategories = [
   },
   {
     category: 'CRM & Operations',
-    skills: [
-      { name: 'CRM & CLM', level: 'Specialist' },
-    ],
+    skills: [{ name: 'CRM & CLM', level: 'Specialist' }],
   },
 ]
 
@@ -223,7 +219,8 @@ const projectList = [
     title: 'Customer & Cohort Analytics',
     tech: ['SQL', 'Excel', 'BI'],
     subtitle: 'Customer Segmentation & Retention Tracking',
-    description: 'Analyzing customer behaviors, lifecycle cohorts, and retention metrics to support long-term business growth.',
+    description:
+      'Analyzing customer behaviors, lifecycle cohorts, and retention metrics to support long-term business growth.',
     points: [
       'Customer behavior analysis',
       'Cohort & retention analysis',
@@ -235,7 +232,8 @@ const projectList = [
     title: 'Complaint & VOC Analytics',
     tech: ['SQL', 'Excel', 'Reporting'],
     subtitle: 'Voice of Customer & SLA Tracking',
-    description: 'Monitoring complaints, SLA/TAT metrics, and resolving operational bottlenecks using voice of customer feedback.',
+    description:
+      'Monitoring complaints, SLA/TAT metrics, and resolving operational bottlenecks using voice of customer feedback.',
     points: [
       'Complaint data & trend analysis',
       'Pending & aging monitoring',
@@ -247,7 +245,8 @@ const projectList = [
     title: 'Payroll & Workforce Reporting Automation',
     tech: ['Excel', 'Google Sheets', 'Automation'],
     subtitle: 'Automated Attendance & Workforce Management',
-    description: 'Automating attendance aggregation, VSE metrics, and salary calculations to minimize human error and save time.',
+    description:
+      'Automating attendance aggregation, VSE metrics, and salary calculations to minimize human error and save time.',
     points: [
       'Attendance data processing',
       'VSE reporting',
@@ -459,26 +458,6 @@ export default function App() {
           margin: 0;
           font-weight: 400;
         }
-        .summary-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          width: 100%;
-        }
-        .summary-hero-card {
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-left: 3px solid #a78bfa;
-          border-radius: 8px;
-          padding: 14px 18px;
-        }
-        .summary-hero-text {
-          font-size: 0.92rem !important;
-          line-height: 1.5 !important;
-          color: #cbd5e1;
-          margin: 0;
-          font-weight: 400;
-        }
         .highlight-purple {
           color: #a78bfa;
           font-weight: 600;
@@ -611,7 +590,6 @@ export default function App() {
           color: #ffffff !important;
         }
         
-        /* Project Card Styling */
         .project-card {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -680,7 +658,6 @@ export default function App() {
           margin-top: 4px;
         }
 
-        /* Contact Section Styling - Screenshot Matched */
         .contact-wrapper {
           display: flex;
           flex-direction: column;
@@ -891,7 +868,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- GET IN TOUCH / CONTACT SECTION (Now acting as ABOUT) --- */}
+        {/* --- ABOUT (Contact Section acting as About) --- */}
         <section id="about" className="section expertise-section">
           <div className="contact-wrapper">
             <div className="contact-main-heading">
@@ -1145,7 +1122,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- TECHNICAL SKILLS (Moved below Achievements) --- */}
+        {/* --- TECHNICAL SKILLS (Placed after Achievements) --- */}
         <section id="skills" className="section technical-section" ref={skillsRef}>
           <div className="section-title">
             <h2>Technical Skills</h2>
