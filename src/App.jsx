@@ -528,14 +528,15 @@ export default function App() {
 
                   {/* Company & Location */}
                   <p className="exp-company">
-                    {job.company} <span className="exp-location">• {job.location}</span>
+                    <span className="company-name">{job.company}</span>{' '}
+                    <span className="exp-location">• {job.location}</span>
                   </p>
 
                   {/* Date format Tag */}
                   <div className="exp-badge">
-                    <span>{job.period}</span>
+                    <span className="exp-period">{job.period}</span>
                     <span className="exp-dot">•</span>
-                    <span>{job.duration}</span>
+                    <span className="exp-duration">{job.duration}</span>
                   </div>
 
                   {/* Responsibilities */}
@@ -661,17 +662,20 @@ export default function App() {
 
         .exp-company {
           font-size: 0.88rem !important;
-          font-weight: 600 !important;
-          background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
           margin-bottom: 10px !important;
           letter-spacing: 0.2px;
         }
 
+        /* Company Name Gradient */
+        .company-name {
+          font-weight: 600 !important;
+          background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
         .exp-location {
           color: #94a3b8 !important;
-          -webkit-text-fill-color: initial;
           font-weight: 400 !important;
           font-size: 0.82rem !important;
         }
@@ -686,12 +690,22 @@ export default function App() {
           padding: 4px 10px;
           font-size: 0.72rem !important;
           font-weight: 600 !important;
-          color: #c084fc !important;
           letter-spacing: 0.4px !important;
           margin-bottom: 16px !important;
         }
 
+        /* Date Period Color (e.g., 11/2023 - PRESENT) */
+        .exp-period {
+          color: #38bdf8 !important;
+        }
+
+        /* Duration Color (e.g., 2 YEARS 10 MONTHS) */
+        .exp-duration {
+          color: #ffffff !important;
+        }
+
         .exp-dot {
+          color: #94a3b8;
           opacity: 0.5;
         }
 
