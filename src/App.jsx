@@ -493,7 +493,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PERFECT MATCH WITH CORE EXPERTISE DESIGN --- */}
+        {/* --- PROFESSIONAL EXPERIENCE (GRID LAYOUT) --- */}
         <section id="experience" className="section expertise-section">
           <div className="section-title">
             <h2>Professional Experience</h2>
@@ -505,14 +505,14 @@ export default function App() {
 
           <div
             ref={experienceRef}
-            className={`expertise-showcase${
+            className={`expertise-showcase exp-grid-layout${
               experienceVisible ? ' expertise-active' : ''
             }`}
           >
             {professionalExperience.map((job, index) => (
               <div
                 key={`${job.company}-${index}`}
-                className="expertise-item"
+                className="expertise-item exp-card-item"
                 style={{
                   '--expertise-delay': `${index * 0.15}s`,
                 }}
@@ -528,8 +528,7 @@ export default function App() {
                   <p className="exp-company-name">{job.company}</p>
 
                   <div className="exp-sub-info">
-                    <span className="exp-pin">📍</span>
-                    <span className="exp-loc">{job.location}</span>
+                    <span className="exp-loc">📍 {job.location}</span>
                     <span className="exp-sep">·</span>
                     <span className="exp-date">📅 {job.period}</span>
                     <span className="exp-badge">({job.duration})</span>
@@ -611,12 +610,37 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
+        /* Experience Section Grid Customization */
+        .exp-grid-layout {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 20px !important;
+        }
+
+        @media (max-width: 1024px) {
+          .exp-grid-layout {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .exp-grid-layout {
+            grid-template-columns: 1fr !important;
+          }
+        }
+
+        .exp-card-item {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
         .exp-company-name {
           color: #8b5cf6 !important;
           font-weight: 600 !important;
-          font-size: 1rem !important;
+          font-size: 0.95rem !important;
           margin-top: 4px !important;
-          margin-bottom: 12px !important;
+          margin-bottom: 10px !important;
         }
 
         .exp-sub-info {
@@ -624,14 +648,10 @@ export default function App() {
           align-items: center;
           flex-wrap: wrap;
           gap: 6px;
-          font-size: 0.85rem;
+          font-size: 0.8rem;
           color: #94a3b8;
-          margin-bottom: 20px;
-          letter-spacing: 0.02em;
-        }
-
-        .exp-pin {
-          font-size: 0.9rem;
+          margin-bottom: 16px;
+          letter-spacing: 0.01em;
         }
 
         .exp-loc {
@@ -649,29 +669,29 @@ export default function App() {
 
         .exp-badge {
           color: #64748b;
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           font-weight: 600;
         }
 
         .exp-bullet-list {
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          margin-top: 10px;
+          gap: 8px;
+          margin-top: 6px;
         }
 
         .exp-bullet-item {
           display: flex;
           align-items: flex-start;
-          gap: 10px;
-          font-size: 0.92rem;
-          line-height: 1.5;
+          gap: 8px;
+          font-size: 0.88rem;
+          line-height: 1.45;
           color: #cbd5e1;
         }
 
         .exp-arrow-bullet {
           color: #6366f1;
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           margin-top: 2px;
           flex-shrink: 0;
         }
