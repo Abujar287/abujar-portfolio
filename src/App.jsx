@@ -1,4 +1,4 @@
-```jsx
+
 import { useEffect, useRef, useState } from 'react'
 
 const navItems = [
@@ -578,4 +578,4 @@ export default function App() {
     </div>
   )
 }
-```
+
