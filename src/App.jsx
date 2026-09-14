@@ -512,7 +512,7 @@ export default function App() {
             {professionalExperience.map((job, index) => (
               <div
                 key={`${job.company}-${index}`}
-                className="expertise-item"
+                className="expertise-item exp-card"
                 style={{
                   '--expertise-delay': `${index * 0.15}s`,
                 }}
@@ -521,20 +521,22 @@ export default function App() {
 
                 <div className="expertise-main">
                   {/* Job Title */}
-                  <div className="expertise-heading">
-                    <h3>{job.title}</h3>
+                  <div className="exp-heading">
+                    <h3 className="exp-title">{job.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
 
-                  {/* Company & Location in brackets */}
+                  {/* Company & Location */}
                   <p className="exp-company">
-                    {job.company} ({job.location})
+                    {job.company} <span className="exp-location">• {job.location}</span>
                   </p>
 
-                  {/* Date format */}
-                  <p className="exp-meta">
-                    📅 {job.period} ({job.duration})
-                  </p>
+                  {/* Date format Tag */}
+                  <div className="exp-badge">
+                    <span>{job.period}</span>
+                    <span className="exp-dot">•</span>
+                    <span>{job.duration}</span>
+                  </div>
 
                   {/* Responsibilities */}
                   <div className="expertise-skills exp-list">
@@ -548,7 +550,7 @@ export default function App() {
                           }s`,
                         }}
                       >
-                        ▸ {resp}
+                        <span className="bullet-symbol">▸</span> {resp}
                       </span>
                     ))}
                   </div>
@@ -638,19 +640,60 @@ export default function App() {
           }
         }
 
-        .exp-company {
-          color: #a78bfa !important;
-          font-weight: 500 !important;
-          font-size: 0.95rem !important;
-          margin-top: -4px !important;
-          margin-bottom: 6px !important;
+        /* --- EXPERIENCE TYPOGRAPHY UPGRADES --- */
+        .exp-card {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
         }
 
-        .exp-meta {
-          font-size: 0.82rem !important;
+        .exp-heading {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 6px;
+        }
+
+        .exp-title {
+          font-size: 1.25rem !important;
+          font-weight: 700 !important;
+          letter-spacing: 0.3px !important;
+          color: #ffffff !important;
+          margin: 0 !important;
+        }
+
+        .exp-company {
+          font-size: 0.88rem !important;
+          font-weight: 600 !important;
+          background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 10px !important;
+          letter-spacing: 0.2px;
+        }
+
+        .exp-location {
           color: #94a3b8 !important;
+          -webkit-text-fill-color: initial;
+          font-weight: 400 !important;
+          font-size: 0.82rem !important;
+        }
+
+        .exp-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(167, 139, 250, 0.08);
+          border: 1px solid rgba(167, 139, 250, 0.2);
+          border-radius: 20px;
+          padding: 4px 10px;
+          font-size: 0.72rem !important;
+          font-weight: 600 !important;
+          color: #c084fc !important;
+          letter-spacing: 0.4px !important;
           margin-bottom: 16px !important;
-          line-height: 1.4 !important;
+        }
+
+        .exp-dot {
+          opacity: 0.5;
         }
 
         .exp-list {
@@ -658,20 +701,33 @@ export default function App() {
           flex-direction: column;
           align-items: flex-start;
           gap: 6px !important;
-          margin-top: 10px;
         }
 
-        /* ফন্ট সাইজ এবং প্যাডিং কমানো হয়েছে */
         .exp-item-tag {
-          font-size: 0.78rem !important;
-          line-height: 1.35 !important;
-          color: #cbd5e1 !important;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.07);
-          border-radius: 5px;
-          padding: 4px 8px;
+          font-size: 0.80rem !important;
+          font-weight: 400 !important;
+          line-height: 1.4 !important;
+          color: #e2e8f0 !important;
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-left: 2px solid #a78bfa !important;
+          border-radius: 4px;
+          padding: 5px 8px;
           width: 100%;
           text-align: left;
+          transition: all 0.2s ease;
+        }
+
+        .exp-item-tag:hover {
+          background: rgba(167, 139, 250, 0.06);
+          border-color: rgba(167, 139, 250, 0.3);
+          transform: translateX(2px);
+        }
+
+        .bullet-symbol {
+          color: #a78bfa;
+          font-weight: bold;
+          margin-right: 2px;
         }
       `}</style>
     </div>
