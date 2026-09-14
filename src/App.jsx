@@ -453,6 +453,7 @@ export default function App() {
           text-align: left !important;
           margin-left: 0 !important;
           min-width: 0;
+          padding-top: 24px; /* Added spacing from navbar so name is fully visible */
         }
         /* Full Name Styling */
         .hero-content h1 {
@@ -1027,22 +1028,6 @@ export default function App() {
                 intelligent dashboards, automated reporting
                 solutions and data-driven business decisions.
               </p>
-
-              <div className="hero-buttons">
-                <button
-                  className="primary-button"
-                  onClick={() => scrollTo('experience')}
-                >
-                  View My Experience <span>↗</span>
-                </button>
-
-                <button
-                  className="secondary-button"
-                  onClick={() => scrollTo('about')}
-                >
-                  Contact Me
-                </button>
-              </div>
             </div>
 
             <div className="hero-photo">
@@ -1058,6 +1043,22 @@ export default function App() {
                 />
               </div>
             </div>
+          </div>
+
+          <div style={{ marginTop: '30px', display: 'flex', gap: '12px' }} className="hero-buttons">
+            <button
+              className="primary-button"
+              onClick={() => scrollTo('experience')}
+            >
+              View My Experience <span>↗</span>
+            </button>
+
+            <button
+              className="secondary-button"
+              onClick={() => scrollTo('about')}
+            >
+              Contact Me
+            </button>
           </div>
 
           <div className="scroll-indicator">
