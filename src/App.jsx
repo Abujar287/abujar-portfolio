@@ -82,17 +82,42 @@ const coreExpertise = [
   },
 ]
 
-const technicalSkills = [
-  { name: 'SQL', category: 'Querying', level: 'Advanced' },
-  { name: 'MySQL', category: 'Querying', level: 'Advanced' },
-  { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
-  { name: 'Google Sheets', category: 'Modeling', level: 'Advanced' },
-  { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
-  { name: 'Business Intelligence', category: 'Analytics', level: 'Advanced' },
-  { name: 'Metabase', category: 'Dashboards', level: 'Proficient' },
-  { name: 'Apache Superset', category: 'Dashboards', level: 'Proficient' },
-  { name: 'Power BI', category: 'Dashboards', level: 'Proficient' },
-  { name: 'CRM & CLM', category: 'Operations', level: 'Specialist' },
+const technicalSkillCategories = [
+  {
+    category: 'Querying',
+    skills: [
+      { name: 'SQL', level: 'Advanced' },
+      { name: 'MySQL', level: 'Advanced' },
+    ],
+  },
+  {
+    category: 'Modeling & Spreadsheets',
+    skills: [
+      { name: 'Advanced Excel', level: 'Expert' },
+      { name: 'Google Sheets', level: 'Advanced' },
+    ],
+  },
+  {
+    category: 'Programming & Analysis',
+    skills: [
+      { name: 'Python', level: 'Advanced' },
+      { name: 'Business Intelligence', level: 'Advanced' },
+    ],
+  },
+  {
+    category: 'Visualization & Dashboards',
+    skills: [
+      { name: 'Metabase', level: 'Proficient' },
+      { name: 'Apache Superset', level: 'Proficient' },
+      { name: 'Power BI', level: 'Proficient' },
+    ],
+  },
+  {
+    category: 'Operations',
+    skills: [
+      { name: 'CRM & CLM', level: 'Specialist' },
+    ],
+  },
 ]
 
 const professionalExperience = [
@@ -409,29 +434,29 @@ export default function App() {
               </div>
 
               <span className="technical-count">
-                {`0${technicalSkills.length} DISCIPLINES`}
+                SKILLS CATEGORIES
               </span>
             </div>
 
-            <div className="skills-grid-wrapper">
-              {technicalSkills.map((skill, index) => (
+            <div className="skills-category-wrapper">
+              {technicalSkillCategories.map((group, index) => (
                 <div
-                  key={skill.name}
-                  className="skills-card"
+                  key={group.category}
+                  className="skill-category-card"
                   style={{
-                    '--technical-delay': `${index * 0.08}s`,
+                    '--technical-delay': `${index * 0.1}s`,
                   }}
                 >
-                  <div className="skills-card-header">
-                    <span className="skill-cat-badge">{skill.category}</span>
-                    <span className={`skill-level-badge level-${skill.level.toLowerCase()}`}>
-                      {skill.level}
-                    </span>
-                  </div>
-
-                  <div className="skills-card-body">
-                    <h3 className="skill-title">{skill.name}</h3>
-                    <span className="skills-icon">↗</span>
+                  <h3 className="category-title">{group.category}</h3>
+                  <div className="category-skills-list">
+                    {group.skills.map((skill) => (
+                      <div key={skill.name} className="skill-row">
+                        <span className="skill-name">{skill.name}</span>
+                        <span className={`skill-level-badge level-${skill.level.toLowerCase()}`}>
+                          {skill.level}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
@@ -748,58 +773,63 @@ export default function App() {
           font-weight: 600;
         }
 
-        /* --- TECHNICAL SKILLS --- */
-        .skills-grid-wrapper {
+        /* --- TECHNICAL SKILLS CATEGORY STYLES --- */
+        .skills-category-wrapper {
           display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 10px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
           margin-top: 10px;
         }
 
-        @media (max-width: 1200px) {
-          .skills-grid-wrapper {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .skills-grid-wrapper {
+        @media (max-width: 1024px) {
+          .skills-category-wrapper {
             grid-template-columns: repeat(2, 1fr);
           }
         }
 
-        @media (max-width: 480px) {
-          .skills-grid-wrapper {
+        @media (max-width: 640px) {
+          .skills-category-wrapper {
             grid-template-columns: 1fr;
           }
         }
 
-        .skills-card {
+        .skill-category-card {
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 8px;
-          padding: 10px 14px;
+          padding: 12px 14px;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          gap: 8px;
         }
 
-        .skills-card-header {
+        .category-title {
+          font-size: 0.8rem !important;
+          font-weight: 700;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          color: #a78bfa;
+          margin: 0 0 4px 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          padding-bottom: 6px;
+        }
+
+        .category-skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .skill-row {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 6px;
         }
 
-        .skill-cat-badge {
-          font-size: 0.58rem;
-          font-weight: 700;
-          letter-spacing: 0.6px;
-          text-transform: uppercase;
-          color: #94a3b8;
-          background: rgba(255, 255, 255, 0.05);
-          padding: 2px 6px;
-          border-radius: 4px;
+        .skill-name {
+          font-size: 0.85rem !important;
+          font-weight: 600;
+          color: #ffffff;
         }
 
         .skill-level-badge {
@@ -822,24 +852,6 @@ export default function App() {
         .level-proficient, .level-specialist {
           color: #a78bfa;
           background: rgba(167, 139, 250, 0.12);
-        }
-
-        .skills-card-body {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .skill-title {
-          font-size: 0.85rem !important;
-          font-weight: 600;
-          color: #ffffff;
-          margin: 0;
-        }
-
-        .skills-icon {
-          color: #64748b;
-          font-size: 0.75rem;
         }
 
         /* --- PROFESSIONAL EXPERIENCE & ACHIEVEMENTS LAYOUT --- */
