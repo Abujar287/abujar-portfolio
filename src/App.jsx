@@ -337,60 +337,63 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- REVISED FULL-WIDTH PROFESSIONAL SUMMARY --- */}
+        {/* --- REVISED PROFESSIONAL & CLEAN PROFESSIONAL SUMMARY --- */}
         <section id="about" className="section about">
           <div className="section-title">
             <h2>Professional Summary</h2>
           </div>
 
           <div className="summary-wrapper">
-            {/* Main Highlight Card */}
+            {/* Core Overview Card */}
             <div className="summary-hero-card">
-              <div className="summary-hero-text">
-                Data Analyst with nearly <span className="gradient-highlight">5 years of hands-on experience</span> driving measurable business impact through <span className="blue-highlight">Business Intelligence</span>, advanced reporting automation, and operational performance analytics.
-              </div>
+              <p className="summary-hero-text">
+                Results-driven <strong className="highlight-purple">Data Analyst with nearly 5 years</strong> of hands-on experience driving measurable business impact through <strong className="highlight-blue">Business Intelligence</strong>, advanced reporting automation, and operational performance analytics. Proven expertise in transforming complex data into decision-ready insights for senior leadership.
+              </p>
             </div>
 
-            {/* Three Pillar Cards Layout */}
+            {/* Structured Pillars */}
             <div className="summary-pillars-grid">
               <div className="pillar-card">
                 <div className="pillar-header">
-                  <span className="pillar-icon">📊</span>
+                  <span className="pillar-tag">01</span>
                   <h3>Business Intelligence &amp; Dashboards</h3>
                 </div>
                 <p>
-                  Adept at transforming raw, complex datasets into executive-ready interactive dashboards (Metabase, Superset). Expert in defining and tracking key operational KPIs to give business leaders real-time visibility.
+                  Adept at transforming raw, complex datasets into executive-ready interactive dashboards (Metabase, Apache Superset) to deliver real-time KPI visibility and support enterprise strategy.
                 </p>
               </div>
 
               <div className="pillar-card">
                 <div className="pillar-header">
-                  <span className="pillar-icon">⚡</span>
-                  <h3>Automation &amp; Efficiency</h3>
+                  <span className="pillar-tag">02</span>
+                  <h3>Automation &amp; Workflow Efficiency</h3>
                 </div>
                 <p>
-                  Specialized in building automated data pipelines using Python, SQL, and Advanced Excel to eliminate manual reporting overhead, streamline team attendance/payroll analysis, and optimize agent utilization.
+                  Specialized in building scalable data pipelines using Python, SQL, and Advanced Excel to reduce manual reporting overhead, streamline team workflows, and optimize resource allocation.
                 </p>
               </div>
 
               <div className="pillar-card">
                 <div className="pillar-header">
-                  <span className="pillar-icon">🎯</span>
+                  <span className="pillar-tag">03</span>
                   <h3>Strategic &amp; Customer Analytics</h3>
                 </div>
                 <p>
-                  Experienced in customer cohort analysis, telesales/KAM performance monitoring, lifecycle management (CRM/CLM), and financial reconciliation to drive revenue growth and operational excellence.
+                  Experienced in customer cohort analysis, telesales/KAM performance monitoring, lifecycle management (CRM/CLM), and financial reconciliation to drive revenue growth.
                 </p>
               </div>
             </div>
 
-            {/* Capabilities Badges */}
-            <div className="summary-badges-bar">
-              <span className="badge-tag">SQL Query Optimization</span>
-              <span className="badge-tag">Cohort &amp; Clustering Analysis</span>
-              <span className="badge-tag">KPI Dashboarding</span>
-              <span className="badge-tag">Python Data Processing</span>
-              <span className="badge-tag">Cross-functional Analytics</span>
+            {/* Core Competencies Badges */}
+            <div className="summary-competencies">
+              <span className="competency-title">CORE COMPETENCIES:</span>
+              <div className="competency-tags">
+                <span className="badge-tag">SQL Query Optimization</span>
+                <span className="badge-tag">Cohort &amp; Clustering Analysis</span>
+                <span className="badge-tag">KPI Dashboarding</span>
+                <span className="badge-tag">Python Data Processing</span>
+                <span className="badge-tag">Cross-functional Analytics</span>
+              </div>
             </div>
           </div>
         </section>
@@ -627,7 +630,7 @@ export default function App() {
       </footer>
 
       <style jsx global>{`
-        /* --- STYLES FOR REVISED PROFESSIONAL SUMMARY --- */
+        /* --- PROFESSIONAL SUMMARY STYLES --- */
         .summary-wrapper {
           display: flex;
           flex-direction: column;
@@ -636,37 +639,27 @@ export default function App() {
         }
 
         .summary-hero-card {
-          background: linear-gradient(135deg, rgba(167, 139, 250, 0.08) 0%, rgba(56, 189, 248, 0.03) 100%);
-          border: 1px solid rgba(167, 139, 250, 0.25);
-          border-left: 4px solid #a78bfa;
-          border-radius: 12px;
-          padding: 28px 32px;
-          box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-left: 3px solid #a78bfa;
+          border-radius: 8px;
+          padding: 24px 28px;
         }
 
         .summary-hero-text {
-          font-size: 1.25rem;
+          font-size: 1.15rem;
           line-height: 1.7;
-          color: #f1f5f9;
+          color: #cbd5e1;
+          margin: 0;
           font-weight: 400;
         }
 
-        @media (max-width: 768px) {
-          .summary-hero-text {
-            font-size: 1.05rem;
-            line-height: 1.6;
-          }
-          .summary-hero-card {
-            padding: 20px;
-          }
-        }
-
-        .gradient-highlight {
+        .highlight-purple {
           color: #a78bfa;
-          font-weight: 700;
+          font-weight: 600;
         }
 
-        .blue-highlight {
+        .highlight-blue {
           color: #38bdf8;
           font-weight: 600;
         }
@@ -686,29 +679,33 @@ export default function App() {
 
         .pillar-card {
           background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.07);
-          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 8px;
           padding: 22px;
           transition: all 0.3s ease;
-          display: flex;
-          flex-direction: column;
         }
 
         .pillar-card:hover {
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.04);
           border-color: rgba(167, 139, 250, 0.3);
-          transform: translateY(-4px);
+          transform: translateY(-2px);
         }
 
         .pillar-header {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 12px;
           margin-bottom: 12px;
         }
 
-        .pillar-icon {
-          font-size: 1.2rem;
+        .pillar-tag {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #a78bfa;
+          background: rgba(167, 139, 250, 0.1);
+          padding: 2px 8px;
+          border-radius: 4px;
+          letter-spacing: 0.5px;
         }
 
         .pillar-header h3 {
@@ -725,33 +722,45 @@ export default function App() {
           margin: 0;
         }
 
-        /* Badges Bar */
-        .summary-badges-bar {
+        /* Competencies Bar */
+        .summary-competencies {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 6px;
+        }
+
+        .competency-title {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #64748b;
+          letter-spacing: 1px;
+        }
+
+        .competency-tags {
           display: flex;
           flex-wrap: wrap;
           gap: 10px;
-          align-items: center;
-          padding-top: 6px;
         }
 
         .badge-tag {
-          font-size: 0.8rem;
+          font-size: 0.82rem;
           font-weight: 500;
           color: #cbd5e1;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
           padding: 6px 14px;
-          border-radius: 20px;
+          border-radius: 6px;
           transition: all 0.2s ease;
         }
 
         .badge-tag:hover {
           border-color: rgba(167, 139, 250, 0.4);
           color: #ffffff;
-          background: rgba(167, 139, 250, 0.1);
+          background: rgba(167, 139, 250, 0.08);
         }
 
-        /* --- TECHNICAL SKILLS ENHANCEMENTS --- */
+        /* --- TECHNICAL SKILLS --- */
         .skills-grid-wrapper {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -784,27 +793,10 @@ export default function App() {
           overflow: hidden;
         }
 
-        .skills-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 3px;
-          height: 100%;
-          background: linear-gradient(180deg, #a78bfa 0%, #38bdf8 100%);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
         .skills-card:hover {
           background: rgba(255, 255, 255, 0.06);
           border-color: rgba(167, 139, 250, 0.3);
           transform: translateY(-3px);
-          box-shadow: 0 10px 20px -10px rgba(167, 139, 250, 0.15);
-        }
-
-        .skills-card:hover::before {
-          opacity: 1;
         }
 
         .skills-card-header {
@@ -830,25 +822,21 @@ export default function App() {
           font-weight: 600;
           padding: 3px 8px;
           border-radius: 12px;
-          letter-spacing: 0.3px;
         }
 
         .level-expert {
           color: #f472b6;
           background: rgba(244, 114, 182, 0.12);
-          border: 1px solid rgba(244, 114, 182, 0.25);
         }
 
         .level-advanced {
           color: #38bdf8;
           background: rgba(56, 189, 248, 0.12);
-          border: 1px solid rgba(56, 189, 248, 0.25);
         }
 
         .level-proficient, .level-specialist {
           color: #a78bfa;
           background: rgba(167, 139, 250, 0.12);
-          border: 1px solid rgba(167, 139, 250, 0.25);
         }
 
         .skills-card-body {
@@ -862,18 +850,11 @@ export default function App() {
           font-weight: 600;
           color: #ffffff;
           margin: 0;
-          letter-spacing: 0.2px;
         }
 
         .skills-icon {
           color: #64748b;
           font-size: 0.9rem;
-          transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .skills-card:hover .skills-icon {
-          color: #a78bfa;
-          transform: translate(2px, -2px);
         }
 
         /* --- PROFESSIONAL EXPERIENCE --- */
@@ -895,10 +876,6 @@ export default function App() {
           }
         }
 
-        .exp-card {
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-        }
-
         .exp-heading {
           display: flex;
           align-items: center;
@@ -909,7 +886,6 @@ export default function App() {
         .exp-title {
           font-size: 1.25rem !important;
           font-weight: 700 !important;
-          letter-spacing: 0.3px !important;
           color: #ffffff !important;
           margin: 0 !important;
         }
@@ -917,20 +893,15 @@ export default function App() {
         .exp-company {
           font-size: 0.88rem !important;
           margin-bottom: 10px !important;
-          letter-spacing: 0.2px;
         }
 
         .company-name {
           font-weight: 600 !important;
-          background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          color: #a78bfa;
         }
 
         .exp-location {
           color: #94a3b8 !important;
-          font-weight: 400 !important;
-          font-size: 0.82rem !important;
         }
 
         .exp-badge {
@@ -943,7 +914,6 @@ export default function App() {
           padding: 4px 10px;
           font-size: 0.72rem !important;
           font-weight: 600 !important;
-          letter-spacing: 0.4px !important;
           margin-bottom: 16px !important;
         }
 
@@ -979,13 +949,6 @@ export default function App() {
           padding: 5px 8px;
           width: 100%;
           text-align: left;
-          transition: all 0.2s ease;
-        }
-
-        .exp-item-tag:hover {
-          background: rgba(167, 139, 250, 0.06);
-          border-color: rgba(167, 139, 250, 0.3);
-          transform: translateX(2px);
         }
 
         .bullet-symbol {
