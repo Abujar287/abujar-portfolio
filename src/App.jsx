@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const navItems = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
-  { id: 'expertise', label: 'Expertise' },
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ]
@@ -113,46 +112,43 @@ const technicalSkills = [
 
 const professionalExperience = [
   {
+    period: '11/2023 - Present (2 Years 10 Months)',
+    location: '📍 Jashore, Bangladesh',
     title: 'Sr. Data Analyst',
     company: 'Sheba.xyz Services Limited',
-    location: 'Jashore, Bangladesh',
-    period: '11/2023 - Present',
-    duration: '2 Years 10 Months',
     responsibilities: [
-      'Business Data Analysis & Actionable Insights',
-      'Automated Dashboard & Operational Reporting',
-      'Telesales & KAM KPI Performance Analysis',
-      'Customer Cohort Analysis & Lead Optimization',
-      'Cross-functional Team Performance Analysis',
-      'Payroll, Attendance & Agent Utilization Automation',
-      'SQL Query Optimization & Reporting Workflow Improvement',
+      'Business Data Analysis & Actionable Insights.',
+      'Automated Dashboard & Operational Reporting.',
+      'Telesales & KAM KPI Performance Analysis.',
+      'Customer Cohort Analysis & Lead Optimization.',
+      'Cross-functional Team Performance Analysis.',
+      'Payroll, Attendance & Agent Utilization Automation.',
+      'SQL Query Optimization & Reporting Workflow Improvement.',
     ],
   },
   {
+    period: '09/2022 - 10/2023 (1 Year 2 Months)',
+    location: '📍 Jashore, Bangladesh',
     title: 'Jr. Data Analyst',
     company: 'Chaldal PLC',
-    location: 'Jashore, Bangladesh',
-    period: '09/2022 - 10/2023',
-    duration: '1 Year 2 Months',
     responsibilities: [
-      'Financial Reconciliation',
-      'Customer Clustering',
-      'Monetization Planning',
-      'Product Reconciliation',
-      'Team-wise KPI & Dashboard Analysis',
+      'Financial Reconciliation.',
+      'Customer Clustering.',
+      'Monetization Planning.',
+      'Product Reconciliation.',
+      'Team-wise KPI & Dashboard Analysis.',
     ],
   },
   {
+    period: '03/2021 - 08/2022 (1 Year 6 Months)',
+    location: '📍 Jashore, Bangladesh',
     title: 'Associate Data Analyst',
     company: 'Chaldal PLC',
-    location: 'Jashore, Bangladesh',
-    period: '03/2021 - 08/2022',
-    duration: '1 Year 6 Months',
     responsibilities: [
-      'Product Pricing & Mapping',
-      'Sudden Report Analysis',
-      'Cohort Analysis',
-      'Protocol Ticket Analysis',
+      'Product Pricing & Mapping.',
+      'Sudden Report Analysis.',
+      'Cohort Analysis.',
+      'Protocol Ticket Analysis.',
     ],
   },
 ]
@@ -169,12 +165,14 @@ export default function App() {
 
   const scrollTo = (id) => {
     const element = document.getElementById(id)
+
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
       })
     }
+
     setActive(id)
   }
 
@@ -184,12 +182,19 @@ export default function App() {
         setActive('home')
       }
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+
+    window.addEventListener('scroll', onScroll, {
+      passive: true,
+    })
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+    }
   }, [])
 
   useEffect(() => {
     const node = skillsRef.current
+
     if (!node) return
 
     const observer = new IntersectionObserver(
@@ -199,15 +204,19 @@ export default function App() {
           observer.disconnect()
         }
       },
-      { threshold: 0.25 }
+      {
+        threshold: 0.25,
+      },
     )
 
     observer.observe(node)
+
     return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
     const node = expertiseRef.current
+
     if (!node) return
 
     const observer = new IntersectionObserver(
@@ -217,15 +226,19 @@ export default function App() {
           observer.disconnect()
         }
       },
-      { threshold: 0.15 }
+      {
+        threshold: 0.15,
+      },
     )
 
     observer.observe(node)
+
     return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
     const node = experienceRef.current
+
     if (!node) return
 
     const observer = new IntersectionObserver(
@@ -235,10 +248,13 @@ export default function App() {
           observer.disconnect()
         }
       },
-      { threshold: 0.15 }
+      {
+        threshold: 0.15,
+      },
     )
 
     observer.observe(node)
+
     return () => observer.disconnect()
   }, [])
 
@@ -272,7 +288,9 @@ export default function App() {
                   <span className="word word-2">ANALYST</span>
                   <span className="word separator word-3">|</span>
                   <span className="word word-4">BUSINESS</span>
-                  <span className="word word-5">INTELLIGENCE</span>
+                  <span className="word word-5">
+                    INTELLIGENCE
+                  </span>
                 </div>
 
                 <div className="title-line second-line">
@@ -280,7 +298,9 @@ export default function App() {
                   <span className="word word-7">SQL</span>
                   <span className="word word-8">&amp;</span>
                   <span className="word word-9">PYTHON</span>
-                  <span className="word separator word-10">|</span>
+                  <span className="word separator word-10">
+                    |
+                  </span>
                   <span className="word word-11">CRM</span>
                   <span className="word word-12">&amp;</span>
                   <span className="word word-13">CLM</span>
@@ -288,8 +308,9 @@ export default function App() {
               </div>
 
               <p className="hero-description">
-                Turning complex data into actionable insights, intelligent dashboards,
-                automated reporting solutions and data-driven business decisions.
+                Turning complex data into actionable insights,
+                intelligent dashboards, automated reporting
+                solutions and data-driven business decisions.
               </p>
 
               <div className="hero-buttons">
@@ -350,16 +371,20 @@ export default function App() {
           <div className="about-grid">
             <div>
               <p className="large-text">
-                Data Analyst with nearly 5 years of experience in Business Intelligence,
-                Data Analytics, Reporting Automation, and Business Performance Analysis.
+                Data Analyst with nearly 5 years of experience
+                in Business Intelligence, Data Analytics,
+                Reporting Automation, and Business Performance
+                Analysis.
               </p>
 
               <p>
-                Experienced in analyzing operational and customer data, developing KPI
-                dashboards, automating reporting workflows, and delivering insights for
-                business decision-making. Proficient in SQL, Advanced Excel, Python, and
-                BI tools, with a strong focus on improving processes, performance, and
-                data-driven operations.
+                Experienced in analyzing operational and customer
+                data, developing KPI dashboards, automating
+                reporting workflows, and delivering insights for
+                business decision-making. Proficient in SQL,
+                Advanced Excel, Python, and BI tools, with a
+                strong focus on improving processes, performance,
+                and data-driven operations.
               </p>
             </div>
 
@@ -387,14 +412,19 @@ export default function App() {
           </div>
         </section>
 
-        <section id="skills" className="section technical-section">
+        <section
+          id="skills"
+          className="section technical-section"
+        >
           <div className="section-title">
             <h2>Technical Skills</h2>
           </div>
 
           <div
             ref={skillsRef}
-            className={`technical-showcase${skillsVisible ? ' technical-active' : ''}`}
+            className={`technical-showcase${
+              skillsVisible ? ' technical-active' : ''
+            }`}
           >
             <div className="technical-top">
               <div className="technical-heading">
@@ -417,12 +447,20 @@ export default function App() {
                   }}
                 >
                   <div className="technical-main">
-                    <span className="technical-name">{skill.name}</span>
+                    <span className="technical-name">
+                      {skill.name}
+                    </span>
 
                     <div className="technical-meta">
-                      <span>{skill.category.toUpperCase()}</span>
+                      <span>
+                        {skill.category.toUpperCase()}
+                      </span>
+
                       <i />
-                      <span>{skill.level.toUpperCase()}</span>
+
+                      <span>
+                        {skill.level.toUpperCase()}
+                      </span>
                     </div>
                   </div>
 
@@ -433,19 +471,25 @@ export default function App() {
           </div>
         </section>
 
-        <section id="expertise" className="section expertise-section">
+        <section
+          id="expertise"
+          className="section expertise-section"
+        >
           <div className="section-title">
             <h2>Core Expertise</h2>
           </div>
 
           <p className="expertise-intro">
-            Data, technology and business expertise combined to turn complex data into clear
-            insights, smarter decisions and scalable solutions.
+            Data, technology and business expertise combined to
+            turn complex data into clear insights, smarter
+            decisions and scalable solutions.
           </p>
 
           <div
             ref={expertiseRef}
-            className={`expertise-showcase${expertiseVisible ? ' expertise-active' : ''}`}
+            className={`expertise-showcase${
+              expertiseVisible ? ' expertise-active' : ''
+            }`}
           >
             {coreExpertise.map((item, index) => (
               <div
@@ -471,7 +515,9 @@ export default function App() {
                         key={skill}
                         style={{
                           '--skill-delay': `${
-                            index * 0.12 + skillIndex * 0.06 + 0.3
+                            index * 0.12 +
+                            skillIndex * 0.06 +
+                            0.3
                           }s`,
                         }}
                       >
@@ -485,40 +531,58 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- Enhanced Animated Experience Section --- */}
-        <section id="experience" className="section exp-section">
+        <section
+          id="experience"
+          className="section experience-section"
+        >
           <div className="section-title">
             <h2>Professional Experience</h2>
           </div>
 
           <div
             ref={experienceRef}
-            className={`exp-grid ${experienceVisible ? 'is-animated' : ''}`}
+            className={`experience-grid${
+              experienceVisible ? ' experience-active' : ''
+            }`}
           >
             {professionalExperience.map((job, index) => (
               <div
-                key={`${job.company}-${index}`}
-                className="exp-card"
-                style={{ '--delay': `${index * 0.2}s` }}
+                key={`${job.company}-${job.period}`}
+                className="experience-card"
+                style={{
+                  '--experience-delay': `${index * 0.12}s`,
+                }}
               >
-                <div className="exp-header">
-                  <h3 className="exp-role">{job.title}</h3>
-                  <h4 className="exp-company">{job.company}</h4>
-                  <div className="exp-meta">
-                    <span>📍 {job.location}</span>
-                    <span>📅 {job.period} ({job.duration})</span>
+                <div className="experience-header">
+                  <div className="experience-meta">
+                    <span className="experience-period">
+                      📅 {job.period}
+                    </span>
+
+                    <span className="experience-location">
+                      {job.location}
+                    </span>
                   </div>
                 </div>
 
-                <div className="exp-divider" />
+                <div className="experience-title-group">
+                  <h3 className="experience-role">
+                    {job.title}
+                  </h3>
 
-                <ul className="exp-list">
-                  {job.responsibilities.map((item, idx) => (
-                    <li key={idx}>
-                      <span className="bullet-point" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                  <p className="experience-company">
+                    {job.company}
+                  </p>
+                </div>
+
+                <div className="experience-divider" />
+
+                <ul className="experience-list">
+                  {job.responsibilities.map(
+                    (responsibility, index) => (
+                      <li key={index}>{responsibility}</li>
+                    ),
+                  )}
                 </ul>
               </div>
             ))}
@@ -530,13 +594,15 @@ export default function App() {
             <p className="eyebrow">GET IN TOUCH</p>
 
             <h2>
-              LET&apos;S WORK <span>TOGETHER</span>
+              LET&apos;S WORK
+              <span>TOGETHER</span>
             </h2>
 
             <p>
-              Open to opportunities in data analysis, business intelligence, and
-              reporting automation. Whether you have a question, a project, or
-              just want to connect — feel free to reach out.
+              Open to opportunities in data analysis, business
+              intelligence, and reporting automation. Whether
+              you have a question, a project, or just want to
+              connect — feel free to reach out.
             </p>
 
             <div className="contact-info">
@@ -578,127 +644,14 @@ export default function App() {
       </main>
 
       <footer>
-        <span>{`© ${new Date().getFullYear()} ABUJAR AL-GIFARI`}</span>
-        <span>DATA ANALYST · BUSINESS INTELLIGENCE</span>
+        <span>
+          {`© ${new Date().getFullYear()} ABUJAR AL-GIFARI`}
+        </span>
+
+        <span>
+          DATA ANALYST · BUSINESS INTELLIGENCE
+        </span>
       </footer>
-
-      <style jsx global>{`
-        /* Global Font & Typography Fix */
-        body {
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          margin: 0;
-          color: #0f172a;
-          background-color: #0d1117;
-        }
-
-        /* Experience Section Styling */
-        .exp-section {
-          padding: 60px 20px;
-        }
-
-        .exp-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 28px;
-          max-width: 850px;
-          margin: 0 auto;
-        }
-
-        /* Base Card State for Animation */
-        .exp-card {
-          background: #161b22;
-          border-radius: 12px;
-          padding: 28px 32px;
-          border: 1px solid #30363d;
-          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-          opacity: 0;
-          transform: translateY(35px);
-          will-change: opacity, transform;
-          transition: border-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .exp-card:hover {
-          border-color: #38bdf8;
-          transform: translateY(-4px);
-        }
-
-        /* Trigger Animated State */
-        .exp-grid.is-animated .exp-card {
-          animation: smoothFadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-          animation-delay: var(--delay, 0s);
-        }
-
-        .exp-role {
-          font-size: 1.35rem;
-          font-weight: 700;
-          color: #f8fafc;
-          margin: 0 0 6px 0;
-          letter-spacing: -0.01em;
-        }
-
-        .exp-company {
-          font-size: 1.05rem;
-          font-weight: 600;
-          color: #38bdf8;
-          margin: 0 0 12px 0;
-        }
-
-        .exp-meta {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 18px;
-          font-size: 0.9rem;
-          color: #94a3b8;
-          font-weight: 500;
-        }
-
-        .exp-divider {
-          height: 1px;
-          background: #21262d;
-          margin: 18px 0;
-        }
-
-        /* List & Modern Custom Bullet Fix */
-        .exp-list {
-          list-style: none !important;
-          padding: 0 !important;
-          margin: 0 !important;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-
-        .exp-list li {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-          font-size: 0.98rem;
-          line-height: 1.6;
-          color: #cbd5e1;
-        }
-
-        .bullet-point {
-          width: 6px;
-          height: 6px;
-          background-color: #38bdf8;
-          border-radius: 50%;
-          margin-top: 9px;
-          flex-shrink: 0;
-          box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
-        }
-
-        /* Smooth Animation Keyframe */
-        @keyframes smoothFadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(35px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   )
 }
