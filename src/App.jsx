@@ -192,27 +192,58 @@ const professionalExperience = [
 const projectList = [
   {
     title: 'Telesales Lead Management Automation',
-    tech: 'Python + Google Sheets',
-    description:
-      'Automated lead generation, distribution, tracking, and management workflows to improve telesales lead operations and reporting efficiency.',
+    tech: 'Python · Google Sheets · Automation',
+    points: [
+      'Lead generation & distribution',
+      'Lead tracking & follow-up',
+      'Agent-wise lead management',
+      'Lead performance analysis',
+      'Automated reporting workflow',
+    ],
   },
   {
-    title: 'Agent Performance & Operations Dashboard',
-    tech: 'SQL + Excel + BI',
-    description:
-      'Developed operational performance reporting across Telesales, KAM, Inbound, DQM, and Back Office teams, covering agent KPIs, productivity, hygiene, and performance trends.',
+    title: 'Agent Performance & Operations Analytics',
+    tech: 'SQL · Excel · Google Sheets · BI',
+    points: [
+      'Agent KPI & productivity analysis',
+      'Performance & hygiene monitoring',
+      'Tagging & capacity analysis',
+      'Live performance reporting',
+      'Telesales, Inbound, KAM, DQM & Back Office analytics',
+    ],
   },
   {
     title: 'Customer & Cohort Analytics',
-    tech: 'SQL + Excel + BI',
-    description:
-      'Analyzed customer cohorts, acquisition, retention, lead performance, and customer behavior to identify business and operational insights.',
+    tech: 'SQL · Excel · BI',
+    points: [
+      'Customer behavior analysis',
+      'Cohort analysis',
+      'Retention analysis',
+      'Lead & customer segmentation',
+      'Performance trend analysis',
+    ],
   },
   {
     title: 'Complaint & VOC Analytics',
-    tech: 'SQL + Excel + BI',
-    description:
-      'Analyzed complaint and VOC data across categories, trends, resolution, pending cases, and operational performance to support service improvement.',
+    tech: 'SQL · Excel · Reporting',
+    points: [
+      'Complaint data analysis',
+      'Trend & category analysis',
+      'Pending & aging monitoring',
+      'Resolution performance',
+      'VOC insights & reporting',
+    ],
+  },
+  {
+    title: 'Payroll & Workforce Reporting Automation',
+    tech: 'Excel · Google Sheets · Automation',
+    points: [
+      'Attendance data processing',
+      'VSE reporting',
+      'Salary calculation & validation',
+      'Workforce reporting',
+      'Automated monthly reporting',
+    ],
   },
 ]
 
@@ -246,6 +277,7 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
+  const [expandedProjectIndex, setExpandedProjectIndex] = useState(null)
 
   const skillsRef = useRef(null)
   const expertiseRef = useRef(null)
@@ -609,6 +641,20 @@ export default function App() {
           color: #94a3b8;
           opacity: 0.5;
         }
+
+        .clickable-card {
+          cursor: pointer;
+          transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .clickable-card:hover {
+          border-color: rgba(167, 139, 250, 0.4);
+        }
+        .project-hint {
+          font-size: 0.7rem;
+          color: #a78bfa;
+          margin-top: 8px;
+          font-style: italic;
+        }
       `;
       document.head.appendChild(tag);
     }
@@ -902,7 +948,7 @@ export default function App() {
           </div>
 
           <p className="expertise-intro">
-            Key analytical and automation projects built to solve complex business operations and data workflows.
+            Key analytical and automation projects built to solve complex business operations and data workflows. Click any card to expand/collapse details.
           </p>
 
           <div
@@ -911,30 +957,44 @@ export default function App() {
               projectsVisible ? ' expertise-active' : ''
             }`}
           >
-            {projectList.map((project, index) => (
-              <div
-                key={project.title}
-                className="expertise-item exp-card"
-                style={{
-                  '--expertise-delay': `${index * 0.12}s`,
-                }}
-              >
-                <div className="expertise-bar" />
+            {projectList.map((project, index) => {
+              const isExpanded = expandedProjectIndex === index;
+              return (
+                <div
+                  key={project.title}
+                  className="expertise-item exp-card clickable-card"
+                  onClick={() => setExpandedProjectIndex(isExpanded ? null : index)}
+                  style={{
+                    '--expertise-delay': `${index * 0.12}s`,
+                  }}
+                >
+                  <div className="expertise-bar" />
 
-                <div className="expertise-main">
-                  <div className="exp-heading">
-                    <h3 className="exp-title">{project.title}</h3>
-                    <span className="expertise-icon">↗</span>
+                  <div className="expertise-main">
+                    <div className="exp-heading">
+                      <h3 className="exp-title">{project.title}</h3>
+                      <span className="expertise-icon">{isExpanded ? '↙' : '↗'}</span>
+                    </div>
+
+                    <div className="exp-badge">
+                      <span className="exp-period">{project.tech}</span>
+                    </div>
+
+                    {isExpanded ? (
+                      <ul className="clean-bullet-list" style={{ marginTop: '10px' }}>
+                        {project.points.map((pt, idx) => (
+                          <li key={idx}>
+                            <span className="bullet-dot">▸</span> {pt}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="project-hint">Click to view details ▾</div>
+                    )}
                   </div>
-
-                  <div className="exp-badge">
-                    <span className="exp-period">{project.tech}</span>
-                  </div>
-
-                  <p className="ach-desc">{project.description}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
