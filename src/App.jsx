@@ -493,7 +493,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- PROFESSIONAL EXPERIENCE (GRID LAYOUT) --- */}
+        {/* --- PROFESSIONAL EXPERIENCE (GRID LAYOUT + PERFECT FORMAT) --- */}
         <section id="experience" className="section expertise-section">
           <div className="section-title">
             <h2>Professional Experience</h2>
@@ -527,11 +527,9 @@ export default function App() {
 
                   <p className="exp-company-name">{job.company}</p>
 
+                  {/* আপনার চাওয়া হুবহু ফরম্যাট */}
                   <div className="exp-sub-info">
-                    <span className="exp-loc">📍 {job.location}</span>
-                    <span className="exp-sep">·</span>
-                    <span className="exp-date">📅 {job.period}</span>
-                    <span className="exp-badge">({job.duration})</span>
+                    📍 {job.location} · 📅 {job.period} ({job.duration})
                   </div>
 
                   <div className="exp-bullet-list">
@@ -640,37 +638,15 @@ export default function App() {
           font-weight: 600 !important;
           font-size: 0.95rem !important;
           margin-top: 4px !important;
-          margin-bottom: 10px !important;
+          margin-bottom: 8px !important;
         }
 
         .exp-sub-info {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 6px;
           font-size: 0.8rem;
           color: #94a3b8;
           margin-bottom: 16px;
           letter-spacing: 0.01em;
-        }
-
-        .exp-loc {
-          color: #cbd5e1;
-          font-weight: 500;
-        }
-
-        .exp-sep {
-          color: #475569;
-        }
-
-        .exp-date {
-          color: #94a3b8;
-        }
-
-        .exp-badge {
-          color: #64748b;
-          font-size: 0.75rem;
-          font-weight: 600;
+          line-height: 1.5;
         }
 
         .exp-bullet-list {
