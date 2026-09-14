@@ -53,6 +53,7 @@ const coreExpertise = [
     skills: [
       'Metabase',
       'Apache Superset',
+      'Power BI',
       'Data Visualization',
       'KPI Reporting',
     ],
@@ -83,33 +84,15 @@ const coreExpertise = [
 
 const technicalSkills = [
   { name: 'SQL', category: 'Querying', level: 'Advanced' },
+  { name: 'MySQL', category: 'Querying', level: 'Advanced' },
   { name: 'Advanced Excel', category: 'Modeling', level: 'Expert' },
+  { name: 'Google Sheets', category: 'Modeling', level: 'Advanced' },
   { name: 'Python', category: 'Data Analysis', level: 'Advanced' },
-  {
-    name: 'Business Intelligence',
-    category: 'Analytics',
-    level: 'Advanced',
-  },
-  {
-    name: 'Metabase',
-    category: 'Dashboards',
-    level: 'Proficient',
-  },
-  {
-    name: 'Apache Superset',
-    category: 'Dashboards',
-    level: 'Proficient',
-  },
-  {
-    name: 'Google Sheets',
-    category: 'Modeling',
-    level: 'Advanced',
-  },
-  {
-    name: 'CRM & CLM',
-    category: 'Operations',
-    level: 'Specialist',
-  },
+  { name: 'Business Intelligence', category: 'Analytics', level: 'Advanced' },
+  { name: 'Metabase', category: 'Dashboards', level: 'Proficient' },
+  { name: 'Apache Superset', category: 'Dashboards', level: 'Proficient' },
+  { name: 'Power BI', category: 'Dashboards', level: 'Proficient' },
+  { name: 'CRM & CLM', category: 'Operations', level: 'Specialist' },
 ]
 
 const professionalExperience = [
@@ -768,18 +751,24 @@ export default function App() {
         /* --- TECHNICAL SKILLS --- */
         .skills-grid-wrapper {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 10px;
           margin-top: 10px;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
+          .skills-grid-wrapper {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        @media (max-width: 768px) {
           .skills-grid-wrapper {
             grid-template-columns: repeat(2, 1fr);
           }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 480px) {
           .skills-grid-wrapper {
             grid-template-columns: 1fr;
           }
@@ -803,9 +792,9 @@ export default function App() {
         }
 
         .skill-cat-badge {
-          font-size: 0.6rem;
+          font-size: 0.58rem;
           font-weight: 700;
-          letter-spacing: 0.8px;
+          letter-spacing: 0.6px;
           text-transform: uppercase;
           color: #94a3b8;
           background: rgba(255, 255, 255, 0.05);
@@ -814,7 +803,7 @@ export default function App() {
         }
 
         .skill-level-badge {
-          font-size: 0.6rem;
+          font-size: 0.58rem;
           font-weight: 600;
           padding: 2px 6px;
           border-radius: 8px;
@@ -842,7 +831,7 @@ export default function App() {
         }
 
         .skill-title {
-          font-size: 0.88rem !important;
+          font-size: 0.85rem !important;
           font-weight: 600;
           color: #ffffff;
           margin: 0;
