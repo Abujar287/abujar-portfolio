@@ -684,68 +684,102 @@ export default function App() {
           margin-top: 4px;
         }
 
-        /* Contact Section Styling */
-        .contact-container {
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 12px;
-          padding: 24px;
+        /* Contact Section Styling - Screenshot Matched */
+        .contact-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 20px;
-          max-width: 700px;
+          align-items: center;
+          text-align: center;
+          max-width: 800px;
           margin: 0 auto;
+          gap: 24px;
         }
-        .contact-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-        }
-        @media (max-width: 640px) {
-          .contact-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-        .contact-box {
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 8px;
-          padding: 14px;
+        .contact-main-heading {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          align-items: center;
+          gap: 8px;
+          width: 100%;
         }
-        .contact-label-title {
-          font-size: 0.72rem;
+        .contact-subtag {
+          font-size: 0.75rem;
           font-weight: 700;
-          letter-spacing: 0.8px;
+          letter-spacing: 2px;
           text-transform: uppercase;
-          color: #a78bfa;
+          color: #818cf8;
         }
-        .contact-value {
-          font-size: 0.88rem;
-          color: #ffffff;
-          font-weight: 500;
-          text-decoration: none;
-        }
-        .contact-value:hover {
-          color: #38bdf8;
-        }
-        .contact-actions {
+        .contact-title-row {
+          font-size: clamp(2rem, 5vw, 3.5rem);
+          font-weight: 900;
+          letter-spacing: -1px;
+          text-transform: uppercase;
           display: flex;
           gap: 12px;
-          margin-top: 6px;
+          justify-content: center;
+          align-items: center;
           flex-wrap: wrap;
         }
+        .contact-title-solid {
+          color: #ffffff;
+        }
+        .contact-title-outline {
+          color: transparent;
+          -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+        }
+        .contact-desc {
+          font-size: 0.9rem;
+          line-height: 1.5;
+          color: #94a3b8;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .contact-details-stacked {
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          width: 100%;
+          align-items: center;
+          margin: 4px 0;
+        }
+        .contact-field-group {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2px;
+        }
+        .contact-field-label {
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: #64748b;
+        }
+        .contact-field-value {
+          font-size: 1.05rem;
+          font-weight: 600;
+          color: #ffffff;
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .contact-field-value:hover {
+          color: #a78bfa;
+        }
+        .contact-buttons-row {
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+          margin-top: 4px;
+        }
         .footer-banner {
-          margin-top: 40px;
+          margin-top: 48px;
           padding-top: 20px;
           border-top: 1px solid rgba(255, 255, 255, 0.08);
           text-align: center;
-          font-size: 0.75rem;
-          color: #94a3b8;
-          letter-spacing: 0.5px;
+          font-size: 0.72rem;
+          color: #64748b;
+          letter-spacing: 1px;
           text-transform: uppercase;
+          width: 100%;
         }
       `
       document.head.appendChild(tag)
@@ -1120,39 +1154,42 @@ export default function App() {
 
         {/* --- GET IN TOUCH / CONTACT SECTION --- */}
         <section id="contact" className="section expertise-section" ref={contactRef}>
-          <div className="section-title">
-            <h2>Get In Touch</h2>
-          </div>
+          <div className={`contact-wrapper ${contactVisible ? 'expertise-active' : ''}`}>
+            <div className="contact-main-heading">
+              <span className="contact-subtag">Get In Touch</span>
+              <div className="contact-title-row">
+                <span className="contact-title-solid">LET'S WORK</span>
+                <span className="contact-title-outline">TOGETHER</span>
+              </div>
+              <p className="contact-desc">
+                Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
+              </p>
+            </div>
 
-          <p className="expertise-intro">
-            Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
-          </p>
-
-          <div className={`contact-container ${contactVisible ? 'expertise-active' : ''}`}>
-            <div className="contact-grid">
-              <div className="contact-box">
-                <span className="contact-label-title">Email</span>
-                <a href="mailto:abujar287.algifari@gmail.com" className="contact-value">
+            <div className="contact-details-stacked">
+              <div className="contact-field-group">
+                <span className="contact-field-label">Email</span>
+                <a href="mailto:abujar287.algifari@gmail.com" className="contact-field-value">
                   abujar287.algifari@gmail.com
                 </a>
               </div>
 
-              <div className="contact-box">
-                <span className="contact-label-title">Primary Phone</span>
-                <a href="tel:+8801952980445" className="contact-value">
+              <div className="contact-field-group">
+                <span className="contact-field-label">Primary Phone</span>
+                <a href="tel:+8801952980445" className="contact-field-value">
                   +880 1952980445
                 </a>
               </div>
 
-              <div className="contact-box">
-                <span className="contact-label-title">Secondary Phone</span>
-                <a href="tel:+8801605089778" className="contact-value">
+              <div className="contact-field-group">
+                <span className="contact-field-label">Secondary Phone</span>
+                <a href="tel:+8801605089778" className="contact-field-value">
                   +880 1605089778
                 </a>
               </div>
             </div>
 
-            <div className="contact-actions">
+            <div className="contact-buttons-row">
               <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                 Send Email <span>↗</span>
               </a>
@@ -1160,10 +1197,10 @@ export default function App() {
                 Download CV
               </a>
             </div>
-          </div>
 
-          <div className="footer-banner">
-            © 2026 ABUJAR AL-GIFARI · DATA ANALYST · BUSINESS INTELLIGENCE
+            <div className="footer-banner">
+              © 2026 ABUJAR AL-GIFARI · DATA ANALYST · BUSINESS INTELLIGENCE
+            </div>
           </div>
         </section>
       </main>
