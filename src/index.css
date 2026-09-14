@@ -741,39 +741,109 @@ a {
 
 .expertise-showcase {
   border-top: 1px solid var(--border);
+  position: relative;
+}
+
+.expertise-showcase::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    rgba(139, 124, 255, 0.1),
+    var(--accent)
+  );
+  transition: height 1.2s cubic-bezier(0.2, 0.75, 0.2, 1) 0.2s;
+}
+
+.expertise-active::before {
+  height: 100%;
 }
 
 .expertise-item {
-  padding: 38px 0;
+  position: relative;
+  padding: 38px 0 38px 20px;
   border-bottom: 1px solid var(--border);
-  transition: 0.3s;
+  transition: padding 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.expertise-active .expertise-item {
+  animation: expertiseSlideIn 0.8s cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
+  animation-delay: var(--expertise-delay);
+}
+
+@keyframes expertiseSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .expertise-item:hover {
-  padding-left: 12px;
+  padding-left: 32px;
   border-color: rgba(139, 124, 255, 0.35);
+  background: linear-gradient(
+    90deg,
+    rgba(139, 124, 255, 0.06),
+    transparent 70%
+  );
 }
 
-.expertise-index {
-  color: var(--accent);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+.expertise-bar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 60%;
+  background: var(--accent);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(139, 124, 255, 0.5);
+  transition: transform 0.35s ease;
+}
+
+.expertise-item:hover .expertise-bar {
+  transform: translateY(-50%) scaleY(1);
 }
 
 .expertise-heading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .expertise-heading h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 28px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.expertise-item:hover .expertise-heading h3 {
+  color: var(--accent-light);
+  transform: translateX(4px);
 }
 
 .expertise-icon {
   color: var(--accent);
   font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.expertise-item:hover .expertise-icon {
+  transform: translate(4px, -4px);
 }
 
 .expertise-main > p {
@@ -797,12 +867,33 @@ a {
   color: #bdbdc6;
   font-size: 10px;
   font-weight: 600;
-  transition: 0.25s;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.expertise-active .expertise-skills span {
+  animation: skillTagIn 0.5s cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
+  animation-delay: var(--skill-delay);
+}
+
+@keyframes skillTagIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .expertise-skills span:hover {
   border-color: var(--accent);
+  background: rgba(139, 124, 255, 0.1);
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(139, 124, 255, 0.15);
 }
 
 /* EXPERIENCE TIMELINE */

@@ -61,7 +61,9 @@ const technicalSkills = [
 export default function App() {
   const [active, setActive] = useState('home')
   const [skillsVisible, setSkillsVisible] = useState(false)
+  const [expertiseVisible, setExpertiseVisible] = useState(false)
   const skillsRef = useRef(null)
+  const expertiseRef = useRef(null)
 
   const scrollTo = (id) => {
     const el = document.getElementById(id)
@@ -88,6 +90,22 @@ export default function App() {
         }
       },
       { threshold: 0.25 },
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const node = expertiseRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setExpertiseVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 },
     )
     observer.observe(node)
     return () => observer.disconnect()
@@ -260,9 +278,17 @@ export default function App() {
             Data, technology and business expertise combined to turn complex data into clear
             insights, smarter decisions and scalable solutions.
           </p>
-          <div className="expertise-showcase">
+          <div
+            ref={expertiseRef}
+            className={`expertise-showcase${expertiseVisible ? ' expertise-active' : ''}`}
+          >
             {coreExpertise.map((item, index) => (
-              <div key={item.title} className="expertise-item">
+              <div
+                key={item.title}
+                className="expertise-item"
+                style={{ '--expertise-delay': `${index * 0.12}s` }}
+              >
+                <div className="expertise-bar" />
                 <div className="expertise-main">
                   <div className="expertise-heading">
                     <h3>{item.title}</h3>
@@ -270,8 +296,13 @@ export default function App() {
                   </div>
                   <p>{item.description}</p>
                   <div className="expertise-skills">
-                    {item.skills.map((skill) => (
-                      <span key={skill}>{skill}</span>
+                    {item.skills.map((skill, sIndex) => (
+                      <span
+                        key={skill}
+                        style={{ '--skill-delay': `${(index * 0.12) + (sIndex * 0.06) + 0.3}s` }}
+                      >
+                        {skill}
+                      </span>
                     ))}
                   </div>
                 </div>
