@@ -453,28 +453,28 @@ export default function App() {
           text-align: left !important;
           margin-left: 0 !important;
           min-width: 0;
-          padding-top: 24px; /* Added spacing from navbar so name is fully visible */
+          padding-top: 36px; /* Added spacing from navbar so name and subtitle are fully visible */
         }
         /* Full Name Styling */
         .hero-content h1 {
-          font-size: clamp(1.8rem, 3.2vw, 3.2rem) !important;
+          font-size: clamp(2.2rem, 3.8vw, 3.6rem) !important;
           font-weight: 800;
           letter-spacing: -0.5px;
           line-height: 1.1;
           display: flex;
           flex-wrap: wrap;
           gap: 0.3em;
-          margin-bottom: 12px;
+          margin-bottom: 16px;
         }
-        /* Adjusted Subtitle/Role Styling */
+        /* Subtitle/Role Styling - Made significantly smaller than the name */
         .hero-title {
-          font-size: 0.85rem !important;
+          font-size: 0.72rem !important;
           font-weight: 600;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.8px;
           color: #94a3b8;
           text-transform: uppercase;
-          line-height: 1.5;
-          margin-bottom: 16px;
+          line-height: 1.4;
+          margin-bottom: 18px;
         }
         .hero-title .title-line {
           display: flex;
