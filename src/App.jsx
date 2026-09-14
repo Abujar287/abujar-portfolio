@@ -112,43 +112,46 @@ const technicalSkills = [
 
 const professionalExperience = [
   {
-    period: '11/2023 - Present',
-    location: 'Jashore, Bangladesh',
     title: 'Sr. Data Analyst',
     company: 'Sheba.xyz Services Limited',
+    location: 'Jashore, Bangladesh',
+    period: '11/2023 - Present',
+    duration: '2 Years 10 Months',
     responsibilities: [
-      'Business Data Analysis & Actionable Insights.',
-      'Automated Dashboard & Operational Reporting.',
-      'Telesales & KAM KPI Performance Analysis.',
-      'Customer Cohort Analysis & Lead Optimization.',
-      'Cross-functional Team Performance Analysis.',
-      'Payroll, Attendance & Agent Utilization Automation.',
-      'SQL Query Optimization & Reporting Workflow Improvement.',
+      'Business Data Analysis & Actionable Insights',
+      'Automated Dashboard & Operational Reporting',
+      'Telesales & KAM KPI Performance Analysis',
+      'Customer Cohort Analysis & Lead Optimization',
+      'Cross-functional Team Performance Analysis',
+      'Payroll, Attendance & Agent Utilization Automation',
+      'SQL Query Optimization & Reporting Workflow Improvement',
     ],
   },
   {
-    period: '09/2022 - 10/2023',
-    location: 'Jashore, Bangladesh',
     title: 'Jr. Data Analyst',
     company: 'Chaldal PLC',
+    location: 'Jashore, Bangladesh',
+    period: '09/2022 - 10/2023',
+    duration: '1 Year 2 Months',
     responsibilities: [
-      'Financial Reconciliation.',
-      'Customer Clustering.',
-      'Monetization Planning.',
-      'Product Reconciliation.',
-      'Team-wise KPI & Dashboard Analysis.',
+      'Financial Reconciliation',
+      'Customer Clustering',
+      'Monetization Planning',
+      'Product Reconciliation',
+      'Team-wise KPI & Dashboard Analysis',
     ],
   },
   {
-    period: '03/2021 - 08/2022',
-    location: 'Jashore, Bangladesh',
     title: 'Associate Data Analyst',
     company: 'Chaldal PLC',
+    location: 'Jashore, Bangladesh',
+    period: '03/2021 - 08/2022',
+    duration: '1 Year 6 Months',
     responsibilities: [
-      'Product Pricing & Mapping.',
-      'Sudden Report Analysis.',
-      'Cohort Analysis.',
-      'Protocol Ticket Analysis.',
+      'Product Pricing & Mapping',
+      'Sudden Report Analysis',
+      'Cohort Analysis',
+      'Protocol Ticket Analysis',
     ],
   },
 ]
@@ -550,39 +553,22 @@ export default function App() {
                 key={`${job.company}-${job.period}`}
                 className="experience-card"
                 style={{
-                  '--experience-delay': `${index * 0.12}s`,
+                  '--experience-delay': `${index * 0.15}s`,
                 }}
               >
-                <div className="experience-header">
-                  <div className="experience-meta">
-                    <span className="experience-period">
-                      {job.period}
-                    </span>
-
-                    <span className="experience-location">
-                      {job.location}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="experience-title-group">
-                  <h3 className="experience-role">
-                    {job.title}
-                  </h3>
-
-                  <p className="experience-company">
-                    {job.company}
-                  </p>
-                </div>
+                <h3 className="experience-role">{job.title}</h3>
+                <p className="experience-company">{job.company}</p>
+                <p className="experience-location">📍 {job.location}</p>
+                <p className="experience-period">
+                  📅 {job.period} ({job.duration})
+                </p>
 
                 <div className="experience-divider" />
 
                 <ul className="experience-list">
-                  {job.responsibilities.map(
-                    (responsibility, index) => (
-                      <li key={index}>{responsibility}</li>
-                    ),
-                  )}
+                  {job.responsibilities.map((responsibility, idx) => (
+                    <li key={idx}>• {responsibility}</li>
+                  ))}
                 </ul>
               </div>
             ))}
