@@ -362,25 +362,38 @@ export default function App() {
               </div>
             </div>
 
-            <div className="about-box">
-              <div className="about-stat-item">
-                <span>FOCUS</span>
-                <strong>Business Intelligence</strong>
+            {/* --- REVISED STATS / SUMMARY HIGHLIGHTS GRID --- */}
+            <div className="about-stats-grid">
+              <div className="stat-card">
+                <div className="stat-card-header">
+                  <span className="stat-number">01</span>
+                  <span className="stat-label">FOCUS</span>
+                </div>
+                <strong className="stat-value">Business Intelligence</strong>
               </div>
 
-              <div className="about-stat-item">
-                <span>EXPERTISE</span>
-                <strong>Data Analytics</strong>
+              <div className="stat-card">
+                <div className="stat-card-header">
+                  <span className="stat-number">02</span>
+                  <span className="stat-label">EXPERTISE</span>
+                </div>
+                <strong className="stat-value">Data Analytics</strong>
               </div>
 
-              <div className="about-stat-item">
-                <span>SPECIALIZATION</span>
-                <strong>CRM &amp; CLM</strong>
+              <div className="stat-card">
+                <div className="stat-card-header">
+                  <span className="stat-number">03</span>
+                  <span className="stat-label">SPECIALIZATION</span>
+                </div>
+                <strong className="stat-value">CRM &amp; CLM</strong>
               </div>
 
-              <div className="about-stat-item">
-                <span>APPROACH</span>
-                <strong>Data Driven</strong>
+              <div className="stat-card">
+                <div className="stat-card-header">
+                  <span className="stat-number">04</span>
+                  <span className="stat-label">APPROACH</span>
+                </div>
+                <strong className="stat-value">Data Driven</strong>
               </div>
             </div>
           </div>
@@ -662,18 +675,70 @@ export default function App() {
           border-radius: 20px;
         }
 
-        .about-stat-item {
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          padding: 16px;
-          border-radius: 8px;
-          transition: all 0.3s ease;
+        /* --- MODERN STATS GRID DESIGN --- */
+        .about-stats-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 14px;
         }
 
-        .about-stat-item:hover {
+        @media (max-width: 640px) {
+          .about-stats-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .stat-card {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .stat-card:hover {
           background: rgba(167, 139, 250, 0.05);
-          border-color: rgba(167, 139, 250, 0.25);
-          transform: translateY(-2px);
+          border-color: rgba(167, 139, 250, 0.3);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px -10px rgba(167, 139, 250, 0.2);
+        }
+
+        .stat-card-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+
+        .stat-number {
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: #a78bfa;
+          background: rgba(167, 139, 250, 0.12);
+          padding: 2px 8px;
+          border-radius: 4px;
+          letter-spacing: 0.5px;
+        }
+
+        .stat-label {
+          font-size: 0.68rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #64748b;
+        }
+
+        .stat-value {
+          font-size: 1.05rem;
+          font-weight: 600;
+          color: #f8fafc;
+          letter-spacing: 0.2px;
+          line-height: 1.3;
         }
 
         /* --- TECHNICAL SKILLS ENHANCEMENTS --- */
