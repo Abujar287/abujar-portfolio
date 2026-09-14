@@ -453,27 +453,31 @@ export default function App() {
           text-align: left !important;
           margin-left: 0 !important;
           min-width: 0;
-          padding-top: 36px; /* Added spacing from navbar so name and subtitle are fully visible */
+          padding-top: 36px;
         }
-        /* Full Name Styling */
-        .hero-content h1 {
-          font-size: clamp(2.2rem, 3.8vw, 3.6rem) !important;
+        
+        /* Clean Single-Line Name & Clean Subtitle */
+        .hero-name-clean {
+          font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
           font-weight: 800;
           letter-spacing: -0.5px;
           line-height: 1.1;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.3em;
-          margin-bottom: 16px;
+          color: #ffffff;
+          margin-bottom: 14px;
+          display: block;
         }
-        /* Subtitle/Role Styling - Made significantly smaller than the name */
+        .hero-name-clean span {
+          color: #a78bfa;
+        }
+
+        /* Subtitle Styling - Smaller and cleaner */
         .hero-title {
-          font-size: 0.72rem !important;
+          font-size: 0.68rem !important;
           font-weight: 600;
           letter-spacing: 0.8px;
           color: #94a3b8;
           text-transform: uppercase;
-          line-height: 1.4;
+          line-height: 1.5;
           margin-bottom: 18px;
         }
         .hero-title .title-line {
@@ -484,6 +488,7 @@ export default function App() {
         .hero-title .separator {
           color: #a78bfa;
         }
+
         .hero-photo {
           flex-shrink: 0;
         }
@@ -979,8 +984,8 @@ export default function App() {
         <section id="home" className="section hero">
           <div className="hero-grid">
             <div className="hero-content">
-              <h1>
-                <span>ABUJAR</span> <strong>AL-GIFARI</strong>
+              <h1 className="hero-name-clean">
+                ABUJAR <span>AL-GIFARI</span>
               </h1>
 
               <div className="hero-title">
@@ -1322,7 +1327,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Card 3: Programming & Analytics */}
               <div className="skill-category-card">
                 <h3 className="category-title">
                   <span>Programming & Analytics</span>
