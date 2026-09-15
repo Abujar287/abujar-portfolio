@@ -1032,22 +1032,6 @@ export default function App() {
             </div>
           </div>
 
-          <div style={{ marginTop: '30px', display: 'flex', gap: '12px' }} className="hero-buttons">
-            <button
-              className="primary-button"
-              onClick={() => scrollTo('experience')}
-            >
-              View My Experience <span>↗</span>
-            </button>
-
-            <button
-              className="secondary-button"
-              onClick={() => scrollTo('about')}
-            >
-              Contact Me
-            </button>
-          </div>
-
           <div className="scroll-indicator">
             <span />
             SCROLL TO EXPLORE
