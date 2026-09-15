@@ -423,35 +423,42 @@ export default function App() {
           padding-top: 36px;
         }
         
-        /* Name Styling - ABUJAR large, AL-GIFARI smaller */
+        /* Updated Enhanced Name Styling - Larger & More Elegant */
         .hero-name-clean {
-          font-size: clamp(3rem, 6.5vw, 5.5rem) !important;
-          font-weight: 800;
-          letter-spacing: -2px;
-          line-height: 1.05;
+          font-size: clamp(3.5rem, 7.5vw, 6.5rem) !important;
+          font-weight: 900;
+          letter-spacing: -2.5px;
+          line-height: 0.95;
           color: #ffffff;
-          margin-bottom: 14px;
+          margin-bottom: 20px;
           display: flex;
-          align-items: baseline;
-          gap: 12px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 4px;
           font-family: 'Space Grotesk', sans-serif !important;
           text-transform: uppercase;
         }
         .hero-name-clean .first-name {
           font-size: 1em;
-          font-weight: 800;
-          letter-spacing: -2px;
-          background: linear-gradient(135deg, #ffffff 0%, #e2d9ff 100%);
+          font-weight: 900;
+          letter-spacing: -2.5px;
+          background: linear-gradient(135deg, #ffffff 20%, #cbd5e1 60%, #a78bfa 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          filter: drop-shadow(0 4px 20px rgba(167, 139, 250, 0.2));
         }
         .hero-name-clean .last-name {
-          font-size: 0.55em;
-          font-weight: 700;
-          letter-spacing: 1px;
-          color: #a78bfa;
+          font-size: 0.58em;
+          font-weight: 800;
+          letter-spacing: 3px;
+          color: #c4b5fd;
           text-transform: uppercase;
+          background: linear-gradient(135deg, #c4b5fd 0%, #38bdf8 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          padding-left: 2px;
         }
 
         /* Subtitle Styling */
