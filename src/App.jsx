@@ -451,7 +451,7 @@ export default function App() {
           display: flex;
           flex-wrap: wrap;
           gap: 0.3ch;
-          font-size: 0.85rem !important;
+          font-size: 0.7rem !important;
         }
         .hero-title .separator {
           color: #a78bfa;
