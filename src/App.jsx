@@ -379,14 +379,18 @@ export default function App() {
           margin: 0 !important;
           padding: 0 !important;
           overflow-x: hidden;
+          width: 100vw;
+          box-sizing: border-box;
         }
         .portfolio, .section, .hero-content, .expertise-section, .contact-wrapper {
           text-align: left !important;
         }
         .navbar {
           justify-content: flex-start !important;
-          padding-left: 2rem !important;
+          padding-left: 3rem !important;
           margin-left: 0 !important;
+          width: 100%;
+          box-sizing: border-box;
         }
         .nav-links {
           justify-content: flex-start !important;
@@ -401,10 +405,11 @@ export default function App() {
           margin-left: 0 !important;
         }
         .section {
-          padding: 22px 2rem !important;
-          max-width: 1400px;
+          padding: 22px 3rem !important;
+          width: 100% !important;
+          max-width: 100% !important;
           margin: 0 !important;
-          margin-right: auto !important;
+          box-sizing: border-box;
         }
         .hero-grid {
           display: flex;
@@ -413,19 +418,20 @@ export default function App() {
           justify-content: space-between;
           text-align: left !important;
           gap: 40px;
+          width: 100%;
           margin-left: 0 !important;
         }
         .hero-content {
-          flex: 1;
+          flex: 1.2;
           text-align: left !important;
           margin-left: 0 !important;
           min-width: 0;
-          padding-top: 36px;
+          padding-top: 20px;
         }
         
         /* Updated Enhanced Name Styling - Larger & More Elegant */
         .hero-name-clean {
-          font-size: clamp(3.5rem, 7.5vw, 6.5rem) !important;
+          font-size: clamp(3rem, 6.5vw, 6rem) !important;
           font-weight: 900;
           letter-spacing: -2.5px;
           line-height: 0.95;
@@ -474,20 +480,23 @@ export default function App() {
           display: flex;
           flex-wrap: wrap;
           gap: 0.3ch;
-          font-size: clamp(0.9rem, 1.6vw, 1.3rem) !important;
+          font-size: clamp(0.85rem, 1.5vw, 1.2rem) !important;
         }
         .hero-title .separator {
           color: #a78bfa;
         }
 
         .hero-photo {
+          flex: 0.8;
+          display: flex;
+          justify-content: center;
           flex-shrink: 0;
         }
         .hero-buttons, .contact-buttons-row {
           justify-content: flex-start !important;
         }
         .scroll-indicator {
-          left: 2rem !important;
+          left: 3rem !important;
           transform: none !important;
         }
 
@@ -499,6 +508,8 @@ export default function App() {
           border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 16px;
           padding: 40px;
+          width: 100%;
+          box-sizing: border-box;
           opacity: 0;
           transform: translateY(30px);
           transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -609,7 +620,6 @@ export default function App() {
           border: 1px solid rgba(255, 255, 255, 0.06);
           padding: 32px 36px !important;
           margin: 30px 0 !important;
-          margin-right: auto !important;
           width: 100%;
           box-sizing: border-box;
         }
@@ -799,6 +809,8 @@ export default function App() {
           padding: 12px 16px;
           margin: 16px 0;
           text-align: left !important;
+          width: 100%;
+          box-sizing: border-box;
         }
         .hero-summary-text {
           font-size: 0.88rem !important;
@@ -821,6 +833,7 @@ export default function App() {
           grid-template-columns: repeat(3, 1fr) !important;
           gap: 16px !important;
           margin-left: 0 !important;
+          width: 100%;
         }
         .project-2col-layout {
           grid-template-columns: repeat(2, 1fr) !important;
