@@ -439,7 +439,7 @@ export default function App() {
 
         /* Subtitle Styling - Much Smaller, Neat & Compact */
         .hero-title {
-          font-size: 0.55rem !important;
+          font-size: 0.42rem !important;
           font-weight: 500;
           letter-spacing: 0.6px;
           color: #94a3b8;
@@ -451,6 +451,7 @@ export default function App() {
           display: flex;
           flex-wrap: wrap;
           gap: 0.3ch;
+          font-size: 0.85rem !important;
         }
         .hero-title .separator {
           color: #a78bfa;
