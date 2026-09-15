@@ -432,14 +432,14 @@ export default function App() {
           color: #ffffff;
         }
         .section {
-          padding: 40px 3rem !important;
+          padding: 30px 3rem !important;
           width: 100% !important;
           max-width: 100% !important;
           margin: 0 !important;
           box-sizing: border-box;
         }
         .hero {
-          padding-top: 30px !important;
+          padding-top: 15px !important;
         }
         .hero-grid {
           display: flex;
@@ -459,18 +459,18 @@ export default function App() {
           padding-top: 0 !important;
         }
         
-        /* Updated Enhanced Name Styling */
+        /* Updated Mega-Size Name Styling */
         .hero-name-clean {
-          font-size: clamp(2.5rem, 5.5vw, 5rem) !important;
+          font-size: clamp(3rem, 7vw, 6.5rem) !important;
           font-weight: 900;
           letter-spacing: -2px;
-          line-height: 0.95;
+          line-height: 0.9;
           color: #ffffff;
-          margin-bottom: 15px;
+          margin-bottom: 12px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: 2px;
+          gap: 4px;
           font-family: 'Space Grotesk', sans-serif !important;
           text-transform: uppercase;
         }
@@ -482,12 +482,12 @@ export default function App() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          filter: drop-shadow(0 4px 20px rgba(167, 139, 250, 0.2));
+          filter: drop-shadow(0 4px 20px rgba(167, 139, 250, 0.25));
         }
         .hero-name-clean .last-name {
-          font-size: 0.58em;
+          font-size: 0.65em;
           font-weight: 800;
-          letter-spacing: 3px;
+          letter-spacing: 2px;
           color: #c4b5fd;
           text-transform: uppercase;
           background: linear-gradient(135deg, #c4b5fd 0%, #38bdf8 100%);
@@ -580,7 +580,7 @@ export default function App() {
           font-size: 0.7rem;
           color: #64748b;
           letter-spacing: 1.5px;
-          margin-top: 20px;
+          margin-top: 15px;
         }
         .scroll-indicator span:first-child {
           width: 16px;
