@@ -425,33 +425,35 @@ export default function App() {
         
         /* Clean Single-Line Name & Clean Subtitle */
         .hero-name-clean {
-          font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
+          font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
           font-weight: 800;
-          letter-spacing: -0.5px;
-          line-height: 1.1;
+          letter-spacing: -1.5px;
+          line-height: 1.05;
           color: #ffffff;
-          margin-bottom: 12px;
+          margin-bottom: 14px;
           display: block;
+          font-family: 'Space Grotesk', sans-serif !important;
+          text-transform: uppercase;
         }
         .hero-name-clean span {
           color: #a78bfa;
+          font-weight: 800;
         }
 
-        /* Subtitle Styling - Much Smaller, Neat & Compact */
+        /* Subtitle Styling */
         .hero-title {
-          font-size: 0.42rem !important;
-          font-weight: 500;
-          letter-spacing: 0.6px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
           color: #94a3b8;
           text-transform: uppercase;
-          line-height: 1.4;
+          line-height: 1.5;
           margin-bottom: 16px;
         }
         .hero-title .title-line {
           display: flex;
           flex-wrap: wrap;
           gap: 0.3ch;
-          font-size: 0.7rem !important;
+          font-size: clamp(0.9rem, 1.6vw, 1.3rem) !important;
         }
         .hero-title .separator {
           color: #a78bfa;
