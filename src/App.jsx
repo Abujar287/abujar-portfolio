@@ -381,21 +381,47 @@ export default function App() {
           overflow-x: hidden;
           width: 100vw;
           box-sizing: border-box;
+          background-color: #0b0b10;
         }
         .portfolio, .section, .hero-content, .expertise-section, .contact-wrapper {
           text-align: left !important;
         }
         .navbar {
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background: rgba(11, 11, 16, 0.95);
+          backdrop-filter: blur(10px);
+          display: flex;
+          align-items: center;
           justify-content: flex-start !important;
-          padding-left: 3rem !important;
-          margin-left: 0 !important;
+          padding: 12px 3rem !important;
+          margin: 0 !important;
           width: 100%;
           box-sizing: border-box;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
         .nav-links {
+          display: flex;
+          gap: 20px;
           justify-content: flex-start !important;
           margin-left: 0 !important;
           flex-wrap: wrap;
+        }
+        .nav-links button {
+          background: none;
+          border: none;
+          color: #94a3b8;
+          font-size: 0.85rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: color 0.2s;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding: 4px 0;
+        }
+        .nav-links button:hover, .nav-links button.active {
+          color: #a78bfa;
         }
         .section-title h2 {
           text-transform: uppercase;
@@ -403,13 +429,17 @@ export default function App() {
           letter-spacing: 0.5px;
           text-align: left !important;
           margin-left: 0 !important;
+          color: #ffffff;
         }
         .section {
-          padding: 22px 3rem !important;
+          padding: 40px 3rem !important;
           width: 100% !important;
           max-width: 100% !important;
           margin: 0 !important;
           box-sizing: border-box;
+        }
+        .hero {
+          padding-top: 30px !important;
         }
         .hero-grid {
           display: flex;
@@ -426,28 +456,28 @@ export default function App() {
           text-align: left !important;
           margin-left: 0 !important;
           min-width: 0;
-          padding-top: 20px;
+          padding-top: 0 !important;
         }
         
-        /* Updated Enhanced Name Styling - Larger & More Elegant */
+        /* Updated Enhanced Name Styling */
         .hero-name-clean {
-          font-size: clamp(3rem, 6.5vw, 6rem) !important;
+          font-size: clamp(2.5rem, 5.5vw, 5rem) !important;
           font-weight: 900;
-          letter-spacing: -2.5px;
+          letter-spacing: -2px;
           line-height: 0.95;
           color: #ffffff;
-          margin-bottom: 20px;
+          margin-bottom: 15px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: 4px;
+          gap: 2px;
           font-family: 'Space Grotesk', sans-serif !important;
           text-transform: uppercase;
         }
         .hero-name-clean .first-name {
           font-size: 1em;
           font-weight: 900;
-          letter-spacing: -2.5px;
+          letter-spacing: -2px;
           background: linear-gradient(135deg, #ffffff 20%, #cbd5e1 60%, #a78bfa 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -473,17 +503,38 @@ export default function App() {
           letter-spacing: 0.5px;
           color: #94a3b8;
           text-transform: uppercase;
-          line-height: 1.5;
-          margin-bottom: 16px;
+          line-height: 1.4;
+          margin-bottom: 12px;
         }
         .hero-title .title-line {
           display: flex;
           flex-wrap: wrap;
           gap: 0.3ch;
-          font-size: clamp(0.85rem, 1.5vw, 1.2rem) !important;
+          font-size: clamp(0.8rem, 1.3vw, 1.1rem) !important;
         }
         .hero-title .separator {
           color: #a78bfa;
+        }
+
+        .hero-metrics {
+          display: flex;
+          gap: 30px;
+          margin-bottom: 15px;
+        }
+        .hero-metrics div {
+          display: flex;
+          flex-direction: column;
+        }
+        .hero-metrics strong {
+          font-size: 1.4rem;
+          color: #ffffff;
+          font-weight: 800;
+        }
+        .hero-metrics span {
+          font-size: 0.75rem;
+          color: #94a3b8;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
 
         .hero-photo {
@@ -492,12 +543,49 @@ export default function App() {
           justify-content: center;
           flex-shrink: 0;
         }
+        .photo-frame {
+          position: relative;
+          padding: 12px;
+          background: rgba(167, 139, 250, 0.05);
+          border: 1px solid rgba(167, 139, 250, 0.2);
+          border-radius: 16px;
+          max-width: 340px;
+          width: 100%;
+        }
+        .photo-frame img {
+          width: 100%;
+          height: auto;
+          border-radius: 10px;
+          display: block;
+        }
+        .photo-corner {
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          border-color: #a78bfa;
+          border-style: solid;
+        }
+        .photo-corner.top-left { top: 4px; left: 4px; border-width: 2px 0 0 2px; }
+        .photo-corner.top-right { top: 4px; right: 4px; border-width: 2px 2px 0 0; }
+        .photo-corner.bottom-left { bottom: 4px; left: 4px; border-width: 0 0 2px 2px; }
+        .photo-corner.bottom-right { bottom: 4px; right: 4px; border-width: 0 2px 2px 0; }
+
         .hero-buttons, .contact-buttons-row {
           justify-content: flex-start !important;
         }
         .scroll-indicator {
-          left: 3rem !important;
-          transform: none !important;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.7rem;
+          color: #64748b;
+          letter-spacing: 1.5px;
+          margin-top: 20px;
+        }
+        .scroll-indicator span:first-child {
+          width: 16px;
+          height: 1px;
+          background: #64748b;
         }
 
         .contact-wrapper {
@@ -603,6 +691,31 @@ export default function App() {
           display: flex;
           gap: 12px;
           margin-bottom: 30px;
+        }
+        .primary-button {
+          background: #a78bfa;
+          color: #0b0b10;
+          padding: 10px 20px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 0.85rem;
+          transition: background 0.2s;
+        }
+        .primary-button:hover {
+          background: #c4b5fd;
+        }
+        .secondary-button {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: #ffffff;
+          padding: 10px 20px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 0.85rem;
+          transition: background 0.2s;
+        }
+        .secondary-button:hover {
+          background: rgba(255, 255, 255, 0.1);
         }
         .footer-banner {
           text-align: left !important;
@@ -807,14 +920,14 @@ export default function App() {
           border-left: 3px solid #a78bfa;
           border-radius: 8px;
           padding: 12px 16px;
-          margin: 16px 0;
+          margin: 14px 0;
           text-align: left !important;
           width: 100%;
           box-sizing: border-box;
         }
         .hero-summary-text {
-          font-size: 0.88rem !important;
-          line-height: 1.5 !important;
+          font-size: 0.84rem !important;
+          line-height: 1.45 !important;
           color: #cbd5e1;
           margin: 0;
           font-weight: 400;
@@ -959,6 +1072,61 @@ export default function App() {
           font-style: italic;
           margin-top: 4px;
         }
+        .expertise-showcase {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+          width: 100%;
+        }
+        @media(max-width: 1024px) {
+          .expertise-showcase {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media(max-width: 640px) {
+          .expertise-showcase {
+            grid-template-columns: 1fr;
+          }
+        }
+        .expertise-item {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 20px;
+          position: relative;
+          overflow: hidden;
+        }
+        .expertise-bar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 3px;
+          height: 100%;
+          background: #a78bfa;
+        }
+        .expertise-main h3 {
+          font-size: 1rem;
+          color: #ffffff;
+          margin: 0 0 8px 0;
+        }
+        .expertise-icon {
+          color: #a78bfa;
+          font-size: 0.9rem;
+        }
+        .expertise-skills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 12px;
+        }
+        .expertise-skills span {
+          font-size: 0.65rem;
+          background: rgba(167, 139, 250, 0.08);
+          border: 1px solid rgba(167, 139, 250, 0.2);
+          color: #c4b5fd;
+          padding: 2px 8px;
+          border-radius: 6px;
+        }
       `
       document.head.appendChild(tag)
     }
@@ -1030,10 +1198,8 @@ export default function App() {
                 </p>
               </div>
 
-              <p className="hero-description">
-                Turning complex data into actionable insights,
-                intelligent dashboards, automated reporting
-                solutions and data-driven business decisions.
+              <p className="hero-description" style={{ fontSize: '0.84rem', color: '#94a3b8', margin: '0 0 10px 0' }}>
+                Turning complex data into actionable insights, intelligent dashboards, automated reporting solutions and data-driven business decisions.
               </p>
             </div>
 
@@ -1065,9 +1231,7 @@ export default function App() {
           </div>
 
           <p className="expertise-intro">
-            Data, technology and business expertise combined to
-            turn complex data into clear insights, smarter
-            decisions and scalable solutions.
+            Data, technology and business expertise combined to turn complex data into clear insights, smarter decisions and scalable solutions.
           </p>
 
           <div
