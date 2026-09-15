@@ -423,21 +423,35 @@ export default function App() {
           padding-top: 36px;
         }
         
-        /* Clean Single-Line Name & Clean Subtitle */
+        /* Name Styling - ABUJAR large, AL-GIFARI smaller */
         .hero-name-clean {
-          font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+          font-size: clamp(3rem, 6.5vw, 5.5rem) !important;
           font-weight: 800;
-          letter-spacing: -1.5px;
+          letter-spacing: -2px;
           line-height: 1.05;
           color: #ffffff;
           margin-bottom: 14px;
-          display: block;
+          display: flex;
+          align-items: baseline;
+          gap: 12px;
           font-family: 'Space Grotesk', sans-serif !important;
           text-transform: uppercase;
         }
-        .hero-name-clean span {
-          color: #a78bfa;
+        .hero-name-clean .first-name {
+          font-size: 1em;
           font-weight: 800;
+          letter-spacing: -2px;
+          background: linear-gradient(135deg, #ffffff 0%, #e2d9ff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .hero-name-clean .last-name {
+          font-size: 0.55em;
+          font-weight: 700;
+          letter-spacing: 1px;
+          color: #a78bfa;
+          text-transform: uppercase;
         }
 
         /* Subtitle Styling */
@@ -952,7 +966,8 @@ export default function App() {
           <div className="hero-grid">
             <div className="hero-content">
               <h1 className="hero-name-clean">
-                ABUJAR <span>AL-GIFARI</span>
+                <span className="first-name">ABUJAR</span>
+                <span className="last-name">AL-GIFARI</span>
               </h1>
 
               <div className="hero-title">
