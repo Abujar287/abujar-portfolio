@@ -172,12 +172,12 @@ const projectList = [
     tech: ['SQL', 'Excel', 'BI'],
     subtitle: 'Operational Performance & KPI Reporting',
     description:
-      'Developed operational performance reporting across Telesales, KAM, Inbound, DQM, and Back Office teams, covering agent KPIs, productivity, hygiene, and performance trends.',
+      'Phased rollout of a live performance dashboard — scaling from Telesales and KAM to Call Center, Facebook Support, Back Office, DQM, and VOC teams.',
     points: [
-      'Operational performance tracking across multiple teams',
-      'Agent KPIs, productivity, and hygiene monitoring',
-      'Coverage: Telesales, KAM, Inbound, DQM, and Back Office',
-      'Performance trend analysis and reporting',
+      'Phased Rollout: Developed a live performance dashboard sequentially—starting with Telesales and KAM, then scaling to Call Center, Facebook Support, Back Office, DQM, and VOC teams.',
+      'Frontline & Sales KPIs: Monitored Target vs. Achieved, Quality Score (QA), Talktime/AHT, and team-specific Customer Conversion Ratios.',
+      'Back Office Operations: Built real-time tracking for Disputes (Daily/Monthly), Open Orders, Served %, Served NR, Cancelled %, and agent compliance (Knowledge Test, Agent Complaints).',
+      'VOC & Service Governance: Tracked SLA compliance and AL Hours (Agent Availability/Login Hours) to optimize workforce efficiency and service quality.',
     ],
     priority: 'Priority 2',
   },
