@@ -1563,7 +1563,12 @@ export default function App() {
               <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                 Send Email <span>↗</span>
               </a>
-              <a href="#cv" className="secondary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}>
+              <a 
+                href="/Abujar_CV.pdf" 
+                download="Abujar_CV.pdf" 
+                className="secondary-button" 
+                style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center' }}
+              >
                 Download CV
               </a>
             </div>
