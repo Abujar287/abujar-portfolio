@@ -459,7 +459,6 @@ export default function App() {
           padding-top: 0 !important;
         }
         
-        /* Updated Mega-Size Name Styling */
         .hero-name-clean {
           font-size: clamp(3rem, 7vw, 6.5rem) !important;
           font-weight: 900;
@@ -497,7 +496,6 @@ export default function App() {
           padding-left: 2px;
         }
 
-        /* Subtitle Styling */
         .hero-title {
           font-weight: 600;
           letter-spacing: 0.5px;
@@ -1539,7 +1537,12 @@ export default function App() {
             <div className="contact-details-stacked">
               <div className="contact-field-group">
                 <span className="contact-field-label">Email</span>
-                <a href="mailto:abujar287.algifari@gmail.com" className="contact-field-value">
+                <a 
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=abujar287.algifari@gmail.com" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="contact-field-value"
+                >
                   abujar287.algifari@gmail.com
                 </a>
               </div>
@@ -1560,7 +1563,13 @@ export default function App() {
             </div>
 
             <div className="contact-buttons-row">
-              <a href="mailto:abujar287.algifari@gmail.com" className="primary-button" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              <a 
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=abujar287.algifari@gmail.com" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="primary-button" 
+                style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+              >
                 Send Email <span>↗</span>
               </a>
               <a 
