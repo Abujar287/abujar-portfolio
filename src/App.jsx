@@ -169,12 +169,12 @@ const projectList = [
   },
   {
     title: 'Agent Performance & Operations Dashboard',
-    tech: ['SQL', 'Excel', 'BI'],
+    tech: ['SQL', 'Metabase', 'Excel', 'Google Sheets'],
     subtitle: 'Operational Performance & KPI Reporting',
     description:
       'Phased rollout of a live performance dashboard — scaling from Telesales and KAM to Call Center, Facebook Support, Back Office, DQM, and VOC teams.',
     points: [
-      'Phased Rollout: Developed a live performance dashboard sequentially—starting with Telesales and KAM, then scaling to Call Center, Facebook Support, Back Office, DQM, and VOC teams.',
+      'Phased Rollout: Implemented live performance dashboards sequentially—scaling from Telesales and KAM to Call Center, Facebook Support, Back Office, DQM, and VOC teams.',
       'Frontline & Sales KPIs: Monitored Target vs. Achieved, Quality Score (QA), Talktime/AHT, and team-specific Customer Conversion Ratios.',
       'Back Office Operations: Built real-time tracking for Disputes (Daily/Monthly), Open Orders, Served %, Served NR, Cancelled %, and agent compliance (Knowledge Test, Agent Complaints).',
       'VOC & Service Governance: Tracked SLA compliance and AL Hours (Agent Availability/Login Hours) to optimize workforce efficiency and service quality.',
