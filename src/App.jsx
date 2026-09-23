@@ -913,6 +913,22 @@ export default function App() {
           flex-shrink: 0;
           margin-top: 1px;
         }
+        .bullet-page-break {
+          width: 100%;
+          height: 1px;
+          background: rgba(167, 139, 250, 0.2);
+          margin: 12px 0;
+          border: none;
+        }
+        @media print {
+          .bullet-page-break {
+            page-break-before: always;
+            break-before: page;
+            visibility: hidden;
+            margin: 0;
+            height: 0;
+          }
+        }
         .hero-summary-box {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1306,6 +1322,8 @@ export default function App() {
                     <span className="exp-dot">•</span>
                     <span className="exp-duration">{job.duration}</span>
                   </div>
+
+                  <div className="bullet-page-break" />
 
                   <ul className="clean-bullet-list">
                     {job.responsibilities.map((resp, idx) => (
