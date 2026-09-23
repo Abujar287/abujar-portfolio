@@ -220,6 +220,7 @@ const keyAchievements = [
       'Implemented Gplex, Cube, and Pendulum calling systems & processes.',
       'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time.',
       'Developed Google Sheets-based Telesales Lead Management automation solutions for 70+ agents.',
+      'Designed and implemented a weekly agent- and team-wise sales incentive program, aligning sales targets, performance, and rewards.',
     ],
   },
   {
