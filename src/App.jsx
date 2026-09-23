@@ -165,7 +165,6 @@ const projectList = [
       'Improved telesales operations and reporting efficiency',
       'Python + Google Sheets integration',
     ],
-    priority: 'Priority 1',
   },
   {
     title: 'Agent Performance & Operations Dashboard',
@@ -179,7 +178,6 @@ const projectList = [
       'Back Office Operations: Built real-time tracking for Disputes (Daily/Monthly), Open Orders, Served %, Served NR, Cancelled %, and agent compliance (Knowledge Test, Agent Complaints).',
       'VOC & Service Governance: Tracked SLA compliance and AL Hours (Agent Availability/Login Hours) to optimize workforce efficiency and service quality.',
     ],
-    priority: 'Priority 2',
   },
   {
     title: 'Customer & Cohort Analytics',
@@ -193,7 +191,6 @@ const projectList = [
       'Lead performance evaluation',
       'Actionable business and operational insights',
     ],
-    priority: 'Priority 3',
   },
   {
     title: 'Complaint & VOC Analytics',
@@ -207,7 +204,6 @@ const projectList = [
       'Operational performance tracking for service improvement',
       'Data-driven feedback loops',
     ],
-    priority: 'Priority 4',
   },
 ]
 
@@ -1040,24 +1036,6 @@ export default function App() {
           border-color: rgba(167, 139, 250, 0.25);
           background: linear-gradient(135deg, rgba(167, 139, 250, 0.03) 0%, rgba(255, 255, 255, 0.02) 100%);
         }
-        .priority-badge {
-          font-size: 0.62rem;
-          font-weight: 600;
-          padding: 2px 8px;
-          border-radius: 20px;
-          margin-left: 6px;
-          vertical-align: middle;
-        }
-        .priority-badge.p1 {
-          color: #a78bfa;
-          background: rgba(167, 139, 250, 0.15);
-          border: 1px solid rgba(167, 139, 250, 0.3);
-        }
-        .priority-badge.p2 {
-          color: #38bdf8;
-          background: rgba(56, 189, 248, 0.15);
-          border: 1px solid rgba(56, 189, 248, 0.3);
-        }
         .tech-tags {
           display: flex;
           flex-wrap: wrap;
@@ -1360,15 +1338,11 @@ export default function App() {
               return (
                 <div
                   key={project.title}
-                  className={`project-card ${project.priority ? 'featured-card' : ''}`}
+                  className="project-card featured-card"
                   onClick={() => setExpandedProjectIndex(isExpanded ? null : index)}
                 >
                   <div className="exp-heading">
-                    <h3 className="exp-title">
-                      {project.title}
-                      {project.priority === 'Priority 1' && <span className="priority-badge p1">Priority 1</span>}
-                      {project.priority === 'Priority 2' && <span className="priority-badge p2">Priority 2</span>}
-                    </h3>
+                    <h3 className="exp-title">{project.title}</h3>
                     <span className="expertise-icon">{isExpanded ? '↙' : '↗'}</span>
                   </div>
 
