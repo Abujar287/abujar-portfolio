@@ -7,6 +7,7 @@ const navItems = [
   { id: 'projects', label: 'Projects' },
   { id: 'achievements', label: 'Achievements' },
   { id: 'summary', label: 'Work Summary' },
+  { id: 'metabase', label: 'Metabase Dashboard' },
   { id: 'skills', label: 'Skills' },
   { id: 'about', label: 'About' },
 ]
@@ -270,6 +271,69 @@ const workSummaryData = [
   },
 ]
 
+const metabaseDashboardData = [
+  {
+    title: 'Customer Base & Lifecycle Analytics',
+    description:
+      'Tracks unit economics, customer acquisition funnels, retention, and overall CLM metrics.',
+    points: [
+      'Unit economics & CAC tracking',
+      'Customer acquisition funnel visualization',
+      'Cohort retention & CLM analytics',
+    ],
+  },
+  {
+    title: 'Telesales & KAM Performance Analytics',
+    description:
+      'Evaluates sales representative efficiency, Key Account Management metrics, conversion rates, and revenue targets.',
+    points: [
+      'Sales rep efficiency & target vs. achieved',
+      'Key Account Management (KAM) performance',
+      'Conversion rates & revenue breakdown',
+    ],
+  },
+  {
+    title: 'Call-Center & Facebook Performance Analytics',
+    description:
+      'Monitors incoming customer inquiries, social ad campaign ROI, acquisition channels, and lead performance.',
+    points: [
+      'Inbound query & call center metrics',
+      'Social ad campaign ROI & lead conversion',
+      'Acquisition channel performance',
+    ],
+  },
+  {
+    title: 'Back Office Operations Analytics',
+    description:
+      'Measures operational turnaround time, order processing efficiency, supply chain bottlenecks, and workflow health.',
+    points: [
+      'Operational turnaround time (TAT) tracking',
+      'Order processing & supply chain efficiency',
+      'Workflow health & agent compliance',
+    ],
+  },
+  {
+    title: 'Growth & Business Performance Analytics',
+    description:
+      'Analyzes top-line revenue trends, business scaling metrics, profitability, and key performance indicators (KPIs).',
+    points: [
+      'Top-line revenue trends & growth metrics',
+      'Business scaling & profitability insights',
+      'Executive KPI tracking dashboards',
+    ],
+  },
+  {
+    title: 'Voice of Customer & Complaint Analytics',
+    description:
+      'Assesses customer satisfaction (CSAT/NPS), common complaint categories, ticket resolution times, and feedback trends.',
+    points: [
+      'CSAT & NPS score monitoring',
+      'Complaint category breakdown & root cause analysis',
+      'SLA/TAT ticket resolution efficiency',
+    ],
+  },
+]
+
 export default function App() {
   const [active, setActive] = useState('home')
   const [skillsVisible, setSkillsVisible] = useState(false)
@@ -278,6 +342,7 @@ export default function App() {
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
   const [summaryVisible, setSummaryVisible] = useState(false)
+  const [metabaseVisible, setMetabaseVisible] = useState(false)
   const [aboutVisible, setAboutVisible] = useState(false)
   const [expandedProjectIndex, setExpandedProjectIndex] = useState(0)
 
@@ -287,6 +352,7 @@ export default function App() {
   const projectsRef = useRef(null)
   const achievementsRef = useRef(null)
   const summaryRef = useRef(null)
+  const metabaseRef = useRef(null)
   const aboutRef = useRef(null)
 
   const scrollTo = (id) => {
@@ -397,6 +463,22 @@ export default function App() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setSummaryVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const node = metabaseRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMetabaseVisible(true)
           observer.disconnect()
         }
       },
@@ -1489,6 +1571,41 @@ export default function App() {
             }`}
           >
             {workSummaryData.map((item) => (
+              <div key={item.title} className="expertise-item exp-card">
+                <div className="expertise-bar" />
+                <div className="expertise-main">
+                  <h3 className="exp-title" style={{ marginBottom: '8px' }}>{item.title}</h3>
+                  <p className="ach-desc">{item.description}</p>
+                  <ul className="clean-bullet-list" style={{ marginTop: '8px' }}>
+                    {item.points.map((pt, i) => (
+                      <li key={i}>
+                        <span className="bullet-dot">▸</span> {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* --- METABASE DASHBOARD SECTION --- */}
+        <section id="metabase" className="section expertise-section">
+          <div className="section-title">
+            <h2>Metabase Dashboard</h2>
+          </div>
+
+          <p className="expertise-intro">
+            Key operational &amp; business growth modules built for live performance monitoring and analytical reporting.
+          </p>
+
+          <div
+            ref={metabaseRef}
+            className={`expertise-showcase exp-grid-layout achievements-2col${
+              metabaseVisible ? ' expertise-active' : ''
+            }`}
+          >
+            {metabaseDashboardData.map((item) => (
               <div key={item.title} className="expertise-item exp-card">
                 <div className="expertise-bar" />
                 <div className="expertise-main">
