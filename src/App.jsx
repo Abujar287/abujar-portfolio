@@ -241,11 +241,11 @@ const metabaseDashboardData = [
     ],
   },
   {
-    title: 'Growth & Business Performance Analytics',
-    description: 'Executive-level growth and operational KPI trends.',
+    title: 'Business Performance & Executive KPI Dashboard',
+    description: 'Executive reporting, company-wide growth metrics, and strategic trends.',
     points: [
-      'Company-wide growth metrics & business performance',
-      'SBU-wise KPI monitoring for management',
+      'Company-wide growth metrics & business performance tracking',
+      'Consolidated SBU-wise KPI monitoring & decision support for management',
     ],
   },
   {
@@ -254,14 +254,6 @@ const metabaseDashboardData = [
     points: [
       'Complaint volume, root cause & category breakdown',
       'Resolution efficiency & SLA performance monitoring',
-    ],
-  },
-  {
-    title: 'Business Insights & KPI Analytics',
-    description: 'Executive reporting and strategic trend analysis.',
-    points: [
-      'Consolidated business KPI tracking',
-      'Management reporting & decision support',
     ],
   },
   {
