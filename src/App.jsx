@@ -6,6 +6,7 @@ const navItems = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'achievements', label: 'Achievements' },
+  { id: 'summary', label: 'Work Summary' }, // <--- নেভিগেশনে যোগ করা হলো
   { id: 'skills', label: 'Skills' },
   { id: 'about', label: 'About' },
 ]
@@ -231,6 +232,32 @@ const keyAchievements = [
   },
 ]
 
+// --- নতুন যোগ করা WORK SUMMARY ডেটা ---
+const workSummaryData = [
+  {
+    title: 'Customer Lifecycle Management (CLM)',
+    description:
+      'Deep-dive analysis on key unit economics and retention dynamics across customer lifecycles.',
+    points: [
+      'Customer Acquisition Cost (CAC) Optimization',
+      'Churn Rate & Customer Retention Modeling',
+      'Cohort-based Lifecycle Revenue & Value Analysis',
+    ],
+  },
+  {
+    title: 'Acquisition & Lead Funnel Breakdown',
+    description:
+      'Comprehensive tracking and behavioral analysis of multi-channel customer bases and leads.',
+    points: [
+      'External vs. Internal Customer Base Analysis',
+      'New Registration Lead Conversion & Activation',
+      'Inbound Non-Ordered Customer Base Analytics',
+      'Info Call Non-Ordered Customer Base Optimization',
+      'High-Intent Lead Nurturing (80+ Sec Talk-Time Non-Ordered Base)',
+    ],
+  },
+]
+
 export default function App() {
   const [active, setActive] = useState('home')
   const [skillsVisible, setSkillsVisible] = useState(false)
@@ -238,6 +265,7 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
+  const [summaryVisible, setSummaryVisible] = useState(false) // <--- new state
   const [aboutVisible, setAboutVisible] = useState(false)
   const [expandedProjectIndex, setExpandedProjectIndex] = useState(0)
 
@@ -246,6 +274,7 @@ export default function App() {
   const experienceRef = useRef(null)
   const projectsRef = useRef(null)
   const achievementsRef = useRef(null)
+  const summaryRef = useRef(null) // <--- new ref
   const aboutRef = useRef(null)
 
   const scrollTo = (id) => {
@@ -340,6 +369,23 @@ export default function App() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setAchievementsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
+
+  // --- NEW WORK SUMMARY OBSERVER ---
+  useEffect(() => {
+    const node = summaryRef.current
+    if (!node) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSummaryVisible(true)
           observer.disconnect()
         }
       },
@@ -1404,6 +1450,41 @@ export default function App() {
                   <p className="ach-desc">{ach.description}</p>
                   <ul className="clean-bullet-list" style={{ marginTop: '8px' }}>
                     {ach.points.map((pt, i) => (
+                      <li key={i}>
+                        <span className="bullet-dot">▸</span> {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* --- WORK SUMMARY (NEWLY ADDED SECTION) --- */}
+        <section id="summary" className="section expertise-section">
+          <div className="section-title">
+            <h2>Work Summary</h2>
+          </div>
+
+          <p className="expertise-intro">
+            Strategic breakdown of Customer Lifecycle Management (CLM), unit economics, customer acquisition funnels, and lead conversion dynamics.
+          </p>
+
+          <div
+            ref={summaryRef}
+            className={`expertise-showcase exp-grid-layout achievements-2col${
+              summaryVisible ? ' expertise-active' : ''
+            }`}
+          >
+            {workSummaryData.map((item) => (
+              <div key={item.title} className="expertise-item exp-card">
+                <div className="expertise-bar" />
+                <div className="expertise-main">
+                  <h3 className="exp-title" style={{ marginBottom: '8px' }}>{item.title}</h3>
+                  <p className="ach-desc">{item.description}</p>
+                  <ul className="clean-bullet-list" style={{ marginTop: '8px' }}>
+                    {item.points.map((pt, i) => (
                       <li key={i}>
                         <span className="bullet-dot">▸</span> {pt}
                       </li>
