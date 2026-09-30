@@ -275,61 +275,91 @@ const metabaseDashboardData = [
   {
     title: 'Customer Base & Lifecycle Analytics',
     description:
-      'Tracks unit economics, customer acquisition funnels, retention, and overall CLM metrics.',
+      'Analyzes customer acquisition, retention, service activity, and lifecycle performance.',
     points: [
-      'Unit economics & CAC tracking',
-      'Customer acquisition funnel visualization',
-      'Cohort retention & CLM analytics',
+      'Customer acquisition & retention analysis',
+      'Customer lifecycle & cohort performance',
+      'Served, cancelled & placed order analysis',
     ],
   },
   {
     title: 'Telesales & KAM Performance Analytics',
     description:
-      'Evaluates sales representative efficiency, Key Account Management metrics, conversion rates, and revenue targets.',
+      'Monitors sales performance, conversion, productivity, and revenue contribution across Telesales and KAM teams.',
     points: [
-      'Sales rep efficiency & target vs. achieved',
-      'Key Account Management (KAM) performance',
-      'Conversion rates & revenue breakdown',
+      'Agent-wise target & achievement tracking',
+      'Conversion, order & revenue performance',
+      'Telesales & KAM customer analysis',
     ],
   },
   {
-    title: 'Call-Center & Facebook Performance Analytics',
+    title: 'Inbound & Facebook Performance Analytics',
     description:
-      'Monitors incoming customer inquiries, social ad campaign ROI, acquisition channels, and lead performance.',
+      'Provides end-to-end visibility into inbound calls, Facebook leads, acquisition performance, and conversion outcomes.',
     points: [
-      'Inbound query & call center metrics',
-      'Social ad campaign ROI & lead conversion',
-      'Acquisition channel performance',
+      'Inbound call & lead performance',
+      'Facebook lead acquisition & conversion',
+      'Channel-wise target & achievement analysis',
     ],
   },
   {
     title: 'Back Office Operations Analytics',
     description:
-      'Measures operational turnaround time, order processing efficiency, supply chain bottlenecks, and workflow health.',
+      'Tracks operational performance, order journeys, cancellations, disputes, workload, and team productivity.',
     points: [
-      'Operational turnaround time (TAT) tracking',
-      'Order processing & supply chain efficiency',
-      'Workflow health & agent compliance',
+      'Order journey & cancellation analysis',
+      'Dispute, capacity & workload monitoring',
+      'Team productivity & operational performance',
     ],
   },
   {
     title: 'Growth & Business Performance Analytics',
     description:
-      'Analyzes top-line revenue trends, business scaling metrics, profitability, and key performance indicators (KPIs).',
+      'Provides a consolidated view of business growth, performance trends, customer metrics, and key operational KPIs.',
     points: [
-      'Top-line revenue trends & growth metrics',
-      'Business scaling & profitability insights',
-      'Executive KPI tracking dashboards',
+      'Business performance & growth tracking',
+      'SBU-wise KPI monitoring',
+      'Management-level performance insights',
     ],
   },
   {
     title: 'Voice of Customer & Complaint Analytics',
     description:
-      'Assesses customer satisfaction (CSAT/NPS), common complaint categories, ticket resolution times, and feedback trends.',
+      'Analyzes customer feedback, complaints, service issues, and resolution performance.',
     points: [
-      'CSAT & NPS score monitoring',
-      'Complaint category breakdown & root cause analysis',
-      'SLA/TAT ticket resolution efficiency',
+      'Complaint volume & category analysis',
+      'Root cause & service issue tracking',
+      'Resolution, SLA & team performance monitoring',
+    ],
+  },
+  {
+    title: 'Business Insights & KPI Analytics',
+    description:
+      'Provides consolidated business insights through key performance indicators, operational metrics, and trend analysis.',
+    points: [
+      'Business KPI monitoring',
+      'Performance trend analysis',
+      'Management reporting & decision support',
+    ],
+  },
+  {
+    title: 'Info Calls Performance Analytics',
+    description:
+      'Monitors information-call activity, agent performance, call outcomes, and customer engagement.',
+    points: [
+      'Info call volume & performance',
+      'Agent-wise call activity',
+      'Call outcome & conversion analysis',
+    ],
+  },
+  {
+    title: 'Agent Performance & Productivity Analytics',
+    description:
+      'Tracks agent-level productivity, performance, utilization, and KPI achievement.',
+    points: [
+      'Agent-wise performance tracking',
+      'Productivity & utilization analysis',
+      'KPI, target & achievement monitoring',
     ],
   },
 ]
@@ -1596,7 +1626,7 @@ export default function App() {
           </div>
 
           <p className="expertise-intro">
-            Key operational &amp; business growth modules built for live performance monitoring and analytical reporting.
+            Key operational and business analytics dashboards built for performance monitoring, team insights, and data-driven decision-making.
           </p>
 
           <div
