@@ -6,7 +6,7 @@ const navItems = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'achievements', label: 'Achievements' },
-  { id: 'summary', label: 'Work Summary' }, // <--- নেভিগেশনে যোগ করা হলো
+  { id: 'summary', label: 'Work Summary' },
   { id: 'skills', label: 'Skills' },
   { id: 'about', label: 'About' },
 ]
@@ -232,7 +232,6 @@ const keyAchievements = [
   },
 ]
 
-// --- নতুন যোগ করা WORK SUMMARY ডেটা ---
 const workSummaryData = [
   {
     title: 'Customer Lifecycle Management (CLM)',
@@ -256,6 +255,19 @@ const workSummaryData = [
       'High-Intent Lead Nurturing (80+ Sec Talk-Time Non-Ordered Base)',
     ],
   },
+  {
+    title: 'Retention Lead Analytics',
+    description:
+      'In-depth performance tracking, profitability metrics, and conversion analysis for existing customer bases.',
+    points: [
+      'Master Category & Gender-wise Customer Segmentation',
+      'Max Order Created & Delivered Date Tracking for Recency Analysis',
+      'Delivered Ratio & Order Basket/Bucket Size Analysis',
+      'Net Profit % & Financial Margin Optimization',
+      'Time Period Mapping Based on Lifetime Customer Calls',
+      'Lead-to-Order Conversion Ratio Tracking',
+    ],
+  },
 ]
 
 export default function App() {
@@ -265,7 +277,7 @@ export default function App() {
   const [experienceVisible, setExperienceVisible] = useState(false)
   const [projectsVisible, setProjectsVisible] = useState(false)
   const [achievementsVisible, setAchievementsVisible] = useState(false)
-  const [summaryVisible, setSummaryVisible] = useState(false) // <--- new state
+  const [summaryVisible, setSummaryVisible] = useState(false)
   const [aboutVisible, setAboutVisible] = useState(false)
   const [expandedProjectIndex, setExpandedProjectIndex] = useState(0)
 
@@ -274,7 +286,7 @@ export default function App() {
   const experienceRef = useRef(null)
   const projectsRef = useRef(null)
   const achievementsRef = useRef(null)
-  const summaryRef = useRef(null) // <--- new ref
+  const summaryRef = useRef(null)
   const aboutRef = useRef(null)
 
   const scrollTo = (id) => {
@@ -378,7 +390,6 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
-  // --- NEW WORK SUMMARY OBSERVER ---
   useEffect(() => {
     const node = summaryRef.current
     if (!node) return
@@ -1009,7 +1020,7 @@ export default function App() {
           grid-template-columns: repeat(2, 1fr) !important;
         }
         .achievements-2col {
-          grid-template-columns: repeat(2, 1fr) !important;
+          grid-template-columns: repeat(3, 1fr) !important;
         }
         @media (max-width: 1024px) {
           .exp-grid-layout, .project-2col-layout, .achievements-2col {
@@ -1461,14 +1472,14 @@ export default function App() {
           </div>
         </section>
 
-        {/* --- WORK SUMMARY (NEWLY ADDED SECTION) --- */}
+        {/* --- WORK SUMMARY SECTION --- */}
         <section id="summary" className="section expertise-section">
           <div className="section-title">
             <h2>Work Summary</h2>
           </div>
 
           <p className="expertise-intro">
-            Strategic breakdown of Customer Lifecycle Management (CLM), unit economics, customer acquisition funnels, and lead conversion dynamics.
+            Strategic breakdown of Customer Lifecycle Management (CLM), unit economics, customer acquisition funnels, and retention analytics.
           </p>
 
           <div
