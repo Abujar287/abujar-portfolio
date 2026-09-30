@@ -21,7 +21,6 @@ const coreExpertise = [
       'Data Analysis',
       'Business Intelligence',
       'KPI & Performance Analytics',
-      'Dashboard Development',
       'MIS & Operational Reporting',
     ],
   },
@@ -30,11 +29,9 @@ const coreExpertise = [
     description:
       'Working with structured databases to extract, transform, and analyze business information.',
     skills: [
-      'SQL',
-      'MySQL',
-      'Data Extraction',
-      'Data Transformation',
-      'Query-based Analysis',
+      'SQL / MySQL',
+      'Data Extraction & Transformation',
+      'Query-based Analytics',
     ],
   },
   {
@@ -46,7 +43,6 @@ const coreExpertise = [
       'Google Sheets',
       'Reporting Automation',
       'Data Validation',
-      'Automated MIS Reporting',
     ],
   },
   {
@@ -54,14 +50,10 @@ const coreExpertise = [
     description:
       'Analyzing call center productivity, agent performance, work capacity, and operational workflows.',
     skills: [
-      'Agent Performance Analysis',
-      'Agent Productivity Analysis',
-      'Call Center Analytics',
-      'Telesales Analytics',
-      'Inbound Analytics',
+      'Call Center & Telesales Analytics',
+      'Agent Performance & Productivity',
       'Back Office Operations',
-      'Agent Hygiene Analysis',
-      'Work Capacity Analysis',
+      'Work Capacity & Hygiene Analysis',
     ],
   },
   {
@@ -69,14 +61,9 @@ const coreExpertise = [
     description:
       'Optimizing lead distribution, tracking customer cohorts, and analyzing conversion metrics.',
     skills: [
-      'Lead Management & Optimization',
-      'Lead Distribution & Assignment',
-      'Telesales Lead Analytics',
-      'Call Center Lead Analytics',
-      'Customer Analysis',
-      'Customer Follow-up Analysis',
-      'Customer Cohort Analysis',
-      'Conversion & Retention Analysis',
+      'Lead Management & Distribution',
+      'Customer Cohort & Follow-up Analysis',
+      'Conversion & Retention Analytics',
     ],
   },
   {
@@ -84,25 +71,9 @@ const coreExpertise = [
     description:
       'Monitoring SLA/TAT, analyzing complaints, and utilizing voice of customer insights.',
     skills: [
-      'Complaint Analysis',
-      'Complaint Trend Analysis',
-      'Resolution & Closure Analysis',
-      'Pending & Aging Analysis',
-      'SLA / TAT Monitoring',
-      'VOC Analytics',
-      'Root Cause Analysis',
-    ],
-  },
-  {
-    title: 'BI & Dashboard Tools',
-    description:
-      'Developing live interactive operational dashboards and monitoring business visualizations.',
-    skills: [
-      'Metabase',
-      'Apache Superset',
-      'Google Sheets',
-      'Operational Dashboards',
-      'Live Performance Dashboards',
+      'Complaint Trend & Root Cause Analysis',
+      'Resolution & Aging Analysis',
+      'SLA / TAT & VOC Monitoring',
     ],
   },
 ]
@@ -115,14 +86,11 @@ const professionalExperience = [
     period: '11/2023 - PRESENT',
     duration: '2 YEARS 10 MONTHS',
     responsibilities: [
-      'Business & Operational Data Analysis',
-      'KPI, MIS & Performance Reporting',
-      'Agent Performance & Productivity Analysis',
-      'Lead & Customer Analytics',
-      'Cohort & Retention Analysis',
-      'Dashboard & Reporting Automation',
-      'Cross-Functional & Ad-hoc Analytics',
-      'SQL, Excel, Python & BI Tools',
+      'Business & Operational Data Analysis across multiple departments',
+      'KPI, MIS & Performance Dashboard development',
+      'Agent Productivity, Capacity & Call Center Analytics',
+      'Lead Funnel, Cohort Analysis & Customer Retention Modeling',
+      'Reporting Automation using SQL, Python, Excel & BI Tools',
     ],
   },
   {
@@ -132,11 +100,9 @@ const professionalExperience = [
     period: '09/2022 - 10/2023',
     duration: '1 YEAR 2 MONTHS',
     responsibilities: [
-      'Financial Reconciliation',
-      'Customer Clustering',
-      'Monetization Planning',
-      'Product Reconciliation',
-      'Team-wise KPI & Dashboard Analysis',
+      'Financial & Product Reconciliation workflows',
+      'Customer Clustering & Monetization Planning',
+      'Team-wise KPI Analysis and Operational Dashboards',
     ],
   },
   {
@@ -146,10 +112,8 @@ const professionalExperience = [
     period: '03/2021 - 08/2022',
     duration: '1 YEAR 6 MONTHS',
     responsibilities: [
-      'Product Pricing & Mapping',
-      'Sudden Report Analysis',
-      'Cohort Analysis',
-      'Protocol Ticket Analysis',
+      'Product Pricing, Mapping & Ad-hoc Analysis',
+      'Initial Customer Cohort & Ticket Analysis',
     ],
   },
 ]
@@ -158,77 +122,58 @@ const projectList = [
   {
     title: 'Telesales Lead Management Automation',
     tech: ['Python', 'Google Sheets'],
-    subtitle: 'Automated Telesales Operations & Tracking',
-    description:
-      'Automated lead generation, distribution, tracking, and management workflows to improve telesales lead operations and reporting efficiency.',
+    subtitle: 'Automated Lead Distribution & Operations',
     points: [
-      'Automated lead generation & distribution workflows',
-      'Lead tracking and management improvements',
-      'Improved telesales operations and reporting efficiency',
-      'Python + Google Sheets integration',
+      'Automated lead generation & distribution workflows for 70+ agents',
+      'Improved telesales tracking and operational reporting efficiency',
+      'Integrated Python with Google Sheets API for automated sync',
     ],
   },
   {
     title: 'Agent Performance & Operations Dashboard',
-    tech: ['SQL', 'Metabase', 'Excel', 'Google Sheets'],
-    subtitle: 'Operational Performance & KPI Reporting',
-    description:
-      'Phased rollout of a live performance dashboard — scaling from Telesales and KAM to Call Center, Facebook Support, Back Office, DQM, and VOC teams.',
+    tech: ['SQL', 'Metabase', 'Excel'],
+    subtitle: 'Cross-Functional Performance & SLA Reporting',
     points: [
-      'Phased Rollout: Implemented live performance dashboards sequentially—scaling from Telesales and KAM to Call Center, Facebook Support, Back Office, DQM, and VOC teams.',
-      'Frontline & Sales KPIs: Monitored Target vs. Achieved, Quality Score (QA), Talktime/AHT, and team-specific Customer Conversion Ratios.',
-      'Back Office Operations: Built real-time tracking for Disputes (Daily/Monthly), Open Orders, Served %, Served NR, Cancelled %, and agent compliance (Knowledge Test, Agent Complaints).',
-      'VOC & Service Governance: Tracked SLA compliance and AL Hours (Agent Availability/Login Hours) to optimize workforce efficiency and service quality.',
+      'Phased Rollout across Telesales, KAM, Call Center, Facebook Support, Back Office, and VOC teams',
+      'Monitored Target vs. Achieved, QA Scores, Talktime/AHT, and Conversion Ratios',
+      'Tracked Back Office Disputes, Served %, Cancelled %, and SLA Compliance',
     ],
   },
   {
     title: 'Customer & Cohort Analytics',
     tech: ['SQL', 'Excel', 'BI'],
-    subtitle: 'Customer Behavior & Retention Tracking',
-    description:
-      'Analyzed customer cohorts, acquisition, retention, lead performance, and customer behavior to identify business and operational insights.',
+    subtitle: 'Retention & Behavior Modeling',
     points: [
-      'Customer cohort and behavior tracking',
-      'Acquisition and retention metrics analysis',
-      'Lead performance evaluation',
-      'Actionable business and operational insights',
+      'Analyzed customer acquisition, retention patterns, and lifetime value',
+      'Evaluated lead performance to deliver actionable growth insights',
     ],
   },
   {
-    title: 'Complaint & VOC Analytics',
+    title: 'Complaint & VOC Analytics System',
     tech: ['SQL', 'Excel', 'BI'],
-    subtitle: 'Service Improvement & Complaint Monitoring',
-    description:
-      'Analyzed complaint and VOC data across categories, trends, resolution, pending cases, and operational performance to support service improvement.',
+    subtitle: 'Service Quality & Ticket Governance',
     points: [
-      'Complaint and VOC data breakdown across categories',
-      'Trend analysis, resolution rates, and pending cases monitoring',
-      'Operational performance tracking for service improvement',
-      'Data-driven feedback loops',
+      'Categorized complaints to perform root cause analysis',
+      'Tracked resolution rates, pending ticket aging, and SLA compliance',
     ],
   },
 ]
 
 const keyAchievements = [
   {
-    title: 'Process & System Improvements',
-    description:
-      'Implemented calling systems, automated payroll and attendance reporting, and developed Google Sheets-based telesales lead management solutions.',
+    title: 'Process & Calling System Setup',
+    description: 'Implemented Gplex, Cube, and Pendulum calling tools & operational processes.',
     points: [
-      'Implemented Gplex, Cube, and Pendulum calling systems & processes.',
-      'Automated Payroll, Attendance & Agent Utilization Reporting, reducing manual processing time.',
-      'Developed Google Sheets-based Telesales Lead Management automation solutions for 70+ agents.',
-      'Designed and implemented a weekly agent- and team-wise sales incentive program, aligning sales targets, performance, and rewards.',
+      'Integrated telephony platforms with operational workflows',
+      'Automated Payroll, Attendance & Agent Utilization reporting',
     ],
   },
   {
-    title: 'Achievements & Impact',
-    description:
-      'Streamlined reporting workflows, developed Python and Google Sheets automation solutions, and built operational dashboards for multi-functional teams.',
+    title: 'Workflow Automation & Incentives',
+    description: 'Automated core reporting and implemented performance-driven rewards.',
     points: [
-      'Streamlined reporting workflows by automating repetitive processes and improving data accuracy.',
-      'Developed Python & Google Sheets-based reporting automation solutions to streamline recurring reports.',
-      'Developed operational dashboards for Call Center, DQM, Complaint Management, and Back Office teams.',
+      'Built weekly agent & team sales incentive frameworks',
+      'Reduced manual report processing time using Python & Google Sheets scripts',
     ],
   },
 ]
@@ -236,37 +181,28 @@ const keyAchievements = [
 const workSummaryData = [
   {
     title: 'Customer Lifecycle Management (CLM)',
-    description:
-      'Deep-dive analysis on key unit economics and retention dynamics across customer lifecycles.',
+    description: 'Unit economics and retention dynamics analysis.',
     points: [
-      'Customer Acquisition Cost (CAC) Optimization',
-      'Churn Rate & Customer Retention Modeling',
+      'Customer Acquisition Cost (CAC) & Churn Rate Optimization',
       'Cohort-based Lifecycle Revenue & Value Analysis',
     ],
   },
   {
-    title: 'Acquisition & Lead Funnel Breakdown',
-    description:
-      'Comprehensive tracking and behavioral analysis of multi-channel customer bases and leads.',
+    title: 'Acquisition & Lead Funnel Analysis',
+    description: 'Multi-channel customer acquisition and engagement tracking.',
     points: [
-      'External vs. Internal Customer Base Analysis',
-      'New Registration Lead Conversion & Activation',
-      'Inbound Non-Ordered Customer Base Analytics',
-      'Info Call Non-Ordered Customer Base Optimization',
-      'High-Intent Lead Nurturing (80+ Sec Talk-Time Non-Ordered Base)',
+      'Internal vs. External Customer Base Breakdown',
+      'New Registration Conversion & Non-Ordered Base Engagement',
+      'High-Intent Nurturing (80+ Sec Talk-Time Leads)',
     ],
   },
   {
-    title: 'Retention Lead Analytics',
-    description:
-      'In-depth performance tracking, profitability metrics, and conversion analysis for existing customer bases.',
+    title: 'Retention & Profitability Analytics',
+    description: 'Customer segmentation and financial margin analysis.',
     points: [
       'Master Category & Gender-wise Customer Segmentation',
-      'Max Order Created & Delivered Date Tracking for Recency Analysis',
-      'Delivered Ratio & Order Basket/Bucket Size Analysis',
-      'Net Profit % & Financial Margin Optimization',
-      'Time Period Mapping Based on Lifetime Customer Calls',
-      'Lead-to-Order Conversion Ratio Tracking',
+      'Basket Size, Delivered Ratio & Net Profit % Optimization',
+      'Recency & Frequency Mapping based on Lifetime Calls',
     ],
   },
 ]
@@ -274,92 +210,74 @@ const workSummaryData = [
 const metabaseDashboardData = [
   {
     title: 'Customer Base & Lifecycle Analytics',
-    description:
-      'Analyzes customer acquisition, retention, service activity, and lifecycle performance.',
+    description: 'Customer acquisition, retention, and cohort tracking.',
     points: [
-      'Customer acquisition & retention analysis',
-      'Customer lifecycle & cohort performance',
-      'Served, cancelled & placed order analysis',
+      'Customer acquisition, cohort & retention performance',
+      'Served, cancelled & placed order breakdown',
     ],
   },
   {
     title: 'Telesales & KAM Performance Analytics',
-    description:
-      'Monitors sales performance, conversion, productivity, and revenue contribution across Telesales and KAM teams.',
+    description: 'Sales team productivity and revenue tracking.',
     points: [
-      'Agent-wise target & achievement tracking',
-      'Conversion, order & revenue performance',
-      'Telesales & KAM customer analysis',
+      'Agent-wise target vs. achievement monitoring',
+      'Conversion ratios and revenue contribution',
     ],
   },
   {
     title: 'Inbound & Facebook Performance Analytics',
-    description:
-      'Provides end-to-end visibility into inbound calls, Facebook leads, acquisition performance, and conversion outcomes.',
+    description: 'Inbound queries and social lead performance.',
     points: [
-      'Inbound call & lead performance',
-      'Facebook lead acquisition & conversion',
-      'Channel-wise target & achievement analysis',
+      'Inbound call and lead acquisition tracking',
+      'Channel-wise target & conversion analysis',
     ],
   },
   {
     title: 'Back Office Operations Analytics',
-    description:
-      'Tracks operational performance, order journeys, cancellations, disputes, workload, and team productivity.',
+    description: 'End-to-end order journey and workload tracking.',
     points: [
-      'Order journey & cancellation analysis',
-      'Dispute, capacity & workload monitoring',
-      'Team productivity & operational performance',
+      'Order journey, cancellations & dispute monitoring',
+      'Capacity, workload & team productivity insights',
     ],
   },
   {
     title: 'Growth & Business Performance Analytics',
-    description:
-      'Provides a consolidated view of business growth, performance trends, customer metrics, and key operational KPIs.',
+    description: 'Executive-level growth and operational KPI trends.',
     points: [
-      'Business performance & growth tracking',
-      'SBU-wise KPI monitoring',
-      'Management-level performance insights',
+      'Company-wide growth metrics & business performance',
+      'SBU-wise KPI monitoring for management',
     ],
   },
   {
     title: 'Voice of Customer & Complaint Analytics',
-    description:
-      'Analyzes customer feedback, complaints, service issues, and resolution performance.',
+    description: 'Feedback, service issues, and SLA tracking.',
     points: [
-      'Complaint volume & category analysis',
-      'Root cause & service issue tracking',
-      'Resolution, SLA & team performance monitoring',
+      'Complaint volume, root cause & category breakdown',
+      'Resolution efficiency & SLA performance monitoring',
     ],
   },
   {
     title: 'Business Insights & KPI Analytics',
-    description:
-      'Provides consolidated business insights through key performance indicators, operational metrics, and trend analysis.',
+    description: 'Executive reporting and strategic trend analysis.',
     points: [
-      'Business KPI monitoring',
-      'Performance trend analysis',
+      'Consolidated business KPI tracking',
       'Management reporting & decision support',
     ],
   },
   {
     title: 'Info Calls Performance Analytics',
-    description:
-      'Monitors information-call activity, agent performance, call outcomes, and customer engagement.',
+    description: 'Information call tracking and outcome analysis.',
     points: [
-      'Info call volume & performance',
-      'Agent-wise call activity',
-      'Call outcome & conversion analysis',
+      'Info call volume & agent activity monitoring',
+      'Call outcome & conversion evaluation',
     ],
   },
   {
     title: 'Agent Performance & Productivity Analytics',
-    description:
-      'Tracks agent-level productivity, performance, utilization, and KPI achievement.',
+    description: 'Granular agent utilization and KPI metrics.',
     points: [
-      'Agent-wise performance tracking',
-      'Productivity & utilization analysis',
-      'KPI, target & achievement monitoring',
+      'Agent utilization & performance tracking',
+      'Individual target vs. achievement monitoring',
     ],
   },
 ]
@@ -1078,22 +996,6 @@ export default function App() {
           flex-shrink: 0;
           margin-top: 1px;
         }
-        .bullet-page-break {
-          width: 100%;
-          height: 1px;
-          background: rgba(167, 139, 250, 0.2);
-          margin: 12px 0;
-          border: none;
-        }
-        @media print {
-          .bullet-page-break {
-            page-break-before: always;
-            break-before: page;
-            visibility: hidden;
-            margin: 0;
-            height: 0;
-          }
-        }
         .hero-summary-box {
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1356,13 +1258,9 @@ export default function App() {
 
               <div className="hero-summary-box">
                 <p className="hero-summary-text">
-                  Data Analyst with nearly 5 years of experience in Business Intelligence, Data Analytics, Reporting Automation, and Operational Performance Analysis. Experienced in analyzing operational, agent, lead, and customer data, developing KPI dashboards, automating reporting workflows, and delivering actionable insights for data-driven business decisions. Specialized in <strong className="highlight-purple">Operational Analytics, Agent Performance, Lead &amp; Customer Analytics</strong>, with strong proficiency in <strong className="highlight-blue">SQL, Advanced Excel, Python, and BI tools</strong>.
+                  Data Analyst with 5 years of experience in Business Intelligence, Data Analytics, Reporting Automation, and Operational Performance Analysis. Experienced in analyzing operational, agent, lead, and customer data, developing KPI dashboards, and delivering actionable insights. Specialized in <strong className="highlight-purple">Operational Analytics, Agent Performance, Lead &amp; Customer Analytics</strong>, with strong proficiency in <strong className="highlight-blue">SQL, Advanced Excel, Python, and BI tools</strong>.
                 </p>
               </div>
-
-              <p className="hero-description" style={{ fontSize: '0.84rem', color: '#94a3b8', margin: '0 0 10px 0' }}>
-                Turning complex data into actionable insights, intelligent dashboards, automated reporting solutions and data-driven business decisions.
-              </p>
             </div>
 
             <div className="hero-photo">
@@ -1393,7 +1291,7 @@ export default function App() {
           </div>
 
           <p className="expertise-intro">
-            Data, technology and business expertise combined to turn complex data into clear insights, smarter decisions and scalable solutions.
+            Data and business intelligence domain capabilities focused on transforming complex data into operational insights.
           </p>
 
           <div
@@ -1403,25 +1301,17 @@ export default function App() {
             }`}
           >
             {coreExpertise.map((item) => (
-              <div
-                key={item.title}
-                className="expertise-item"
-              >
+              <div key={item.title} className="expertise-item">
                 <div className="expertise-bar" />
-
                 <div className="expertise-main">
                   <div className="expertise-heading">
                     <h3>{item.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
-
                   <p>{item.description}</p>
-
                   <div className="expertise-skills">
                     {item.skills.map((skill) => (
-                      <span key={skill}>
-                        {skill}
-                      </span>
+                      <span key={skill}>{skill}</span>
                     ))}
                   </div>
                 </div>
@@ -1436,10 +1326,6 @@ export default function App() {
             <h2>Professional Experience</h2>
           </div>
 
-          <p className="expertise-intro">
-            Proven track record of transforming business analytics, driving operational efficiency, and optimizing data workflows.
-          </p>
-
           <div
             ref={experienceRef}
             className={`expertise-showcase exp-grid-layout${
@@ -1447,32 +1333,23 @@ export default function App() {
             }`}
           >
             {professionalExperience.map((job, index) => (
-              <div
-                key={`${job.company}-${index}`}
-                className="expertise-item exp-card"
-              >
+              <div key={`${job.company}-${index}`} className="expertise-item exp-card">
                 <div className="expertise-bar" />
-
                 <div className="expertise-main">
                   <div className="exp-heading">
                     <h3 className="exp-title">{job.title}</h3>
                     <span className="expertise-icon">↗</span>
                   </div>
-
                   <p className="exp-company">
                     <span className="company-name">{job.company}</span>{' '}
                     <span className="exp-location">• {job.location}</span>
                   </p>
-
                   <div className="exp-badge">
                     <span className="exp-period">{job.period}</span>
                     <span className="exp-dot">•</span>
                     <span className="exp-duration">{job.duration}</span>
                   </div>
-
-                  <div className="bullet-page-break" />
-
-                  <ul className="clean-bullet-list">
+                  <ul className="clean-bullet-list" style={{ marginTop: '10px' }}>
                     {job.responsibilities.map((resp, idx) => (
                       <li key={idx}>
                         <span className="bullet-dot">▸</span> {resp}
@@ -1488,12 +1365,8 @@ export default function App() {
         {/* --- PROJECTS --- */}
         <section id="projects" className="section expertise-section">
           <div className="section-title">
-            <h2>Projects</h2>
+            <h2>Featured Projects</h2>
           </div>
-
-          <p className="projects-intro">
-            Key analytical and automation projects built to solve complex business operations and data workflows. Click any card to expand/collapse details.
-          </p>
 
           <div
             ref={projectsRef}
@@ -1503,7 +1376,6 @@ export default function App() {
           >
             {projectList.map((project, index) => {
               const isExpanded = expandedProjectIndex === index;
-
               return (
                 <div
                   key={project.title}
@@ -1514,27 +1386,17 @@ export default function App() {
                     <h3 className="exp-title">{project.title}</h3>
                     <span className="expertise-icon">{isExpanded ? '↙' : '↗'}</span>
                   </div>
-
-                  {project.subtitle && (
-                    <p style={{ fontWeight: '600', color: '#a78bfa', fontSize: '0.84rem', margin: '0' }}>
-                      {project.subtitle}
-                    </p>
-                  )}
-
+                  <p style={{ fontWeight: '600', color: '#a78bfa', fontSize: '0.84rem', margin: '0' }}>
+                    {project.subtitle}
+                  </p>
                   <div className="tech-tags">
                     {project.tech.map((t, i) => (
                       <span key={i} className="tech-tag">{t}</span>
                     ))}
                   </div>
-
                   {isExpanded && (
                     <div className="project-details">
-                      {project.description && (
-                        <p className="ach-desc" style={{ margin: '0' }}>
-                          {project.description}
-                        </p>
-                      )}
-                      <ul className="clean-bullet-list" style={{ marginTop: '6px' }}>
+                      <ul className="clean-bullet-list">
                         {project.points.map((point, idx) => (
                           <li key={idx}>
                             <span className="bullet-dot">▸</span> {point}
@@ -1543,7 +1405,6 @@ export default function App() {
                       </ul>
                     </div>
                   )}
-
                   <div className="project-hint">
                     {isExpanded ? 'Click to collapse' : 'Click to view details'}
                   </div>
@@ -1590,10 +1451,6 @@ export default function App() {
             <h2>Work Summary</h2>
           </div>
 
-          <p className="expertise-intro">
-            Strategic breakdown of Customer Lifecycle Management (CLM), unit economics, customer acquisition funnels, and retention analytics.
-          </p>
-
           <div
             ref={summaryRef}
             className={`expertise-showcase exp-grid-layout achievements-2col${
@@ -1622,12 +1479,8 @@ export default function App() {
         {/* --- METABASE DASHBOARD SECTION --- */}
         <section id="metabase" className="section expertise-section">
           <div className="section-title">
-            <h2>Metabase Dashboard</h2>
+            <h2>Metabase Dashboard Suite</h2>
           </div>
-
-          <p className="expertise-intro">
-            Key operational and business analytics dashboards built for performance monitoring, team insights, and data-driven decision-making.
-          </p>
 
           <div
             ref={metabaseRef}
@@ -1660,30 +1513,22 @@ export default function App() {
             <h2>Technical Skills</h2>
           </div>
 
-          <div
-            className={`technical-showcase${
-              skillsVisible ? ' technical-active' : ''
-            }`}
-          >
+          <div className={`technical-showcase${skillsVisible ? ' technical-active' : ''}`}>
             <div className="technical-top">
               <div className="technical-heading">
                 <span className="technical-dot" />
                 <span>CORE TOOLKIT &amp; PROFICIENCIES</span>
               </div>
-
-              <span className="technical-count">
-                SKILLS CATEGORIES
-              </span>
             </div>
 
             <div className="skills-category-wrapper">
               <div className="skill-category-card">
                 <h3 className="category-title">
-                  <span>Querying</span>
+                  <span>Querying & Databases</span>
                 </h3>
                 <div className="category-skills-list">
                   <div className="skill-row">
-                    <span className="skill-name">SQL</span>
+                    <span className="skill-name">SQL / MySQL</span>
                     <span className="skill-level-badge level-advanced">Advanced</span>
                   </div>
                 </div>
@@ -1691,15 +1536,11 @@ export default function App() {
 
               <div className="skill-category-card">
                 <h3 className="category-title">
-                  <span>Spreadsheets & Tools</span>
+                  <span>Spreadsheets & Automation</span>
                 </h3>
                 <div className="category-skills-list">
                   <div className="skill-row">
-                    <span className="skill-name">Advanced Excel</span>
-                    <span className="skill-level-badge level-advanced">Advanced</span>
-                  </div>
-                  <div className="skill-row">
-                    <span className="skill-name">Google Sheets</span>
+                    <span className="skill-name">Advanced Excel & Google Sheets</span>
                     <span className="skill-level-badge level-advanced">Advanced</span>
                   </div>
                 </div>
@@ -1711,7 +1552,7 @@ export default function App() {
                 </h3>
                 <div className="category-skills-list">
                   <div className="skill-row">
-                    <span className="skill-name">Python — Pandas</span>
+                    <span className="skill-name">Python (Pandas)</span>
                     <span className="skill-level-badge level-proficient">Proficient</span>
                   </div>
                   <div className="skill-row">
@@ -1723,7 +1564,7 @@ export default function App() {
 
               <div className="skill-category-card">
                 <h3 className="category-title">
-                  <span>Visualization & Dashboards</span>
+                  <span>BI & Visualization</span>
                 </h3>
                 <div className="category-skills-list">
                   <div className="skill-row">
@@ -1739,11 +1580,11 @@ export default function App() {
 
               <div className="skill-category-card">
                 <h3 className="category-title">
-                  <span>CRM & Operations</span>
+                  <span>CRM & Lifecycle</span>
                 </h3>
                 <div className="category-skills-list">
                   <div className="skill-row">
-                    <span className="skill-name">CRM & CLM</span>
+                    <span className="skill-name">CRM & CLM Analytics</span>
                     <span className="skill-level-badge level-specialist">Specialist</span>
                   </div>
                 </div>
@@ -1762,7 +1603,7 @@ export default function App() {
                 <span className="contact-title-outline">TOGETHER</span>
               </div>
               <p className="contact-desc">
-                Open to opportunities in data analysis, business intelligence, and reporting automation. Whether you have a question, a project, or just want to connect — feel free to reach out.
+                Open to opportunities in data analysis, business intelligence, and reporting automation. Feel free to reach out.
               </p>
             </div>
 
